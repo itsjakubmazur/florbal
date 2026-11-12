@@ -1,9 +1,11 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
-  <rect width="512" height="512" rx="112" fill="#0B0E14"/>
+  <rect width="512" height="512" rx="112" fill="#0C3178"/>
   <g transform="translate(0 0) scale(1)">
-    <path d="M150 70 L300 330" stroke="#38BDF8" stroke-width="30" stroke-linecap="round"/>
-    <path d="M300 330 C 318 368, 360 392, 420 384 L 428 418 C 350 432, 288 404, 266 352 Z" fill="#C6F432"/>
-    <circle cx="250" cy="392" r="62" fill="#F5F7FA"/>
-    <circle cx="250" cy="392" r="8.680000000000001" fill="#C9D2DE"/><circle cx="284.1" cy="392" r="8.680000000000001" fill="#C9D2DE"/><circle cx="267.05" cy="421.53146626904936" r="8.680000000000001" fill="#C9D2DE"/><circle cx="232.95000000000002" cy="421.53146626904936" r="8.680000000000001" fill="#C9D2DE"/><circle cx="215.9" cy="392" r="8.680000000000001" fill="#C9D2DE"/><circle cx="232.95" cy="362.46853373095064" r="8.680000000000001" fill="#C9D2DE"/><circle cx="267.05" cy="362.46853373095064" r="8.680000000000001" fill="#C9D2DE"/>
+    <path d="M-40 150 H340 A120 120 0 0 1 460 270 V600 H-40 Z" fill="#0961AF"/>
+    <path d="M-40 150 H340 A120 120 0 0 1 460 270 V600" fill="none" stroke="#E8EEF8" stroke-width="14" stroke-opacity=".85"/>
+    <path d="M96 40 L262 330" stroke="#E8EEF8" stroke-width="30" stroke-linecap="round"/>
+    <path d="M262 330 C 284 382, 340 404, 418 392" stroke="#FFB81C" stroke-width="46" fill="none" stroke-linecap="round"/>
+    <circle cx="214" cy="402" r="58" fill="#FFFFFF"/>
+    <circle cx="214" cy="402" r="8.120000000000001" fill="#B8C4D8"/><circle cx="245.9" cy="402" r="8.120000000000001" fill="#B8C4D8"/><circle cx="229.95000000000002" cy="429.6262103807236" r="8.120000000000001" fill="#B8C4D8"/><circle cx="198.05" cy="429.6262103807236" r="8.120000000000001" fill="#B8C4D8"/><circle cx="182.1" cy="402" r="8.120000000000001" fill="#B8C4D8"/><circle cx="198.04999999999998" cy="374.3737896192764" r="8.120000000000001" fill="#B8C4D8"/><circle cx="229.95000000000002" cy="374.3737896192764" r="8.120000000000001" fill="#B8C4D8"/>
   </g>
 </svg>

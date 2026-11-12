@@ -7,15 +7,18 @@ import { spawnSync } from 'node:child_process';
 const OUT = 'public';
 fs.mkdirSync(OUT, { recursive: true });
 
-const BG = '#0B0E14';
-const ACC = '#C6F432';
-const ACC2 = '#38BDF8';
+// barvy z tématu Hattrick (src/ui/tokens.js): navy pozadí, modrá palubovka, bílý mantinel, jantarová čepel (forhend)
+const BG = '#0C3178';
+const FLOOR = '#0961AF';
+const LINE = '#E8EEF8';
+const BLADE = '#FFB81C';
+const HOLE = '#B8C4D8';
 
 // florbalový míček: bílý kruh s otvory
 const holes = (cx, cy, r) => {
   const out = [];
   const ring = [[0, 0], ...Array.from({ length: 6 }, (_, i) => [Math.cos((i * Math.PI) / 3) * 0.55, Math.sin((i * Math.PI) / 3) * 0.55])];
-  for (const [x, y] of ring) out.push(`<circle cx="${cx + x * r}" cy="${cy + y * r}" r="${r * 0.14}" fill="#C9D2DE"/>`);
+  for (const [x, y] of ring) out.push(`<circle cx="${cx + x * r}" cy="${cy + y * r}" r="${r * 0.14}" fill="${HOLE}"/>`);
   return out.join('');
 };
 
@@ -24,13 +27,16 @@ function iconSvg({ pad = 0, rounded = true } = {}) {
   const s = 512;
   const k = (s - pad * 2) / s;
   const g = `translate(${pad} ${pad}) scale(${k})`;
+  // palubovka s mantinelem: roh hřiště (signature) vpravo dole, středová čára; přes ni hůl, čepel a míček
   return `<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 ${s} ${s}" width="${s}" height="${s}">
   <rect width="${s}" height="${s}" ${rounded ? 'rx="112"' : ''} fill="${BG}"/>
   <g transform="${g}">
-    <path d="M150 70 L300 330" stroke="${ACC2}" stroke-width="30" stroke-linecap="round"/>
-    <path d="M300 330 C 318 368, 360 392, 420 384 L 428 418 C 350 432, 288 404, 266 352 Z" fill="${ACC}"/>
-    <circle cx="250" cy="392" r="62" fill="#F5F7FA"/>
-    ${holes(250, 392, 62)}
+    <path d="M-40 150 H340 A120 120 0 0 1 460 270 V600 H-40 Z" fill="${FLOOR}"/>
+    <path d="M-40 150 H340 A120 120 0 0 1 460 270 V600" fill="none" stroke="${LINE}" stroke-width="14" stroke-opacity=".85"/>
+    <path d="M96 40 L262 330" stroke="${LINE}" stroke-width="30" stroke-linecap="round"/>
+    <path d="M262 330 C 284 382, 340 404, 418 392" stroke="${BLADE}" stroke-width="46" fill="none" stroke-linecap="round"/>
+    <circle cx="214" cy="402" r="58" fill="#FFFFFF"/>
+    ${holes(214, 402, 58)}
   </g>
 </svg>`;
 }

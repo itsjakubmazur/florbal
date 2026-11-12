@@ -1,22 +1,18 @@
 # Zdroje a licence
 
-Aplikace Fotbal – Tréninková podložka je bezplatný nekomerční projekt, jejímž autorem je Jakub Uhlíř. Přehled zdrojů je i přímo v aplikaci: Rodiče → Data a zabezpečení → O aplikaci a licence.
+Florbal Trenér je soukromá rodinná aplikace. Vychází z otevřeného projektu **Tréninková podložka** (Jakub Uhlíř,
+https://github.com/kuba-uhlir/treninkova-podlozka, licence MIT – viz `LICENSE`). Z reference je převzat jen zdrojový kód
+(architektura, router, D-pad vrstva, audio fronta, skládání tréninku, XP a odměny), žádné obrázky, fotky, loga ani hlasy.
 
 | Co | Odkud | Licence / poznámka |
 | --- | --- | --- |
-| Fotky hráčů na kartách (`assets/img/cards`) | Wikimedia Commons | CC BY, CC BY-SA, public domain. Autor a licence každé fotky jsou v `src/content/cards.json` (pole `author`, `license`, `source`) a vypisují se v aplikaci. Při dalším šíření je nutné autory uvádět a u CC BY-SA ponechat stejnou licenci pro upravené fotky. |
-| Popisy hráčů (`src/content/players.json`) | Vlastní | ručně psané |
-| Zajímavosti na rubu karet (`src/content/facts.json`) | Vlastní | ručně psané |
-| Loga klubů a reprezentací (`assets/img/teams`) | Oficiální weby klubů, TheSportsDB | ochranné známky svých vlastníků, použito jen k označení týmu; aplikace není se subjekty spojená. Při veřejném šíření zvážit jejich odstranění nebo nahrazení neutrálními znaky. |
-| Hlas Trenér (`assets/audio/voice`) | Microsoft Edge TTS (neuronový hlas cs-CZ-Antonin) | předgenerované věty; před veřejným šířením ověřit podmínky služby |
-| Zvuky (`assets/audio/sfx`) | Vlastní syntéza (`scripts/make-sounds.mjs`) | – |
+| Zdrojový kód | Jakub Uhlíř (reference) + vlastní úpravy | MIT (`LICENSE`) |
+| Grafika (stanoviště, hůl, míček, dres, ikona appky, odměny) | vlastní SVG kreslené kódem (`src/ui/*`, `scripts/build-icons.mjs`) | vlastní dílo |
+| Ikony rozhraní | Lucide (lucide.dev), balíček `lucide-static` → `src/ui/icons.js` | ISC |
+| Záložní „nezhasínat“ video (`src/core/nosleep-media.js`) | NoSleep.js 0.12.0, (c) Rich Tibbett | MIT |
 | Písmo Inter | @fontsource/inter | SIL Open Font License 1.1 |
-| Ikony (rezervní sada) | Lucide (lucide.dev) | ISC |
-| Grafika (úvodní míč, pozadí, ikony, odměny, úrovně, avatary, rámečky karet, efekty) | vytvořeno pomocí Gemini a upraveno skriptem `scripts/build-art.mjs` | vlastní dílo autora aplikace |
-| Software | Vite, Tailwind CSS, Capacitor | MIT |
-| Podložky | Vlastní vektorové kresby podle fotek produktů | jde o napodobení vzhledu, ne o kopii grafiky výrobců; názvy výrobců se v aplikaci nepoužívají jako značka |
-
-## Před zveřejněním (např. Google Play)
-- Jména a fotky žijících hráčů: osobnostní práva se licencí fotky neřeší. Pro širší šíření je bezpečnější použít jen ilustrace bez jmen nebo získat souhlas.
-- Loga klubů a názvy týmů: viz výše.
-- Hlas: ověřit, že použití syntetizovaného hlasu v distribuované aplikaci odpovídá podmínkám poskytovatele.
+| Hlas Trenér (`assets/audio/voice/trener`, zatím negenerováno) | Microsoft Edge TTS (cs-CZ-AntoninNeural) přes `node-edge-tts` | podmínky služby ověří agent `licensing` (M4); záloha = hlas zařízení |
+| Metronom, pípání, efekty | syntéza oscilátorem v Web Audio | vlastní |
+| Logo FBŠ Hattrick Brno (`assets/img/club`, použití od M4) | oficiální web klubu | použito se svolením klubu, soukromá appka |
+| Software | Vite, Tailwind CSS, vite-plugin-pwa, Workbox, Playwright | MIT / Apache-2.0 |
+| Cviky (`src/content/drills.json`) | vlastní zpracování; zdroje u každého cviku (`sources`) | texty vlastními slovy |

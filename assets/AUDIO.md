@@ -1,26 +1,19 @@
-# Audio – hlasy průvodce, efekty, hudba
+# Audio – hlas Trenéra, metronom, pípání
 
-Hlášky jsou v databázi `src/content/phrases.json`:
-- `fixed`: čísla zón (`zone_1`…`zone_6`), `side_left`/`side_right`, odpočet (`countdown_3…1`) a staré jednotlivé hlášky.
-- `groups`: skupiny vět s **více variantami** (`welcome`, `next`, `last`, `go`, `praise`, `half`, `almost`, `rest`, `end`, `aborted`, `levelup`, `pause`, `resume`).
-  Při použití se varianta losuje (nikdy 2× po sobě stejná). Klíč souboru je `<skupina>_<číslo>`, např. `praise_7`.
-  Další variantu přidáš jako další řádek ve skupině a znovu spustíš generování.
+## Hlášky
+- Texty: `src/content/phrases.json` (`fixed` = povely a jednotlivé věty, `groups` = skupiny s variantami, losují se, nikdy 2× po sobě stejná),
+  úvody cviků (`drill_<id>` = `voiceIntro` z `drills.json`) a návody na postavení (`setup_<stanoviště>_<n>` ze `stations.json`).
+- Soubory: `assets/audio/voice/trener/<klíč>.mp3` (nebo `.wav`), generuje `node scripts/gen-voices.mjs` (Edge TTS, cs-CZ-AntoninNeural).
+- Appka je najde sama (`import.meta.glob` v `src/core/audio.js`), načte přes `fetch` + `decodeAudioData` do `AudioBuffer` a přehrává
+  přes jeden `AudioContext`. Service worker je přednačte do offline cache.
+- Chybí-li soubor, mluví hlas zařízení (`speechSynthesis`, cs-CZ).
+- Doporučení pro nahrávky: krátké povely (`num_*`, `color_*`, `blade_*`, `countdown_*`) bez ticha na začátku a na konci (max. ~0,5 s),
+  aby šly za sebou v tempu.
 
-## Soubory
-`assets/audio/voice/<styl>/<klíč>.mp3`, jediný styl: `trener` (neuronový hlas Antonín).
-Vedle nich leží `_meta.json` (kdy v nahrávce skutečně začíná a končí řeč). Podle něj se věty nepřerušují a nečeká se na ticho na konci.
+## Fronta (nikdy neusekávat hlášku)
+- **call** (čísla, barvy, forhend/bekhend): když zrovna něco zní, přeskočí se.
+- **phrase** (věty): počká ve frontě (max. 2 čekající).
+- **urgent** (odpočet, „hraj“, pauza): předběhne frontu, ale nic nepřeruší.
 
-```
-node scripts/gen-voices.mjs          # vygeneruje chybějící hlášky (neuronové české hlasy), jde opakovat
-node scripts/analyze-voices.mjs      # přepočítá _meta.json
-```
-Chybí-li soubor, mluví TTS zařízení.
-
-## Jak se hlášky řadí
-- **call** (čísla zón, strany): přeskočí se, když zrovna zní věta.
-- **phrase** (věty): když zní jiná věta, počká ve frontě (max. 2).
-- **urgent** (odpočet, „hraj“, pauza): přeruší vše.
-
-## Efekty a hudba
-`assets/audio/sfx/<klíč>.mp3`: `click`, `focus`, `tick`, `success`, `levelup`, `confetti`.
-`assets/audio/music/bg_main.mp3` (smyčka, klidná).
+## Metronom a pípání
+Syntetizované oscilátorem (`src/core/metronome.js`, `tone()` v `audio.js`), žádné soubory. Režim Rodiče → Zvuk: Hlas / Pípání / Ticho.

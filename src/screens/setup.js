@@ -34,11 +34,12 @@ export default function setup({ profileId, stationId, workout = null }, { go, ba
     el.append(head, body);
 
     let sv = null;
+    const vkey = (k) => `${station.voiceSetup}${station.mirrored ? '_m' : ''}_${k}`; // levák: zrcadlený návod má vlastní nahrávky
     const mount = () => {
       sv = createStationView({ station, grip: p.grip, ball: false, compact: true });
       sv.setPlayerVisible(true);
       stage.replaceChildren(sv.el);
-      registerTexts(Object.fromEntries(station.setupSteps.map((x, k) => [`${station.voiceSetup}_${k + 1}`, x.text])));
+      registerTexts(Object.fromEntries(station.setupSteps.map((x, k) => [vkey(k + 1), x.text])));
       head.querySelector('.title').innerHTML = `Postav <span class="accent">${station.name.toLowerCase()}</span>`;
       meta.textContent = `${station.short} · potřebuješ asi ${station.size[0]} × ${station.size[1]} m. Místo kuželů můžeš použít boty nebo ponožky.`;
     };
@@ -55,11 +56,11 @@ export default function setup({ profileId, stationId, workout = null }, { go, ba
       nav.replaceChildren();
       const last = i === steps.length - 1;
       if (i > 0) nav.append(btn(`${icon('back')}Zpět`, 'btn', () => { i--; paint(); }));
-      nav.append(btn(`${icon('volume')}Znovu`, 'btn', () => { stopVoice(); say(`${station.voiceSetup}_${i + 1}`, { kind: 'phrase', text: stp.text }); }));
+      nav.append(btn(`${icon('volume')}Znovu`, 'btn', () => { stopVoice(); say(vkey(i + 1), { kind: 'phrase', text: stp.text }); }));
       if (!last) nav.append(btn(`Další krok${icon('right')}`, 'btn-primary btn-big', () => { i++; paint(); }, { auto: true, test: 'setup-next' }));
       else if (wk) nav.append(btn(`${icon('play')}Mám postaveno`, 'btn-primary btn-big', () => startTraining(), { auto: true, test: 'setup-done' }));
       else nav.append(btn(`${icon('check')}Hotovo`, 'btn-primary btn-big', () => { stopVoice(); back(); }, { auto: true, test: 'setup-done' }));
-      if (speak) { stopVoice(); if (i === 0) say('safety', { kind: 'phrase' }); say(`${station.voiceSetup}_${i + 1}`, { kind: 'phrase', text: stp.text }); }
+      if (speak) { stopVoice(); if (i === 0) say('safety', { kind: 'phrase' }); say(vkey(i + 1), { kind: 'phrase', text: stp.text }); }
     };
 
     const startTraining = () => {

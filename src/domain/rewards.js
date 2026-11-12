@@ -3,10 +3,10 @@
 import { allDrills, isWeak, drillKind } from './trainer.js';
 
 export const TIERS = {
-  bronze: { name: 'Bronzová', color: '#E39A62' },
-  silver: { name: 'Stříbrná', color: '#D9E1EA' },
-  gold: { name: 'Zlatá', color: '#FFD23F' },
-  diamond: { name: 'Diamantová', color: '#7FE3FF' },
+  bronze: { name: 'Bronzová' },
+  silver: { name: 'Stříbrná' },
+  gold: { name: 'Zlatá' },
+  diamond: { name: 'Diamantová' },
 };
 export const CATEGORIES = [
   { id: 'xp', name: 'Za XP' },

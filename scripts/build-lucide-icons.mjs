@@ -10,7 +10,7 @@ const MAP = {
   levels: ['chart-no-axes-column-increasing'], profile: ['user-round'], info: ['info'], ball: ['circle-dot'],
   pause: ['pause', true], gear: ['settings'], download: ['download'], upload: ['upload'], refresh: ['refresh-cw'], map: ['map'],
   volume: ['volume-2'], mute: ['volume-x'], moon: ['moon'], cone: ['triangle'], timer: ['timer'], flame: ['flame'], medal: ['medal'],
-  crown: ['crown'], shield: ['shield'], clock: ['clock'], sunrise: ['sunrise'], zap: ['zap'], right: ['arrow-right'], x: ['x'],
+  crown: ['crown'], shield: ['shield'], clock: ['clock'], sunrise: ['sunrise'], zap: ['zap'], right: ['arrow-right'], x: ['x'], skip: ['skip-forward'],
 };
 
 const dir = 'node_modules/lucide-static/icons';

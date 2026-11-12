@@ -45,7 +45,7 @@ export const settings = {
     voiceMode: 'voice', volVoice: 1, volBeep: 0.7,
     quiet: false,        // tichý trénink (byt): jen cviky s noise „tichý“
     tempoMul: 1,
-    theme: 'noc',
+    theme: 'hattrick',
   },
   async load() { return { ...this.defaults, ...((await storage.get('settings', 'main')) || {}) }; },
   async save(patch) { const cur = await this.load(); await storage.put('settings', { ...cur, ...patch, id: 'main' }); },

@@ -4,7 +4,7 @@ export default {
   theme: {
     extend: {
       colors,
-      fontFamily: { display: ['Inter', 'system-ui', 'sans-serif'], body: ['Inter', 'system-ui', 'sans-serif'] },
+      fontFamily: { display: ['Archivo Variable', 'system-ui', 'sans-serif'], body: ['Archivo Variable', 'system-ui', 'sans-serif'] },
     },
   },
 };

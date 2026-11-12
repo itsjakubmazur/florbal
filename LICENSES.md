@@ -10,7 +10,7 @@ https://github.com/kuba-uhlir/treninkova-podlozka, licence MIT – viz `LICENSE`
 | Grafika (stanoviště, hůl, míček, dres, ikona appky, odměny) | vlastní SVG kreslené kódem (`src/ui/*`, `scripts/build-icons.mjs`) | vlastní dílo |
 | Ikony rozhraní | Lucide (lucide.dev), balíček `lucide-static` → `src/ui/icons.js` | ISC |
 | Záložní „nezhasínat“ video (`src/core/nosleep-media.js`) | NoSleep.js 0.12.0, (c) Rich Tibbett | MIT |
-| Písmo Inter | @fontsource/inter | SIL Open Font License 1.1 |
+| Písmo Archivo (variabilní, Omnibus-Type) | @fontsource-variable/archivo | SIL Open Font License 1.1 |
 | Hlas Trenér (`assets/audio/voice/trener`, zatím negenerováno) | Microsoft Edge TTS (cs-CZ-AntoninNeural) přes `node-edge-tts` | podmínky služby ověří agent `licensing` (M4); záloha = hlas zařízení |
 | Metronom, pípání, efekty | syntéza oscilátorem v Web Audio | vlastní |
 | Logo FBŠ Hattrick Brno (`assets/img/club`, použití od M4) | oficiální web klubu | použito se svolením klubu, soukromá appka |

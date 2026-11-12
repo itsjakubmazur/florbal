@@ -39,14 +39,15 @@ export function createStationView({ station, grip = 'right', ball = true, patter
   svg.style.cssText = 'width:100%;height:100%;display:block;overflow:visible';
   svg.dataset.test = 'station-view';
 
-  // palubovka
+  // palubovka: modrá plocha haly, bílý mantinel se zaobleným rohem (signature), jemná metrová síť
   const floor = el('g', {}, svg);
-  el('rect', { x: X(minX) + 4, y: Y(maxY) + 4, width: X(maxX - minX) - 8, height: (maxY - minY) * S - 8, rx: 18, fill: 'var(--floor)', stroke: 'var(--floor-line)', 'stroke-width': 3 }, floor);
-  for (let gx = Math.ceil(minX * 2) / 2; gx < maxX; gx += 0.5) el('line', { x1: X(gx), x2: X(gx), y1: Y(maxY) + 8, y2: Y(minY) - 8, stroke: 'var(--floor-line)', 'stroke-width': 1.5 }, floor);
-  for (let gy = Math.ceil(minY * 2) / 2; gy < maxY; gy += 0.5) el('line', { y1: Y(gy), y2: Y(gy), x1: X(minX) + 8, x2: X(maxX) - 8, stroke: 'var(--floor-line)', 'stroke-width': 1.5 }, floor);
+  const fw = X(maxX - minX); const fh = (maxY - minY) * S;
+  el('rect', { x: X(minX) + 6, y: Y(maxY) + 6, width: fw - 12, height: fh - 12, rx: 34, fill: 'var(--floor)', stroke: 'var(--mantinel)', 'stroke-opacity': 0.3, 'stroke-width': 3 }, floor);
+  for (let gx = Math.ceil(minX); gx < maxX; gx += 1) el('line', { x1: X(gx), x2: X(gx), y1: Y(maxY) + 14, y2: Y(minY) - 14, stroke: 'var(--floor-line)', 'stroke-width': 2 }, floor);
+  for (let gy = Math.ceil(minY); gy < maxY; gy += 1) el('line', { y1: Y(gy), y2: Y(gy), x1: X(minX) + 14, x2: X(maxX) - 14, stroke: 'var(--floor-line)', 'stroke-width': 2 }, floor);
 
   // vodicí čáry a oblouky patternu
-  const guides = el('g', { fill: 'none', stroke: 'var(--muted)', 'stroke-width': 3, 'stroke-dasharray': '8 10', opacity: 0.55 }, svg);
+  const guides = el('g', { fill: 'none', stroke: 'var(--text-2)', 'stroke-width': 4, 'stroke-dasharray': '10 12', 'stroke-linecap': 'round', opacity: 0.45 }, svg);
   let prev = targetPoint('home', station, s);
   for (const st of pattern || []) {
     const n = parseAround(st.at);
@@ -68,42 +69,46 @@ export function createStationView({ station, grip = 'right', ball = true, patter
     }
   }
 
-  // domeček
+  // domeček (výchozí místo hráče)
   const home = el('g', { transform: `translate(${X(station.home.x)} ${Y(station.home.y)})` }, svg);
-  el('rect', { x: -34, y: -34, width: 68, height: 68, rx: 12, fill: 'none', stroke: 'var(--muted)', 'stroke-width': 4, 'stroke-dasharray': '10 8' }, home);
+  el('rect', { x: -36, y: -36, width: 72, height: 72, rx: 14, fill: 'none', stroke: 'var(--text-2)', 'stroke-opacity': 0.7, 'stroke-width': 4, 'stroke-dasharray': '12 9' }, home);
 
-  // kužely
+  // kužely: pohled shora = podstava + menší vrchol, velké číslo; hlášený kužel dostane bílý prstenec
   const coneEls = new Map();
+  const font = 'font-family:var(--font);font-stretch:78%;font-weight:700';
   for (const c of station.cones) {
     const col = CONE_COLORS[c.color] || CONE_COLORS.white;
     const g = el('g', { transform: `translate(${X(c.x)} ${Y(c.y)})` }, svg);
     g.dataset.cone = c.n;
-    const ring = el('circle', { r: 31, fill: 'none', stroke: 'var(--accent)', 'stroke-width': 7, opacity: 0 }, g);
-    el('circle', { r: 22, fill: `var(--cone-${c.color})`, stroke: 'rgba(0,0,0,.35)', 'stroke-width': 3 }, g);
-    const t = el('text', { 'text-anchor': 'middle', 'dominant-baseline': 'central', y: 1, 'font-family': 'Inter, sans-serif', 'font-weight': 800, 'font-size': 30, fill: col.ink }, g);
+    const ring = el('circle', { r: 37, fill: 'none', stroke: 'var(--text)', 'stroke-width': 7, opacity: 0 }, g);
+    el('circle', { r: 26, fill: `var(--cone-${c.color})`, stroke: 'var(--cone-edge)', 'stroke-width': 3 }, g);
+    el('circle', { r: 17, fill: 'none', stroke: 'var(--cone-edge)', 'stroke-width': 2, opacity: 0.45 }, g);
+    const t = el('text', { 'text-anchor': 'middle', 'dominant-baseline': 'central', y: 1, style: font, 'font-size': 38, fill: col.ink }, g);
     t.textContent = c.n;
     coneEls.set(c.n, { g, ring });
   }
 
-  // šipka „kam dál“
+  // šipka „kam dál“ (bílá, aby se nepletla s barvou forhendu)
   const defs = el('defs', {}, svg);
-  const mk = el('marker', { id: `arr${Math.random().toString(36).slice(2, 7)}`, viewBox: '0 0 10 10', refX: 6, refY: 5, markerWidth: 4, markerHeight: 4, orient: 'auto-start-reverse' }, defs);
-  el('path', { d: 'M0 0 L10 5 L0 10 z', fill: 'var(--accent)' }, mk);
-  const arrow = el('path', { fill: 'none', stroke: 'var(--accent)', 'stroke-width': 7, 'stroke-linecap': 'round', 'marker-end': `url(#${mk.id})`, opacity: 0 }, svg);
+  const mk = el('marker', { id: `arr${Math.random().toString(36).slice(2, 7)}`, viewBox: '0 0 10 10', refX: 6, refY: 5, markerWidth: 3.2, markerHeight: 3.2, orient: 'auto-start-reverse' }, defs);
+  el('path', { d: 'M0 0 L10 5 L0 10 z', fill: 'var(--text)' }, mk);
+  const arrow = el('path', { fill: 'none', stroke: 'var(--text)', 'stroke-width': 8, 'stroke-linecap': 'round', 'marker-end': `url(#${mk.id})`, opacity: 0 }, svg);
 
-  // hráč, hůl, míček
+  // hráč (shora: ramena + hlava), hůl, čepel, míček s otvory, štítek F/B
   const player = el('g', {}, svg);
-  el('ellipse', { rx: 26, ry: 15, fill: 'var(--player)' }, player);
-  el('circle', { r: 11, cy: -2, fill: 'var(--text)', opacity: 0.85 }, player);
-  const shaft = el('line', { stroke: 'var(--stick)', 'stroke-width': 6, 'stroke-linecap': 'round' }, svg);
+  el('ellipse', { rx: 28, ry: 16, fill: 'var(--player)' }, player);
+  el('circle', { r: 12, cy: -2, fill: 'var(--text-2)' }, player);
+  const shaft = el('line', { stroke: 'var(--stick)', 'stroke-width': 8, 'stroke-linecap': 'round' }, svg);
   const blade = el('g', {}, svg);
-  const bladeFh = el('path', { fill: 'none', stroke: 'var(--fh)', 'stroke-width': 7, 'stroke-linecap': 'round' }, blade); // konkávní strana = forhend
-  const bladeBh = el('path', { fill: 'none', stroke: 'var(--bh)', 'stroke-width': 7, 'stroke-linecap': 'round' }, blade); // konvexní strana = bekhend
+  const bladeFh = el('path', { fill: 'none', stroke: 'var(--fh)', 'stroke-width': 13, 'stroke-linecap': 'round' }, blade); // konkávní strana = forhend
+  const bladeBh = el('path', { fill: 'none', stroke: 'var(--bh)', 'stroke-width': 13, 'stroke-linecap': 'round' }, blade); // konvexní strana = bekhend
   const ballG = el('g', {}, svg);
-  el('circle', { r: 10, fill: 'var(--ball)', stroke: 'rgba(0,0,0,.45)', 'stroke-width': 2 }, ballG);
+  el('circle', { r: 13, fill: 'var(--ball)', stroke: 'var(--ball-edge)', 'stroke-width': 2.5 }, ballG);
+  for (const [hx, hy] of [[0, 0], [-6, -5], [6, -5], [0, 7]]) el('circle', { cx: hx, cy: hy, r: 2.4, fill: 'var(--ball-hole)' }, ballG);
   const badge = el('g', {}, svg);
-  const badgeC = el('circle', { r: 19, fill: 'var(--fh)' }, badge);
-  const badgeT = el('text', { 'text-anchor': 'middle', 'dominant-baseline': 'central', y: 1, 'font-family': 'Inter, sans-serif', 'font-weight': 800, 'font-size': 24, fill: 'var(--fh-ink)' }, badge);
+  const badgeC = el('circle', { r: 23, fill: 'var(--fh)' }, badge);              // forhend = kruh
+  const badgeR = el('rect', { x: -21, y: -21, width: 42, height: 42, rx: 7, fill: 'var(--bh)' }, badge); // bekhend = čtverec
+  const badgeT = el('text', { 'text-anchor': 'middle', 'dominant-baseline': 'central', y: 1, style: font, 'font-size': 30, fill: 'var(--fh-ink)' }, badge);
   if (!ball) { ballG.style.display = 'none'; badge.style.display = 'none'; }
   if (compact) badge.style.display = 'none';
 
@@ -119,20 +124,21 @@ export function createStationView({ station, grip = 'right', ball = true, patter
     // Konkávní strana míří vždy k −s (u praváka doleva) – orientace čepele je daná držením hole.
     const side = face === 'fh' ? s : -s;
     const bx = b.x + side * 0.13; const by = b.y;
-    const L = 0.16; const bulge = 0.07;
+    const L = 0.19; const bulge = 0.08;
     const curve = (off) => `M${X(bx + off)} ${Y(by - L)} Q${X(bx + off + s * bulge * 2)} ${Y(by)} ${X(bx + off)} ${Y(by + L)}`;
     bladeFh.setAttribute('d', curve(-s * 0.025));
     bladeBh.setAttribute('d', curve(s * 0.025));
     const active = face === 'fh' ? bladeFh : bladeBh;
-    bladeFh.setAttribute('opacity', face === 'fh' ? 1 : 0.35);
-    bladeBh.setAttribute('opacity', face === 'bh' ? 1 : 0.35);
+    bladeFh.setAttribute('stroke-width', face === 'fh' ? 13 : 5); bladeFh.setAttribute('opacity', face === 'fh' ? 1 : 0.5);
+    bladeBh.setAttribute('stroke-width', face === 'bh' ? 13 : 5); bladeBh.setAttribute('opacity', face === 'bh' ? 1 : 0.5);
     active.parentNode.appendChild(active);
     const hands = { x: p.x + s * 0.18, y: p.y + 0.06 };
     shaft.setAttribute('x1', X(hands.x)); shaft.setAttribute('y1', Y(hands.y));
     shaft.setAttribute('x2', X(bx + s * 0.05)); shaft.setAttribute('y2', Y(by - L * 0.9));
-    const bx2 = b.x + side * 0.38;
-    badge.setAttribute('transform', `translate(${X(bx2)} ${Y(by + 0.08)})`);
-    badgeC.setAttribute('fill', face === 'fh' ? 'var(--fh)' : 'var(--bh)');
+    const bx2 = b.x + side * 0.42;
+    badge.setAttribute('transform', `translate(${X(bx2)} ${Y(by + 0.1)})`);
+    badgeC.style.display = face === 'fh' ? '' : 'none';
+    badgeR.style.display = face === 'bh' ? '' : 'none';
     badgeT.setAttribute('fill', face === 'fh' ? 'var(--fh-ink)' : 'var(--bh-ink)');
     badgeT.textContent = face === 'fh' ? 'F' : 'B';
   }
@@ -195,7 +201,7 @@ export function createStationView({ station, grip = 'right', ball = true, patter
       const a = { x: from.x + (to.x - from.x) * k0, y: from.y + (to.y - from.y) * k0 };
       const b = { x: from.x + (to.x - from.x) * k1, y: from.y + (to.y - from.y) * k1 };
       arrow.setAttribute('d', `M${X(a.x)} ${Y(a.y)} L${X(b.x)} ${Y(b.y)}`);
-      arrow.setAttribute('opacity', 0.9);
+      arrow.setAttribute('opacity', 0.85);
     },
     hideNext() { arrow.setAttribute('opacity', 0); },
     /** Zvýrazní kužely (návod na postavení, hlášený kužel). */

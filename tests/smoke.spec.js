@@ -111,6 +111,11 @@ test('přehrávač: zrychleně projde 2 cviky, klepnutí pauzuje, update pruh č
   await expect(pl).toHaveAttribute('data-phase', /preview|countdown|play/);
   await page.mouse.click(200, 300);
   await expect(page.locator('[data-test="pause-overlay"]')).toBeVisible();
+  // tlačítka pauzy: Pokračovat, Přeskočit, Konec – v tréninku dotyková plocha ≥ 88 px
+  for (const b of ['resume', 'skip', 'stop']) {
+    const box = await page.locator(`[data-test="${b}"]`).boundingBox();
+    expect(box.height, `${b}: výška tlačítka v tréninku`).toBeGreaterThanOrEqual(88);
+  }
   const phaseAtPause = await pl.getAttribute('data-phase');
   const idxAtPause = await pl.getAttribute('data-drill-index');
   await page.waitForTimeout(1500);
@@ -121,6 +126,12 @@ test('přehrávač: zrychleně projde 2 cviky, klepnutí pauzuje, update pruh č
   // projde 2 cviky (index 2 = třetí cvik)
   await expect(pl).toHaveAttribute('data-drill-index', /^[2-9]/, { timeout: 40_000 });
   await noHorizontalScroll(page, 'player');
+  // přeskočit cvik: pauza zmizí a přehrávač ukáže další cvik
+  await page.mouse.click(200, 300);
+  const idxBeforeSkip = Number(await pl.getAttribute('data-drill-index'));
+  await page.locator('[data-test="skip"]').click();
+  await expect(page.locator('[data-test="pause-overlay"]')).toHaveCount(0);
+  await expect(pl).toHaveAttribute('data-drill-index', String(idxBeforeSkip + 1));
   // ukončit → výsledek; pruh nové verze se ukáže až teď
   await page.mouse.click(200, 300);
   await page.locator('[data-test="stop"]').click();

@@ -13,7 +13,14 @@ import { TIME_SCALE, FAST } from '../core/env.js';
 import { REST_SEC, PREVIEW_SEC, drillKind, isWeak } from '../domain/trainer.js';
 import { getStation, stationFor, coneOf, stepCone } from '../domain/stations.js';
 
-const PHASE_LABEL = { preview: 'Ukázka', countdown: 'Připrav se', play: 'Hraj!', rest: 'Odpočinek' };
+const PHASE_LABEL = { preview: 'Ukázka', countdown: 'Připrav se', play: 'Hraj', rest: 'Odpočinek' };
+
+/** Kužel z boku (piktogram v povelu) – barva kuželu, volitelně číslo. */
+const coneSvg = (color, n = '') => `<svg viewBox="0 0 100 100" aria-hidden="true">
+  <rect x="6" y="84" width="88" height="12" rx="5" fill="var(--cone-${color})" stroke="var(--cone-edge)" stroke-width="2"/>
+  <path d="M40 6 Q50 1 60 6 L82 84 H18 Z" fill="var(--cone-${color})" stroke="var(--cone-edge)" stroke-width="2" stroke-linejoin="round"/>
+  ${n !== '' ? `<text x="50" y="62" text-anchor="middle" dominant-baseline="central" style="font-family:var(--font);font-stretch:78%;font-weight:700" font-size="50" fill="var(--cone-${color}-ink)">${n}</text>` : ''}
+</svg>`;
 
 export default function player({ profile, workout, settings: s = {} }, { go, onBack }) {
   const drills = workout.drills;
@@ -22,27 +29,32 @@ export default function player({ profile, workout, settings: s = {} }, { go, onB
   const el = h('section', 'screen player');
   el.dataset.test = 'player';
 
-  // ---- rozvržení ----
+  // ---- rozvržení: nahoře název a odpočet, uprostřed stanoviště + povel, dole nenápadný průběh ----
   const top = h('div', 'player-top');
-  const tl = h('div', 'flex flex-col'); tl.style.minWidth = '0';
+  const tl = h('div', 'player-titles');
   const phaseEl = h('div', 'player-phase');
   const nameEl = h('div', 'player-name');
   tl.append(phaseEl, nameEl);
   const timerEl = h('div', 'player-timer');
   top.append(tl, timerEl);
+  const bottom = h('div', 'player-bottom');
   const prog = h('div', 'player-progress');
   const segFill = drills.map(() => { const d = h('div'); const i = h('i'); d.append(i); prog.append(d); return i; });
+  const countEl = h('div', 'player-count');
+  bottom.append(prog, countEl);
   const main = h('div', 'player-main');
   const stage = h('div', 'player-stage');
   const callBox = h('div', 'player-call');
   const callBig = h('div', 'call-big'); callBig.dataset.test = 'call';
+  const callText = h('div', 'call-text');
   const callWord = h('div', 'call-word');
   const taskEl = h('div', 'player-task');
-  callBox.append(callBig, callWord, taskEl);
+  callText.append(callWord, taskEl);
+  callBox.append(callBig, callText);
   main.append(stage, callBox);
   const cd = h('div', 'countdown');
   const cdText = h('span'); cd.append(cdText);
-  el.append(top, prog, main, cd);
+  el.append(top, main, bottom, cd);
 
   // ---- stav ----
   let idx = 0;
@@ -74,30 +86,24 @@ export default function player({ profile, workout, settings: s = {} }, { go, onB
     if (drillKind(d) === 'stretch') sv.setPlayerVisible(true);
   }
 
+  // povel: kužel (piktogram s číslem), barva (piktogram bez čísla), forhend (kruh F) / bekhend (čtverec B), domeček (H)
   function setCall(kind, value) {
-    callBig.style.background = 'transparent'; callBig.style.color = 'var(--text)';
+    callBig.dataset.kind = 'none';
     callBig.textContent = ''; callWord.textContent = '';
-    if (kind === 'cone') {
+    if (kind === 'cone' || kind === 'color') {
       const c = coneOf(st, value); if (!c) return;
-      callBig.textContent = String(c.n);
-      callBig.style.background = `var(--cone-${c.color})`; callBig.style.color = `var(--cone-${c.color}-ink)`;
-      callWord.textContent = CONE_COLORS[c.color].name;
-    } else if (kind === 'color') {
-      const c = coneOf(st, value); if (!c) return;
-      callBig.innerHTML = '&nbsp;';
-      callBig.style.background = `var(--cone-${c.color})`;
-      callWord.textContent = CONE_COLORS[c.color].name.toUpperCase();
+      callBig.dataset.kind = kind;
+      callBig.innerHTML = coneSvg(c.color, kind === 'cone' ? String(c.n) : '');
+      callWord.textContent = kind === 'cone' ? CONE_COLORS[c.color].name : CONE_COLORS[c.color].name.toUpperCase();
     } else if (kind === 'blade') {
+      callBig.dataset.kind = value === 'bh' ? 'bh' : 'fh';
       callBig.textContent = value === 'bh' ? 'B' : 'F';
-      callBig.style.background = value === 'bh' ? 'var(--bh)' : 'var(--fh)';
-      callBig.style.color = value === 'bh' ? 'var(--bh-ink)' : 'var(--fh-ink)';
-      callWord.textContent = value === 'bh' ? 'bekhend' : 'forhend';
+      callWord.textContent = value === 'bh' ? 'BEKHEND' : 'FORHEND';
     } else if (kind === 'home') {
+      callBig.dataset.kind = 'home';
       callBig.textContent = 'H'; callWord.textContent = 'domeček';
-    } else if (kind === 'text') {
-      callBig.textContent = value;
     }
-    if (callBig.animate) callBig.animate([{ transform: 'scale(.82)' }, { transform: 'scale(1)' }], { duration: 160, easing: 'ease-out' });
+    if (callBig.animate && callBig.dataset.kind !== 'none') callBig.animate([{ transform: 'scale(.9)', opacity: 0.6 }, { transform: 'none', opacity: 1 }], { duration: 140, easing: 'cubic-bezier(0.22, 1, 0.36, 1)' });
   }
 
   // ---- jeden úder cviku ----
@@ -166,14 +172,15 @@ export default function player({ profile, workout, settings: s = {} }, { go, onB
   function enter(p) {
     phase = p; elapsed = 0;
     el.dataset.phase = p; el.dataset.drillIndex = String(idx);
-    phaseEl.textContent = `${PHASE_LABEL[p]} · cvik ${idx + 1} z ${drills.length}`;
+    phaseEl.textContent = PHASE_LABEL[p];
+    countEl.textContent = `cvik ${idx + 1} z ${drills.length}`;
     const d = drill();
     if (p === 'preview') {
       said = {}; lastCone = null; nextBeat = 0;
       mountStation(d);
       nameEl.textContent = d.name;
       taskEl.textContent = d.voiceIntro;
-      setCall('text', '');
+      setCall('none');
       callWord.textContent = drillKind(d) === 'nobal' ? 'Rozcvička' : drillKind(d) === 'stretch' ? 'Protažení' : (isWeak(d) ? 'Slabší strana' : '');
       setSeg(0);
       preloadVoices([`drill_${d.id}`]);
@@ -186,7 +193,7 @@ export default function player({ profile, workout, settings: s = {} }, { go, onB
       stopDemo(); sv.reset(); taskEl.textContent = '';
     } else if (p === 'play') {
       taskEl.textContent = (d.coachingPoints || [])[0] || '';
-      if (!pattern(d)) setCall('text', '');
+      if (!pattern(d)) setCall('none');
       startMetro(0);
     } else if (p === 'rest') {
       stopMetro(); sv.hideNext(); sv.highlight([]);
@@ -194,8 +201,8 @@ export default function player({ profile, workout, settings: s = {} }, { go, onB
       const nx = drills[idx + 1];
       if (!nx) { finish(false); return; }
       nameEl.textContent = 'Odpočinek';
-      setCall('text', ''); callWord.textContent = `Další: ${nx.name}`;
-      taskEl.textContent = '';
+      setCall('none'); callWord.textContent = 'Další cvik';
+      taskEl.textContent = nx.name;
       if (idx + 2 >= drills.length) sayGroup('last'); else sayGroup('rest');
     }
   }
@@ -266,15 +273,28 @@ export default function player({ profile, workout, settings: s = {} }, { go, onB
     overlay = h('div', 'player-overlay');
     overlay.dataset.test = 'pause-overlay';
     overlay.append(h('div', 'title', 'Pauza'));
-    const row = h('div', 'flex flex-wrap justify-center'); row.style.gap = '24px';
-    const resume = btn(`${icon('play')}Pokračovat`, 'btn-primary btn-big', () => setPaused(false), { auto: true, test: 'resume' });
-    const stop = btn(`${icon('stop')}Ukončit`, 'btn btn-big', () => finish(true), { test: 'stop' });
-    row.append(resume, stop);
+    const row = h('div', 'pause-actions');
+    const resume = btn(`${icon('play')}Pokračovat`, 'btn-primary', () => setPaused(false), { auto: true, test: 'resume' });
+    const skip = btn(`${icon('skip')}Přeskočit cvik`, 'btn', () => skipDrill(), { test: 'skip' });
+    const stop = btn(`${icon('stop')}Konec`, 'btn', () => finish(true), { test: 'stop' });
+    row.append(resume, skip, stop);
     overlay.append(row);
     overlay.addEventListener('click', (e) => e.stopPropagation());
     overlay.addEventListener('pointerdown', (e) => e.stopPropagation());
     el.appendChild(overlay);
     onBack(() => setPaused(false));
+  }
+  // přeskočit: další cvik začne ukázkou (přeskočený se nepočítá); v odpočinku jen zkrátí odpočinek
+  function skipDrill() {
+    if (finished) return;
+    stopMetro(); stopDemo(); stopVoice();
+    if (overlay) { overlay.remove(); overlay = null; }
+    paused = false;
+    unlockAudio(); enableWakeLock();
+    last = performance.now();
+    onBack(() => setPaused(true));
+    if (idx + 1 >= drills.length) { finish(phase !== 'rest'); return; }
+    idx++; enter('preview');
   }
   el.addEventListener('click', () => { if (!paused) setPaused(true); });
   el.tabIndex = 0;

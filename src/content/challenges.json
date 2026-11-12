@@ -1,0 +1,879 @@
+[
+  {
+    "homeOnly": false,
+    "matchLegal": true,
+    "players": "1-4",
+    "noise": "hlasitý",
+    "handicap": [
+      "Táta střílí o metr dál",
+      "Táta jen bekhendem",
+      "Táta má o 2 pokusy méně"
+    ],
+    "id": "tycka",
+    "name": "Gól od tyčky",
+    "type": "tyčka",
+    "format": "pokusy",
+    "attempts": 10,
+    "scoring": "trefy",
+    "rules": "Střílej tahem ze 3 metrů. Trefa tyčky je 1 bod, tyčka a gól jsou 2 body.",
+    "voiceIntro": "Gól od tyčky! Každý má deset pokusů. Tyčka je bod, tyčka a gól jsou body dva.",
+    "safety": "Nikdo v dosahu hole, diváci stojí za střelcem, nikdy za cílem. Hůl při střele pod pasem, žádný velký nápřah. Cíl u zdi, křehké věci pryč.",
+    "equipment": [
+      "branka nebo dvě krabice jako tyčky",
+      "míčky"
+    ],
+    "origin": [
+      "C01"
+    ],
+    "sources": [
+      {
+        "url": "https://www.youtube.com/watch?v=S-VGfNc1dC8",
+        "type": "video",
+        "reliability": "inspirace"
+      }
+    ]
+  },
+  {
+    "homeOnly": false,
+    "matchLegal": true,
+    "players": "1-4",
+    "noise": "hlasitý",
+    "handicap": [
+      "Táta střílí o metr dál",
+      "Táta jen bekhendem"
+    ],
+    "id": "brevno",
+    "name": "Břevno",
+    "type": "cíl",
+    "format": "do-x",
+    "target": 3,
+    "attempts": null,
+    "scoring": "trefy",
+    "rules": "Kdo první trefí 3× břevno malé branky nebo hranu krabice. Jen střela tahem, míček nejvýš do pasu.",
+    "voiceIntro": "Kdo první trefí třikrát břevno? Jen tahem, žádné velké švihy.",
+    "safety": "Nikdo v dosahu hole, diváci stojí za střelcem, nikdy za cílem. Hůl při střele pod pasem, žádný velký nápřah. Cíl u zdi, křehké věci pryč.",
+    "equipment": [
+      "malá branka nebo krabice"
+    ],
+    "origin": [
+      "C02"
+    ],
+    "sources": [
+      {
+        "url": "https://www.youtube.com/watch?v=EbeFZ5roLc8",
+        "type": "video",
+        "reliability": "inspirace"
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=vyOmJdqA7aE",
+        "type": "video",
+        "reliability": "inspirace"
+      }
+    ]
+  },
+  {
+    "homeOnly": false,
+    "matchLegal": true,
+    "players": "1-4",
+    "noise": "hlasitý",
+    "handicap": [
+      "Táta střílí o metr dál",
+      "Táta jen bekhendem"
+    ],
+    "id": "odraz",
+    "name": "Gól odrazem",
+    "type": "odraz",
+    "format": "pokusy",
+    "attempts": 10,
+    "scoring": "trefy",
+    "rules": "Vyfoť a pojmenuj „mantinel“ (zeď, krabice, noha gauče) a cíl. Gól se počítá jen po odrazu od mantinelu. Dva odrazy jsou 3 body.",
+    "voiceIntro": "Gól jen přes mantinel! Míček se musí odrazit a pak teprve do branky.",
+    "safety": "Nikdo v dosahu hole, diváci stojí za střelcem, nikdy za cílem. Hůl při střele pod pasem, žádný velký nápřah. Cíl u zdi, křehké věci pryč. Mantinel musí být pevný, žádné sklo.",
+    "equipment": [
+      "cíl",
+      "pevný předmět jako mantinel"
+    ],
+    "origin": [
+      "C03"
+    ],
+    "sources": [
+      {
+        "url": "https://www.youtube.com/watch?v=0K3tn5rZ7v0",
+        "type": "video",
+        "reliability": "inspirace"
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=Mk0MFeDAV9Q",
+        "type": "video",
+        "reliability": "inspirace"
+      }
+    ]
+  },
+  {
+    "homeOnly": true,
+    "matchLegal": false,
+    "players": "1-4",
+    "noise": "hlasitý",
+    "handicap": [
+      "Táta drží hůl obráceně",
+      "Syn má žolíka: jeden pokus navíc"
+    ],
+    "id": "volej",
+    "name": "Volej ze vzduchu",
+    "type": "volej",
+    "format": "pokusy",
+    "attempts": 10,
+    "scoring": "trefy",
+    "rules": "Táta stojí bokem dva metry od tebe a spodem nadhodí míček do výšky kolen. Ty ho trefíš do branky dřív, než spadne.",
+    "voiceIntro": "Volej ze vzduchu! Tohle je jen domácí frajeřinka, v zápase by to byl faul.",
+    "safety": "Nadhazovač stojí z boku, ne před holí, aspoň 2 m daleko. Míček nejvýš do pasu. Hůl pod pasem.",
+    "equipment": [
+      "branka nebo krabice",
+      "míčky"
+    ],
+    "origin": [
+      "C04"
+    ],
+    "homeOnlyLine": "Tohle je jen domácí frajeřinka, v zápase by to byl faul.",
+    "sources": [
+      {
+        "url": "https://www.floorball.sport/wp-content/uploads/2026/02/Rules-of-the-Game-2026-with-all-changes-260209.pdf",
+        "type": "pravidla",
+        "reliability": "ověřené"
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=Mk0MFeDAV9Q",
+        "type": "video",
+        "reliability": "inspirace"
+      }
+    ]
+  },
+  {
+    "homeOnly": false,
+    "matchLegal": true,
+    "players": "1-4",
+    "noise": "hlasitý",
+    "handicap": [
+      "Táta střílí o metr dál",
+      "Táta jen bekhendem"
+    ],
+    "id": "rohy",
+    "name": "Rohy branky",
+    "type": "cíl",
+    "format": "pokusy",
+    "attempts": 5,
+    "scoring": "trefy",
+    "rules": "Branku rozděl páskou na rohy. Dolní roh 2 body, horní roh 3 body, střed 1 bod. Když roh předem ohlásíš a trefíš, body se zdvojnásobí.",
+    "voiceIntro": "Střelba do rohů! Ohlas roh nahlas a když ho trefíš, máš dvojnásobek.",
+    "safety": "Nikdo v dosahu hole, diváci stojí za střelcem, nikdy za cílem. Hůl při střele pod pasem, žádný velký nápřah. Cíl u zdi, křehké věci pryč.",
+    "equipment": [
+      "branka",
+      "lepicí páska",
+      "míčky"
+    ],
+    "origin": [
+      "C05"
+    ],
+    "sources": [
+      {
+        "url": "https://www.youtube.com/watch?v=LzVCac8Pp04",
+        "type": "video",
+        "reliability": "inspirace"
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=S-VGfNc1dC8",
+        "type": "video",
+        "reliability": "inspirace"
+      }
+    ]
+  },
+  {
+    "homeOnly": false,
+    "matchLegal": true,
+    "players": "1-4",
+    "noise": "střední",
+    "handicap": [
+      "Táta střílí o metr dál",
+      "Táta má o 2 pokusy méně"
+    ],
+    "id": "kelimky",
+    "name": "Kelímková pyramida",
+    "type": "cíl",
+    "format": "pokusy",
+    "attempts": 10,
+    "scoring": "počet",
+    "rules": "Postav pyramidu ze 6 plastových kelímků. Střílej ze 3 metrů. Kdo shodí víc kelímků za 10 střel.",
+    "voiceIntro": "Kelímková pyramida! Kolik kelímků shodíš za deset střel?",
+    "safety": "Nikdo v dosahu hole, diváci stojí za střelcem, nikdy za cílem. Hůl při střele pod pasem, žádný velký nápřah. Cíl u zdi, křehké věci pryč. Jen plastové kelímky.",
+    "equipment": [
+      "6 plastových kelímků",
+      "míčky"
+    ],
+    "origin": [
+      "C06"
+    ],
+    "sources": [
+      {
+        "url": "https://www.youtube.com/watch?v=LzVCac8Pp04",
+        "type": "video",
+        "reliability": "inspirace"
+      }
+    ]
+  },
+  {
+    "homeOnly": false,
+    "matchLegal": true,
+    "players": "1-4",
+    "noise": "střední",
+    "handicap": [
+      "Táta jen bekhendem",
+      "Syn má žolíka: jeden pokus navíc"
+    ],
+    "id": "krabice",
+    "name": "Krabicový žebříček",
+    "type": "cíl",
+    "format": "pokusy",
+    "attempts": 10,
+    "scoring": "počet",
+    "rules": "Krabice leží na boku. Po každé trefě ustup o půl metru. Vyhrává, kdo se dostane nejdál.",
+    "voiceIntro": "Krabicový žebříček! Každá trefa a ustoupíš dál. Kam až se dostaneš?",
+    "safety": "Nikdo v dosahu hole, diváci stojí za střelcem, nikdy za cílem. Hůl při střele pod pasem, žádný velký nápřah. Cíl u zdi, křehké věci pryč.",
+    "equipment": [
+      "krabice",
+      "míčky"
+    ],
+    "origin": [
+      "C07",
+      "CH-23"
+    ],
+    "sources": [
+      {
+        "url": "https://www.mobilesport.ch/assets/lbwp-cdn/mobilesport/files/2011/02/Unihockey_3_Ich-und-der-Ball-III_d.pdf",
+        "type": "metodika",
+        "reliability": "ověřené"
+      }
+    ]
+  },
+  {
+    "homeOnly": false,
+    "matchLegal": true,
+    "players": "1-4",
+    "noise": "střední",
+    "handicap": [
+      "Táta má o 2 pokusy méně"
+    ],
+    "id": "uklid-zorrem",
+    "name": "Úklid Zorrem",
+    "type": "vlastní",
+    "format": "čas",
+    "durationSec": 180,
+    "scoring": "počet",
+    "rules": "Rozházej 10 míčků po pokoji. Kolik jich dostaneš Zorrem do krabice za 3 minuty?",
+    "voiceIntro": "Velký úklid! Míčky do krabice, ale jen Zorrem. Máš tři minuty.",
+    "safety": "Hůl pod pasem, čepel s míčkem pod koleny. Míčky sbírej do krabice, ať po nich nikdo neuklouzne.",
+    "equipment": [
+      "10 míčků",
+      "krabice"
+    ],
+    "origin": [
+      "C08"
+    ],
+    "sources": [
+      {
+        "url": "https://www.youtube.com/watch?v=ZCEezWMOdA4",
+        "type": "video",
+        "reliability": "inspirace"
+      }
+    ]
+  },
+  {
+    "homeOnly": true,
+    "matchLegal": false,
+    "players": "1-4",
+    "noise": "střední",
+    "handicap": [
+      "Táta jen bekhendem"
+    ],
+    "id": "zonglovaci-souboj",
+    "name": "Žonglovací souboj",
+    "type": "žonglování",
+    "format": "pokusy",
+    "attempts": 3,
+    "scoring": "počet",
+    "rules": "Kdo udělá víc odrazů míčku na čepeli bez pádu. 3 pokusy, počítá se nejlepší. Střídavě forhend a bekhend se počítá dvojnásob.",
+    "voiceIntro": "Žonglovací souboj! Tohle je jen domácí frajeřinka, v zápase by to byl faul. Kolik odrazů dáš?",
+    "safety": "Odrazy nejvýš do pasu, kolem 2 m volna.",
+    "equipment": [
+      "míček"
+    ],
+    "origin": [
+      "C09"
+    ],
+    "homeOnlyLine": "Tohle je jen domácí frajeřinka, v zápase by to byl faul.",
+    "sources": [
+      {
+        "url": "https://www.youtube.com/watch?v=uZdYUHfvZbE",
+        "type": "video",
+        "reliability": "inspirace"
+      },
+      {
+        "url": "https://floorball.sport/2020/11/26/presenting-freestyle-floorball-cup-contestant-agnes-holgersson",
+        "type": "článek",
+        "reliability": "inspirace"
+      }
+    ]
+  },
+  {
+    "homeOnly": false,
+    "matchLegal": true,
+    "players": "1-4",
+    "noise": "tichý",
+    "handicap": [
+      "Táta drží hůl obráceně"
+    ],
+    "id": "vydrz-cepel",
+    "name": "Míček na čepeli",
+    "type": "vlastní",
+    "format": "pokusy",
+    "attempts": 3,
+    "scoring": "čas",
+    "rules": "Kdo udrží míček na čepeli déle. Stopky, 3 pokusy. Varianta: kdo s ním dojde dál.",
+    "voiceIntro": "Kdo udrží míček na čepeli déle? Čepel nízko, pod koleny.",
+    "safety": "Čepel pod koleny, hůl pod pasem.",
+    "equipment": [
+      "míček",
+      "stopky v appce"
+    ],
+    "origin": [
+      "C10",
+      "SO-03"
+    ],
+    "sources": [
+      {
+        "url": "https://www.youtube.com/watch?v=UPtyRyLBawo",
+        "type": "video",
+        "reliability": "inspirace"
+      },
+      {
+        "url": "https://www1.specialolympicsontario.com/resources/wp-content/uploads/sites/39/2024/10/SOI_Floorball_Coaching-Guide.pdf",
+        "type": "metodika",
+        "reliability": "ověřené"
+      }
+    ]
+  },
+  {
+    "homeOnly": false,
+    "matchLegal": true,
+    "players": "1-4",
+    "noise": "střední",
+    "handicap": [
+      "Táta jen bekhendem",
+      "Táta drží hůl obráceně"
+    ],
+    "id": "slalom-cas",
+    "name": "Slalom na čas",
+    "type": "slalom",
+    "format": "čas",
+    "scoring": "čas",
+    "rules": "Slalom tam a zpět kolem 4 kuželů. Shozený kužel je +2 s. Kdo je rychlejší.",
+    "voiceIntro": "Slalom na čas! Shozený kužel znamená dvě trestné vteřiny. Připravit, pozor, teď!",
+    "safety": "Dost místa na otočku, protiskluzová podlaha. Hůl pod pasem.",
+    "equipment": [
+      "4 kužely"
+    ],
+    "setupId": "line",
+    "origin": [
+      "C11",
+      "CH-12"
+    ],
+    "sources": [
+      {
+        "url": "https://www.milsport.admin.ch/media/postPdf/SpielFit_Unihockey_Slalom_Torschuss.pdf",
+        "type": "metodika",
+        "reliability": "ověřené"
+      },
+      {
+        "url": "https://www.mobilesport.ch/assets/lbwp-cdn/mobilesport/files/2013/09/praxis_2005_02_d.pdf",
+        "type": "metodika",
+        "reliability": "ověřené"
+      }
+    ]
+  },
+  {
+    "homeOnly": false,
+    "matchLegal": true,
+    "players": "1-4",
+    "noise": "tichý",
+    "handicap": [
+      "Táta jen bekhendem"
+    ],
+    "id": "toaletni-osmicka",
+    "name": "Toaletní osmička",
+    "type": "vlastní",
+    "format": "čas",
+    "durationSec": 30,
+    "scoring": "počet",
+    "rules": "Dvě role toaletního papíru metr od sebe. Kolik osmiček objedeš za 30 s? Shozená role znamená konec.",
+    "voiceIntro": "Toaletní osmička! Kolik osmiček stihneš za třicet vteřin? Role nesmí spadnout.",
+    "safety": "Hůl pod pasem. Tichá výzva do bytu.",
+    "equipment": [
+      "2 role toaletního papíru"
+    ],
+    "origin": [
+      "C12"
+    ],
+    "sources": [
+      {
+        "url": "https://www.youtube.com/watch?v=3vqw3QHZpNo",
+        "type": "video",
+        "reliability": "inspirace"
+      }
+    ]
+  },
+  {
+    "homeOnly": false,
+    "matchLegal": true,
+    "players": "2-4",
+    "noise": "střední",
+    "handicap": [
+      "Táta smí vybírat jen triky, které syn už má odemčené"
+    ],
+    "id": "kohout",
+    "name": "KOHOUT",
+    "type": "kohout",
+    "format": "série",
+    "scoring": "počet",
+    "rules": "Jeden předvede trik a nahlas ho popíše. Když se mu povede, druhý ho musí zopakovat. Kdo nezopakuje, dostane písmeno K-O-H-O-U-T. Kdo má celé slovo, prohrál. Kratší varianta je KOZA.",
+    "voiceIntro": "Hrajeme KOHOUTA! Předveď trik a druhý ho musí zopakovat. Kdo nezvládne, dostane písmenko.",
+    "safety": "Jen triky ze seznamu pro domácnost. Hůl pod pasem, kolem 2 m volno.",
+    "equipment": [
+      "míček",
+      "cíl podle triku"
+    ],
+    "matchNote": "Podle triku. Triky nad koleny jsou jen domácí frajeřinky.",
+    "origin": [
+      "C13",
+      "CH-24"
+    ],
+    "sources": [
+      {
+        "url": "https://www.mobilesport.ch/assets/lbwp-cdn/mobilesport/files/2013/09/praxis_2005_02_d.pdf",
+        "type": "metodika",
+        "reliability": "ověřené"
+      },
+      {
+        "url": "https://klickin.swissunihockey.ch/index.php/download_file/view/313/279",
+        "type": "metodika",
+        "reliability": "ověřené"
+      }
+    ]
+  },
+  {
+    "homeOnly": false,
+    "matchLegal": true,
+    "players": "2",
+    "noise": "hlasitý",
+    "handicap": [
+      "Táta jen bekhendem",
+      "Táta střílí o metr dál"
+    ],
+    "id": "najezdy",
+    "name": "Nájezdy",
+    "type": "cíl",
+    "format": "pokusy",
+    "attempts": 5,
+    "scoring": "trefy",
+    "rules": "Každý má 5 nájezdů na brankáře. Brankář klečí bez hole. Před sérií každý tipne, kolik dá. Za přesný tip je bod navíc.",
+    "voiceIntro": "Nájezdy! Tipni si, kolik gólů dáš. Brankář klečí a střílí se jen po zemi.",
+    "safety": "Slabé střely jen po zemi nebo do výšky kolen. Brankář chrání obličej rukama. Žádná střela z blízka na hlavu.",
+    "equipment": [
+      "branka",
+      "míček"
+    ],
+    "origin": [
+      "C14"
+    ],
+    "sources": [
+      {
+        "url": "https://www.youtube.com/watch?v=q5O5Qi-ZQY4",
+        "type": "video",
+        "reliability": "inspirace"
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=vyOmJdqA7aE",
+        "type": "video",
+        "reliability": "inspirace"
+      }
+    ]
+  },
+  {
+    "homeOnly": false,
+    "matchLegal": true,
+    "players": "1-4",
+    "noise": "hlasitý",
+    "handicap": [
+      "Táta střílí o metr dál"
+    ],
+    "id": "bekhend-vyzva",
+    "name": "Bekhendová výzva",
+    "type": "cíl",
+    "format": "pokusy",
+    "attempts": 10,
+    "scoring": "trefy",
+    "rules": "Libovolná střelecká výzva, ale jen bekhendem.",
+    "voiceIntro": "Jen bekhendem! Kdo dá víc tref z deseti?",
+    "safety": "Nikdo v dosahu hole, diváci stojí za střelcem, nikdy za cílem. Hůl při střele pod pasem, žádný velký nápřah. Cíl u zdi, křehké věci pryč.",
+    "equipment": [
+      "cíl",
+      "míčky"
+    ],
+    "origin": [
+      "C15"
+    ],
+    "sources": [
+      {
+        "url": "https://www.youtube.com/watch?v=S-VGfNc1dC8",
+        "type": "video",
+        "reliability": "inspirace"
+      }
+    ]
+  },
+  {
+    "homeOnly": false,
+    "matchLegal": true,
+    "players": "1-4",
+    "noise": "hlasitý",
+    "handicap": [
+      "Táta má o 2 pokusy méně"
+    ],
+    "id": "silena-minuta",
+    "name": "Šílená minuta",
+    "type": "vlastní",
+    "format": "série",
+    "scoring": "trefy",
+    "durationSec": 240,
+    "rules": "Čtyři kola po minutě. Na začátku každého kola Trenér vylosuje pravidlo: jen bekhend, jednoruč, hůl obráceně, ze dvou metrů dál. Body se sčítají.",
+    "voiceIntro": "Šílená minuta! Každou minutu nové pravidlo. Poslouchej, co vylosuju!",
+    "safety": "Nikdo v dosahu hole, diváci stojí za střelcem, nikdy za cílem. Hůl při střele pod pasem, žádný velký nápřah. Cíl u zdi, křehké věci pryč.",
+    "equipment": [
+      "cíl",
+      "míčky"
+    ],
+    "origin": [
+      "C16"
+    ],
+    "sources": [
+      {
+        "url": "https://www.youtube.com/watch?v=P7ezNqf1VzI",
+        "type": "video",
+        "reliability": "inspirace"
+      }
+    ]
+  },
+  {
+    "homeOnly": false,
+    "matchLegal": true,
+    "players": "1-4",
+    "noise": "hlasitý",
+    "handicap": [
+      "Táta drží hůl obráceně"
+    ],
+    "id": "zorro-gol",
+    "name": "Zorro gól",
+    "type": "cíl",
+    "format": "do-x",
+    "target": 3,
+    "scoring": "trefy",
+    "rules": "Kdo první dá 3 góly Zorrem ze 2 metrů. Čepel s míčkem pod koleny.",
+    "voiceIntro": "Zorro gól! Kdo dá první tři? Čepel pod koleny, jinak by to v zápase byl faul.",
+    "safety": "Nikdo v dosahu hole, diváci stojí za střelcem, nikdy za cílem. Hůl při střele pod pasem, žádný velký nápřah. Cíl u zdi, křehké věci pryč.",
+    "equipment": [
+      "krabice nebo branka",
+      "míčky"
+    ],
+    "origin": [
+      "C18"
+    ],
+    "sources": [
+      {
+        "url": "https://www.youtube.com/watch?v=gvFCTOKb7JA",
+        "type": "video",
+        "reliability": "inspirace"
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=6ZRkkhVpz48",
+        "type": "video",
+        "reliability": "inspirace"
+      }
+    ]
+  },
+  {
+    "homeOnly": true,
+    "matchLegal": false,
+    "players": "1-4",
+    "noise": "hlasitý",
+    "handicap": [
+      "Táta má o 2 pokusy méně"
+    ],
+    "id": "lacrosse-gol",
+    "name": "Lacrosse zpoza branky",
+    "type": "cíl",
+    "format": "pokusy",
+    "attempts": 10,
+    "scoring": "trefy",
+    "rules": "Gól lacrosse stylem zpoza branky. Gól je za 3 body. Vysoko do rohu je to jen domácí kousek.",
+    "voiceIntro": "Lacrosse zpoza branky! Vysoko do rohu je to jen domácí frajeřinka, v zápase by to byl faul.",
+    "safety": "Nikdo v dosahu hole, diváci stojí za střelcem, nikdy za cílem. Hůl při střele pod pasem, žádný velký nápřah. Cíl u zdi, křehké věci pryč. Čepel pod pasem i při otáčení.",
+    "equipment": [
+      "branka",
+      "míčky"
+    ],
+    "origin": [
+      "C19"
+    ],
+    "homeOnlyLine": "Tohle je jen domácí frajeřinka, v zápase by to byl faul.",
+    "sources": [
+      {
+        "url": "https://www.youtube.com/watch?v=JIeMV8U03WY",
+        "type": "video",
+        "reliability": "inspirace"
+      }
+    ]
+  },
+  {
+    "homeOnly": false,
+    "matchLegal": true,
+    "players": "1-4",
+    "noise": "hlasitý",
+    "handicap": [
+      "Táta jen bekhendem"
+    ],
+    "id": "zed-prihravky",
+    "name": "Zeď na čas",
+    "type": "odraz",
+    "format": "čas",
+    "durationSec": 30,
+    "scoring": "počet",
+    "rules": "Kolik přihrávek o zeď nebo krabici a zpracování stihneš za 30 s. Varianta: střídavě forhend a bekhend.",
+    "voiceIntro": "Přihrávky o zeď! Kolik jich stihneš za třicet vteřin?",
+    "safety": "Jen proti pevné ploše bez obrázků a skla. Je to hlučné, ne pozdě večer.",
+    "equipment": [
+      "zeď nebo krabice s knihami"
+    ],
+    "origin": [
+      "C20",
+      "CH-20",
+      "MF-01",
+      "H37"
+    ],
+    "sources": [
+      {
+        "url": "https://www.youtube.com/watch?v=eZkptvPLoog",
+        "type": "video",
+        "reliability": "inspirace"
+      },
+      {
+        "url": "https://www.mobilesport.ch/assets/lbwp-cdn/mobilesport/files/2013/09/praxis_2005_02_d.pdf",
+        "type": "metodika",
+        "reliability": "ověřené"
+      },
+      {
+        "url": "https://myfloorball.eu/products/my-floorball-passer",
+        "type": "výrobce",
+        "reliability": "inspirace"
+      },
+      {
+        "url": "https://www.hockeyshare.com/drills/print/477220",
+        "type": "článek",
+        "reliability": "inspirace"
+      }
+    ]
+  },
+  {
+    "homeOnly": false,
+    "matchLegal": true,
+    "players": "1-4",
+    "noise": "střední",
+    "handicap": [
+      "Táta vozí jen bekhendem"
+    ],
+    "id": "lovci-micku",
+    "name": "Lovci míčků",
+    "type": "vlastní",
+    "format": "čas",
+    "durationSec": 30,
+    "scoring": "počet",
+    "rules": "Rozházej míčky po pokoji. Kolik jich za 30 s dovezeš holí do svého domečku (krabice, obruč)? Jen holí, žádné kopání.",
+    "voiceIntro": "Lovci míčků! Vozíš je holí do domečku, vždycky jen jeden. Kolik jich stihneš?",
+    "safety": "Hůl pod pasem. Po hře všechny míčky posbírej.",
+    "equipment": [
+      "5–10 míčků",
+      "krabice nebo obruč"
+    ],
+    "origin": [
+      "CR-22",
+      "CH-07",
+      "SE-05"
+    ],
+    "sources": [
+      {
+        "url": "https://theses.cz/id/vj1m99/",
+        "type": "VŠ práce",
+        "reliability": "ověřené"
+      },
+      {
+        "url": "https://www.mobilesport.ch/assets/lbwp-cdn/mobilesport/files/2013/09/praxis_2005_02_d.pdf",
+        "type": "metodika",
+        "reliability": "ověřené"
+      },
+      {
+        "url": "https://docs.google.com/document/d/1etvM2HK8Swz4Eit2b3P62pj4t4lCKR_jOTd2dbEV9_M/export?format=pdf",
+        "type": "metodika",
+        "reliability": "inspirace"
+      }
+    ]
+  },
+  {
+    "homeOnly": false,
+    "matchLegal": true,
+    "players": "2",
+    "noise": "tichý",
+    "handicap": [
+      "Táta má ruce za zády, dokud nezazní „míček“"
+    ],
+    "id": "reflex",
+    "name": "Reflex",
+    "type": "vlastní",
+    "format": "do-x",
+    "target": 5,
+    "scoring": "počet",
+    "rules": "Klečíte proti sobě, mezi vámi leží míček. Trenér říká části těla a vy si na ně saháte. Na slovo „míček“ ho zkuste sebrat první.",
+    "voiceIntro": "Reflex! Sahej, kam řeknu: hlava, ramena, kolena. A až řeknu míček, chňapni po něm!",
+    "safety": "Bez holí. Hlavy od sebe, saháte jen rukou na míček.",
+    "equipment": [
+      "míček"
+    ],
+    "origin": [
+      "CR-34"
+    ],
+    "sources": [
+      {
+        "url": "https://www.innebandy.se/ovningsbanken/reflexen",
+        "type": "metodika (övningsbanken)",
+        "reliability": "ověřené"
+      }
+    ]
+  },
+  {
+    "homeOnly": false,
+    "matchLegal": true,
+    "players": "2",
+    "noise": "střední",
+    "handicap": [
+      "Táta smí kužely pokládat jen levou rukou"
+    ],
+    "id": "kuzel-chaos",
+    "name": "Kužel-chaos",
+    "type": "vlastní",
+    "format": "čas",
+    "durationSec": 60,
+    "scoring": "počet",
+    "rules": "Polovina kuželů stojí, polovina leží. Jeden kužely staví, druhý je pokládá. Po minutě se spočítá, čeho je víc.",
+    "voiceIntro": "Kužel-chaos! Jeden staví, druhý pokládá. Za minutu se počítá!",
+    "safety": "Bez holí. Pozor na hlavy, když se oba sehnete ke stejnému kuželu.",
+    "equipment": [
+      "6 a více kuželů nebo kelímků"
+    ],
+    "origin": [
+      "CR-35"
+    ],
+    "sources": [
+      {
+        "url": "https://www.innebandy.se/ovningsbanken/kon-kaos",
+        "type": "metodika (övningsbanken)",
+        "reliability": "ověřené"
+      }
+    ]
+  },
+  {
+    "homeOnly": false,
+    "matchLegal": true,
+    "players": "2",
+    "noise": "hlasitý",
+    "handicap": [
+      "Táta je na kolenou a smí jen jednou rukou"
+    ],
+    "id": "udrz-micek",
+    "name": "Udrž si míček",
+    "type": "vlastní",
+    "format": "série",
+    "scoring": "čas",
+    "attempts": 4,
+    "rules": "Ve čtverci 2 × 2 m vedeš míček a táta na kolenou se ho snaží vypíchnout. Kolo trvá 20 s, pak výměna. Hraje se jen na míček.",
+    "voiceIntro": "Udrž si míček! Táta klečí a chce ti ho vzít. Schovej ho tělem.",
+    "safety": "Žádné sekání do hole ani zvedání hole. Táta na kolenou na měkké podložce, hraje jen na míček.",
+    "equipment": [
+      "míček",
+      "4 kužely"
+    ],
+    "origin": [
+      "H47",
+      "CH-10",
+      "FI-01"
+    ],
+    "sources": [
+      {
+        "url": "https://schools.wrdsb.ca/athome/learn/elementary-home/elementary-2/healthy-active-living/healthy-active-living-all-grades/skill-development/hockey-skills-drills-and-challenges/",
+        "type": "článek",
+        "reliability": "inspirace"
+      },
+      {
+        "url": "https://cdn.hockeycanada.ca/hockey-canada/Hockey-Programs/Players/Downloads/2020/puck-control-overview-e.pdf",
+        "type": "metodika",
+        "reliability": "ověřené"
+      },
+      {
+        "url": "https://www.mobilesport.ch/assets/lbwp-cdn/mobilesport/files/2013/09/praxis_2005_02_d.pdf",
+        "type": "metodika",
+        "reliability": "ověřené"
+      },
+      {
+        "url": "https://salibandy.fi/wp-content/uploads/2025/12/hippo-x-sabakipina-lajinomaiset-leikit.pdf",
+        "type": "metodika",
+        "reliability": "ověřené"
+      }
+    ]
+  },
+  {
+    "homeOnly": false,
+    "matchLegal": true,
+    "players": "2",
+    "noise": "tichý",
+    "handicap": [
+      "Táta hraje bekhendem"
+    ],
+    "id": "boccia",
+    "name": "Boccia",
+    "type": "cíl",
+    "format": "pokusy",
+    "attempts": 5,
+    "scoring": "počet",
+    "rules": "Každý přihrává svůj míček co nejblíž k víčku. Kdo je po kole nejblíž, bere bod.",
+    "voiceIntro": "Boccia! Kdo pošle míček nejblíž k víčku? Tady nevyhraje síla, ale cit.",
+    "safety": "Jen jemné přihrávky po zemi. Tichá výzva do bytu.",
+    "equipment": [
+      "2 míčky",
+      "víčko jako cíl"
+    ],
+    "origin": [
+      "CH-22"
+    ],
+    "sources": [
+      {
+        "url": "https://editor.swissunihockey.ch/index.php/download_file/view/316/279",
+        "type": "metodika",
+        "reliability": "ověřené"
+      }
+    ]
+  }
+]

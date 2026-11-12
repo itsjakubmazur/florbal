@@ -1,0 +1,2221 @@
+[
+  {
+    "id": "kolotoc",
+    "name": "Kolotoč",
+    "card": "Kolotočář",
+    "level": 1,
+    "requires": [],
+    "matchLegal": true,
+    "matchNote": "V zápase povolené, míček je na zemi.",
+    "safety": "Hůl drž pod pasem. Kolem tebe dva metry volno, nikdo v dosahu hole. Stůj čelem ke zdi nebo k pohovce, ne k oknu ani k televizi.",
+    "origin": [
+      "T01"
+    ],
+    "steps": [
+      {
+        "id": "kolotoc-1",
+        "name": "Tah špičkou",
+        "howTo": "Míček je u špičky čepele. Táhni ho po zemi tam a zpátky před sebou.",
+        "criterion": "10 tahů tam a zpět, míček neopustí čepel.",
+        "voice": "Míček jezdí jen u špičky čepele. Tam a zpátky, deset krát!",
+        "animation": [
+          {
+            "at": "fh",
+            "blade": "fh"
+          },
+          {
+            "at": "bh",
+            "blade": "fh"
+          }
+        ]
+      },
+      {
+        "id": "kolotoc-2",
+        "name": "Oblouk dozadu",
+        "howTo": "Táhni míček špičkou obloukem z boku za sebe a zase dopředu.",
+        "criterion": "5 oblouků v řadě bez ztráty míčku.",
+        "voice": "Teď oblouk. Z boku dozadu a zase dopředu.",
+        "animation": [
+          {
+            "at": "front",
+            "blade": "fh"
+          },
+          {
+            "at": "fh",
+            "blade": "fh"
+          },
+          {
+            "at": "back",
+            "blade": "fh"
+          },
+          {
+            "at": "fh",
+            "blade": "fh"
+          }
+        ]
+      },
+      {
+        "id": "kolotoc-3",
+        "name": "Točí se ramena",
+        "howTo": "Loket horní ruky je nahoře a s míčkem se otáčí celé tělo, ne jen ruce.",
+        "criterion": "Rodič vidí otočení ramen u 5 oblouků z 5.",
+        "voice": "Zvedni loket a otoč s míčkem ramena.",
+        "animation": [
+          {
+            "at": "front",
+            "blade": "fh"
+          },
+          {
+            "at": "fh",
+            "blade": "fh"
+          },
+          {
+            "at": "back",
+            "blade": "fh"
+          },
+          {
+            "at": "fh",
+            "blade": "fh"
+          }
+        ]
+      },
+      {
+        "id": "kolotoc-4",
+        "name": "Kolotoč bez zastavení",
+        "howTo": "Kruž míčkem plynule a nezastavuj.",
+        "criterion": "20 s nepřetržitě bez ztráty míčku.",
+        "voice": "A teď plynule jako kolotoč, dvacet vteřin!",
+        "animation": [
+          {
+            "at": "front",
+            "blade": "fh"
+          },
+          {
+            "at": "fh",
+            "blade": "fh"
+          },
+          {
+            "at": "back",
+            "blade": "fh"
+          },
+          {
+            "at": "fh",
+            "blade": "fh"
+          }
+        ]
+      }
+    ],
+    "setupId": "spot",
+    "sources": [
+      {
+        "url": "https://www.youtube.com/watch?v=ZCEezWMOdA4",
+        "type": "video",
+        "reliability": "inspirace"
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=gvFCTOKb7JA",
+        "type": "video",
+        "reliability": "inspirace"
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=UPtyRyLBawo",
+        "type": "video",
+        "reliability": "inspirace"
+      }
+    ],
+    "confidence": "odvozené"
+  },
+  {
+    "id": "balanc",
+    "name": "Míček na čepeli",
+    "card": "Kouzelník čepele",
+    "level": 1,
+    "requires": [],
+    "matchLegal": true,
+    "matchNote": "V zápase to jde, ale jen když míček zůstane pod koleny.",
+    "safety": "Hůl drž pod pasem. Kolem tebe dva metry volno, nikdo v dosahu hole. Stůj čelem ke zdi nebo k pohovce, ne k oknu ani k televizi.",
+    "origin": [
+      "T03",
+      "CH-03",
+      "SO-03"
+    ],
+    "steps": [
+      {
+        "id": "balanc-1",
+        "name": "Klidná čepel",
+        "howTo": "Táta ti položí míček na čepel. Drž ho bez hnutí.",
+        "criterion": "Udržíš míček na čepeli 5 s.",
+        "voice": "Táta ti dá míček na čepel. Udržíš ho pět vteřin?",
+        "animation": [
+          {
+            "at": "front",
+            "blade": "fh",
+            "air": true
+          }
+        ]
+      },
+      {
+        "id": "balanc-2",
+        "name": "Nahoru a dolů",
+        "howTo": "Pomalu zvedej čepel od kotníku ke kolenu a zpátky.",
+        "criterion": "10 s bez pádu míčku.",
+        "voice": "Pomalu nahoru ke kolenu a zase dolů. Výš než koleno ne!",
+        "animation": [
+          {
+            "at": "front",
+            "blade": "fh",
+            "air": true
+          },
+          {
+            "at": "back",
+            "blade": "fh",
+            "air": true
+          },
+          {
+            "at": "front",
+            "blade": "fh",
+            "air": true
+          }
+        ]
+      },
+      {
+        "id": "balanc-3",
+        "name": "Do stran",
+        "howTo": "Míček na čepeli posouvej pomalu doleva a doprava.",
+        "criterion": "10 s bez pádu míčku.",
+        "voice": "Teď posouvej míček do stran. Pomalu a měkce.",
+        "animation": [
+          {
+            "at": "fh",
+            "blade": "fh",
+            "air": true
+          },
+          {
+            "at": "bh",
+            "blade": "fh",
+            "air": true
+          }
+        ]
+      },
+      {
+        "id": "balanc-4",
+        "name": "Bekhendová strana",
+        "howTo": "Zkus to samé na bekhendové straně čepele.",
+        "criterion": "Udržíš míček na bekhendu 5 s.",
+        "voice": "A teď bekhend. Pět vteřin!",
+        "animation": [
+          {
+            "at": "front",
+            "blade": "bh",
+            "air": true
+          }
+        ]
+      }
+    ],
+    "setupId": "spot",
+    "sources": [
+      {
+        "url": "https://www.youtube.com/watch?v=UPtyRyLBawo",
+        "type": "video",
+        "reliability": "inspirace"
+      },
+      {
+        "url": "https://www.mobilesport.ch/assets/lbwp-cdn/mobilesport/files/2013/09/praxis_2005_02_d.pdf",
+        "type": "metodika",
+        "reliability": "ověřené"
+      },
+      {
+        "url": "https://www1.specialolympicsontario.com/resources/wp-content/uploads/sites/39/2024/10/SOI_Floorball_Coaching-Guide.pdf",
+        "type": "metodika",
+        "reliability": "ověřené"
+      }
+    ],
+    "confidence": "odvozené"
+  },
+  {
+    "id": "nabrani",
+    "name": "Nabrání na čepel",
+    "card": "Bagr",
+    "level": 2,
+    "requires": [
+      "kolotoc"
+    ],
+    "matchLegal": true,
+    "matchNote": "V zápase to jde, ale jen když míček zůstane pod koleny.",
+    "safety": "Hůl drž pod pasem. Kolem tebe dva metry volno, nikdo v dosahu hole. Stůj čelem ke zdi nebo k pohovce, ne k oknu ani k televizi. Míček nikdy nad pas. Nenaklánej se nad čepel, ať ti míček nevyletí do obličeje.",
+    "origin": [
+      "T02",
+      "CZ-10"
+    ],
+    "steps": [
+      {
+        "id": "nabrani-1",
+        "name": "Přitáhni a zastav",
+        "howTo": "Míček leží před tebou. Přitáhni ho k sobě a zastav u paty čepele.",
+        "criterion": "10 z 10 bez odskoku.",
+        "voice": "Přitáhni míček k sobě a měkce ho zastav.",
+        "animation": [
+          {
+            "at": "front",
+            "blade": "fh"
+          },
+          {
+            "at": "back",
+            "blade": "fh"
+          }
+        ]
+      },
+      {
+        "id": "nabrani-2",
+        "name": "Vyhoupni ho",
+        "howTo": "Přitáhni míček a nakloň čepel, ať se míček vyhoupne na čepel. Hned ho pusť dolů.",
+        "criterion": "5 z 10 pokusů je míček aspoň chvilku na čepeli.",
+        "voice": "Přitáhni a nakloň čepel. Míček vyskočí na čepel!",
+        "animation": [
+          {
+            "at": "front",
+            "blade": "fh"
+          },
+          {
+            "at": "back",
+            "blade": "fh",
+            "air": true
+          }
+        ]
+      },
+      {
+        "id": "nabrani-3",
+        "name": "Nabrat a držet",
+        "howTo": "Nabrat a udržet míček na čepeli jednu vteřinu.",
+        "criterion": "6 z 10 pokusů.",
+        "voice": "Nabrat a chvilku držet. Raz, a mám ho!",
+        "animation": [
+          {
+            "at": "front",
+            "blade": "fh"
+          },
+          {
+            "at": "back",
+            "blade": "fh",
+            "air": true
+          },
+          {
+            "at": "back",
+            "blade": "fh",
+            "air": true
+          }
+        ]
+      },
+      {
+        "id": "nabrani-4",
+        "name": "Nabrání z chůze",
+        "howTo": "Míček se kutálí před tebou a ty ho za chůze nabereš.",
+        "criterion": "5 z 10 pokusů.",
+        "voice": "Teď za chůze. Míček se kutálí a ty ho nabereš.",
+        "animation": [
+          {
+            "at": "front",
+            "blade": "fh"
+          },
+          {
+            "at": "front",
+            "blade": "fh"
+          },
+          {
+            "at": "back",
+            "blade": "fh",
+            "air": true
+          }
+        ]
+      }
+    ],
+    "setupId": "spot",
+    "sources": [
+      {
+        "url": "https://www.youtube.com/watch?v=iGx8arbYMhg",
+        "type": "video",
+        "reliability": "inspirace"
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=3NIkT5qidpM",
+        "type": "video",
+        "reliability": "inspirace"
+      },
+      {
+        "url": "https://dspace5.zcu.cz/bitstream/11025/19998/1/Diplomova%20prace%20Matous%20Hrdlicka%202015.pdf",
+        "type": "VŠ práce (metodika ČFbU)",
+        "reliability": "ověřené"
+      }
+    ],
+    "confidence": "odvozené"
+  },
+  {
+    "id": "chuze-cepel",
+    "name": "Číšník",
+    "card": "Číšník",
+    "level": 2,
+    "requires": [
+      "balanc"
+    ],
+    "matchLegal": true,
+    "matchNote": "V zápase to jde, ale jen když míček zůstane pod koleny.",
+    "safety": "Hůl drž pod pasem. Kolem tebe dva metry volno, nikdo v dosahu hole. Stůj čelem ke zdi nebo k pohovce, ne k oknu ani k televizi.",
+    "origin": [
+      "T07",
+      "FI-11",
+      "CZ-21"
+    ],
+    "steps": [
+      {
+        "id": "chuze-1",
+        "name": "Tři kroky",
+        "howTo": "S míčkem na čepeli udělej tři kroky dopředu.",
+        "criterion": "3× v řadě bez pádu míčku.",
+        "voice": "Míček na čepel a tři kroky dopředu.",
+        "animation": [
+          {
+            "at": "front",
+            "blade": "fh",
+            "air": true
+          },
+          {
+            "at": "front",
+            "blade": "fh",
+            "air": true
+          },
+          {
+            "at": "front",
+            "blade": "fh",
+            "air": true
+          }
+        ]
+      },
+      {
+        "id": "chuze-2",
+        "name": "Přes pokoj",
+        "howTo": "Dojdi s míčkem na čepeli až ke kuželu.",
+        "criterion": "2 ze 3 pokusů bez pádu.",
+        "voice": "Dojdi s míčkem až ke kuželu. Čepel nízko!",
+        "animation": [
+          {
+            "at": 1,
+            "blade": "fh",
+            "air": true
+          },
+          {
+            "at": 2,
+            "blade": "fh",
+            "air": true
+          }
+        ]
+      },
+      {
+        "id": "chuze-3",
+        "name": "Kolem kuželu",
+        "howTo": "S míčkem na čepeli obejdi kužel.",
+        "criterion": "3 z 5 pokusů.",
+        "voice": "Obejdi kužel a míček nesmí spadnout.",
+        "animation": [
+          {
+            "at": "around:2",
+            "blade": "fh",
+            "air": true,
+            "dir": "ccw"
+          },
+          {
+            "at": "home",
+            "blade": "fh",
+            "air": true
+          }
+        ]
+      },
+      {
+        "id": "chuze-4",
+        "name": "Slalom číšníka",
+        "howTo": "Projdi s míčkem na čepeli slalom kolem obou kuželů.",
+        "criterion": "2 z 5 pokusů.",
+        "voice": "Slalom s míčkem na čepeli. To je pro mistry!",
+        "animation": [
+          {
+            "at": "around:1",
+            "blade": "fh",
+            "air": true,
+            "dir": "cw"
+          },
+          {
+            "at": "around:2",
+            "blade": "fh",
+            "air": true,
+            "dir": "ccw"
+          }
+        ]
+      }
+    ],
+    "setupId": "spot",
+    "sources": [
+      {
+        "url": "https://www.youtube.com/watch?v=UPtyRyLBawo",
+        "type": "video",
+        "reliability": "inspirace"
+      },
+      {
+        "url": "https://bin.yhdistysavain.fi/1580251/ruuOmGuWdYLL9JFkqrvC0bZWHb/SBVImuistiinpanot.pdf",
+        "type": "metodika",
+        "reliability": "ověřené"
+      },
+      {
+        "url": "https://dspace5.zcu.cz/bitstream/11025/19998/1/Diplomova%20prace%20Matous%20Hrdlicka%202015.pdf",
+        "type": "VŠ práce (metodika ČFbU)",
+        "reliability": "ověřené"
+      }
+    ],
+    "confidence": "odvozené"
+  },
+  {
+    "id": "zmrzlina",
+    "name": "Točená zmrzlina",
+    "card": "Zmrzlinář",
+    "level": 2,
+    "requires": [
+      "balanc",
+      "nabrani"
+    ],
+    "matchLegal": true,
+    "matchNote": "V zápase to jde, ale jen když míček zůstane pod koleny.",
+    "safety": "Hůl drž pod pasem. Kolem tebe dva metry volno, nikdo v dosahu hole. Stůj čelem ke zdi nebo k pohovce, ne k oknu ani k televizi.",
+    "origin": [
+      "T08"
+    ],
+    "steps": [
+      {
+        "id": "zmrzlina-1",
+        "name": "Bez míčku",
+        "howTo": "Horní rukou otoč hůl o půl otáčky a zpátky. Čepel zůstává dole.",
+        "criterion": "10× plynule.",
+        "voice": "Bez míčku: horní rukou otoč hůl a zpátky.",
+        "animation": [
+          {
+            "at": "front",
+            "blade": "fh"
+          },
+          {
+            "at": "front",
+            "blade": "bh"
+          }
+        ]
+      },
+      {
+        "id": "zmrzlina-2",
+        "name": "Malé protočení",
+        "howTo": "S míčkem na čepeli protoč čepel jen trošku a zpátky.",
+        "criterion": "5 z 5.",
+        "voice": "Míček na čepel a jen malinko protoč.",
+        "animation": [
+          {
+            "at": "front",
+            "blade": "fh",
+            "air": true
+          },
+          {
+            "at": "front",
+            "blade": "fh",
+            "air": true
+          }
+        ]
+      },
+      {
+        "id": "zmrzlina-3",
+        "name": "Celá zmrzlina",
+        "howTo": "Protoč čepel s míčkem nahoru a zpátky, jako když točíš zmrzlinu.",
+        "criterion": "3× v řadě.",
+        "voice": "Teď celá točená zmrzlina! Obloukem, žádné cuknutí.",
+        "animation": [
+          {
+            "at": "front",
+            "blade": "fh",
+            "air": true
+          },
+          {
+            "at": "front",
+            "blade": "bh",
+            "air": true
+          },
+          {
+            "at": "front",
+            "blade": "fh",
+            "air": true
+          }
+        ]
+      },
+      {
+        "id": "zmrzlina-4",
+        "name": "Pět kopečků",
+        "howTo": "Protoč čepel pětkrát za sebou, míček nespadne.",
+        "criterion": "5 protočení v řadě.",
+        "voice": "Pět kopečků zmrzliny za sebou!",
+        "animation": [
+          {
+            "at": "front",
+            "blade": "fh",
+            "air": true
+          },
+          {
+            "at": "front",
+            "blade": "bh",
+            "air": true
+          },
+          {
+            "at": "front",
+            "blade": "fh",
+            "air": true
+          },
+          {
+            "at": "front",
+            "blade": "bh",
+            "air": true
+          },
+          {
+            "at": "front",
+            "blade": "fh",
+            "air": true
+          }
+        ]
+      }
+    ],
+    "setupId": "spot",
+    "sources": [
+      {
+        "url": "https://www.youtube.com/watch?v=gvFCTOKb7JA",
+        "type": "video",
+        "reliability": "inspirace"
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=UPtyRyLBawo",
+        "type": "video",
+        "reliability": "inspirace"
+      }
+    ],
+    "confidence": "odvozené"
+  },
+  {
+    "id": "zorro",
+    "name": "Zorro",
+    "card": "Mistr Zorra",
+    "level": 3,
+    "requires": [
+      "kolotoc",
+      "zmrzlina"
+    ],
+    "matchLegal": true,
+    "matchNote": "V zápase povolené, jen když je čepel s míčkem pod koleny. Na trestném střílení smí míček ve vzduchu změnit směr jen jednou.",
+    "safety": "Hůl drž pod pasem. Kolem tebe dva metry volno, nikdo v dosahu hole. Stůj čelem ke zdi nebo k pohovce, ne k oknu ani k televizi. Míček nikdy nad pas. Nenaklánej se nad čepel, ať ti míček nevyletí do obličeje. Nikdo nestojí na straně, kam čepel kreslí oblouk.",
+    "origin": [
+      "T09"
+    ],
+    "steps": [
+      {
+        "id": "zorro-1",
+        "name": "Oblouk po zemi",
+        "howTo": "Táhni míček po zemi obloukem z forhendu na bekhend. Míček je pořád v kapse čepele.",
+        "criterion": "5× v řadě.",
+        "voice": "Oblouk po zemi z forhendu na bekhend. Míček drž v kapse čepele.",
+        "animation": [
+          {
+            "at": "fh",
+            "blade": "fh"
+          },
+          {
+            "at": "front",
+            "blade": "fh"
+          },
+          {
+            "at": "bh",
+            "blade": "bh"
+          }
+        ]
+      },
+      {
+        "id": "zorro-2",
+        "name": "Chyť na bekhendu",
+        "howTo": "Na konci oblouku otoč horní ruku a chyť míček do čepele na bekhendu.",
+        "criterion": "5 z 10 pokusů.",
+        "voice": "Na konci otoč horní ruku a chyť míček na bekhendu.",
+        "animation": [
+          {
+            "at": "fh",
+            "blade": "fh"
+          },
+          {
+            "at": "front",
+            "blade": "fh",
+            "air": true
+          },
+          {
+            "at": "bh",
+            "blade": "bh",
+            "air": true
+          }
+        ]
+      },
+      {
+        "id": "zorro-3",
+        "name": "Zpátky na forhend",
+        "howTo": "Míček z bekhendu přenes obloukem zpátky na forhend. Bez spěchu.",
+        "criterion": "3× v řadě.",
+        "voice": "A zpátky na forhend. Pomalu, obloukem.",
+        "animation": [
+          {
+            "at": "bh",
+            "blade": "bh",
+            "air": true
+          },
+          {
+            "at": "front",
+            "blade": "bh",
+            "air": true
+          },
+          {
+            "at": "fh",
+            "blade": "fh",
+            "air": true
+          }
+        ]
+      },
+      {
+        "id": "zorro-4",
+        "name": "Tam a zpátky",
+        "howTo": "Plynule tam a zpátky. Točí se trup, ne jen ruce.",
+        "criterion": "3 výměny strany v řadě bez pádu.",
+        "voice": "Tam a zpátky. Točí se celé tělo!",
+        "animation": [
+          {
+            "at": "fh",
+            "blade": "fh",
+            "air": true
+          },
+          {
+            "at": "front",
+            "blade": "fh",
+            "air": true
+          },
+          {
+            "at": "bh",
+            "blade": "bh",
+            "air": true
+          },
+          {
+            "at": "front",
+            "blade": "bh",
+            "air": true
+          },
+          {
+            "at": "fh",
+            "blade": "fh",
+            "air": true
+          }
+        ]
+      },
+      {
+        "id": "zorro-5",
+        "name": "Rychlé Zorro",
+        "howTo": "Zorro rychle a bez zastavení uprostřed.",
+        "criterion": "5 výměn strany za 5 s.",
+        "voice": "Teď švihni! Pět výměn za pět vteřin. Čepel pod koleny!",
+        "animation": [
+          {
+            "at": "fh",
+            "blade": "fh",
+            "air": true
+          },
+          {
+            "at": "bh",
+            "blade": "bh",
+            "air": true
+          },
+          {
+            "at": "fh",
+            "blade": "fh",
+            "air": true
+          },
+          {
+            "at": "bh",
+            "blade": "bh",
+            "air": true
+          },
+          {
+            "at": "fh",
+            "blade": "fh",
+            "air": true
+          }
+        ]
+      }
+    ],
+    "setupId": "spot",
+    "sources": [
+      {
+        "url": "https://www.youtube.com/watch?v=UPtyRyLBawo",
+        "type": "video",
+        "reliability": "inspirace"
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=ZCEezWMOdA4",
+        "type": "video",
+        "reliability": "inspirace"
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=gvFCTOKb7JA",
+        "type": "video",
+        "reliability": "inspirace"
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=6ZRkkhVpz48",
+        "type": "video",
+        "reliability": "inspirace"
+      },
+      {
+        "url": "https://www.floorball.sport/wp-content/uploads/2026/02/Rules-of-the-Game-2026-with-all-changes-260209.pdf",
+        "type": "pravidla",
+        "reliability": "ověřené"
+      }
+    ],
+    "confidence": "odvozené"
+  },
+  {
+    "id": "zorro-strelec",
+    "name": "Zorro střelec",
+    "card": "Zorro střelec",
+    "level": 4,
+    "requires": [
+      "zorro"
+    ],
+    "matchLegal": true,
+    "matchNote": "V zápase to jde, ale jen když míček zůstane pod koleny.",
+    "safety": "Hůl drž pod pasem. Kolem tebe dva metry volno, nikdo v dosahu hole. Stůj čelem ke zdi nebo k pohovce, ne k oknu ani k televizi. Míček nikdy nad pas. Nenaklánej se nad čepel, ať ti míček nevyletí do obličeje. Střílej jen do krabice u zdi, nikdy na lidi.",
+    "origin": [
+      "T10",
+      "C08",
+      "FI-20"
+    ],
+    "steps": [
+      {
+        "id": "zstrelec-1",
+        "name": "Zorro v chůzi",
+        "howTo": "Udělej Zorro a přitom jdi pomalu dopředu tři metry.",
+        "criterion": "3 z 5 bez pádu.",
+        "voice": "Zorro za chůze. Pomalu dopředu.",
+        "animation": [
+          {
+            "at": "fh",
+            "blade": "fh",
+            "air": true
+          },
+          {
+            "at": 1,
+            "blade": "bh",
+            "air": true
+          },
+          {
+            "at": 2,
+            "blade": "fh",
+            "air": true
+          }
+        ]
+      },
+      {
+        "id": "zstrelec-2",
+        "name": "Zorro do krabice",
+        "howTo": "Zorro a z metru odhoď míček do krabice.",
+        "criterion": "3 z 10 trefí krabici.",
+        "voice": "Zorro a šup do krabice!",
+        "animation": [
+          {
+            "at": "fh",
+            "blade": "fh",
+            "air": true
+          },
+          {
+            "at": "bh",
+            "blade": "bh",
+            "air": true
+          },
+          {
+            "at": 2,
+            "blade": "fh",
+            "air": true
+          }
+        ]
+      },
+      {
+        "id": "zstrelec-3",
+        "name": "Ze tří metrů",
+        "howTo": "Nájezd chůzí ze tří metrů, Zorro a odhoz do krabice.",
+        "criterion": "3 z 10.",
+        "voice": "Ze tří metrů. Nájezd, Zorro, gól!",
+        "animation": [
+          {
+            "at": "home",
+            "blade": "fh"
+          },
+          {
+            "at": "fh",
+            "blade": "fh",
+            "air": true
+          },
+          {
+            "at": "bh",
+            "blade": "bh",
+            "air": true
+          },
+          {
+            "at": 2,
+            "blade": "fh",
+            "air": true
+          }
+        ]
+      },
+      {
+        "id": "zstrelec-4",
+        "name": "Úklid Zorrem",
+        "howTo": "Všech deset míčků dostaň Zorrem do krabice.",
+        "criterion": "10 míčků do 5 minut.",
+        "voice": "Velký úklid! Deset míčků Zorrem do krabice.",
+        "animation": [
+          {
+            "at": "fh",
+            "blade": "fh",
+            "air": true
+          },
+          {
+            "at": "bh",
+            "blade": "bh",
+            "air": true
+          },
+          {
+            "at": 2,
+            "blade": "fh",
+            "air": true
+          }
+        ]
+      }
+    ],
+    "setupId": "spot",
+    "sources": [
+      {
+        "url": "https://www.youtube.com/watch?v=gvFCTOKb7JA",
+        "type": "video",
+        "reliability": "inspirace"
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=ZCEezWMOdA4",
+        "type": "video",
+        "reliability": "inspirace"
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=DzE7Sh5eSj0",
+        "type": "video",
+        "reliability": "inspirace"
+      },
+      {
+        "url": "https://bin.yhdistysavain.fi/1580251/ruuOmGuWdYLL9JFkqrvC0bZWHb/SBVImuistiinpanot.pdf",
+        "type": "metodika",
+        "reliability": "inspirace"
+      }
+    ],
+    "confidence": "odvozené"
+  },
+  {
+    "id": "zorro-bh",
+    "name": "Zorro z bekhendu",
+    "card": "Zorro zrcadlo",
+    "level": 4,
+    "requires": [
+      "zorro"
+    ],
+    "matchLegal": true,
+    "matchNote": "V zápase to jde, ale jen když míček zůstane pod koleny.",
+    "safety": "Hůl drž pod pasem. Kolem tebe dva metry volno, nikdo v dosahu hole. Stůj čelem ke zdi nebo k pohovce, ne k oknu ani k televizi. Míček nikdy nad pas. Nenaklánej se nad čepel, ať ti míček nevyletí do obličeje.",
+    "origin": [
+      "T11"
+    ],
+    "steps": [
+      {
+        "id": "zbh-1",
+        "name": "Oblouk z bekhendu",
+        "howTo": "Táhni míček po zemi obloukem z bekhendu na forhend.",
+        "criterion": "5× v řadě.",
+        "voice": "Obráceně: oblouk z bekhendu na forhend.",
+        "animation": [
+          {
+            "at": "bh",
+            "blade": "bh"
+          },
+          {
+            "at": "front",
+            "blade": "bh"
+          },
+          {
+            "at": "fh",
+            "blade": "fh"
+          }
+        ]
+      },
+      {
+        "id": "zbh-2",
+        "name": "Nabrat na bekhendu",
+        "howTo": "Nabrat míček na bekhendu a přenést ho na forhend.",
+        "criterion": "5 z 10.",
+        "voice": "Nabrat na bekhendu a přenést na forhend.",
+        "animation": [
+          {
+            "at": "bh",
+            "blade": "bh"
+          },
+          {
+            "at": "front",
+            "blade": "bh",
+            "air": true
+          },
+          {
+            "at": "fh",
+            "blade": "fh",
+            "air": true
+          }
+        ]
+      },
+      {
+        "id": "zbh-3",
+        "name": "Tři výměny",
+        "howTo": "Tři výměny strany v řadě, začínáš bekhendem.",
+        "criterion": "3 výměny v řadě.",
+        "voice": "Tři výměny, začni bekhendem!",
+        "animation": [
+          {
+            "at": "bh",
+            "blade": "bh",
+            "air": true
+          },
+          {
+            "at": "fh",
+            "blade": "fh",
+            "air": true
+          },
+          {
+            "at": "bh",
+            "blade": "bh",
+            "air": true
+          },
+          {
+            "at": "fh",
+            "blade": "fh",
+            "air": true
+          }
+        ]
+      }
+    ],
+    "setupId": "spot",
+    "sources": [
+      {
+        "url": "https://www.youtube.com/watch?v=6ZRkkhVpz48",
+        "type": "video",
+        "reliability": "inspirace"
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=UPtyRyLBawo",
+        "type": "video",
+        "reliability": "inspirace"
+      }
+    ],
+    "confidence": "odvozené"
+  },
+  {
+    "id": "zorro-jednoruc",
+    "name": "Zorro jednou rukou",
+    "card": "Zorro jedné ruky",
+    "level": 5,
+    "requires": [
+      "zorro-bh"
+    ],
+    "matchLegal": true,
+    "matchNote": "V zápase to jde, ale jen když míček zůstane pod koleny.",
+    "safety": "Hůl drž pod pasem. Kolem tebe dva metry volno, nikdo v dosahu hole. Stůj čelem ke zdi nebo k pohovce, ne k oknu ani k televizi. Míček nikdy nad pas. Nenaklánej se nad čepel, ať ti míček nevyletí do obličeje. Jednou rukou potřebuješ kolem sebe aspoň tři metry volna.",
+    "origin": [
+      "T12"
+    ],
+    "steps": [
+      {
+        "id": "zjr-1",
+        "name": "Balanc jednou rukou",
+        "howTo": "Drž míček na čepeli jen horní rukou.",
+        "criterion": "Udržíš 5 s.",
+        "voice": "Jen horní ruka. Udržíš míček pět vteřin?",
+        "animation": [
+          {
+            "at": "front",
+            "blade": "fh",
+            "air": true,
+            "hand": "top"
+          }
+        ]
+      },
+      {
+        "id": "zjr-2",
+        "name": "Zmrzlina jednou rukou",
+        "howTo": "Točená zmrzlina jen horní rukou.",
+        "criterion": "3× v řadě.",
+        "voice": "Točená zmrzlina jednou rukou.",
+        "animation": [
+          {
+            "at": "front",
+            "blade": "fh",
+            "air": true,
+            "hand": "top"
+          },
+          {
+            "at": "front",
+            "blade": "bh",
+            "air": true,
+            "hand": "top"
+          }
+        ]
+      },
+      {
+        "id": "zjr-3",
+        "name": "Jedna výměna",
+        "howTo": "Zorro jednou rukou, jedna výměna strany.",
+        "criterion": "3 z 10.",
+        "voice": "Zorro jednou rukou. Jedna výměna!",
+        "animation": [
+          {
+            "at": "fh",
+            "blade": "fh",
+            "air": true,
+            "hand": "top"
+          },
+          {
+            "at": "bh",
+            "blade": "bh",
+            "air": true,
+            "hand": "top"
+          }
+        ]
+      },
+      {
+        "id": "zjr-4",
+        "name": "Tři výměny",
+        "howTo": "Tři výměny strany v řadě jednou rukou.",
+        "criterion": "3 výměny v řadě.",
+        "voice": "Tři výměny jednou rukou. To je mistrovství!",
+        "animation": [
+          {
+            "at": "fh",
+            "blade": "fh",
+            "air": true,
+            "hand": "top"
+          },
+          {
+            "at": "bh",
+            "blade": "bh",
+            "air": true,
+            "hand": "top"
+          },
+          {
+            "at": "fh",
+            "blade": "fh",
+            "air": true,
+            "hand": "top"
+          },
+          {
+            "at": "bh",
+            "blade": "bh",
+            "air": true,
+            "hand": "top"
+          }
+        ]
+      }
+    ],
+    "setupId": "spot",
+    "sources": [
+      {
+        "url": "https://www.youtube.com/watch?v=gvFCTOKb7JA",
+        "type": "video",
+        "reliability": "inspirace"
+      }
+    ],
+    "confidence": "odvozené"
+  },
+  {
+    "id": "lacrosse",
+    "name": "Lacrosse zpoza branky",
+    "card": "Lacrosse legenda",
+    "level": 4,
+    "requires": [
+      "zorro"
+    ],
+    "matchLegal": true,
+    "matchNote": "V zápase povolené jen nízko pod koleny. Vysoko do horního rohu je to faul.",
+    "safety": "Hůl drž pod pasem. Kolem tebe dva metry volno, nikdo v dosahu hole. Stůj čelem ke zdi nebo k pohovce, ne k oknu ani k televizi. Míček nikdy nad pas. Nenaklánej se nad čepel, ať ti míček nevyletí do obličeje. Táta jako brankář klečí mimo oblouk čepele a chrání si obličej.",
+    "origin": [
+      "T13",
+      "C19"
+    ],
+    "steps": [
+      {
+        "id": "lac-1",
+        "name": "Za brankou",
+        "howTo": "Stoupni si za branku nebo krabici a udrž míček na čepeli.",
+        "criterion": "Udržíš 5 s.",
+        "voice": "Jdi za branku a udrž míček na čepeli.",
+        "animation": [
+          {
+            "at": "front",
+            "blade": "fh",
+            "air": true
+          }
+        ]
+      },
+      {
+        "id": "lac-2",
+        "name": "Kolem tyčky",
+        "howTo": "Pomalu přenes čepel s míčkem kolem tyčky před branku.",
+        "criterion": "3 z 5, míček nespadne.",
+        "voice": "Pomalu kolem tyčky. Čepel nízko!",
+        "animation": [
+          {
+            "at": "front",
+            "blade": "fh",
+            "air": true
+          },
+          {
+            "at": "around:2",
+            "blade": "fh",
+            "air": true,
+            "dir": "ccw"
+          }
+        ]
+      },
+      {
+        "id": "lac-3",
+        "name": "Gól",
+        "howTo": "Kolem tyčky a vhoď míček do branky.",
+        "criterion": "3 z 10.",
+        "voice": "Kolem tyčky a šup do branky!",
+        "animation": [
+          {
+            "at": "front",
+            "blade": "fh",
+            "air": true
+          },
+          {
+            "at": "around:2",
+            "blade": "fh",
+            "air": true,
+            "dir": "ccw"
+          },
+          {
+            "at": 2,
+            "blade": "fh"
+          }
+        ]
+      },
+      {
+        "id": "lac-4",
+        "name": "Do rohu",
+        "howTo": "Trefa do rohu označeného páskou.",
+        "criterion": "2 z 10.",
+        "voice": "Teď do rohu s páskou.",
+        "animation": [
+          {
+            "at": "front",
+            "blade": "fh",
+            "air": true
+          },
+          {
+            "at": "around:2",
+            "blade": "fh",
+            "air": true,
+            "dir": "ccw"
+          },
+          {
+            "at": 2,
+            "blade": "fh"
+          }
+        ]
+      }
+    ],
+    "setupId": "spot",
+    "sources": [
+      {
+        "url": "https://www.youtube.com/watch?v=JIeMV8U03WY",
+        "type": "video",
+        "reliability": "inspirace"
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=tWURMI7pZzA",
+        "type": "video",
+        "reliability": "inspirace"
+      },
+      {
+        "url": "https://en.wikipedia.org/wiki/Michigan_goal",
+        "type": "článek",
+        "reliability": "inspirace"
+      }
+    ],
+    "confidence": "odvozené"
+  },
+  {
+    "id": "bh-klicka",
+    "name": "Bekhendová klička",
+    "card": "Bekhendový kouzelník",
+    "level": 1,
+    "requires": [],
+    "matchLegal": true,
+    "matchNote": "V zápase povolené.",
+    "safety": "Hůl drž pod pasem. Kolem tebe dva metry volno, nikdo v dosahu hole. Stůj čelem ke zdi nebo k pohovce, ne k oknu ani k televizi.",
+    "origin": [
+      "T14"
+    ],
+    "steps": [
+      {
+        "id": "bhk-1",
+        "name": "Rychlé přetahování",
+        "howTo": "Na místě přetahuj z forhendu na bekhend.",
+        "criterion": "20 přetažení za 15 s bez ztráty.",
+        "voice": "Rychle z forhendu na bekhend. Dvacet za patnáct vteřin!",
+        "animation": [
+          {
+            "at": "fh",
+            "blade": "fh"
+          },
+          {
+            "at": "bh",
+            "blade": "bh"
+          }
+        ]
+      },
+      {
+        "id": "bhk-2",
+        "name": "Široký tah",
+        "howTo": "Přetáhni míček široko, až na šířku ramen.",
+        "criterion": "10× v řadě.",
+        "voice": "Teď široko, až za rameno.",
+        "animation": [
+          {
+            "at": "fh",
+            "blade": "fh"
+          },
+          {
+            "at": 1,
+            "blade": "bh"
+          }
+        ]
+      },
+      {
+        "id": "bhk-3",
+        "name": "Kolem kuželu",
+        "howTo": "Jdi ke kuželu, ten je obránce. Přetáhni míček bekhendem kolem něj.",
+        "criterion": "5 z 5.",
+        "voice": "Kužel je obránce. Přetáhni míček bekhendem kolem něj.",
+        "animation": [
+          {
+            "at": "front",
+            "blade": "fh"
+          },
+          {
+            "at": 1,
+            "blade": "bh"
+          },
+          {
+            "at": "home",
+            "blade": "bh"
+          }
+        ]
+      },
+      {
+        "id": "bhk-4",
+        "name": "V klusu",
+        "howTo": "To samé v klusu.",
+        "criterion": "4 z 5.",
+        "voice": "A teď v klusu!",
+        "animation": [
+          {
+            "at": "front",
+            "blade": "fh"
+          },
+          {
+            "at": 1,
+            "blade": "bh"
+          },
+          {
+            "at": "home",
+            "blade": "bh"
+          }
+        ]
+      }
+    ],
+    "setupId": "spot",
+    "sources": [
+      {
+        "url": "https://www.youtube.com/watch?v=O0MVVCA9H28",
+        "type": "video",
+        "reliability": "inspirace"
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=6pmaHNPC-o8",
+        "type": "video",
+        "reliability": "inspirace"
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=tFFCRVn9Y2I",
+        "type": "video",
+        "reliability": "inspirace"
+      }
+    ],
+    "confidence": "odvozené"
+  },
+  {
+    "id": "hacek",
+    "name": "Háček (toe drag)",
+    "card": "Háček",
+    "level": 2,
+    "requires": [
+      "bh-klicka"
+    ],
+    "matchLegal": true,
+    "matchNote": "V zápase povolené.",
+    "safety": "Hůl drž pod pasem. Kolem tebe dva metry volno, nikdo v dosahu hole. Stůj čelem ke zdi nebo k pohovce, ne k oknu ani k televizi.",
+    "origin": [
+      "T15",
+      "H18",
+      "H19"
+    ],
+    "steps": [
+      {
+        "id": "hacek-1",
+        "name": "Na místě",
+        "howTo": "Posuň míček do strany a špičkou čepele ho stáhni zpátky k sobě.",
+        "criterion": "10 z 10.",
+        "voice": "Míček do strany a špičkou zpátky. Jako háček!",
+        "animation": [
+          {
+            "at": "fh",
+            "blade": "fh"
+          },
+          {
+            "at": "front",
+            "blade": "fh"
+          }
+        ]
+      },
+      {
+        "id": "hacek-2",
+        "name": "Ven a zpět",
+        "howTo": "Forhendem ven a háčkem zpátky, plynule.",
+        "criterion": "5× v řadě.",
+        "voice": "Forhendem ven a háčkem zpátky.",
+        "animation": [
+          {
+            "at": "front",
+            "blade": "fh"
+          },
+          {
+            "at": "fh",
+            "blade": "fh"
+          },
+          {
+            "at": "front",
+            "blade": "fh"
+          }
+        ]
+      },
+      {
+        "id": "hacek-3",
+        "name": "Z bekhendu",
+        "howTo": "Háček i z bekhendu.",
+        "criterion": "5× v řadě.",
+        "voice": "Teď háček z bekhendu.",
+        "animation": [
+          {
+            "at": "bh",
+            "blade": "bh"
+          },
+          {
+            "at": "front",
+            "blade": "bh"
+          }
+        ]
+      },
+      {
+        "id": "hacek-4",
+        "name": "U kuželu",
+        "howTo": "Háček u kuželu v chůzi.",
+        "criterion": "4 z 5.",
+        "voice": "Háček u kuželu za chůze.",
+        "animation": [
+          {
+            "at": 2,
+            "blade": "fh"
+          },
+          {
+            "at": "front",
+            "blade": "fh"
+          },
+          {
+            "at": "home",
+            "blade": "bh"
+          }
+        ]
+      }
+    ],
+    "setupId": "spot",
+    "sources": [
+      {
+        "url": "https://www.youtube.com/watch?v=0pOdD75Mc0k",
+        "type": "video",
+        "reliability": "inspirace"
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=UlkAnet3d-A",
+        "type": "video",
+        "reliability": "ověřené"
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=TQe8UUIICqw",
+        "type": "video",
+        "reliability": "inspirace"
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=A1cfLXnJ16s",
+        "type": "video",
+        "reliability": "inspirace"
+      }
+    ],
+    "confidence": "odvozené"
+  },
+  {
+    "id": "vrtule",
+    "name": "Otočka 360",
+    "card": "Vrtule",
+    "level": 2,
+    "requires": [
+      "bh-klicka"
+    ],
+    "matchLegal": true,
+    "matchNote": "V zápase povolené.",
+    "safety": "Hůl drž pod pasem. Kolem tebe dva metry volno, nikdo v dosahu hole. Stůj čelem ke zdi nebo k pohovce, ne k oknu ani k televizi. Nejvýš tři otočky za sebou, ať se ti nezatočí hlava.",
+    "origin": [
+      "T16",
+      "CZ-09",
+      "FI-09"
+    ],
+    "steps": [
+      {
+        "id": "vrtule-1",
+        "name": "Bez míčku",
+        "howTo": "Otoč se dokola s čepelí na zemi. Každým směrem.",
+        "criterion": "5× každým směrem.",
+        "voice": "Bez míčku se otoč dokola. Čepel na zemi.",
+        "animation": [
+          {
+            "at": "fh"
+          },
+          {
+            "at": "back"
+          },
+          {
+            "at": "bh"
+          },
+          {
+            "at": "front"
+          }
+        ]
+      },
+      {
+        "id": "vrtule-2",
+        "name": "Otočka forhendem",
+        "howTo": "Pomalá otočka dokola, míček je na forhendu.",
+        "criterion": "3 z 5.",
+        "voice": "Pomalá otočka s míčkem na forhendu.",
+        "animation": [
+          {
+            "at": "front",
+            "blade": "fh"
+          },
+          {
+            "at": "fh",
+            "blade": "fh"
+          },
+          {
+            "at": "back",
+            "blade": "fh"
+          },
+          {
+            "at": "bh",
+            "blade": "fh"
+          }
+        ]
+      },
+      {
+        "id": "vrtule-3",
+        "name": "Otočka bekhendem",
+        "howTo": "Otočka na druhou stranu, míček na bekhendu.",
+        "criterion": "3 z 5.",
+        "voice": "A na druhou stranu bekhendem.",
+        "animation": [
+          {
+            "at": "front",
+            "blade": "bh"
+          },
+          {
+            "at": "bh",
+            "blade": "bh"
+          },
+          {
+            "at": "back",
+            "blade": "bh"
+          },
+          {
+            "at": "fh",
+            "blade": "bh"
+          }
+        ]
+      },
+      {
+        "id": "vrtule-4",
+        "name": "Kolem kuželu",
+        "howTo": "Otočka kolem kuželu v chůzi.",
+        "criterion": "4 z 5.",
+        "voice": "Otočka u kuželu za chůze.",
+        "animation": [
+          {
+            "at": 2,
+            "blade": "fh"
+          },
+          {
+            "at": "around:2",
+            "blade": "fh",
+            "dir": "ccw"
+          },
+          {
+            "at": "home",
+            "blade": "fh"
+          }
+        ]
+      }
+    ],
+    "setupId": "spot",
+    "sources": [
+      {
+        "url": "https://www.youtube.com/watch?v=tFFCRVn9Y2I",
+        "type": "video",
+        "reliability": "inspirace"
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=O0MVVCA9H28",
+        "type": "video",
+        "reliability": "inspirace"
+      },
+      {
+        "url": "https://www.hockeycanada.ca/en-ca/hockey-programs/coaching/under-9/coaches/skills",
+        "type": "metodika",
+        "reliability": "ověřené"
+      },
+      {
+        "url": "https://dspace5.zcu.cz/bitstream/11025/19998/1/Diplomova%20prace%20Matous%20Hrdlicka%202015.pdf",
+        "type": "VŠ práce (metodika ČFbU)",
+        "reliability": "ověřené"
+      },
+      {
+        "url": "https://bin.yhdistysavain.fi/1580251/ruuOmGuWdYLL9JFkqrvC0bZWHb/SBVImuistiinpanot.pdf",
+        "type": "metodika",
+        "reliability": "inspirace"
+      }
+    ],
+    "confidence": "odvozené"
+  },
+  {
+    "id": "tunelar",
+    "name": "Mezi nohama",
+    "card": "Tunelář",
+    "level": 2,
+    "requires": [
+      "bh-klicka"
+    ],
+    "matchLegal": true,
+    "matchNote": "Mezi vlastníma nohama je to v zápase v pořádku. Holí soupeři mezi nohy ale nesmíš, to je faul.",
+    "safety": "Hůl drž pod pasem. Kolem tebe dva metry volno, nikdo v dosahu hole. Stůj čelem ke zdi nebo k pohovce, ne k oknu ani k televizi. Pomalu, ať o hůl nezakopneš.",
+    "origin": [
+      "T17",
+      "CZ-16"
+    ],
+    "steps": [
+      {
+        "id": "tunel-1",
+        "name": "Dopředu mezi nohama",
+        "howTo": "Široký stoj. Pošli míček mezi nohama dopředu a převezmi ho.",
+        "criterion": "5 z 5.",
+        "voice": "Nohy široko a míček mezi nimi dopředu.",
+        "animation": [
+          {
+            "at": "back",
+            "blade": "fh"
+          },
+          {
+            "at": "between",
+            "blade": "fh"
+          },
+          {
+            "at": "front",
+            "blade": "fh"
+          }
+        ]
+      },
+      {
+        "id": "tunel-2",
+        "name": "Zezadu dopředu",
+        "howTo": "Míček je za tebou a ty ho protáhneš mezi nohama dopředu.",
+        "criterion": "4 z 5.",
+        "voice": "Zezadu mezi nohama dopředu.",
+        "animation": [
+          {
+            "at": "back",
+            "blade": "bh"
+          },
+          {
+            "at": "between",
+            "blade": "bh"
+          },
+          {
+            "at": "front",
+            "blade": "fh"
+          }
+        ]
+      },
+      {
+        "id": "tunel-3",
+        "name": "V chůzi",
+        "howTo": "Totéž za chůze, nohy dělají nůžky.",
+        "criterion": "3 z 5.",
+        "voice": "Teď za chůze!",
+        "animation": [
+          {
+            "at": "front",
+            "blade": "fh"
+          },
+          {
+            "at": "between",
+            "blade": "fh"
+          },
+          {
+            "at": "front",
+            "blade": "bh"
+          }
+        ]
+      }
+    ],
+    "setupId": "spot",
+    "sources": [
+      {
+        "url": "https://www.youtube.com/watch?v=KBtAcR6ZAi4",
+        "type": "video",
+        "reliability": "inspirace"
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=8AWo_5Z9Q7o",
+        "type": "video",
+        "reliability": "inspirace"
+      },
+      {
+        "url": "https://www.floorball.sport/wp-content/uploads/2026/02/Rules-of-the-Game-2026-with-all-changes-260209.pdf",
+        "type": "pravidla",
+        "reliability": "ověřené"
+      },
+      {
+        "url": "https://dspace5.zcu.cz/bitstream/11025/19998/1/Diplomova%20prace%20Matous%20Hrdlicka%202015.pdf",
+        "type": "VŠ práce (metodika ČFbU)",
+        "reliability": "ověřené"
+      }
+    ],
+    "confidence": "odvozené"
+  },
+  {
+    "id": "zonglovani",
+    "name": "Žonglování",
+    "card": "Žonglér",
+    "level": 3,
+    "requires": [
+      "balanc"
+    ],
+    "matchLegal": false,
+    "matchNote": "Tohle je jen domácí frajeřinka, v zápase by to byl faul.",
+    "safety": "Hůl drž pod pasem. Kolem tebe dva metry volno, nikdo v dosahu hole. Stůj čelem ke zdi nebo k pohovce, ne k oknu ani k televizi. Míček nikdy nad pas. Nenaklánej se nad čepel, ať ti míček nevyletí do obličeje.",
+    "origin": [
+      "T04",
+      "CZ-11",
+      "FI-10",
+      "CH-04"
+    ],
+    "steps": [
+      {
+        "id": "zongl-1",
+        "name": "Jeden skok",
+        "howTo": "Míček na čepeli, jeden nízký odraz a chytit ho zpátky.",
+        "criterion": "5 z 5.",
+        "voice": "Jeden malý skok a chyť ho. Měkce!",
+        "animation": [
+          {
+            "at": "front",
+            "blade": "fh",
+            "air": true
+          },
+          {
+            "at": "front",
+            "blade": "fh",
+            "air": true
+          }
+        ]
+      },
+      {
+        "id": "zongl-2",
+        "name": "Dva skoky",
+        "howTo": "Dva odrazy za sebou a chytit.",
+        "criterion": "3× v řadě.",
+        "voice": "Dva skoky a chyť.",
+        "animation": [
+          {
+            "at": "front",
+            "blade": "fh",
+            "air": true
+          },
+          {
+            "at": "front",
+            "blade": "fh",
+            "air": true
+          },
+          {
+            "at": "front",
+            "blade": "fh",
+            "air": true
+          }
+        ]
+      },
+      {
+        "id": "zongl-3",
+        "name": "Do kolen",
+        "howTo": "Odrazy do výšky kolen.",
+        "criterion": "5 odrazů v řadě.",
+        "voice": "Pět odrazů do výšky kolen.",
+        "animation": [
+          {
+            "at": "front",
+            "blade": "fh",
+            "air": true
+          },
+          {
+            "at": "front",
+            "blade": "fh",
+            "air": true
+          }
+        ]
+      },
+      {
+        "id": "zongl-4",
+        "name": "Deset",
+        "howTo": "Žonglovací série.",
+        "criterion": "10 odrazů v řadě.",
+        "voice": "Deset v řadě! Doma frajeřinka, v zápase by to byl faul.",
+        "animation": [
+          {
+            "at": "front",
+            "blade": "fh",
+            "air": true
+          },
+          {
+            "at": "front",
+            "blade": "fh",
+            "air": true
+          }
+        ]
+      },
+      {
+        "id": "zongl-5",
+        "name": "Pětadvacet",
+        "howTo": "Dlouhá série.",
+        "criterion": "25 odrazů v řadě.",
+        "voice": "Pětadvacet! To je cirkus!",
+        "animation": [
+          {
+            "at": "front",
+            "blade": "fh",
+            "air": true
+          },
+          {
+            "at": "front",
+            "blade": "fh",
+            "air": true
+          }
+        ]
+      }
+    ],
+    "setupId": "spot",
+    "sources": [
+      {
+        "url": "https://www.youtube.com/watch?v=uZdYUHfvZbE",
+        "type": "video",
+        "reliability": "inspirace"
+      },
+      {
+        "url": "https://floorball.sport/2020/11/26/presenting-freestyle-floorball-cup-contestant-agnes-holgersson",
+        "type": "článek",
+        "reliability": "inspirace"
+      },
+      {
+        "url": "https://dspace5.zcu.cz/bitstream/11025/19998/1/Diplomova%20prace%20Matous%20Hrdlicka%202015.pdf",
+        "type": "VŠ práce (metodika ČFbU)",
+        "reliability": "ověřené"
+      },
+      {
+        "url": "https://bin.yhdistysavain.fi/1580251/ruuOmGuWdYLL9JFkqrvC0bZWHb/SBVImuistiinpanot.pdf",
+        "type": "metodika",
+        "reliability": "inspirace"
+      },
+      {
+        "url": "https://www.mobilesport.ch/assets/lbwp-cdn/mobilesport/files/2013/09/praxis_2005_02_d.pdf",
+        "type": "metodika",
+        "reliability": "ověřené"
+      }
+    ],
+    "confidence": "odvozené"
+  },
+  {
+    "id": "zonglovani-fb",
+    "name": "Žonglování střídavě",
+    "card": "Mistr žonglér",
+    "level": 4,
+    "requires": [
+      "zonglovani"
+    ],
+    "matchLegal": false,
+    "matchNote": "Tohle je jen domácí frajeřinka, v zápase by to byl faul.",
+    "safety": "Hůl drž pod pasem. Kolem tebe dva metry volno, nikdo v dosahu hole. Stůj čelem ke zdi nebo k pohovce, ne k oknu ani k televizi. Míček nikdy nad pas. Nenaklánej se nad čepel, ať ti míček nevyletí do obličeje.",
+    "origin": [
+      "T05"
+    ],
+    "steps": [
+      {
+        "id": "zfb-1",
+        "name": "Bekhend chytá",
+        "howTo": "Míček spadne na bekhend a ty ho měkce chytíš.",
+        "criterion": "5 z 5.",
+        "voice": "Chyť míček na bekhend. Měkce jako peřinka.",
+        "animation": [
+          {
+            "at": "front",
+            "blade": "bh",
+            "air": true
+          }
+        ]
+      },
+      {
+        "id": "zfb-2",
+        "name": "Jen bekhend",
+        "howTo": "Žonglování jen bekhendem.",
+        "criterion": "5 v řadě.",
+        "voice": "Žongluj jen bekhendem.",
+        "animation": [
+          {
+            "at": "front",
+            "blade": "bh",
+            "air": true
+          },
+          {
+            "at": "front",
+            "blade": "bh",
+            "air": true
+          }
+        ]
+      },
+      {
+        "id": "zfb-3",
+        "name": "Forhend, bekhend, chytit",
+        "howTo": "Jeden odraz forhendem, jeden bekhendem a chytit.",
+        "criterion": "3× v řadě.",
+        "voice": "Forhend, bekhend a chyť!",
+        "animation": [
+          {
+            "at": "front",
+            "blade": "fh",
+            "air": true
+          },
+          {
+            "at": "front",
+            "blade": "bh",
+            "air": true
+          },
+          {
+            "at": "front",
+            "blade": "fh",
+            "air": true
+          }
+        ]
+      },
+      {
+        "id": "zfb-4",
+        "name": "Střídavě deset",
+        "howTo": "Střídej forhend a bekhend.",
+        "criterion": "10 v řadě.",
+        "voice": "Střídavě deset krát!",
+        "animation": [
+          {
+            "at": "front",
+            "blade": "fh",
+            "air": true
+          },
+          {
+            "at": "front",
+            "blade": "bh",
+            "air": true
+          }
+        ]
+      }
+    ],
+    "setupId": "spot",
+    "sources": [
+      {
+        "url": "https://www.youtube.com/watch?v=GRMyIeTzqV8",
+        "type": "video",
+        "reliability": "inspirace"
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=uZdYUHfvZbE",
+        "type": "video",
+        "reliability": "inspirace"
+      }
+    ],
+    "confidence": "odvozené"
+  },
+  {
+    "id": "kopacka",
+    "name": "Nakopnutí na čepel",
+    "card": "Kopačka",
+    "level": 3,
+    "requires": [
+      "balanc",
+      "nabrani"
+    ],
+    "matchLegal": false,
+    "matchNote": "Tohle je jen domácí frajeřinka, v zápase by to byl faul.",
+    "safety": "Hůl drž pod pasem. Kolem tebe dva metry volno, nikdo v dosahu hole. Stůj čelem ke zdi nebo k pohovce, ne k oknu ani k televizi. Míček nikdy nad pas. Nenaklánej se nad čepel, ať ti míček nevyletí do obličeje. Kopej jen jemně, míček nikdy do výšky obličeje.",
+    "origin": [
+      "T18"
+    ],
+    "steps": [
+      {
+        "id": "kop-1",
+        "name": "Nadzvednout nohou",
+        "howTo": "Míček leží u boty. Špičkou ho jemně nadzvedni do výšky kotníku.",
+        "criterion": "5 z 5.",
+        "voice": "Špičkou boty jemně nadzvedni míček.",
+        "animation": [
+          {
+            "at": "back",
+            "blade": "fh"
+          },
+          {
+            "at": "front",
+            "blade": "fh",
+            "air": true
+          }
+        ]
+      },
+      {
+        "id": "kop-2",
+        "name": "Chytit na čepel",
+        "howTo": "Nadzvedni míček nohou a chyť ho na čepel.",
+        "criterion": "3 z 10.",
+        "voice": "Nadzvedni a chyť na čepel!",
+        "animation": [
+          {
+            "at": "back",
+            "blade": "fh"
+          },
+          {
+            "at": "front",
+            "blade": "fh",
+            "air": true
+          },
+          {
+            "at": "front",
+            "blade": "fh",
+            "air": true
+          }
+        ]
+      },
+      {
+        "id": "kop-3",
+        "name": "Častěji",
+        "howTo": "Totéž, ale spolehlivěji.",
+        "criterion": "5 z 10.",
+        "voice": "Teď pět z deseti.",
+        "animation": [
+          {
+            "at": "back",
+            "blade": "fh"
+          },
+          {
+            "at": "front",
+            "blade": "fh",
+            "air": true
+          },
+          {
+            "at": "front",
+            "blade": "fh",
+            "air": true
+          }
+        ]
+      },
+      {
+        "id": "kop-4",
+        "name": "A žonglovat",
+        "howTo": "Nakopnout, chytit a hned žonglovat.",
+        "criterion": "3 z 10.",
+        "voice": "Nakopni, chyť a žongluj. Doma frajeřinka, v zápase by to byl faul.",
+        "animation": [
+          {
+            "at": "back",
+            "blade": "fh"
+          },
+          {
+            "at": "front",
+            "blade": "fh",
+            "air": true
+          },
+          {
+            "at": "front",
+            "blade": "fh",
+            "air": true
+          },
+          {
+            "at": "front",
+            "blade": "fh",
+            "air": true
+          }
+        ]
+      }
+    ],
+    "setupId": "spot",
+    "sources": [
+      {
+        "url": "https://www.youtube.com/watch?v=h3GauavBPtE",
+        "type": "video",
+        "reliability": "inspirace"
+      },
+      {
+        "url": "https://www.floorball.sport/wp-content/uploads/2026/02/Rules-of-the-Game-2026-with-all-changes-260209.pdf",
+        "type": "pravidla",
+        "reliability": "ověřené"
+      }
+    ],
+    "confidence": "odvozené"
+  },
+  {
+    "id": "na-kuzel",
+    "name": "Míček na kužel",
+    "card": "Přesná ruka",
+    "level": 3,
+    "requires": [
+      "balanc",
+      "nabrani"
+    ],
+    "matchLegal": false,
+    "matchNote": "Je to jen domácí kousek citu, ve hře se nepoužívá.",
+    "safety": "Hůl drž pod pasem. Kolem tebe dva metry volno, nikdo v dosahu hole. Stůj čelem ke zdi nebo k pohovce, ne k oknu ani k televizi.",
+    "origin": [
+      "CZ-23",
+      "SO-05"
+    ],
+    "steps": [
+      {
+        "id": "kuzel-1",
+        "name": "Do krabice",
+        "howTo": "Nabrat míček a položit ho do krabice na zemi.",
+        "criterion": "5 z 10.",
+        "voice": "Nabrat a položit do krabice.",
+        "animation": [
+          {
+            "at": "front",
+            "blade": "fh"
+          },
+          {
+            "at": "front",
+            "blade": "fh",
+            "air": true
+          },
+          {
+            "at": 2,
+            "blade": "fh"
+          }
+        ]
+      },
+      {
+        "id": "kuzel-2",
+        "name": "Na kelímek",
+        "howTo": "Nabrat míček a položit ho na otočený kelímek.",
+        "criterion": "3 z 10.",
+        "voice": "Teď na kelímek. Opatrně!",
+        "animation": [
+          {
+            "at": "front",
+            "blade": "fh"
+          },
+          {
+            "at": "front",
+            "blade": "fh",
+            "air": true
+          },
+          {
+            "at": 2,
+            "blade": "fh",
+            "air": true
+          }
+        ]
+      },
+      {
+        "id": "kuzel-3",
+        "name": "Na kužel",
+        "howTo": "Nabrat míček a položit ho přímo na špičku kuželu.",
+        "criterion": "2 z 10.",
+        "voice": "A teď na kužel. Přesná ruka!",
+        "animation": [
+          {
+            "at": "front",
+            "blade": "fh"
+          },
+          {
+            "at": "front",
+            "blade": "fh",
+            "air": true
+          },
+          {
+            "at": 2,
+            "blade": "fh",
+            "air": true
+          }
+        ]
+      }
+    ],
+    "setupId": "spot",
+    "sources": [
+      {
+        "url": "https://dspace5.zcu.cz/bitstream/11025/19998/1/Diplomova%20prace%20Matous%20Hrdlicka%202015.pdf",
+        "type": "VŠ práce (metodika ČFbU)",
+        "reliability": "ověřené"
+      },
+      {
+        "url": "https://www1.specialolympicsontario.com/resources/wp-content/uploads/sites/39/2024/10/SOI_Floorball_Coaching-Guide.pdf",
+        "type": "metodika",
+        "reliability": "ověřené"
+      }
+    ],
+    "confidence": "odvozené"
+  }
+]

@@ -1,0 +1,275 @@
+[
+  {
+    "attempts": 3,
+    "id": "test-drag-20",
+    "name": "Přetahování přes dvě čáry",
+    "unit": "počet",
+    "durationSec": 20,
+    "better": "higher",
+    "setupId": "spot",
+    "howTo": "Na zem dej dvě čáry z pásky 45 cm od sebe. Přetahuj míček z forhendu na bekhend přes obě čáry. Rodič počítá každý přejezd. Tři pokusy, platí nejlepší.",
+    "voiceIntro": "Test! Přetahuj přes obě čáry, co nejvíckrát za dvacet vteřin. Táta počítá.",
+    "equipment": [
+      "hůl",
+      "míček",
+      "lepicí páska"
+    ],
+    "origin": [
+      "SO-02"
+    ],
+    "sources": [
+      {
+        "url": "https://www1.specialolympicsontario.com/resources/wp-content/uploads/sites/39/2024/10/SOI_Floorball_Coaching-Guide.pdf",
+        "type": "metodika",
+        "reliability": "ověřené"
+      }
+    ]
+  },
+  {
+    "attempts": 2,
+    "id": "test-drag-30",
+    "name": "Rychlé ruce 30 s",
+    "unit": "počet",
+    "durationSec": 30,
+    "better": "higher",
+    "setupId": "spot",
+    "howTo": "Dva kužely 40 cm od sebe. Přetahuj míček od kuželu ke kuželu. Počítá se jen čistý dotek, míček mimo neplatí.",
+    "voiceIntro": "Třicet vteřin rychlých rukou! Počítá se každý čistý přesun.",
+    "equipment": [
+      "hůl",
+      "míček",
+      "2 kužely"
+    ],
+    "origin": [
+      "H49",
+      "H13"
+    ],
+    "sources": [
+      {
+        "url": "https://dspace.cuni.cz/handle/20.500.11956/191512",
+        "type": "VŠ práce",
+        "reliability": "odvozené"
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=7HluVwbAv3w",
+        "type": "video",
+        "reliability": "inspirace"
+      }
+    ]
+  },
+  {
+    "attempts": 2,
+    "id": "test-bh-20",
+    "name": "Bekhend vedle těla",
+    "unit": "počet",
+    "durationSec": 20,
+    "better": "higher",
+    "setupId": "spot",
+    "howTo": "Míček vedeš jen bekhendem vedle těla dopředu a dozadu. Rodič počítá každý pohyb dopředu.",
+    "voiceIntro": "Bekhendový test! Jen bekhend, dopředu a dozadu, dvacet vteřin.",
+    "equipment": [
+      "hůl",
+      "míček"
+    ],
+    "origin": [
+      "H07",
+      "H49"
+    ],
+    "sources": [
+      {
+        "url": "https://www.youtube.com/watch?v=IT9Wu3P_C6I",
+        "type": "video",
+        "reliability": "inspirace"
+      },
+      {
+        "url": "https://portal.usahockey.com/cx/president/hockey-devlopment/8u_fundamentals_stage-adm.pdf",
+        "type": "metodika",
+        "reliability": "ověřené"
+      },
+      {
+        "url": "https://dspace.cuni.cz/handle/20.500.11956/191512",
+        "type": "VŠ práce",
+        "reliability": "odvozené"
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=7HluVwbAv3w",
+        "type": "video",
+        "reliability": "inspirace"
+      }
+    ]
+  },
+  {
+    "attempts": 2,
+    "id": "test-slalom",
+    "name": "Slalom tam a zpět",
+    "unit": "s",
+    "better": "lower",
+    "setupId": "line",
+    "howTo": "Slalom kolem 4 kuželů, otočka za posledním a slalomem zpátky přes start. Shozený nebo vynechaný kužel přidá 1 s. Rodič měří čas.",
+    "voiceIntro": "Slalom na čas! Shozený kužel je vteřina navíc. Připravit, pozor, teď!",
+    "equipment": [
+      "hůl",
+      "míček",
+      "4 kužely"
+    ],
+    "origin": [
+      "SO-01",
+      "CH-12",
+      "CZ-36"
+    ],
+    "sources": [
+      {
+        "url": "https://www1.specialolympicsontario.com/resources/wp-content/uploads/sites/39/2024/10/SOI_Floorball_Coaching-Guide.pdf",
+        "type": "metodika",
+        "reliability": "ověřené"
+      },
+      {
+        "url": "https://www.mobilesport.ch/assets/lbwp-cdn/mobilesport/files/2013/09/praxis_2005_02_d.pdf",
+        "type": "metodika",
+        "reliability": "ověřené"
+      },
+      {
+        "url": "https://dspace.jcu.cz/bitstreams/ae895c33-887b-4ac5-b0a7-1fca35df7bb4/download",
+        "type": "VŠ práce",
+        "reliability": "inspirace"
+      }
+    ]
+  },
+  {
+    "attempts": 3,
+    "id": "test-juggle",
+    "name": "Žonglování",
+    "unit": "počet",
+    "better": "higher",
+    "howTo": "Kolik odrazů míčku na čepeli uděláš v řadě bez pádu? Tři pokusy, platí nejlepší. Odrazy nejvýš do pasu.",
+    "voiceIntro": "Žonglovací rekord! Počítej se mnou. Doma frajeřinka, v zápase by to byl faul.",
+    "equipment": [
+      "hůl",
+      "míček"
+    ],
+    "origin": [
+      "T04",
+      "C09"
+    ],
+    "sources": [
+      {
+        "url": "https://www.youtube.com/watch?v=uZdYUHfvZbE",
+        "type": "video",
+        "reliability": "inspirace"
+      },
+      {
+        "url": "https://floorball.sport/2020/11/26/presenting-freestyle-floorball-cup-contestant-agnes-holgersson",
+        "type": "článek",
+        "reliability": "inspirace"
+      },
+      {
+        "url": "https://dspace5.zcu.cz/bitstream/11025/19998/1/Diplomova%20prace%20Matous%20Hrdlicka%202015.pdf",
+        "type": "VŠ práce (metodika ČFbU)",
+        "reliability": "ověřené"
+      }
+    ]
+  },
+  {
+    "attempts": 3,
+    "id": "test-balance",
+    "name": "Míček na čepeli",
+    "unit": "s",
+    "better": "higher",
+    "howTo": "Jak dlouho udržíš míček na čepeli pod koleny? Rodič pustí stopky, když je míček na čepeli, a zastaví je, když spadne.",
+    "voiceIntro": "Jak dlouho udržíš míček na čepeli? Čepel nízko!",
+    "equipment": [
+      "hůl",
+      "míček"
+    ],
+    "origin": [
+      "T03",
+      "SO-03"
+    ],
+    "sources": [
+      {
+        "url": "https://www.youtube.com/watch?v=UPtyRyLBawo",
+        "type": "video",
+        "reliability": "inspirace"
+      },
+      {
+        "url": "https://www.mobilesport.ch/assets/lbwp-cdn/mobilesport/files/2013/09/praxis_2005_02_d.pdf",
+        "type": "metodika",
+        "reliability": "ověřené"
+      },
+      {
+        "url": "https://www1.specialolympicsontario.com/resources/wp-content/uploads/sites/39/2024/10/SOI_Floorball_Coaching-Guide.pdf",
+        "type": "metodika",
+        "reliability": "ověřené"
+      }
+    ]
+  },
+  {
+    "attempts": 2,
+    "id": "test-figure8",
+    "name": "Osmičky za 30 s",
+    "unit": "počet",
+    "durationSec": 30,
+    "better": "higher",
+    "setupId": "spot",
+    "howTo": "Dva kužely metr od sebe. Kolik celých osmiček kolem nich objedeš za 30 s? Shozený kužel osmičku nepočítá.",
+    "voiceIntro": "Osmičky na čas! Kolik jich stihneš za třicet vteřin?",
+    "equipment": [
+      "hůl",
+      "míček",
+      "2 kužely"
+    ],
+    "origin": [
+      "C12",
+      "H05"
+    ],
+    "sources": [
+      {
+        "url": "https://www.youtube.com/watch?v=3vqw3QHZpNo",
+        "type": "video",
+        "reliability": "inspirace"
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=lw7rrPkh2pc",
+        "type": "video",
+        "reliability": "ověřené"
+      }
+    ]
+  },
+  {
+    "attempts": 2,
+    "id": "test-reaction",
+    "name": "Reakce 30 s",
+    "unit": "počet",
+    "durationSec": 30,
+    "better": "higher",
+    "setupId": "square",
+    "howTo": "Appka rozsvěcuje kužely. Rodič počítá, ke kolika kuželům dovedeš míček a vrátíš se do domečku za 30 s.",
+    "voiceIntro": "Reakční test! Kolik kuželů stihneš za třicet vteřin? Hlava nahoře!",
+    "equipment": [
+      "hůl",
+      "míček",
+      "4 kužely"
+    ],
+    "origin": [
+      "MF-02",
+      "H42"
+    ],
+    "sources": [
+      {
+        "url": "https://apps.apple.com/us/app/my-floorball/id949358436",
+        "type": "výrobce",
+        "reliability": "inspirace"
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=IT9Wu3P_C6I",
+        "type": "video",
+        "reliability": "inspirace"
+      },
+      {
+        "url": "https://cdn.hockeycanada.ca/hockey-canada/Hockey-Programs/Players/Downloads/2020/puck-control-overview-e.pdf",
+        "type": "metodika",
+        "reliability": "ověřené"
+      }
+    ]
+  }
+]

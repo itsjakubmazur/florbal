@@ -1,10 +1,10 @@
 [
   {
     "id": "wu-quick-feet",
-    "name": "Rychlé nohy",
+    "name": "Rychlé nohičky",
     "level": 1,
     "minAge": 6,
-    "category": "koordinace bez míčku",
+    "category": "práce nohou",
     "bladeSide": "obě",
     "grip": "obouruč",
     "setupId": "spot",
@@ -25,36 +25,63 @@
     "loop": true,
     "callMode": "zóna",
     "tempoBpm": 50,
-    "durationSec": 40,
+    "durationSec": 30,
     "reps": null,
     "spaceNeeded": [
       1.4,
       2
     ],
-    "noise": "střední",
+    "noise": "tichý",
     "equipment": [
-      "2 kužely"
+      "2 kužely nebo boty"
     ],
-    "voiceIntro": "Rozcvička bez míčku. Krátkými kroky dojdi ke kuželu, který řeknu, a hned zpátky do domečku.",
+    "voiceIntro": "Rozcvička bez míčku. Po špičkách doťapkej ke kuželu, který řeknu, a hned zpátky.",
     "coachingPoints": [
-      "Malé rychlé kroky",
-      "Kolena pokrčená",
-      "Dívej se na tablet"
+      "Malé rychlé kroky po špičkách",
+      "Kolena trochu pokrčená",
+      "Hlava nahoře, dívej se na tablet"
     ],
     "commonMistakes": [
-      "Velké skoky místo malých kroků"
+      "Velké dupavé skoky",
+      "Stojí rovně jako tyčka"
     ],
-    "progression": null,
+    "progression": "wu-react-run",
     "regression": null,
-    "safetyNotes": "Hůl vždy pod úrovní pasu. Kolem tebe volno, tablet mimo dosah čepele.",
-    "sources": [],
-    "confidence": "vlastní",
+    "safetyNotes": "Hůl nech ležet stranou, ať o ni nezakopneš. Malé kroky, žádné dupání.",
+    "sources": [
+      {
+        "url": "https://www.youtube.com/watch?v=5Ls0RzDATIY",
+        "type": "video",
+        "reliability": "ověřené"
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=DycV8UE5Ua0",
+        "type": "video",
+        "reliability": "ověřené"
+      },
+      {
+        "url": "https://dspace5.zcu.cz/bitstream/11025/7080/1/Moznosti%20rozvoje%20zakladnich%20pohybovych%20dovednosti%20ve%20florbale%20ve%20vekove%20kategorii%208%20-%2010%20let..pdf",
+        "type": "VŠ práce",
+        "reliability": "inspirace"
+      },
+      {
+        "url": "https://portal.usahockey.com/cx/president/hockey-devlopment/8u_fundamentals_stage-adm.pdf",
+        "type": "metodika",
+        "reliability": "ověřené"
+      }
+    ],
+    "confidence": "odvozené",
     "kind": "nobal",
-    "matchLegal": true
+    "matchLegal": true,
+    "origin": [
+      "H29",
+      "CZ-33",
+      "ADM"
+    ]
   },
   {
     "id": "wu-stick-circles",
-    "name": "Kroužení s holí",
+    "name": "Kroužení zápěstím",
     "level": 1,
     "minAge": 6,
     "category": "koordinace bez míčku",
@@ -77,6 +104,259 @@
     ],
     "loop": true,
     "callMode": "žádný",
+    "tempoBpm": 60,
+    "durationSec": 30,
+    "reps": null,
+    "spaceNeeded": [
+      1.4,
+      2
+    ],
+    "noise": "tichý",
+    "equipment": [
+      "hůl"
+    ],
+    "voiceIntro": "Chyť hůl oběma rukama a kresli čepelí po zemi malé kroužky. Zápěstí jsou měkká jako guma.",
+    "coachingPoints": [
+      "Čepel zůstává u země",
+      "Kroužky dělají zápěstí, ne ramena",
+      "V půlce kruž na druhou stranu"
+    ],
+    "commonMistakes": [
+      "Čepel jde nahoru nad kolena",
+      "Ruce svírají hůl moc pevně"
+    ],
+    "progression": null,
+    "regression": null,
+    "safetyNotes": "Čepel celou dobu u země, hůl pod pasem. Kolem tebe nikdo.",
+    "sources": [
+      {
+        "url": "https://portal.usahockey.com/cx/president/hockey-devlopment/8u_fundamentals_stage-adm.pdf",
+        "type": "metodika",
+        "reliability": "ověřené"
+      },
+      {
+        "url": "https://www.mobilesport.ch/assets/lbwp-cdn/mobilesport/files/2011/02/Grundlagen_Unihockey.pdf",
+        "type": "metodika",
+        "reliability": "ověřené"
+      }
+    ],
+    "confidence": "odvozené",
+    "kind": "nobal",
+    "matchLegal": true,
+    "origin": [
+      "ADM",
+      "JS"
+    ]
+  },
+  {
+    "id": "wu-side-shuffle",
+    "name": "Úkroky stranou",
+    "level": 1,
+    "minAge": 6,
+    "category": "práce nohou",
+    "bladeSide": "obě",
+    "grip": "obouruč",
+    "setupId": "spot",
+    "pattern": [
+      {
+        "at": 1
+      },
+      {
+        "at": 2
+      }
+    ],
+    "loop": true,
+    "callMode": "zóna",
+    "tempoBpm": 45,
+    "durationSec": 30,
+    "reps": null,
+    "spaceNeeded": [
+      1.4,
+      2
+    ],
+    "noise": "tichý",
+    "equipment": [
+      "hůl",
+      "2 kužely nebo boty"
+    ],
+    "voiceIntro": "Úkroky stranou od červeného kuželu k modrému a zpátky. Čepel hole klouže po zemi s tebou.",
+    "coachingPoints": [
+      "Nohy se nekříží",
+      "Zůstaň nízko v kolenou",
+      "Čepel na zemi"
+    ],
+    "commonMistakes": [
+      "Kříží nohy a zakopává",
+      "Čepel zvedá do vzduchu"
+    ],
+    "progression": null,
+    "regression": null,
+    "safetyNotes": "Čepel na zemi, žádné skoky. Kolem tebe volno.",
+    "sources": [
+      {
+        "url": "https://portal.usahockey.com/cx/president/hockey-devlopment/8u_fundamentals_stage-adm.pdf",
+        "type": "metodika",
+        "reliability": "ověřené"
+      },
+      {
+        "url": "https://laget.se/IBKOsby/Document/Download/1148903/6783815",
+        "type": "metodika",
+        "reliability": "ověřené"
+      }
+    ],
+    "confidence": "odvozené",
+    "kind": "nobal",
+    "matchLegal": true,
+    "origin": [
+      "ADM",
+      "SIU"
+    ]
+  },
+  {
+    "id": "wu-ready-stance",
+    "name": "Připravený postoj",
+    "level": 1,
+    "minAge": 6,
+    "category": "koordinace bez míčku",
+    "bladeSide": "obě",
+    "grip": "obouruč",
+    "setupId": "spot",
+    "pattern": [
+      {
+        "at": "home"
+      },
+      {
+        "at": "front"
+      }
+    ],
+    "loop": true,
+    "callMode": "žádný",
+    "tempoBpm": 20,
+    "durationSec": 30,
+    "reps": null,
+    "spaceNeeded": [
+      1.4,
+      2
+    ],
+    "noise": "tichý",
+    "equipment": [
+      "hůl"
+    ],
+    "voiceIntro": "Na pípnutí se postav do florbalového postoje: kolena pokrčená, čepel na zemi, hlava nahoře. Na další pípnutí se narovnej.",
+    "coachingPoints": [
+      "Kolena pokrčená, zadek trochu dolů",
+      "Záda rovná, nehrb se",
+      "Oči na tablet"
+    ],
+    "commonMistakes": [
+      "Hrbí záda místo pokrčení kolen",
+      "Dívá se do země"
+    ],
+    "progression": null,
+    "regression": null,
+    "safetyNotes": "Čepel na zemi, hůl nikdy nad pas.",
+    "sources": [
+      {
+        "url": "https://bin.yhdistysavain.fi/1580251/ruuOmGuWdYLL9JFkqrvC0bZWHb/SBVImuistiinpanot.pdf",
+        "type": "metodika",
+        "reliability": "ověřené"
+      },
+      {
+        "url": "https://dspace5.zcu.cz/bitstream/11025/19998/1/Diplomova%20prace%20Matous%20Hrdlicka%202015.pdf",
+        "type": "VŠ práce (metodika ČFbU)",
+        "reliability": "ověřené"
+      }
+    ],
+    "confidence": "ověřené",
+    "kind": "nobal",
+    "matchLegal": true,
+    "origin": [
+      "FI-08",
+      "CZ-06"
+    ]
+  },
+  {
+    "id": "wu-flamingo",
+    "name": "Čáp",
+    "level": 1,
+    "minAge": 6,
+    "category": "koordinace bez míčku",
+    "bladeSide": "obě",
+    "grip": "obouruč",
+    "setupId": "spot",
+    "pattern": [
+      {
+        "at": "fh"
+      },
+      {
+        "at": "bh"
+      }
+    ],
+    "loop": true,
+    "callMode": "žádný",
+    "tempoBpm": 15,
+    "durationSec": 30,
+    "reps": null,
+    "spaceNeeded": [
+      1.4,
+      2
+    ],
+    "noise": "tichý",
+    "equipment": [
+      "hůl"
+    ],
+    "voiceIntro": "Stoupni si na jednu nohu jako čáp a čepel opři o zem. Na pípnutí vyměň nohu.",
+    "coachingPoints": [
+      "Čepel ti pomáhá jako třetí noha",
+      "Břicho zpevněné",
+      "Dívej se na jedno místo"
+    ],
+    "commonMistakes": [
+      "Opírá se o hůl celou vahou",
+      "Skáče z nohy na nohu"
+    ],
+    "progression": null,
+    "regression": null,
+    "safetyNotes": "Stůj vedle něčeho měkkého, ne u skříně s rohem. Čepel na zemi.",
+    "sources": [
+      {
+        "url": "https://portal.usahockey.com/cx/president/hockey-devlopment/8u_fundamentals_stage-adm.pdf",
+        "type": "metodika",
+        "reliability": "ověřené"
+      },
+      {
+        "url": "https://laget.se/IBKOsby/Document/Download/1148903/6783815",
+        "type": "metodika",
+        "reliability": "ověřené"
+      }
+    ],
+    "confidence": "odvozené",
+    "kind": "nobal",
+    "matchLegal": true,
+    "origin": [
+      "ADM",
+      "SIU"
+    ]
+  },
+  {
+    "id": "wu-step-over",
+    "name": "Přes potůček",
+    "level": 1,
+    "minAge": 6,
+    "category": "práce nohou",
+    "bladeSide": "obě",
+    "grip": "obouruč",
+    "setupId": "spot",
+    "pattern": [
+      {
+        "at": "fh"
+      },
+      {
+        "at": "bh"
+      }
+    ],
+    "loop": true,
+    "callMode": "žádný",
     "tempoBpm": 40,
     "durationSec": 30,
     "reps": null,
@@ -88,21 +368,791 @@
     "equipment": [
       "hůl"
     ],
-    "voiceIntro": "Drž hůl oběma rukama a pomalu s ní kresli po zemi velký oblouk ze strany na stranu. Rozhýbej ramena.",
+    "voiceIntro": "Polož hůl na zem vedle sebe. Překračuj ji tam a zpátky, jako přes potůček.",
     "coachingPoints": [
-      "Čepel celou dobu na zemi",
-      "Pomalu a plynule"
+      "Zvedni kolena",
+      "Lehce po špičkách",
+      "Dívej se dopředu"
     ],
     "commonMistakes": [
-      "Hůl jde nahoru nad kolena"
+      "Šlape na hůl",
+      "Dělá velké hlučné skoky"
     ],
     "progression": null,
     "regression": null,
-    "safetyNotes": "Hůl vždy pod úrovní pasu. Kolem tebe volno, tablet mimo dosah čepele.",
-    "sources": [],
-    "confidence": "vlastní",
+    "safetyNotes": "Hůl leží na zemi, nešlapej na ni, mohla by ujet. Jen překračuj, neskákej.",
+    "sources": [
+      {
+        "url": "https://bin.yhdistysavain.fi/1580251/ruuOmGuWdYLL9JFkqrvC0bZWHb/SBVImuistiinpanot.pdf",
+        "type": "metodika",
+        "reliability": "inspirace"
+      },
+      {
+        "url": "https://laget.se/SkellefteaIBK/Document/Download/1088074/6494953",
+        "type": "metodika",
+        "reliability": "inspirace"
+      }
+    ],
+    "confidence": "odvozené",
     "kind": "nobal",
-    "matchLegal": true
+    "matchLegal": true,
+    "origin": [
+      "FI-16",
+      "SKE"
+    ]
+  },
+  {
+    "id": "wu-stick-balance",
+    "name": "Číšník s holí",
+    "level": 1,
+    "minAge": 6,
+    "category": "koordinace bez míčku",
+    "bladeSide": "obě",
+    "grip": "obouruč",
+    "setupId": "spot",
+    "pattern": [
+      {
+        "at": "front"
+      },
+      {
+        "at": "front"
+      }
+    ],
+    "loop": true,
+    "callMode": "žádný",
+    "tempoBpm": 30,
+    "durationSec": 30,
+    "reps": null,
+    "spaceNeeded": [
+      1.4,
+      2
+    ],
+    "noise": "tichý",
+    "equipment": [
+      "hůl"
+    ],
+    "voiceIntro": "Polož si hůl napříč na dlaň jako číšník tác a udrž ji. Na pípnutí vyměň ruku.",
+    "coachingPoints": [
+      "Hůl leží vodorovně, ve výšce pasu nebo níž",
+      "Dívej se na prostředek hole",
+      "Zkus obě ruce"
+    ],
+    "commonMistakes": [
+      "Zvedá hůl nad hlavu",
+      "Chodí po celém pokoji"
+    ],
+    "progression": null,
+    "regression": null,
+    "safetyNotes": "Hůl jen vodorovně a nízko, nikdy nad hlavou. Kolem tebe nikdo.",
+    "sources": [
+      {
+        "url": "https://klickin.swissunihockey.ch/index.php/download_file/view/312/279",
+        "type": "metodika",
+        "reliability": "ověřené"
+      }
+    ],
+    "confidence": "odvozené",
+    "kind": "nobal",
+    "matchLegal": true,
+    "origin": [
+      "CH-14"
+    ]
+  },
+  {
+    "id": "wu-color-touch",
+    "name": "Dotkni se barvy",
+    "level": 1,
+    "minAge": 6,
+    "category": "koordinace bez míčku",
+    "bladeSide": "obě",
+    "grip": "obouruč",
+    "setupId": "square",
+    "pattern": [
+      {
+        "at": 1
+      },
+      {
+        "at": "home"
+      },
+      {
+        "at": 3
+      },
+      {
+        "at": "home"
+      },
+      {
+        "at": 2
+      },
+      {
+        "at": "home"
+      },
+      {
+        "at": 2
+      },
+      {
+        "at": "home"
+      },
+      {
+        "at": 4
+      },
+      {
+        "at": "home"
+      },
+      {
+        "at": 1
+      },
+      {
+        "at": "home"
+      }
+    ],
+    "loop": true,
+    "callMode": "barva",
+    "tempoBpm": 30,
+    "durationSec": 40,
+    "reps": null,
+    "spaceNeeded": [
+      2.8,
+      3.2
+    ],
+    "noise": "střední",
+    "equipment": [
+      "4 barevné kužely"
+    ],
+    "voiceIntro": "Bez hole a bez míčku! Řeknu barvu, ty k tomu kuželu doběhni, dotkni se ho rukou a vrať se do domečku.",
+    "coachingPoints": [
+      "Vyběhni až po barvě",
+      "U kuželu malé brzdicí kroky",
+      "Zpátky čelem k tabletu"
+    ],
+    "commonMistakes": [
+      "Vybíhá dřív, než barvu uslyší",
+      "Kouká do země"
+    ],
+    "progression": null,
+    "regression": null,
+    "safetyNotes": "Hůl nech mimo čtverec. Ve čtverci nic neleží.",
+    "sources": [
+      {
+        "url": "https://www.mobilesport.ch/assets/lbwp-cdn/mobilesport/files/2013/09/praxis_2005_02_d.pdf",
+        "type": "metodika",
+        "reliability": "ověřené"
+      },
+      {
+        "url": "https://editor.swissunihockey.ch/index.php/download_file/view/316/279",
+        "type": "metodika",
+        "reliability": "ověřené"
+      }
+    ],
+    "confidence": "odvozené",
+    "kind": "nobal",
+    "matchLegal": true,
+    "origin": [
+      "CH-06",
+      "CH-15"
+    ]
+  },
+  {
+    "id": "wu-react-run",
+    "name": "Bleskové nohy",
+    "level": 2,
+    "minAge": 6,
+    "category": "koordinace bez míčku",
+    "bladeSide": "obě",
+    "grip": "obouruč",
+    "setupId": "triangle",
+    "pattern": [
+      {
+        "at": 1
+      },
+      {
+        "at": "home"
+      }
+    ],
+    "loop": true,
+    "callMode": "náhodná reakce",
+    "tempoBpm": 25,
+    "durationSec": 30,
+    "reps": null,
+    "spaceNeeded": [
+      2.6,
+      2.8
+    ],
+    "noise": "střední",
+    "equipment": [
+      "3 kužely"
+    ],
+    "voiceIntro": "Bez míčku! Kužel, který ukážu, ťukni rukou a hned zpátky do domečku.",
+    "coachingPoints": [
+      "Start hned, jak číslo uvidíš",
+      "Krátký sprint, pak klid",
+      "Zpátky čelem dopředu"
+    ],
+    "commonMistakes": [
+      "Hádá číslo dopředu",
+      "Dlouhé kroky a klouzání"
+    ],
+    "progression": null,
+    "regression": "wu-quick-feet",
+    "safetyNotes": "Hůl nech stranou. Na hladké podlaze ne v ponožkách.",
+    "sources": [
+      {
+        "url": "https://apps.apple.com/us/app/my-floorball/id949358436",
+        "type": "výrobce",
+        "reliability": "inspirace"
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=IT9Wu3P_C6I",
+        "type": "video",
+        "reliability": "inspirace"
+      },
+      {
+        "url": "https://cdn.hockeycanada.ca/hockey-canada/Hockey-Programs/Players/Downloads/2020/puck-control-overview-e.pdf",
+        "type": "metodika",
+        "reliability": "ověřené"
+      },
+      {
+        "url": "https://portal.usahockey.com/cx/president/hockey-devlopment/8u_fundamentals_stage-adm.pdf",
+        "type": "metodika",
+        "reliability": "ověřené"
+      }
+    ],
+    "confidence": "odvozené",
+    "kind": "nobal",
+    "matchLegal": true,
+    "origin": [
+      "MF-02",
+      "H42",
+      "ADM"
+    ]
+  },
+  {
+    "id": "wu-slalom-walk",
+    "name": "Slalom bez míčku",
+    "level": 1,
+    "minAge": 6,
+    "category": "práce nohou",
+    "bladeSide": "obě",
+    "grip": "obouruč",
+    "setupId": "line",
+    "pattern": [
+      {
+        "at": "around:1",
+        "dir": "ccw"
+      },
+      {
+        "at": "around:2",
+        "dir": "cw"
+      },
+      {
+        "at": "around:3",
+        "dir": "ccw"
+      },
+      {
+        "at": "around:4",
+        "dir": "cw"
+      },
+      {
+        "at": "home"
+      }
+    ],
+    "loop": true,
+    "callMode": "zóna",
+    "tempoBpm": 35,
+    "durationSec": 40,
+    "reps": null,
+    "spaceNeeded": [
+      1.6,
+      4.4
+    ],
+    "noise": "střední",
+    "equipment": [
+      "hůl",
+      "4 kužely"
+    ],
+    "voiceIntro": "Projdi slalom bez míčku, čepel klouže po zemi. Zpátky se vrať rovně vedle kuželů.",
+    "coachingPoints": [
+      "Čepel stále na zemi",
+      "Malé kroky kolem kuželu",
+      "Hlava nahoře"
+    ],
+    "commonMistakes": [
+      "Kličkuje moc daleko od kuželů"
+    ],
+    "progression": "slalom-fh-bh",
+    "regression": null,
+    "safetyNotes": "Čepel na zemi. Za posledním kuželem musí být volno.",
+    "sources": [
+      {
+        "url": "https://dspace5.zcu.cz/bitstream/11025/19998/1/Diplomova%20prace%20Matous%20Hrdlicka%202015.pdf",
+        "type": "VŠ práce (metodika ČFbU)",
+        "reliability": "ověřené"
+      },
+      {
+        "url": "https://editor.swissunihockey.ch/index.php/download_file/view/316/279",
+        "type": "metodika",
+        "reliability": "ověřené"
+      }
+    ],
+    "confidence": "odvozené",
+    "kind": "nobal",
+    "matchLegal": true,
+    "origin": [
+      "CZ-17",
+      "CH-16"
+    ]
+  },
+  {
+    "id": "wu-scarf",
+    "name": "Šátek: vyhoď a chyť",
+    "level": 1,
+    "minAge": 6,
+    "category": "koordinace bez míčku",
+    "bladeSide": "obě",
+    "grip": "obouruč",
+    "setupId": "spot",
+    "pattern": [
+      {
+        "at": "front"
+      },
+      {
+        "at": "front"
+      }
+    ],
+    "loop": true,
+    "callMode": "žádný",
+    "tempoBpm": 15,
+    "durationSec": 30,
+    "reps": null,
+    "spaceNeeded": [
+      1.4,
+      2
+    ],
+    "noise": "tichý",
+    "equipment": [
+      "šátek nebo ponožka"
+    ],
+    "voiceIntro": "Vyhoď šátek vysoko, tleskni a chyť ho. Na pípnutí zkus tlesknout dvakrát.",
+    "coachingPoints": [
+      "Dívej se na šátek",
+      "Chytej oběma rukama",
+      "Pak zkus jednou rukou"
+    ],
+    "commonMistakes": [
+      "Vyhodí šátek moc daleko dopředu"
+    ],
+    "progression": null,
+    "regression": null,
+    "safetyNotes": "Hůl polož stranou. Nad tebou nesmí viset lustr.",
+    "sources": [
+      {
+        "url": "https://theses.cz/id/7arhdl/",
+        "type": "VŠ práce",
+        "reliability": "ověřené"
+      }
+    ],
+    "confidence": "ověřené",
+    "kind": "nobal",
+    "matchLegal": true,
+    "origin": [
+      "CR-11",
+      "CR-12"
+    ]
+  },
+  {
+    "id": "cone-there-back",
+    "name": "Tam a zpátky kolem mety",
+    "level": 1,
+    "minAge": 6,
+    "category": "kolem kuželů",
+    "bladeSide": "obě",
+    "grip": "obouruč",
+    "setupId": "triangle",
+    "pattern": [
+      {
+        "at": 3,
+        "blade": "fh"
+      },
+      {
+        "at": "around:3",
+        "dir": "ccw",
+        "blade": "fh"
+      },
+      {
+        "at": "home",
+        "blade": "fh"
+      },
+      {
+        "at": 3,
+        "blade": "bh"
+      },
+      {
+        "at": "around:3",
+        "dir": "cw",
+        "blade": "bh"
+      },
+      {
+        "at": "home",
+        "blade": "bh"
+      }
+    ],
+    "loop": true,
+    "callMode": "zóna",
+    "tempoBpm": 25,
+    "durationSec": 40,
+    "reps": null,
+    "spaceNeeded": [
+      2.6,
+      2.8
+    ],
+    "noise": "střední",
+    "equipment": [
+      "hůl",
+      "míček",
+      "3 kužely"
+    ],
+    "voiceIntro": "Doveď míček ke žlutému kuželu, objeď ho a vrať se domů. Podruhé ho objeď z druhé strany.",
+    "coachingPoints": [
+      "Ke kuželu klidně",
+      "Kolem kuželu těsně",
+      "Zpátky hlava nahoře"
+    ],
+    "commonMistakes": [
+      "Míček u otočky uteče daleko"
+    ],
+    "progression": "escape-turn",
+    "regression": "fh-push-cones",
+    "safetyNotes": "Hůl drž pod pasem. Uklid věci z cesty. Na hladké podlaze cvič v sálovkách nebo bos, ne v ponožkách.",
+    "sources": [
+      {
+        "url": "https://theses.cz/id/4qeyny/",
+        "type": "VŠ práce",
+        "reliability": "ověřené"
+      },
+      {
+        "url": "https://www.hockeycanada.ca/en-ca/hockey-programs/coaching/under-9/coaches/skills",
+        "type": "metodika",
+        "reliability": "ověřené"
+      }
+    ],
+    "confidence": "ověřené",
+    "kind": "ball",
+    "matchLegal": true,
+    "origin": [
+      "CR-01",
+      "H34"
+    ]
+  },
+  {
+    "id": "fh-bh-side-steps",
+    "name": "Přetahování s úkroky",
+    "level": 2,
+    "minAge": 6,
+    "category": "vedení míčku",
+    "bladeSide": "obě",
+    "grip": "obouruč",
+    "setupId": "spot",
+    "pattern": [
+      {
+        "at": 1,
+        "blade": "bh"
+      },
+      {
+        "at": "front",
+        "blade": "fh"
+      },
+      {
+        "at": 2,
+        "blade": "fh"
+      },
+      {
+        "at": "front",
+        "blade": "bh"
+      }
+    ],
+    "loop": true,
+    "callMode": "zóna",
+    "tempoBpm": 50,
+    "durationSec": 30,
+    "reps": null,
+    "spaceNeeded": [
+      1.4,
+      2
+    ],
+    "noise": "tichý",
+    "equipment": [
+      "hůl",
+      "míček",
+      "2 kužely nebo boty"
+    ],
+    "voiceIntro": "Přetahuj míček a přitom dělej malé úkroky k červenému a k modrému kuželu.",
+    "coachingPoints": [
+      "Nohy se nekříží",
+      "Míček před tělem",
+      "Ruce i nohy zároveň"
+    ],
+    "commonMistakes": [
+      "Zastaví nohy, když přetahuje"
+    ],
+    "progression": "happy-feet",
+    "regression": "fh-bh-front",
+    "safetyNotes": "Hůl drž pod pasem. Kolem tebe je volno a tablet stojí daleko, kam čepel nedosáhne.",
+    "sources": [
+      {
+        "url": "https://www.innebandy.se/ovningsbanken/vaxlingar",
+        "type": "metodika (övningsbanken)",
+        "reliability": "ověřené"
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=5Ls0RzDATIY",
+        "type": "video",
+        "reliability": "ověřené"
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=DycV8UE5Ua0",
+        "type": "video",
+        "reliability": "ověřené"
+      }
+    ],
+    "confidence": "ověřené",
+    "kind": "ball",
+    "matchLegal": true,
+    "origin": [
+      "CR-30",
+      "H29"
+    ]
+  },
+  {
+    "id": "stretch-end",
+    "name": "Protažení lýtek",
+    "level": 1,
+    "minAge": 6,
+    "category": "koordinace bez míčku",
+    "bladeSide": "obě",
+    "grip": "obouruč",
+    "setupId": "spot",
+    "pattern": [],
+    "loop": false,
+    "callMode": "žádný",
+    "tempoBpm": 15,
+    "durationSec": 40,
+    "reps": null,
+    "spaceNeeded": [
+      1.4,
+      2
+    ],
+    "noise": "tichý",
+    "equipment": [],
+    "voiceIntro": "Na závěr protažení: jednu nohu dej dozadu, patu na zem a pomalu dýchej. Pak druhou nohu.",
+    "coachingPoints": [
+      "Pata zůstává na zemi",
+      "Nehoupej se, jen drž",
+      "Dýchej pomalu"
+    ],
+    "commonMistakes": [],
+    "progression": null,
+    "regression": null,
+    "safetyNotes": "Hůl polož na zem, ať o ni nezakopneš.",
+    "sources": [
+      {
+        "url": "https://portal.usahockey.com/cx/president/hockey-devlopment/8u_fundamentals_stage-adm.pdf",
+        "type": "metodika",
+        "reliability": "ověřené"
+      },
+      {
+        "url": "https://www.mobilesport.ch/assets/lbwp-cdn/mobilesport/files/2011/02/Grundlagen_Unihockey.pdf",
+        "type": "metodika",
+        "reliability": "ověřené"
+      }
+    ],
+    "confidence": "odvozené",
+    "kind": "stretch",
+    "matchLegal": true,
+    "origin": [
+      "ADM",
+      "JS"
+    ]
+  },
+  {
+    "id": "stretch-wrists",
+    "name": "Protažení zápěstí",
+    "level": 1,
+    "minAge": 6,
+    "category": "koordinace bez míčku",
+    "bladeSide": "obě",
+    "grip": "obouruč",
+    "setupId": "spot",
+    "pattern": [],
+    "loop": false,
+    "callMode": "žádný",
+    "tempoBpm": 15,
+    "durationSec": 30,
+    "reps": null,
+    "spaceNeeded": [
+      1.4,
+      2
+    ],
+    "noise": "tichý",
+    "equipment": [],
+    "voiceIntro": "Natáhni ruku před sebe a druhou rukou si jemně přitáhni prsty k sobě. Pak druhou ruku.",
+    "coachingPoints": [
+      "Jen jemně, nesmí to bolet",
+      "Prsty nahoru, pak dolů"
+    ],
+    "commonMistakes": [],
+    "progression": null,
+    "regression": null,
+    "safetyNotes": "Hůl polož na zem.",
+    "sources": [
+      {
+        "url": "https://portal.usahockey.com/cx/president/hockey-devlopment/8u_fundamentals_stage-adm.pdf",
+        "type": "metodika",
+        "reliability": "ověřené"
+      }
+    ],
+    "confidence": "odvozené",
+    "kind": "stretch",
+    "matchLegal": true,
+    "origin": [
+      "ADM"
+    ]
+  },
+  {
+    "id": "stretch-cat",
+    "name": "Kočička",
+    "level": 1,
+    "minAge": 6,
+    "category": "koordinace bez míčku",
+    "bladeSide": "obě",
+    "grip": "obouruč",
+    "setupId": "spot",
+    "pattern": [],
+    "loop": false,
+    "callMode": "žádný",
+    "tempoBpm": 15,
+    "durationSec": 30,
+    "reps": null,
+    "spaceNeeded": [
+      1.4,
+      2
+    ],
+    "noise": "tichý",
+    "equipment": [],
+    "voiceIntro": "Klekni si na všechny čtyři. Udělej kočičí hřbet nahoru, pak záda pomalu prohni dolů.",
+    "coachingPoints": [
+      "Pomalu, s dechem",
+      "Hlava jde s pohybem"
+    ],
+    "commonMistakes": [],
+    "progression": null,
+    "regression": null,
+    "safetyNotes": "Hůl polož stranou. Klekej na koberec nebo podložku.",
+    "sources": [
+      {
+        "url": "https://portal.usahockey.com/cx/president/hockey-devlopment/8u_fundamentals_stage-adm.pdf",
+        "type": "metodika",
+        "reliability": "ověřené"
+      }
+    ],
+    "confidence": "odvozené",
+    "kind": "stretch",
+    "matchLegal": true,
+    "origin": [
+      "ADM"
+    ]
+  },
+  {
+    "id": "stretch-side",
+    "name": "Úklony",
+    "level": 1,
+    "minAge": 6,
+    "category": "koordinace bez míčku",
+    "bladeSide": "obě",
+    "grip": "obouruč",
+    "setupId": "spot",
+    "pattern": [],
+    "loop": false,
+    "callMode": "žádný",
+    "tempoBpm": 15,
+    "durationSec": 30,
+    "reps": null,
+    "spaceNeeded": [
+      1.4,
+      2
+    ],
+    "noise": "tichý",
+    "equipment": [],
+    "voiceIntro": "Hůl polož na zem. Ruce dej v bok a pomalu se ukloň na jednu stranu, pak na druhou.",
+    "coachingPoints": [
+      "Nohy na šířku ramen",
+      "Neotáčej se, jen do boku"
+    ],
+    "commonMistakes": [],
+    "progression": null,
+    "regression": null,
+    "safetyNotes": "Hůl leží na zemi, nedrž ji nad hlavou.",
+    "sources": [
+      {
+        "url": "https://portal.usahockey.com/cx/president/hockey-devlopment/8u_fundamentals_stage-adm.pdf",
+        "type": "metodika",
+        "reliability": "ověřené"
+      }
+    ],
+    "confidence": "odvozené",
+    "kind": "stretch",
+    "matchLegal": true,
+    "origin": [
+      "ADM"
+    ]
+  },
+  {
+    "id": "stretch-calm",
+    "name": "Zklidnění",
+    "level": 1,
+    "minAge": 6,
+    "category": "koordinace bez míčku",
+    "bladeSide": "obě",
+    "grip": "obouruč",
+    "setupId": "spot",
+    "pattern": [],
+    "loop": false,
+    "callMode": "žádný",
+    "tempoBpm": 15,
+    "durationSec": 30,
+    "reps": null,
+    "spaceNeeded": [
+      1.4,
+      2
+    ],
+    "noise": "tichý",
+    "equipment": [],
+    "voiceIntro": "Hotovo, makal jsi! Třikrát se zhluboka nadechni a vydechni a pak si protřep ruce.",
+    "coachingPoints": [
+      "Nádech nosem, výdech pusou",
+      "Ramena dolů"
+    ],
+    "commonMistakes": [],
+    "progression": null,
+    "regression": null,
+    "safetyNotes": "Hůl a míček ulož na místo, ať o ně nikdo nezakopne.",
+    "sources": [
+      {
+        "url": "https://www.mobilesport.ch/assets/lbwp-cdn/mobilesport/files/2011/02/Grundlagen_Unihockey.pdf",
+        "type": "metodika",
+        "reliability": "ověřené"
+      },
+      {
+        "url": "https://portal.usahockey.com/cx/president/hockey-devlopment/8u_fundamentals_stage-adm.pdf",
+        "type": "metodika",
+        "reliability": "ověřené"
+      }
+    ],
+    "confidence": "odvozené",
+    "kind": "stretch",
+    "matchLegal": true,
+    "origin": [
+      "JS",
+      "ADM"
+    ]
   },
   {
     "id": "fh-bh-front",
@@ -125,57 +1175,7 @@
     ],
     "loop": true,
     "callMode": "směr",
-    "tempoBpm": 56,
-    "durationSec": 40,
-    "reps": null,
-    "spaceNeeded": [
-      1.4,
-      2
-    ],
-    "noise": "tichý",
-    "equipment": [
-      "hůl",
-      "míček"
-    ],
-    "voiceIntro": "Přetahuj míček před sebou z forhendu na bekhend a zpátky. Hlava nahoře!",
-    "coachingPoints": [
-      "Kolena pokrčená",
-      "Míček před tělem, ne u nohou",
-      "Čepel měkce, bez ťukání"
-    ],
-    "commonMistakes": [
-      "Míček odskakuje, protože hráč tluče čepelí"
-    ],
-    "progression": "fh-push-cones",
-    "regression": null,
-    "safetyNotes": "Hůl vždy pod úrovní pasu. Kolem tebe volno, tablet mimo dosah čepele.",
-    "sources": [],
-    "confidence": "vlastní",
-    "kind": "ball",
-    "matchLegal": true
-  },
-  {
-    "id": "bh-only-front",
-    "name": "Jen bekhendem",
-    "level": 2,
-    "minAge": 6,
-    "category": "vedení míčku",
-    "bladeSide": "bekhend",
-    "grip": "obouruč",
-    "setupId": "spot",
-    "pattern": [
-      {
-        "at": "front",
-        "blade": "bh"
-      },
-      {
-        "at": "bh",
-        "blade": "bh"
-      }
-    ],
-    "loop": true,
-    "callMode": "směr",
-    "tempoBpm": 48,
+    "tempoBpm": 60,
     "durationSec": 30,
     "reps": null,
     "spaceNeeded": [
@@ -185,27 +1185,2351 @@
     "noise": "tichý",
     "equipment": [
       "hůl",
-      "míček"
+      "míček",
+      "2 kužely nebo boty"
     ],
-    "voiceIntro": "Teď jen bekhendem. Posuň míček před sebe a zase ho přitáhni na bekhendovou stranu.",
+    "voiceIntro": "Přetahuj míček před sebou z forhendu na bekhend a zpátky. Potichu, jako by spalo miminko.",
     "coachingPoints": [
-      "Míček pořád u čepele",
-      "Hýbou se zápěstí, ne celé tělo"
+      "Kolena pokrčená",
+      "Míček před tělem, ne u bot",
+      "Měkké ruce, žádné ťukání"
     ],
     "commonMistakes": [
-      "Hráč si pomáhá forhendem"
+      "Tluče čepelí a míček odskakuje",
+      "Stojí rovně s propnutými koleny"
+    ],
+    "progression": "toe-to-toe",
+    "regression": null,
+    "safetyNotes": "Hůl drž pod pasem. Kolem tebe je volno a tablet stojí daleko, kam čepel nedosáhne.",
+    "sources": [
+      {
+        "url": "https://www.youtube.com/watch?v=HFlw8A4xye0",
+        "type": "video",
+        "reliability": "ověřené"
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=DycV8UE5Ua0",
+        "type": "video",
+        "reliability": "ověřené"
+      },
+      {
+        "url": "https://dspace5.zcu.cz/bitstream/11025/19998/1/Diplomova%20prace%20Matous%20Hrdlicka%202015.pdf",
+        "type": "VŠ práce (metodika ČFbU)",
+        "reliability": "ověřené"
+      },
+      {
+        "url": "https://bin.yhdistysavain.fi/1580251/ruuOmGuWdYLL9JFkqrvC0bZWHb/SBVImuistiinpanot.pdf",
+        "type": "metodika",
+        "reliability": "ověřené"
+      },
+      {
+        "url": "https://www1.specialolympicsontario.com/resources/wp-content/uploads/sites/39/2024/10/SOI_Floorball_Coaching-Guide.pdf",
+        "type": "metodika",
+        "reliability": "ověřené"
+      },
+      {
+        "url": "https://www.innebandy.se/ovningsbanken/vaxlingar",
+        "type": "metodika (övningsbanken)",
+        "reliability": "ověřené"
+      }
+    ],
+    "confidence": "ověřené",
+    "kind": "ball",
+    "matchLegal": true,
+    "origin": [
+      "H01",
+      "CZ-01",
+      "FI-12",
+      "SO-02",
+      "CR-30"
+    ]
+  },
+  {
+    "id": "fh-bh-wide",
+    "name": "Od kuželu ke kuželu",
+    "level": 1,
+    "minAge": 6,
+    "category": "tahy",
+    "bladeSide": "obě",
+    "grip": "obouruč",
+    "setupId": "spot",
+    "pattern": [
+      {
+        "at": 1,
+        "blade": "bh"
+      },
+      {
+        "at": 2,
+        "blade": "fh"
+      }
+    ],
+    "loop": true,
+    "callMode": "zóna",
+    "tempoBpm": 45,
+    "durationSec": 30,
+    "reps": null,
+    "spaceNeeded": [
+      1.4,
+      2
+    ],
+    "noise": "tichý",
+    "equipment": [
+      "hůl",
+      "míček",
+      "2 kužely nebo boty"
+    ],
+    "voiceIntro": "Teď široce: táhni míček až k červenému kuželu a pak až k modrému. Celé tělo jde s ním.",
+    "coachingPoints": [
+      "Ruce daleko od těla",
+      "Váha jde z nohy na nohu",
+      "U kuželu míček měkce chyť"
+    ],
+    "commonMistakes": [
+      "Míček u kuželu odpálí",
+      "Ruce drží u břicha"
+    ],
+    "progression": "reach-near-far",
+    "regression": "fh-bh-front",
+    "safetyNotes": "Hůl drž pod pasem. Kolem tebe je volno a tablet stojí daleko, kam čepel nedosáhne.",
+    "sources": [
+      {
+        "url": "https://www.youtube.com/watch?v=BIRR2Kb0aEA",
+        "type": "video",
+        "reliability": "ověřené"
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=7HluVwbAv3w",
+        "type": "video",
+        "reliability": "inspirace"
+      },
+      {
+        "url": "https://bin.yhdistysavain.fi/1580251/ruuOmGuWdYLL9JFkqrvC0bZWHb/SBVImuistiinpanot.pdf",
+        "type": "metodika",
+        "reliability": "ověřené"
+      }
+    ],
+    "confidence": "ověřené",
+    "kind": "ball",
+    "matchLegal": true,
+    "origin": [
+      "H02",
+      "FI-12"
+    ]
+  },
+  {
+    "id": "toe-to-toe",
+    "name": "Rychlé ruce",
+    "level": 2,
+    "minAge": 6,
+    "category": "tahy",
+    "bladeSide": "obě",
+    "grip": "obouruč",
+    "setupId": "spot",
+    "pattern": [
+      {
+        "at": "fh",
+        "blade": "fh"
+      },
+      {
+        "at": "bh",
+        "blade": "bh"
+      }
+    ],
+    "loop": true,
+    "callMode": "směr",
+    "tempoBpm": 90,
+    "durationSec": 20,
+    "reps": null,
+    "spaceNeeded": [
+      1.4,
+      2
+    ],
+    "noise": "tichý",
+    "equipment": [
+      "hůl",
+      "míček",
+      "2 kužely nebo boty"
+    ],
+    "voiceIntro": "Rychlé ruce: krátce přetahuj od špičky jedné boty ke špičce druhé. Rychle, ale potichu!",
+    "coachingPoints": [
+      "Krátké pohyby",
+      "Hlavně zápěstí",
+      "Nakoukni a zvedni oči"
+    ],
+    "commonMistakes": [
+      "Zrychlí a ztratí míček, zkus o kousek pomaleji"
+    ],
+    "progression": "fh-bh-rhythm",
+    "regression": "fh-bh-front",
+    "safetyNotes": "Hůl drž pod pasem. Kolem tebe je volno a tablet stojí daleko, kam čepel nedosáhne.",
+    "sources": [
+      {
+        "url": "https://www.youtube.com/watch?v=7HluVwbAv3w",
+        "type": "video",
+        "reliability": "inspirace"
+      },
+      {
+        "url": "https://dspace.cuni.cz/handle/20.500.11956/191512",
+        "type": "VŠ práce",
+        "reliability": "odvozené"
+      }
+    ],
+    "confidence": "odvozené",
+    "kind": "ball",
+    "matchLegal": true,
+    "origin": [
+      "H13",
+      "H49"
+    ]
+  },
+  {
+    "id": "fh-bh-rhythm",
+    "name": "Raz, dva, tři, hop",
+    "level": 2,
+    "minAge": 6,
+    "category": "tahy",
+    "bladeSide": "obě",
+    "grip": "obouruč",
+    "setupId": "spot",
+    "pattern": [
+      {
+        "at": "front",
+        "blade": "fh"
+      },
+      {
+        "at": "front",
+        "blade": "bh"
+      },
+      {
+        "at": "front",
+        "blade": "fh"
+      },
+      {
+        "at": "bh",
+        "blade": "bh"
+      },
+      {
+        "at": "front",
+        "blade": "bh"
+      },
+      {
+        "at": "front",
+        "blade": "fh"
+      },
+      {
+        "at": "front",
+        "blade": "bh"
+      },
+      {
+        "at": "fh",
+        "blade": "fh"
+      }
+    ],
+    "loop": true,
+    "callMode": "směr",
+    "tempoBpm": 80,
+    "durationSec": 40,
+    "reps": null,
+    "spaceNeeded": [
+      1.4,
+      2
+    ],
+    "noise": "tichý",
+    "equipment": [
+      "hůl",
+      "míček",
+      "2 kužely nebo boty"
+    ],
+    "voiceIntro": "Tři malé doteky před sebou a na čtyři hop daleko do strany. Poslouchej, kam řeknu.",
+    "coachingPoints": [
+      "Počítej v duchu raz, dva, tři",
+      "Na čtyři široký tah",
+      "Kolena pořád pokrčená"
+    ],
+    "commonMistakes": [
+      "Ztratí rytmus, nevadí, chyť se dalšího pípnutí"
+    ],
+    "progression": "fh-bh-switch",
+    "regression": "toe-to-toe",
+    "safetyNotes": "Hůl drž pod pasem. Kolem tebe je volno a tablet stojí daleko, kam čepel nedosáhne.",
+    "sources": [
+      {
+        "url": "https://www.youtube.com/watch?v=7HluVwbAv3w",
+        "type": "video",
+        "reliability": "inspirace"
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=p5mfzsB4Tec",
+        "type": "video",
+        "reliability": "inspirace"
+      }
+    ],
+    "confidence": "odvozené",
+    "kind": "ball",
+    "matchLegal": true,
+    "origin": [
+      "H14"
+    ]
+  },
+  {
+    "id": "fh-only-side",
+    "name": "Jen forhend vedle těla",
+    "level": 2,
+    "minAge": 6,
+    "category": "tahy",
+    "bladeSide": "forhend",
+    "grip": "obouruč",
+    "setupId": "spot",
+    "pattern": [
+      {
+        "at": "fh",
+        "blade": "fh"
+      },
+      {
+        "at": "back",
+        "blade": "fh"
+      }
+    ],
+    "loop": true,
+    "callMode": "směr",
+    "tempoBpm": 60,
+    "durationSec": 30,
+    "reps": null,
+    "spaceNeeded": [
+      1.4,
+      2
+    ],
+    "noise": "tichý",
+    "equipment": [
+      "hůl",
+      "míček",
+      "2 kužely nebo boty"
+    ],
+    "voiceIntro": "Míček je vedle tebe na forhendu. Posouvej ho dopředu a dozadu, nohy se nehýbou.",
+    "coachingPoints": [
+      "Nohy čelem k tabletu",
+      "Míček jezdí podél boty",
+      "Pracuje horní ruka"
+    ],
+    "commonMistakes": [
+      "Otáčí se celým tělem",
+      "Míček utíká dozadu za paty"
+    ],
+    "progression": "fh-flip-dribble",
+    "regression": "fh-bh-front",
+    "safetyNotes": "Hůl drž pod pasem. Kolem tebe je volno a tablet stojí daleko, kam čepel nedosáhne.",
+    "sources": [
+      {
+        "url": "https://www.youtube.com/watch?v=IT9Wu3P_C6I",
+        "type": "video",
+        "reliability": "inspirace"
+      },
+      {
+        "url": "https://portal.usahockey.com/cx/president/hockey-devlopment/8u_fundamentals_stage-adm.pdf",
+        "type": "metodika",
+        "reliability": "ověřené"
+      },
+      {
+        "url": "https://dspace5.zcu.cz/bitstream/11025/19998/1/Diplomova%20prace%20Matous%20Hrdlicka%202015.pdf",
+        "type": "VŠ práce (metodika ČFbU)",
+        "reliability": "ověřené"
+      },
+      {
+        "url": "https://www.innebandy.se/ovningsbanken/vickningar",
+        "type": "metodika (övningsbanken)",
+        "reliability": "ověřené"
+      }
+    ],
+    "confidence": "ověřené",
+    "kind": "ball",
+    "matchLegal": true,
+    "origin": [
+      "H07",
+      "CZ-02",
+      "CR-29"
+    ]
+  },
+  {
+    "id": "bh-only-front",
+    "name": "Jen bekhend vedle těla",
+    "level": 2,
+    "minAge": 6,
+    "category": "tahy",
+    "bladeSide": "bekhend",
+    "grip": "obouruč",
+    "setupId": "spot",
+    "pattern": [
+      {
+        "at": "bh",
+        "blade": "bh"
+      },
+      {
+        "at": "back",
+        "blade": "bh"
+      }
+    ],
+    "loop": true,
+    "callMode": "směr",
+    "tempoBpm": 60,
+    "durationSec": 30,
+    "reps": null,
+    "spaceNeeded": [
+      1.4,
+      2
+    ],
+    "noise": "tichý",
+    "equipment": [
+      "hůl",
+      "míček",
+      "2 kužely nebo boty"
+    ],
+    "voiceIntro": "Míček je vedle tebe na bekhendu a jezdí dopředu a dozadu. Bekhend je stejně důležitý jako forhend!",
+    "coachingPoints": [
+      "Čepel nakloněná nad míček",
+      "Nohy čelem k tabletu",
+      "Měkce, bez ťukání"
+    ],
+    "commonMistakes": [
+      "Přehodí míček zpátky na forhend",
+      "Míček daleko od čepele"
+    ],
+    "progression": "toe-drag-bh",
+    "regression": "fh-bh-front",
+    "safetyNotes": "Hůl drž pod pasem. Kolem tebe je volno a tablet stojí daleko, kam čepel nedosáhne.",
+    "sources": [
+      {
+        "url": "https://www.youtube.com/watch?v=IT9Wu3P_C6I",
+        "type": "video",
+        "reliability": "inspirace"
+      },
+      {
+        "url": "https://portal.usahockey.com/cx/president/hockey-devlopment/8u_fundamentals_stage-adm.pdf",
+        "type": "metodika",
+        "reliability": "ověřené"
+      },
+      {
+        "url": "https://dspace5.zcu.cz/bitstream/11025/19998/1/Diplomova%20prace%20Matous%20Hrdlicka%202015.pdf",
+        "type": "VŠ práce (metodika ČFbU)",
+        "reliability": "ověřené"
+      },
+      {
+        "url": "https://laget.se/SkellefteaIBK/Document/Download/1088074/6494953",
+        "type": "metodika",
+        "reliability": "inspirace"
+      }
+    ],
+    "confidence": "ověřené",
+    "kind": "ball",
+    "matchLegal": true,
+    "origin": [
+      "H07",
+      "CZ-03",
+      "SKE"
+    ]
+  },
+  {
+    "id": "fh-flip-dribble",
+    "name": "Florbalový driblink",
+    "level": 3,
+    "minAge": 7,
+    "category": "tahy",
+    "bladeSide": "forhend",
+    "grip": "obouruč",
+    "setupId": "spot",
+    "pattern": [
+      {
+        "at": "front",
+        "blade": "fh"
+      },
+      {
+        "at": "fh",
+        "blade": "fh"
+      }
+    ],
+    "loop": true,
+    "callMode": "směr",
+    "tempoBpm": 60,
+    "durationSec": 30,
+    "reps": null,
+    "spaceNeeded": [
+      1.4,
+      2
+    ],
+    "noise": "tichý",
+    "equipment": [
+      "hůl",
+      "míček",
+      "2 kužely nebo boty"
+    ],
+    "voiceIntro": "Míček zůstává jen na forhendu. Čepel se překlápí: jednou ho vezeš patou, jednou špičkou.",
+    "coachingPoints": [
+      "Čepel přetáčí spodní ruka",
+      "Míček se drží u čepele",
+      "Pomalu, pak rychleji"
+    ],
+    "commonMistakes": [
+      "Přejde na bekhend",
+      "Čepel se nepřeklopí, jen tlačí"
+    ],
+    "progression": "fh-bh-switch",
+    "regression": "fh-only-side",
+    "safetyNotes": "Hůl drž pod pasem. Kolem tebe je volno a tablet stojí daleko, kam čepel nedosáhne.",
+    "sources": [
+      {
+        "url": "https://dspace5.zcu.cz/bitstream/11025/19998/1/Diplomova%20prace%20Matous%20Hrdlicka%202015.pdf",
+        "type": "VŠ práce (metodika ČFbU)",
+        "reliability": "ověřené"
+      }
+    ],
+    "confidence": "ověřené",
+    "kind": "ball",
+    "matchLegal": true,
+    "origin": [
+      "CZ-05"
+    ]
+  },
+  {
+    "id": "fh-bh-switch",
+    "name": "Hokejový a florbalový driblink",
+    "level": 3,
+    "minAge": 7,
+    "category": "tahy",
+    "bladeSide": "obě",
+    "grip": "obouruč",
+    "setupId": "spot",
+    "pattern": [
+      {
+        "at": "fh",
+        "blade": "fh"
+      },
+      {
+        "at": "bh",
+        "blade": "bh"
+      },
+      {
+        "at": "fh",
+        "blade": "fh"
+      },
+      {
+        "at": "bh",
+        "blade": "bh"
+      },
+      {
+        "at": "front",
+        "blade": "fh"
+      },
+      {
+        "at": "fh",
+        "blade": "fh"
+      },
+      {
+        "at": "front",
+        "blade": "fh"
+      },
+      {
+        "at": "fh",
+        "blade": "fh"
+      }
+    ],
+    "loop": true,
+    "callMode": "směr",
+    "tempoBpm": 70,
+    "durationSec": 40,
+    "reps": null,
+    "spaceNeeded": [
+      1.4,
+      2
+    ],
+    "noise": "tichý",
+    "equipment": [
+      "hůl",
+      "míček",
+      "2 kužely nebo boty"
+    ],
+    "voiceIntro": "Střídáme: čtyřikrát přetáhni z forhendu na bekhend, pak čtyřikrát jen forhendem s překlápěním.",
+    "coachingPoints": [
+      "Poslouchej, co hlásím",
+      "Plynule, bez zastavení",
+      "Hlava nahoře"
+    ],
+    "commonMistakes": [
+      "Zapomene přepnout, nevadí, poslouchej Trenéra"
     ],
     "progression": null,
-    "regression": "fh-bh-front",
-    "safetyNotes": "Hůl vždy pod úrovní pasu. Kolem tebe volno, tablet mimo dosah čepele.",
-    "sources": [],
-    "confidence": "vlastní",
+    "regression": "fh-flip-dribble",
+    "safetyNotes": "Hůl drž pod pasem. Kolem tebe je volno a tablet stojí daleko, kam čepel nedosáhne.",
+    "sources": [
+      {
+        "url": "https://dspace5.zcu.cz/bitstream/11025/19998/1/Diplomova%20prace%20Matous%20Hrdlicka%202015.pdf",
+        "type": "VŠ práce (metodika ČFbU)",
+        "reliability": "ověřené"
+      }
+    ],
+    "confidence": "ověřené",
     "kind": "ball",
-    "matchLegal": true
+    "matchLegal": true,
+    "origin": [
+      "CZ-14"
+    ]
+  },
+  {
+    "id": "reach-near-far",
+    "name": "Blízko a daleko",
+    "level": 2,
+    "minAge": 6,
+    "category": "tahy",
+    "bladeSide": "obě",
+    "grip": "obouruč",
+    "setupId": "spot",
+    "pattern": [
+      {
+        "at": "front",
+        "blade": "fh"
+      },
+      {
+        "at": "front",
+        "blade": "bh"
+      },
+      {
+        "at": 1,
+        "blade": "bh"
+      },
+      {
+        "at": 2,
+        "blade": "fh"
+      }
+    ],
+    "loop": true,
+    "callMode": "zóna",
+    "tempoBpm": 60,
+    "durationSec": 40,
+    "reps": null,
+    "spaceNeeded": [
+      1.4,
+      2
+    ],
+    "noise": "tichý",
+    "equipment": [
+      "hůl",
+      "míček",
+      "2 kužely nebo boty"
+    ],
+    "voiceIntro": "Dvakrát přetáhni blízko u sebe a pak natáhni ruce a vezmi míček daleko ke kuželům.",
+    "coachingPoints": [
+      "Daleko = ruce natažené",
+      "Blízko = ruce u sebe",
+      "Kolena pokrčená celou dobu"
+    ],
+    "commonMistakes": [
+      "Předklání se místo natažení rukou"
+    ],
+    "progression": "circle-big",
+    "regression": "fh-bh-wide",
+    "safetyNotes": "Hůl drž pod pasem. Kolem tebe je volno a tablet stojí daleko, kam čepel nedosáhne.",
+    "sources": [
+      {
+        "url": "https://www.youtube.com/watch?v=JQ-SLP2V5W8",
+        "type": "video",
+        "reliability": "ověřené"
+      }
+    ],
+    "confidence": "ověřené",
+    "kind": "ball",
+    "matchLegal": true,
+    "origin": [
+      "H03"
+    ]
+  },
+  {
+    "id": "circle-big",
+    "name": "Velký kruh",
+    "level": 2,
+    "minAge": 6,
+    "category": "vedení míčku",
+    "bladeSide": "obě",
+    "grip": "obouruč",
+    "setupId": "spot",
+    "pattern": [
+      {
+        "at": "bh",
+        "blade": "bh"
+      },
+      {
+        "at": 1,
+        "blade": "bh"
+      },
+      {
+        "at": 2,
+        "blade": "fh"
+      },
+      {
+        "at": "fh",
+        "blade": "fh"
+      },
+      {
+        "at": "front",
+        "blade": "fh"
+      }
+    ],
+    "loop": true,
+    "callMode": "zóna",
+    "tempoBpm": 45,
+    "durationSec": 30,
+    "reps": null,
+    "spaceNeeded": [
+      1.4,
+      2
+    ],
+    "noise": "tichý",
+    "equipment": [
+      "hůl",
+      "míček",
+      "2 kužely nebo boty"
+    ],
+    "voiceIntro": "Veď míček po velkém kruhu před sebou. U nohou ho vezeš špičkou, daleko patou čepele.",
+    "coachingPoints": [
+      "Spodní ruka klouže po holi",
+      "Kruh je kulatý, ne hranatý",
+      "V půlce otoč směr"
+    ],
+    "commonMistakes": [
+      "Kruh se zmenší jen na malé kolečko"
+    ],
+    "progression": "figure8-spot",
+    "regression": "reach-near-far",
+    "safetyNotes": "Hůl drž pod pasem. Kolem tebe je volno a tablet stojí daleko, kam čepel nedosáhne.",
+    "sources": [
+      {
+        "url": "https://www.youtube.com/watch?v=aEsQAQGETEY",
+        "type": "video",
+        "reliability": "ověřené"
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=8l4CnuQcZKo",
+        "type": "video",
+        "reliability": "ověřené"
+      }
+    ],
+    "confidence": "ověřené",
+    "kind": "ball",
+    "matchLegal": true,
+    "origin": [
+      "H11",
+      "H09"
+    ]
+  },
+  {
+    "id": "figure8-spot",
+    "name": "Osmička kolem kuželů",
+    "level": 2,
+    "minAge": 6,
+    "category": "kolem kuželů",
+    "bladeSide": "obě",
+    "grip": "obouruč",
+    "setupId": "spot",
+    "pattern": [
+      {
+        "at": "around:1",
+        "dir": "ccw",
+        "blade": "bh"
+      },
+      {
+        "at": "around:2",
+        "dir": "cw",
+        "blade": "fh"
+      }
+    ],
+    "loop": true,
+    "callMode": "zóna",
+    "tempoBpm": 35,
+    "durationSec": 30,
+    "reps": null,
+    "spaceNeeded": [
+      1.4,
+      2
+    ],
+    "noise": "tichý",
+    "equipment": [
+      "hůl",
+      "míček",
+      "2 kužely nebo boty"
+    ],
+    "voiceIntro": "Nakresli míčkem ležatou osmičku kolem obou kuželů. Kolem červeného bekhendem, kolem modrého forhendem.",
+    "coachingPoints": [
+      "Míček těsně kolem kuželu",
+      "Uprostřed přetoč čepel",
+      "Kolena pokrčená"
+    ],
+    "commonMistakes": [
+      "Shazuje kužely",
+      "Osmička je moc široká"
+    ],
+    "progression": "figure8-spot-reverse",
+    "regression": "fh-bh-wide",
+    "safetyNotes": "Hůl drž pod pasem. Kolem tebe je volno a tablet stojí daleko, kam čepel nedosáhne.",
+    "sources": [
+      {
+        "url": "https://www.youtube.com/watch?v=lw7rrPkh2pc",
+        "type": "video",
+        "reliability": "ověřené"
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=3vqw3QHZpNo",
+        "type": "video",
+        "reliability": "inspirace"
+      }
+    ],
+    "confidence": "ověřené",
+    "kind": "ball",
+    "matchLegal": true,
+    "origin": [
+      "H05",
+      "C12"
+    ]
+  },
+  {
+    "id": "figure8-spot-reverse",
+    "name": "Osmička obráceně",
+    "level": 3,
+    "minAge": 7,
+    "category": "kolem kuželů",
+    "bladeSide": "obě",
+    "grip": "obouruč",
+    "setupId": "spot",
+    "pattern": [
+      {
+        "at": "around:1",
+        "dir": "cw",
+        "blade": "bh"
+      },
+      {
+        "at": "around:2",
+        "dir": "ccw",
+        "blade": "fh"
+      }
+    ],
+    "loop": true,
+    "callMode": "zóna",
+    "tempoBpm": 35,
+    "durationSec": 30,
+    "reps": null,
+    "spaceNeeded": [
+      1.4,
+      2
+    ],
+    "noise": "tichý",
+    "equipment": [
+      "hůl",
+      "míček",
+      "2 kužely nebo boty"
+    ],
+    "voiceIntro": "Teď osmička na druhou stranu. Je to těžší, tak klidně pomalu.",
+    "coachingPoints": [
+      "Míček jede nejdřív dozadu k tobě",
+      "Malé doteky",
+      "Hlava nahoře, když to jde"
+    ],
+    "commonMistakes": [
+      "Vrací se do starého směru"
+    ],
+    "progression": "figure8-legs",
+    "regression": "figure8-spot",
+    "safetyNotes": "Hůl drž pod pasem. Kolem tebe je volno a tablet stojí daleko, kam čepel nedosáhne.",
+    "sources": [
+      {
+        "url": "https://www.youtube.com/watch?v=lw7rrPkh2pc",
+        "type": "video",
+        "reliability": "ověřené"
+      },
+      {
+        "url": "https://dspace5.zcu.cz/bitstream/11025/19998/1/Diplomova%20prace%20Matous%20Hrdlicka%202015.pdf",
+        "type": "VŠ práce (metodika ČFbU)",
+        "reliability": "ověřené"
+      }
+    ],
+    "confidence": "ověřené",
+    "kind": "ball",
+    "matchLegal": true,
+    "origin": [
+      "H05",
+      "CZ-08"
+    ]
+  },
+  {
+    "id": "around-foot",
+    "name": "Kolem nohy",
+    "level": 2,
+    "minAge": 6,
+    "category": "tahy",
+    "bladeSide": "obě",
+    "grip": "obouruč",
+    "setupId": "spot",
+    "pattern": [
+      {
+        "at": "front",
+        "blade": "fh"
+      },
+      {
+        "at": "fh",
+        "blade": "fh"
+      },
+      {
+        "at": "back",
+        "blade": "fh"
+      },
+      {
+        "at": "between",
+        "blade": "fh"
+      },
+      {
+        "at": "front",
+        "blade": "bh"
+      },
+      {
+        "at": "bh",
+        "blade": "bh"
+      },
+      {
+        "at": "back",
+        "blade": "bh"
+      },
+      {
+        "at": "between",
+        "blade": "bh"
+      }
+    ],
+    "loop": true,
+    "callMode": "směr",
+    "tempoBpm": 50,
+    "durationSec": 30,
+    "reps": null,
+    "spaceNeeded": [
+      1.4,
+      2
+    ],
+    "noise": "tichý",
+    "equipment": [
+      "hůl",
+      "míček",
+      "2 kužely nebo boty"
+    ],
+    "voiceIntro": "Objeď míčkem jednu botu dokola, forhendem. Pak tu druhou bekhendem.",
+    "coachingPoints": [
+      "Nohy široko",
+      "Míček blízko boty",
+      "Malé doteky"
+    ],
+    "commonMistakes": [
+      "Kope do míčku botou",
+      "Moc úzký stoj"
+    ],
+    "progression": "figure8-legs",
+    "regression": "fh-bh-front",
+    "safetyNotes": "Hůl drž pod pasem. Kolem tebe je volno a tablet stojí daleko, kam čepel nedosáhne.",
+    "sources": [
+      {
+        "url": "https://dspace5.zcu.cz/bitstream/11025/19998/1/Diplomova%20prace%20Matous%20Hrdlicka%202015.pdf",
+        "type": "VŠ práce (metodika ČFbU)",
+        "reliability": "ověřené"
+      },
+      {
+        "url": "https://www1.specialolympicsontario.com/resources/wp-content/uploads/sites/39/2024/10/SOI_Floorball_Coaching-Guide.pdf",
+        "type": "metodika",
+        "reliability": "ověřené"
+      }
+    ],
+    "confidence": "ověřené",
+    "kind": "ball",
+    "matchLegal": true,
+    "origin": [
+      "CZ-07",
+      "SO-08"
+    ]
+  },
+  {
+    "id": "figure8-legs",
+    "name": "Osmička kolem nohou",
+    "level": 3,
+    "minAge": 7,
+    "category": "tahy",
+    "bladeSide": "obě",
+    "grip": "obouruč",
+    "setupId": "spot",
+    "pattern": [
+      {
+        "at": "front",
+        "blade": "fh"
+      },
+      {
+        "at": "between",
+        "blade": "fh"
+      },
+      {
+        "at": "bh",
+        "blade": "bh"
+      },
+      {
+        "at": "front",
+        "blade": "bh"
+      },
+      {
+        "at": "between",
+        "blade": "bh"
+      },
+      {
+        "at": "fh",
+        "blade": "fh"
+      }
+    ],
+    "loop": true,
+    "callMode": "směr",
+    "tempoBpm": 45,
+    "durationSec": 30,
+    "reps": null,
+    "spaceNeeded": [
+      1.4,
+      2
+    ],
+    "noise": "tichý",
+    "equipment": [
+      "hůl",
+      "míček",
+      "2 kužely nebo boty"
+    ],
+    "voiceIntro": "Míček jede osmičku kolem tvých bot a mezi nohama. Nohy dej hodně široko.",
+    "coachingPoints": [
+      "Široký stoj",
+      "Mezi nohama měkce",
+      "Přetáčej čepel zápěstím"
+    ],
+    "commonMistakes": [
+      "Míček zůstane zaseknutý mezi botami"
+    ],
+    "progression": "behind-body",
+    "regression": "around-foot",
+    "safetyNotes": "Hůl drž pod pasem. Kolem tebe je volno a tablet stojí daleko, kam čepel nedosáhne.",
+    "sources": [
+      {
+        "url": "https://dspace5.zcu.cz/bitstream/11025/19998/1/Diplomova%20prace%20Matous%20Hrdlicka%202015.pdf",
+        "type": "VŠ práce (metodika ČFbU)",
+        "reliability": "ověřené"
+      },
+      {
+        "url": "https://bin.yhdistysavain.fi/1580251/ruuOmGuWdYLL9JFkqrvC0bZWHb/SBVImuistiinpanot.pdf",
+        "type": "metodika",
+        "reliability": "ověřené"
+      }
+    ],
+    "confidence": "ověřené",
+    "kind": "ball",
+    "matchLegal": true,
+    "origin": [
+      "CZ-08",
+      "FI-13"
+    ]
+  },
+  {
+    "id": "behind-body",
+    "name": "Za patami",
+    "level": 3,
+    "minAge": 7,
+    "category": "tahy",
+    "bladeSide": "obě",
+    "grip": "obouruč",
+    "setupId": "spot",
+    "pattern": [
+      {
+        "at": "fh",
+        "blade": "fh"
+      },
+      {
+        "at": "back",
+        "blade": "fh"
+      },
+      {
+        "at": "fh",
+        "blade": "fh"
+      },
+      {
+        "at": "front",
+        "blade": "fh"
+      },
+      {
+        "at": "bh",
+        "blade": "bh"
+      },
+      {
+        "at": "back",
+        "blade": "bh"
+      },
+      {
+        "at": "bh",
+        "blade": "bh"
+      },
+      {
+        "at": "front",
+        "blade": "bh"
+      }
+    ],
+    "loop": true,
+    "callMode": "směr",
+    "tempoBpm": 50,
+    "durationSec": 30,
+    "reps": null,
+    "spaceNeeded": [
+      1.4,
+      2
+    ],
+    "noise": "tichý",
+    "equipment": [
+      "hůl",
+      "míček",
+      "2 kužely nebo boty"
+    ],
+    "voiceIntro": "Stáhni míček dozadu až za paty a zase ho vrať dopředu. Ramena se otočí s ním.",
+    "coachingPoints": [
+      "Otoč ramena, ne jen ruce",
+      "Čepel zůstává na zemi",
+      "Obě strany stejně"
+    ],
+    "commonMistakes": [
+      "Čepel jde za tělem nahoru"
+    ],
+    "progression": "heel-rescue",
+    "regression": "around-foot",
+    "safetyNotes": "Hůl drž pod pasem. Kolem tebe je volno a tablet stojí daleko, kam čepel nedosáhne.",
+    "sources": [
+      {
+        "url": "https://www.youtube.com/watch?v=qybWCftpnbk",
+        "type": "video",
+        "reliability": "ověřené"
+      },
+      {
+        "url": "https://dspace5.zcu.cz/bitstream/11025/19998/1/Diplomova%20prace%20Matous%20Hrdlicka%202015.pdf",
+        "type": "VŠ práce (metodika ČFbU)",
+        "reliability": "ověřené"
+      }
+    ],
+    "confidence": "ověřené",
+    "kind": "ball",
+    "matchLegal": true,
+    "origin": [
+      "H10",
+      "CZ-04"
+    ]
+  },
+  {
+    "id": "heel-rescue",
+    "name": "Zachraň míček za patou",
+    "level": 4,
+    "minAge": 8,
+    "category": "tahy",
+    "bladeSide": "obě",
+    "grip": "obouruč",
+    "setupId": "spot",
+    "pattern": [
+      {
+        "at": "back",
+        "blade": "bh"
+      },
+      {
+        "at": "front",
+        "blade": "fh"
+      },
+      {
+        "at": "back",
+        "blade": "fh"
+      },
+      {
+        "at": "front",
+        "blade": "bh"
+      }
+    ],
+    "loop": true,
+    "callMode": "směr",
+    "tempoBpm": 40,
+    "durationSec": 30,
+    "reps": null,
+    "spaceNeeded": [
+      1.4,
+      2
+    ],
+    "noise": "tichý",
+    "equipment": [
+      "hůl",
+      "míček",
+      "2 kužely nebo boty"
+    ],
+    "voiceIntro": "Míček schválně uteče za paty. Špičkou čepele ho vyhákni zpátky dopředu.",
+    "coachingPoints": [
+      "Špička čepele za míček",
+      "Krátký tah dopředu",
+      "Hůl nízko, žádný švih"
+    ],
+    "commonMistakes": [
+      "Švihne holí dozadu nahoru"
+    ],
+    "progression": null,
+    "regression": "behind-body",
+    "safetyNotes": "Hůl drž pod pasem. Kolem tebe je volno a tablet stojí daleko, kam čepel nedosáhne.",
+    "sources": [
+      {
+        "url": "https://www.onlinehockeytraining.com/blog/hockey-stick-handling-drills",
+        "type": "článek",
+        "reliability": "inspirace"
+      }
+    ],
+    "confidence": "odvozené",
+    "kind": "ball",
+    "matchLegal": true,
+    "origin": [
+      "H16"
+    ]
+  },
+  {
+    "id": "between-legs",
+    "name": "Mezi nohama",
+    "level": 3,
+    "minAge": 7,
+    "category": "kličky",
+    "bladeSide": "obě",
+    "grip": "obouruč",
+    "setupId": "spot",
+    "pattern": [
+      {
+        "at": "front",
+        "blade": "fh"
+      },
+      {
+        "at": "between",
+        "blade": "fh"
+      },
+      {
+        "at": "front",
+        "blade": "bh"
+      },
+      {
+        "at": "between",
+        "blade": "bh"
+      }
+    ],
+    "loop": true,
+    "callMode": "směr",
+    "tempoBpm": 45,
+    "durationSec": 30,
+    "reps": null,
+    "spaceNeeded": [
+      1.4,
+      2
+    ],
+    "noise": "tichý",
+    "equipment": [
+      "hůl",
+      "míček",
+      "2 kužely nebo boty"
+    ],
+    "voiceIntro": "Stoupni si široko. Protáhni míček mezi nohama dozadu a zase dopředu.",
+    "coachingPoints": [
+      "Hodně široký stoj",
+      "Malý tah, ne rána",
+      "Hlava nad míčkem jen na kuk"
+    ],
+    "commonMistakes": [
+      "Zakopne o vlastní hůl",
+      "Moc úzký stoj"
+    ],
+    "progression": "heel-rescue",
+    "regression": "around-foot",
+    "safetyNotes": "Hůl drž pod pasem. Kolem tebe je volno a tablet stojí daleko, kam čepel nedosáhne.",
+    "sources": [
+      {
+        "url": "https://dspace5.zcu.cz/bitstream/11025/19998/1/Diplomova%20prace%20Matous%20Hrdlicka%202015.pdf",
+        "type": "VŠ práce (metodika ČFbU)",
+        "reliability": "ověřené"
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=KBtAcR6ZAi4",
+        "type": "video",
+        "reliability": "inspirace"
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=8AWo_5Z9Q7o",
+        "type": "video",
+        "reliability": "inspirace"
+      },
+      {
+        "url": "https://www.floorball.sport/wp-content/uploads/2026/02/Rules-of-the-Game-2026-with-all-changes-260209.pdf",
+        "type": "pravidla",
+        "reliability": "ověřené"
+      },
+      {
+        "url": "https://www1.specialolympicsontario.com/resources/wp-content/uploads/sites/39/2024/10/SOI_Floorball_Coaching-Guide.pdf",
+        "type": "metodika",
+        "reliability": "ověřené"
+      }
+    ],
+    "confidence": "ověřené",
+    "kind": "ball",
+    "matchLegal": true,
+    "origin": [
+      "CZ-16",
+      "T17",
+      "SO-04"
+    ]
+  },
+  {
+    "id": "toe-drag-fh",
+    "name": "Tah špičkou forhendem",
+    "level": 3,
+    "minAge": 7,
+    "category": "kličky",
+    "bladeSide": "forhend",
+    "grip": "obouruč",
+    "setupId": "spot",
+    "pattern": [
+      {
+        "at": "fh",
+        "blade": "fh"
+      },
+      {
+        "at": "front",
+        "blade": "fh"
+      }
+    ],
+    "loop": true,
+    "callMode": "směr",
+    "tempoBpm": 45,
+    "durationSec": 30,
+    "reps": null,
+    "spaceNeeded": [
+      1.4,
+      2
+    ],
+    "noise": "tichý",
+    "equipment": [
+      "hůl",
+      "míček",
+      "2 kužely nebo boty"
+    ],
+    "voiceIntro": "Vystrč míček do strany na forhend. Pak přetoč čepel špičkou přes míček a stáhni ho k sobě.",
+    "coachingPoints": [
+      "Čepel přes míček jako háček",
+      "Táhne horní ruka",
+      "Míček zůstává u čepele"
+    ],
+    "commonMistakes": [
+      "Čepel se neotočí, míček jen odťukne"
+    ],
+    "progression": "toe-drag-double",
+    "regression": "fh-only-side",
+    "safetyNotes": "Hůl drž pod pasem. Kolem tebe je volno a tablet stojí daleko, kam čepel nedosáhne.",
+    "sources": [
+      {
+        "url": "https://www.youtube.com/watch?v=UlkAnet3d-A",
+        "type": "video",
+        "reliability": "ověřené"
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=TQe8UUIICqw",
+        "type": "video",
+        "reliability": "inspirace"
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=0pOdD75Mc0k",
+        "type": "video",
+        "reliability": "inspirace"
+      }
+    ],
+    "confidence": "ověřené",
+    "kind": "ball",
+    "matchLegal": true,
+    "origin": [
+      "H18",
+      "T15"
+    ]
+  },
+  {
+    "id": "toe-drag-bh",
+    "name": "Tah špičkou bekhendem",
+    "level": 3,
+    "minAge": 7,
+    "category": "kličky",
+    "bladeSide": "bekhend",
+    "grip": "obouruč",
+    "setupId": "spot",
+    "pattern": [
+      {
+        "at": "bh",
+        "blade": "bh"
+      },
+      {
+        "at": "front",
+        "blade": "bh"
+      }
+    ],
+    "loop": true,
+    "callMode": "směr",
+    "tempoBpm": 45,
+    "durationSec": 30,
+    "reps": null,
+    "spaceNeeded": [
+      1.4,
+      2
+    ],
+    "noise": "tichý",
+    "equipment": [
+      "hůl",
+      "míček",
+      "2 kužely nebo boty"
+    ],
+    "voiceIntro": "Stejný tah, ale z bekhendu. Ve florbalu to jde z obou stran, tak ho budeme umět obě.",
+    "coachingPoints": [
+      "Míček daleko na bekhendu",
+      "Špička přes míček",
+      "Stáhni ho před sebe"
+    ],
+    "commonMistakes": [
+      "Přehodí hůl na forhend"
+    ],
+    "progression": "toe-drag-double",
+    "regression": "bh-only-front",
+    "safetyNotes": "Hůl drž pod pasem. Kolem tebe je volno a tablet stojí daleko, kam čepel nedosáhne.",
+    "sources": [
+      {
+        "url": "https://www.youtube.com/watch?v=A1cfLXnJ16s",
+        "type": "video",
+        "reliability": "inspirace"
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=0pOdD75Mc0k",
+        "type": "video",
+        "reliability": "inspirace"
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=UlkAnet3d-A",
+        "type": "video",
+        "reliability": "ověřené"
+      }
+    ],
+    "confidence": "odvozené",
+    "kind": "ball",
+    "matchLegal": true,
+    "origin": [
+      "H19",
+      "T15"
+    ]
+  },
+  {
+    "id": "toe-drag-double",
+    "name": "Dvojitý tah",
+    "level": 4,
+    "minAge": 8,
+    "category": "kličky",
+    "bladeSide": "obě",
+    "grip": "obouruč",
+    "setupId": "spot",
+    "pattern": [
+      {
+        "at": "fh",
+        "blade": "fh"
+      },
+      {
+        "at": "front",
+        "blade": "fh"
+      },
+      {
+        "at": "bh",
+        "blade": "bh"
+      },
+      {
+        "at": "front",
+        "blade": "bh"
+      }
+    ],
+    "loop": true,
+    "callMode": "směr",
+    "tempoBpm": 55,
+    "durationSec": 30,
+    "reps": null,
+    "spaceNeeded": [
+      1.4,
+      2
+    ],
+    "noise": "tichý",
+    "equipment": [
+      "hůl",
+      "míček",
+      "2 kužely nebo boty"
+    ],
+    "voiceIntro": "Tah špičkou na forhendu, hned tah na bekhendu. Jako kouzelník, který ukáže míček a zase ho schová.",
+    "coachingPoints": [
+      "Mezi tahy jeden klidný dotek",
+      "Plynule",
+      "Nízko v kolenou"
+    ],
+    "commonMistakes": [
+      "Spěchá a míček mu uteče"
+    ],
+    "progression": null,
+    "regression": "toe-drag-fh",
+    "safetyNotes": "Hůl drž pod pasem. Kolem tebe je volno a tablet stojí daleko, kam čepel nedosáhne.",
+    "sources": [
+      {
+        "url": "https://www.youtube.com/watch?v=6J0qRfZRVNM",
+        "type": "video",
+        "reliability": "inspirace"
+      }
+    ],
+    "confidence": "odvozené",
+    "kind": "ball",
+    "matchLegal": true,
+    "origin": [
+      "H20"
+    ]
+  },
+  {
+    "id": "toilet-roll",
+    "name": "Rulička na holi",
+    "level": 2,
+    "minAge": 6,
+    "category": "tahy",
+    "bladeSide": "obě",
+    "grip": "obouruč",
+    "setupId": "spot",
+    "pattern": [
+      {
+        "at": "fh",
+        "blade": "fh"
+      },
+      {
+        "at": "bh",
+        "blade": "bh"
+      }
+    ],
+    "loop": true,
+    "callMode": "směr",
+    "tempoBpm": 70,
+    "durationSec": 30,
+    "reps": null,
+    "spaceNeeded": [
+      1.4,
+      2
+    ],
+    "noise": "tichý",
+    "equipment": [
+      "hůl",
+      "míček",
+      "rulička od toaletního papíru",
+      "2 kužely nebo boty"
+    ],
+    "voiceIntro": "Navlékni na hůl ruličku od toaletního papíru a spodní rukou drž jen ji. Kdo ji rozmačká, mačká moc.",
+    "coachingPoints": [
+      "Spodní ruka je volná",
+      "Práci dělá horní ruka",
+      "Měkké doteky"
+    ],
+    "commonMistakes": [
+      "Rozmačká ruličku"
+    ],
+    "progression": "one-hand-top",
+    "regression": "fh-bh-front",
+    "safetyNotes": "Hůl drž pod pasem. Kolem tebe je volno a tablet stojí daleko, kam čepel nedosáhne.",
+    "sources": [
+      {
+        "url": "https://www.youtube.com/watch?v=DycV8UE5Ua0",
+        "type": "video",
+        "reliability": "ověřené"
+      }
+    ],
+    "confidence": "ověřené",
+    "kind": "ball",
+    "matchLegal": true,
+    "origin": [
+      "H39"
+    ]
+  },
+  {
+    "id": "one-hand-top",
+    "name": "Jen horní ruka",
+    "level": 3,
+    "minAge": 7,
+    "category": "jednoruč",
+    "bladeSide": "obě",
+    "grip": "jednoruč-horní",
+    "setupId": "spot",
+    "pattern": [
+      {
+        "at": "front",
+        "blade": "fh",
+        "hand": "top"
+      },
+      {
+        "at": "bh",
+        "blade": "bh",
+        "hand": "top"
+      }
+    ],
+    "loop": true,
+    "callMode": "směr",
+    "tempoBpm": 55,
+    "durationSec": 20,
+    "reps": null,
+    "spaceNeeded": [
+      1.4,
+      2
+    ],
+    "noise": "tichý",
+    "equipment": [
+      "hůl",
+      "míček",
+      "2 kužely nebo boty"
+    ],
+    "voiceIntro": "Spodní ruku dej za záda a horní rukou veď míček před sebou a na bekhend. Jen chvilku, ruka se unaví.",
+    "coachingPoints": [
+      "Malé pohyby",
+      "Hůl drž pevně za konec",
+      "Čepel u země"
+    ],
+    "commonMistakes": [
+      "Hůl se kroutí a čepel jde nahoru"
+    ],
+    "progression": "one-hand-long-bh",
+    "regression": "toilet-roll",
+    "safetyNotes": "Jednou rukou se hůl ovládá hůř: pomalu, s volným místem kolem. Konec hole i čepel pod pasem.",
+    "sources": [
+      {
+        "url": "https://www.youtube.com/watch?v=DycV8UE5Ua0",
+        "type": "video",
+        "reliability": "ověřené"
+      },
+      {
+        "url": "https://bin.yhdistysavain.fi/1580251/ruuOmGuWdYLL9JFkqrvC0bZWHb/SBVImuistiinpanot.pdf",
+        "type": "metodika",
+        "reliability": "ověřené"
+      },
+      {
+        "url": "https://laget.se/SkellefteaIBK/Document/Download/1088074/6494953",
+        "type": "metodika",
+        "reliability": "inspirace"
+      }
+    ],
+    "confidence": "ověřené",
+    "kind": "ball",
+    "matchLegal": true,
+    "origin": [
+      "H38",
+      "FI-17",
+      "SKE"
+    ]
+  },
+  {
+    "id": "one-hand-long-bh",
+    "name": "Dlouhý bekhend",
+    "level": 3,
+    "minAge": 7,
+    "category": "jednoruč",
+    "bladeSide": "obě",
+    "grip": "jednoruč-horní",
+    "setupId": "spot",
+    "pattern": [
+      {
+        "at": "front",
+        "blade": "fh",
+        "hand": "both"
+      },
+      {
+        "at": "bh",
+        "blade": "bh",
+        "hand": "top"
+      }
+    ],
+    "loop": true,
+    "callMode": "směr",
+    "tempoBpm": 45,
+    "durationSec": 30,
+    "reps": null,
+    "spaceNeeded": [
+      1.4,
+      2
+    ],
+    "noise": "tichý",
+    "equipment": [
+      "hůl",
+      "míček",
+      "2 kužely nebo boty"
+    ],
+    "voiceIntro": "Před sebou držíš hůl oběma rukama. Když jde míček daleko na bekhend, pusť spodní ruku a natáhni se.",
+    "coachingPoints": [
+      "Pusť spodní ruku až na bekhendu",
+      "Natáhni se daleko",
+      "Zpátky zase obě ruce"
+    ],
+    "commonMistakes": [
+      "Pouští ruku moc brzy"
+    ],
+    "progression": "one-hand-bottom",
+    "regression": "one-hand-top",
+    "safetyNotes": "Jednou rukou se hůl ovládá hůř: pomalu, s volným místem kolem. Konec hole i čepel pod pasem.",
+    "sources": [
+      {
+        "url": "https://dspace5.zcu.cz/bitstream/11025/19998/1/Diplomova%20prace%20Matous%20Hrdlicka%202015.pdf",
+        "type": "VŠ práce (metodika ČFbU)",
+        "reliability": "ověřené"
+      },
+      {
+        "url": "https://www1.specialolympicsontario.com/resources/wp-content/uploads/sites/39/2024/10/SOI_Floorball_Coaching-Guide.pdf",
+        "type": "metodika",
+        "reliability": "ověřené"
+      }
+    ],
+    "confidence": "ověřené",
+    "kind": "ball",
+    "matchLegal": true,
+    "origin": [
+      "CZ-01",
+      "SO-08"
+    ]
+  },
+  {
+    "id": "one-hand-bottom",
+    "name": "Jen spodní ruka",
+    "level": 5,
+    "minAge": 8,
+    "category": "jednoruč",
+    "bladeSide": "obě",
+    "grip": "jednoruč-dolní",
+    "setupId": "spot",
+    "pattern": [
+      {
+        "at": "front",
+        "blade": "fh",
+        "hand": "bottom"
+      },
+      {
+        "at": "front",
+        "blade": "bh",
+        "hand": "bottom"
+      }
+    ],
+    "loop": true,
+    "callMode": "směr",
+    "tempoBpm": 45,
+    "durationSec": 20,
+    "reps": null,
+    "spaceNeeded": [
+      1.4,
+      2
+    ],
+    "noise": "tichý",
+    "equipment": [
+      "hůl",
+      "míček",
+      "2 kužely nebo boty"
+    ],
+    "voiceIntro": "Těžká výzva: drž hůl jen spodní rukou uprostřed a dělej malé doteky před sebou.",
+    "coachingPoints": [
+      "Ruka drží hůl uprostřed",
+      "Malinké doteky",
+      "Konec hole hlídej, ať nejde nahoru"
+    ],
+    "commonMistakes": [
+      "Konec hole se zvedá k bradě"
+    ],
+    "progression": null,
+    "regression": "one-hand-long-bh",
+    "safetyNotes": "Jednou rukou se hůl ovládá hůř: pomalu, s volným místem kolem. Konec hole i čepel pod pasem. Nikdo v okruhu dvou metrů.",
+    "sources": [
+      {
+        "url": "https://cdn.hockeycanada.ca/hockey-canada/Hockey-Programs/Players/Downloads/2020/puck-control-overview-e.pdf",
+        "type": "metodika",
+        "reliability": "odvozené"
+      }
+    ],
+    "confidence": "odvozené",
+    "kind": "ball",
+    "matchLegal": true,
+    "origin": [
+      "H40"
+    ]
+  },
+  {
+    "id": "heads-up-spot",
+    "name": "Červená, nebo modrá?",
+    "level": 1,
+    "minAge": 6,
+    "category": "reakce",
+    "bladeSide": "obě",
+    "grip": "obouruč",
+    "setupId": "spot",
+    "pattern": [
+      {
+        "at": 1,
+        "blade": "bh"
+      },
+      {
+        "at": "home",
+        "blade": "fh"
+      },
+      {
+        "at": 1,
+        "blade": "bh"
+      },
+      {
+        "at": "home",
+        "blade": "bh"
+      },
+      {
+        "at": 2,
+        "blade": "fh"
+      },
+      {
+        "at": "home",
+        "blade": "fh"
+      },
+      {
+        "at": 2,
+        "blade": "fh"
+      },
+      {
+        "at": 1,
+        "blade": "bh"
+      },
+      {
+        "at": "home",
+        "blade": "bh"
+      },
+      {
+        "at": 2,
+        "blade": "fh"
+      },
+      {
+        "at": "home",
+        "blade": "fh"
+      }
+    ],
+    "loop": true,
+    "callMode": "barva",
+    "tempoBpm": 35,
+    "durationSec": 30,
+    "reps": null,
+    "spaceNeeded": [
+      1.4,
+      2
+    ],
+    "noise": "tichý",
+    "equipment": [
+      "hůl",
+      "míček",
+      "2 kužely nebo boty"
+    ],
+    "voiceIntro": "Dívej se na tablet, ne na míček! Jakou barvu uvidíš, k tomu kuželu míček dovez.",
+    "coachingPoints": [
+      "Oči na tablet",
+      "Míček jen na kuk",
+      "Po barvě hned zpátky k sobě"
+    ],
+    "commonMistakes": [
+      "Kouká pořád dolů a barvu nestihne"
+    ],
+    "progression": "spot-color-call",
+    "regression": null,
+    "safetyNotes": "Hůl drž pod pasem. Kolem tebe je volno a tablet stojí daleko, kam čepel nedosáhne.",
+    "sources": [
+      {
+        "url": "https://www.youtube.com/watch?v=7HluVwbAv3w",
+        "type": "video",
+        "reliability": "inspirace"
+      },
+      {
+        "url": "https://dspace5.zcu.cz/bitstream/11025/7080/1/Moznosti%20rozvoje%20zakladnich%20pohybovych%20dovednosti%20ve%20florbale%20ve%20vekove%20kategorii%208%20-%2010%20let..pdf",
+        "type": "VŠ práce",
+        "reliability": "inspirace"
+      },
+      {
+        "url": "https://editor.swissunihockey.ch/index.php/download_file/view/316/279",
+        "type": "metodika",
+        "reliability": "ověřené"
+      },
+      {
+        "url": "https://www.florbal.com/doplnky/treninkove-doplnky/myfloorball-skiller-pro/",
+        "type": "výrobce",
+        "reliability": "inspirace"
+      },
+      {
+        "url": "https://apps.apple.com/us/app/my-floorball/id949358436",
+        "type": "výrobce",
+        "reliability": "inspirace"
+      }
+    ],
+    "confidence": "ověřené",
+    "kind": "ball",
+    "matchLegal": true,
+    "origin": [
+      "H41",
+      "CZ-31",
+      "CH-15",
+      "CR-39"
+    ]
+  },
+  {
+    "id": "spot-color-call",
+    "name": "Barvy rychle",
+    "level": 2,
+    "minAge": 6,
+    "category": "reakce",
+    "bladeSide": "obě",
+    "grip": "obouruč",
+    "setupId": "spot",
+    "pattern": [
+      {
+        "at": 2,
+        "blade": "fh"
+      },
+      {
+        "at": 1,
+        "blade": "bh"
+      },
+      {
+        "at": 1,
+        "blade": "bh"
+      },
+      {
+        "at": "home",
+        "blade": "fh"
+      },
+      {
+        "at": 2,
+        "blade": "fh"
+      },
+      {
+        "at": 2,
+        "blade": "fh"
+      },
+      {
+        "at": 1,
+        "blade": "bh"
+      },
+      {
+        "at": "home",
+        "blade": "bh"
+      },
+      {
+        "at": 1,
+        "blade": "bh"
+      },
+      {
+        "at": 2,
+        "blade": "fh"
+      }
+    ],
+    "loop": true,
+    "callMode": "barva",
+    "tempoBpm": 50,
+    "durationSec": 30,
+    "reps": null,
+    "spaceNeeded": [
+      1.4,
+      2
+    ],
+    "noise": "tichý",
+    "equipment": [
+      "hůl",
+      "míček",
+      "2 kužely nebo boty"
+    ],
+    "voiceIntro": "Barvy teď poletí rychleji. Někdy dvakrát stejná, tak dávej pozor!",
+    "coachingPoints": [
+      "Hlava nahoře",
+      "Krátké rychlé tahy",
+      "Chyba nevadí, chyť další barvu"
+    ],
+    "commonMistakes": [
+      "Hádá barvu dopředu"
+    ],
+    "progression": null,
+    "regression": "heads-up-spot",
+    "safetyNotes": "Hůl drž pod pasem. Kolem tebe je volno a tablet stojí daleko, kam čepel nedosáhne.",
+    "sources": [
+      {
+        "url": "https://hockeyshot.com/products/reactive-sniper",
+        "type": "výrobce",
+        "reliability": "inspirace"
+      },
+      {
+        "url": "https://cdn.hockeycanada.ca/hockey-canada/Hockey-Programs/Players/Downloads/2020/puck-control-overview-e.pdf",
+        "type": "metodika",
+        "reliability": "ověřené"
+      },
+      {
+        "url": "https://editor.swissunihockey.ch/index.php/download_file/view/316/279",
+        "type": "metodika",
+        "reliability": "ověřené"
+      },
+      {
+        "url": "https://dspace5.zcu.cz/bitstream/11025/7080/1/Moznosti%20rozvoje%20zakladnich%20pohybovych%20dovednosti%20ve%20florbale%20ve%20vekove%20kategorii%208%20-%2010%20let..pdf",
+        "type": "VŠ práce",
+        "reliability": "inspirace"
+      },
+      {
+        "url": "https://www.florbal.com/doplnky/treninkove-doplnky/myfloorball-skiller-pro/",
+        "type": "výrobce",
+        "reliability": "inspirace"
+      },
+      {
+        "url": "https://apps.apple.com/us/app/my-floorball/id949358436",
+        "type": "výrobce",
+        "reliability": "inspirace"
+      }
+    ],
+    "confidence": "odvozené",
+    "kind": "ball",
+    "matchLegal": true,
+    "origin": [
+      "H43",
+      "CH-15",
+      "CZ-31",
+      "CR-39"
+    ]
+  },
+  {
+    "id": "eyes-closed",
+    "name": "Bez očí",
+    "level": 3,
+    "minAge": 7,
+    "category": "tahy",
+    "bladeSide": "obě",
+    "grip": "obouruč",
+    "setupId": "spot",
+    "pattern": [
+      {
+        "at": "fh",
+        "blade": "fh"
+      },
+      {
+        "at": "bh",
+        "blade": "bh"
+      }
+    ],
+    "loop": true,
+    "callMode": "směr",
+    "tempoBpm": 45,
+    "durationSec": 20,
+    "reps": null,
+    "spaceNeeded": [
+      1.4,
+      2
+    ],
+    "noise": "tichý",
+    "equipment": [
+      "hůl",
+      "míček",
+      "2 kužely nebo boty"
+    ],
+    "voiceIntro": "Přetahuj na místě a zkus zavřít oči, míček ucítíš čepelí. Když uteče, otevři oči a začni znova.",
+    "coachingPoints": [
+      "Jen na místě, nechoď",
+      "Pomalé tempo",
+      "Poslouchej, kde míček je"
+    ],
+    "commonMistakes": [
+      "Začne chodit se zavřenýma očima"
+    ],
+    "progression": null,
+    "regression": null,
+    "safetyNotes": "Se zavřenýma očima jen stůj na místě a hůl drž pod pasem. Kolem tebe nic a nikdo.",
+    "sources": [
+      {
+        "url": "https://www.mobilesport.ch/assets/lbwp-cdn/mobilesport/files/2012/08/Unihockey_Lektion-4_d.pdf",
+        "type": "metodika",
+        "reliability": "ověřené"
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=bYFiH1BF_HA",
+        "type": "video",
+        "reliability": "ověřené"
+      }
+    ],
+    "confidence": "ověřené",
+    "kind": "ball",
+    "matchLegal": true,
+    "origin": [
+      "CH-19",
+      "H44"
+    ]
+  },
+  {
+    "id": "one-leg-dribble",
+    "name": "Čáp s míčkem",
+    "level": 3,
+    "minAge": 7,
+    "category": "práce nohou",
+    "bladeSide": "obě",
+    "grip": "obouruč",
+    "setupId": "spot",
+    "pattern": [
+      {
+        "at": "fh",
+        "blade": "fh"
+      },
+      {
+        "at": "bh",
+        "blade": "bh"
+      }
+    ],
+    "loop": true,
+    "callMode": "směr",
+    "tempoBpm": 55,
+    "durationSec": 20,
+    "reps": null,
+    "spaceNeeded": [
+      1.4,
+      2
+    ],
+    "noise": "tichý",
+    "equipment": [
+      "hůl",
+      "míček",
+      "2 kužely nebo boty"
+    ],
+    "voiceIntro": "Stoupni si na jednu nohu a přetahuj míček. Na půlce cviku vyměň nohu.",
+    "coachingPoints": [
+      "Stůj, neskákej",
+      "Malé doteky",
+      "Dívej se dopředu"
+    ],
+    "commonMistakes": [
+      "Poskakuje a dupe"
+    ],
+    "progression": null,
+    "regression": null,
+    "safetyNotes": "Jen stoj na jedné noze, žádné poskoky. Hůl pod pasem, kolem nic tvrdého.",
+    "sources": [
+      {
+        "url": "https://www.youtube.com/watch?v=4WBgqEPIFxw",
+        "type": "video",
+        "reliability": "ověřené"
+      }
+    ],
+    "confidence": "ověřené",
+    "kind": "ball",
+    "matchLegal": true,
+    "origin": [
+      "H31"
+    ]
+  },
+  {
+    "id": "happy-feet",
+    "name": "Ruce a nohy",
+    "level": 2,
+    "minAge": 6,
+    "category": "práce nohou",
+    "bladeSide": "obě",
+    "grip": "obouruč",
+    "setupId": "spot",
+    "pattern": [
+      {
+        "at": "front",
+        "blade": "fh"
+      },
+      {
+        "at": "front",
+        "blade": "bh"
+      }
+    ],
+    "loop": true,
+    "callMode": "směr",
+    "tempoBpm": 70,
+    "durationSec": 30,
+    "reps": null,
+    "spaceNeeded": [
+      1.4,
+      2
+    ],
+    "noise": "tichý",
+    "equipment": [
+      "hůl",
+      "míček",
+      "2 kužely nebo boty"
+    ],
+    "voiceIntro": "Přetahuj před sebou a nohama potichu přešlapuj po špičkách. Ve hře nohy nikdy nestojí!",
+    "coachingPoints": [
+      "Po špičkách, potichu",
+      "Ruce i nohy zároveň",
+      "Hlava nahoře"
+    ],
+    "commonMistakes": [
+      "Nohy zamrznou",
+      "Dupe"
+    ],
+    "progression": "one-leg-dribble",
+    "regression": "fh-bh-front",
+    "safetyNotes": "Hůl drž pod pasem. Kolem tebe je volno a tablet stojí daleko, kam čepel nedosáhne.",
+    "sources": [
+      {
+        "url": "https://www.youtube.com/watch?v=5Ls0RzDATIY",
+        "type": "video",
+        "reliability": "ověřené"
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=DycV8UE5Ua0",
+        "type": "video",
+        "reliability": "ověřené"
+      }
+    ],
+    "confidence": "ověřené",
+    "kind": "ball",
+    "matchLegal": true,
+    "origin": [
+      "H29"
+    ]
+  },
+  {
+    "id": "low-stance",
+    "name": "Nízko jako žába",
+    "level": 2,
+    "minAge": 6,
+    "category": "tahy",
+    "bladeSide": "obě",
+    "grip": "obouruč",
+    "setupId": "spot",
+    "pattern": [
+      {
+        "at": "fh",
+        "blade": "fh"
+      },
+      {
+        "at": "bh",
+        "blade": "bh"
+      },
+      {
+        "at": "front",
+        "blade": "fh"
+      },
+      {
+        "at": "front",
+        "blade": "bh"
+      }
+    ],
+    "loop": true,
+    "callMode": "směr",
+    "tempoBpm": 60,
+    "durationSec": 30,
+    "reps": null,
+    "spaceNeeded": [
+      1.4,
+      2
+    ],
+    "noise": "tichý",
+    "equipment": [
+      "hůl",
+      "míček",
+      "2 kužely nebo boty"
+    ],
+    "voiceIntro": "Sedni si níž, jako žába. V tomhle nízkém postoji přetahuj míček do stran i před sebou.",
+    "coachingPoints": [
+      "Kolena hodně pokrčená",
+      "Záda rovná",
+      "Široký stoj"
+    ],
+    "commonMistakes": [
+      "Hrbí se místo pokrčení kolen"
+    ],
+    "progression": "behind-body",
+    "regression": "fh-bh-front",
+    "safetyNotes": "Hůl drž pod pasem. Kolem tebe je volno a tablet stojí daleko, kam čepel nedosáhne.",
+    "sources": [
+      {
+        "url": "https://dspace5.zcu.cz/bitstream/11025/19998/1/Diplomova%20prace%20Matous%20Hrdlicka%202015.pdf",
+        "type": "VŠ práce (metodika ČFbU)",
+        "reliability": "ověřené"
+      }
+    ],
+    "confidence": "ověřené",
+    "kind": "ball",
+    "matchLegal": true,
+    "origin": [
+      "CZ-06"
+    ]
+  },
+  {
+    "id": "stick-foot-stick",
+    "name": "Hůl, bota, hůl",
+    "level": 3,
+    "minAge": 7,
+    "category": "práce nohou",
+    "bladeSide": "obě",
+    "grip": "obouruč",
+    "setupId": "spot",
+    "pattern": [
+      {
+        "at": "fh",
+        "blade": "fh"
+      },
+      {
+        "at": "back",
+        "blade": "fh"
+      },
+      {
+        "at": "front",
+        "blade": "fh"
+      },
+      {
+        "at": "bh",
+        "blade": "bh"
+      },
+      {
+        "at": "back",
+        "blade": "bh"
+      },
+      {
+        "at": "front",
+        "blade": "bh"
+      }
+    ],
+    "loop": true,
+    "callMode": "směr",
+    "tempoBpm": 45,
+    "durationSec": 30,
+    "reps": null,
+    "spaceNeeded": [
+      1.4,
+      2
+    ],
+    "noise": "střední",
+    "equipment": [
+      "hůl",
+      "míček",
+      "2 kužely nebo boty"
+    ],
+    "voiceIntro": "Stáhni míček k botě a vnitřní stranou boty si ho jemně přihraj zpátky na čepel.",
+    "coachingPoints": [
+      "Jemná přihrávka botou",
+      "Míček zůstává u země",
+      "Obě nohy"
+    ],
+    "commonMistakes": [
+      "Kopne moc silně"
+    ],
+    "progression": null,
+    "regression": null,
+    "safetyNotes": "Botou jen jemně a po zemi, nikdy nekopej do výšky. Hůl pod pasem.",
+    "sources": [
+      {
+        "url": "https://www.onlinehockeytraining.com/blog/hockey-stick-handling-drills",
+        "type": "článek",
+        "reliability": "inspirace"
+      }
+    ],
+    "confidence": "odvozené",
+    "kind": "ball",
+    "matchLegal": true,
+    "origin": [
+      "H28"
+    ]
   },
   {
     "id": "fh-push-cones",
-    "name": "Vedení ke kuželům",
+    "name": "Ke kuželům forhendem",
     "level": 1,
     "minAge": 6,
     "category": "vedení míčku",
@@ -240,65 +3564,174 @@
     ],
     "loop": true,
     "callMode": "zóna",
-    "tempoBpm": 26,
-    "durationSec": 45,
+    "tempoBpm": 30,
+    "durationSec": 40,
     "reps": null,
     "spaceNeeded": [
       2.6,
       2.8
     ],
-    "noise": "tichý",
+    "noise": "střední",
     "equipment": [
       "hůl",
       "míček",
       "3 kužely"
     ],
-    "voiceIntro": "Veď míček forhendem ke kuželu, který řeknu, a vrať se do domečku.",
+    "voiceIntro": "Doveď míček forhendem ke kuželu, který řeknu, a hned zpátky do domečku.",
     "coachingPoints": [
-      "Míček blízko čepele",
-      "Malé dotyky",
-      "Zvedni hlavu, ať slyšíš a vidíš číslo"
+      "Míček před tělem, na forhendu",
+      "U kuželu zpomal",
+      "Zpátky couvej s míčkem"
     ],
     "commonMistakes": [
-      "Míček daleko před tělem"
+      "Míček odpálí a běží za ním"
     ],
-    "progression": "slalom-fh-bh",
-    "regression": "fh-bh-front",
-    "safetyNotes": "Hůl vždy pod úrovní pasu. Kolem tebe volno, tablet mimo dosah čepele.",
-    "sources": [],
-    "confidence": "vlastní",
+    "progression": "bh-push-cones",
+    "regression": null,
+    "safetyNotes": "Hůl drž pod pasem. Uklid věci z cesty. Na hladké podlaze cvič v sálovkách nebo bos, ne v ponožkách.",
+    "sources": [
+      {
+        "url": "https://www1.specialolympicsontario.com/resources/wp-content/uploads/sites/39/2024/10/SOI_Floorball_Coaching-Guide.pdf",
+        "type": "metodika",
+        "reliability": "ověřené"
+      },
+      {
+        "url": "https://salibandy.fi/wp-content/uploads/2025/12/hippo-x-sabakipina-lajinomaiset-leikit.pdf",
+        "type": "metodika",
+        "reliability": "ověřené"
+      },
+      {
+        "url": "https://apps.apple.com/us/app/my-floorball/id949358436",
+        "type": "výrobce",
+        "reliability": "inspirace"
+      }
+    ],
+    "confidence": "ověřené",
     "kind": "ball",
-    "matchLegal": true
+    "matchLegal": true,
+    "origin": [
+      "SO-06",
+      "FI-07",
+      "MF-02"
+    ]
   },
   {
-    "id": "slalom-fh-bh",
-    "name": "Slalom forhend – bekhend",
+    "id": "bh-push-cones",
+    "name": "Ke kuželům bekhendem",
+    "level": 2,
+    "minAge": 6,
+    "category": "vedení míčku",
+    "bladeSide": "bekhend",
+    "grip": "obouruč",
+    "setupId": "triangle",
+    "pattern": [
+      {
+        "at": 1,
+        "blade": "bh"
+      },
+      {
+        "at": "home",
+        "blade": "bh"
+      },
+      {
+        "at": 2,
+        "blade": "bh"
+      },
+      {
+        "at": "home",
+        "blade": "bh"
+      },
+      {
+        "at": 3,
+        "blade": "bh"
+      },
+      {
+        "at": "home",
+        "blade": "bh"
+      }
+    ],
+    "loop": true,
+    "callMode": "zóna",
+    "tempoBpm": 30,
+    "durationSec": 40,
+    "reps": null,
+    "spaceNeeded": [
+      2.6,
+      2.8
+    ],
+    "noise": "střední",
+    "equipment": [
+      "hůl",
+      "míček",
+      "3 kužely"
+    ],
+    "voiceIntro": "Teď stejně, ale jen bekhendem. Bekhend je tvoje druhá silná strana.",
+    "coachingPoints": [
+      "Čepel nakloněná nad míček",
+      "Malé doteky",
+      "Hlava nahoře"
+    ],
+    "commonMistakes": [
+      "Přehodí na forhend, když je to těžké"
+    ],
+    "progression": "triangle-loop-bh",
+    "regression": "fh-push-cones",
+    "safetyNotes": "Hůl drž pod pasem. Uklid věci z cesty. Na hladké podlaze cvič v sálovkách nebo bos, ne v ponožkách.",
+    "sources": [
+      {
+        "url": "https://laget.se/SkellefteaIBK/Document/Download/1088074/6494953",
+        "type": "metodika",
+        "reliability": "inspirace"
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=IT9Wu3P_C6I",
+        "type": "video",
+        "reliability": "inspirace"
+      },
+      {
+        "url": "https://portal.usahockey.com/cx/president/hockey-devlopment/8u_fundamentals_stage-adm.pdf",
+        "type": "metodika",
+        "reliability": "ověřené"
+      },
+      {
+        "url": "https://apps.apple.com/us/app/my-floorball/id949358436",
+        "type": "výrobce",
+        "reliability": "inspirace"
+      }
+    ],
+    "confidence": "ověřené",
+    "kind": "ball",
+    "matchLegal": true,
+    "origin": [
+      "SKE",
+      "H07",
+      "MF-02"
+    ]
+  },
+  {
+    "id": "triangle-loop-fh",
+    "name": "Kolem trojúhelníku forhendem",
     "level": 2,
     "minAge": 6,
     "category": "kolem kuželů",
-    "bladeSide": "obě",
+    "bladeSide": "forhend",
     "grip": "obouruč",
-    "setupId": "line",
+    "setupId": "triangle",
     "pattern": [
-      {
-        "at": "around:1",
-        "dir": "cw",
-        "blade": "fh"
-      },
       {
         "at": "around:2",
         "dir": "ccw",
-        "blade": "bh"
-      },
-      {
-        "at": "around:3",
-        "dir": "cw",
         "blade": "fh"
       },
       {
-        "at": "around:4",
+        "at": "around:3",
         "dir": "ccw",
-        "blade": "bh"
+        "blade": "fh"
+      },
+      {
+        "at": "around:1",
+        "dir": "ccw",
+        "blade": "fh"
       },
       {
         "at": "home",
@@ -307,35 +3740,952 @@
     ],
     "loop": true,
     "callMode": "zóna",
-    "tempoBpm": 28,
-    "durationSec": 60,
+    "tempoBpm": 30,
+    "durationSec": 40,
     "reps": null,
     "spaceNeeded": [
-      1.6,
-      4.4
+      2.6,
+      2.8
     ],
-    "noise": "tichý",
+    "noise": "střední",
     "equipment": [
       "hůl",
       "míček",
-      "4 kužely"
+      "3 kužely"
     ],
-    "voiceIntro": "Slalom! Kolem jednoho kuželu forhendem, kolem dalšího bekhendem. Na konci zpátky do domečku.",
+    "voiceIntro": "Objeď celý trojúhelník forhendem. Začni modrým kuželem a míček drž venku.",
     "coachingPoints": [
+      "Míček je venku, ty uvnitř",
       "Těsně kolem kuželu",
-      "Střídej strany čepele",
-      "Pokrčená kolena"
+      "Kolena pokrčená v zatáčce"
     ],
     "commonMistakes": [
-      "Široké oblouky daleko od kuželu"
+      "Zatáčka moc široká"
     ],
-    "progression": "zigzag-carry",
+    "progression": "triangle-loop-bh",
     "regression": "fh-push-cones",
-    "safetyNotes": "Hůl vždy pod úrovní pasu. Kolem tebe volno, tablet mimo dosah čepele.",
-    "sources": [],
-    "confidence": "vlastní",
+    "safetyNotes": "Hůl drž pod pasem. Uklid věci z cesty. Na hladké podlaze cvič v sálovkách nebo bos, ne v ponožkách.",
+    "sources": [
+      {
+        "url": "https://bin.yhdistysavain.fi/1580251/ruuOmGuWdYLL9JFkqrvC0bZWHb/SBVImuistiinpanot.pdf",
+        "type": "metodika",
+        "reliability": "ověřené"
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=DycV8UE5Ua0",
+        "type": "video",
+        "reliability": "ověřené"
+      }
+    ],
+    "confidence": "ověřené",
     "kind": "ball",
-    "matchLegal": true
+    "matchLegal": true,
+    "origin": [
+      "FI-14",
+      "H30"
+    ]
+  },
+  {
+    "id": "triangle-loop-bh",
+    "name": "Kolem trojúhelníku bekhendem",
+    "level": 2,
+    "minAge": 6,
+    "category": "kolem kuželů",
+    "bladeSide": "bekhend",
+    "grip": "obouruč",
+    "setupId": "triangle",
+    "pattern": [
+      {
+        "at": "around:1",
+        "dir": "cw",
+        "blade": "bh"
+      },
+      {
+        "at": "around:3",
+        "dir": "cw",
+        "blade": "bh"
+      },
+      {
+        "at": "around:2",
+        "dir": "cw",
+        "blade": "bh"
+      },
+      {
+        "at": "home",
+        "blade": "bh"
+      }
+    ],
+    "loop": true,
+    "callMode": "zóna",
+    "tempoBpm": 30,
+    "durationSec": 40,
+    "reps": null,
+    "spaceNeeded": [
+      2.6,
+      2.8
+    ],
+    "noise": "střední",
+    "equipment": [
+      "hůl",
+      "míček",
+      "3 kužely"
+    ],
+    "voiceIntro": "Teď obráceně a bekhendem. Začni červeným kuželem.",
+    "coachingPoints": [
+      "Míček venku na bekhendu",
+      "Čepel nad míčkem",
+      "Klidné tempo"
+    ],
+    "commonMistakes": [
+      "Míček uteče do kuželu"
+    ],
+    "progression": "escape-turn",
+    "regression": "bh-push-cones",
+    "safetyNotes": "Hůl drž pod pasem. Uklid věci z cesty. Na hladké podlaze cvič v sálovkách nebo bos, ne v ponožkách.",
+    "sources": [
+      {
+        "url": "https://bin.yhdistysavain.fi/1580251/ruuOmGuWdYLL9JFkqrvC0bZWHb/SBVImuistiinpanot.pdf",
+        "type": "metodika",
+        "reliability": "ověřené"
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=DycV8UE5Ua0",
+        "type": "video",
+        "reliability": "ověřené"
+      }
+    ],
+    "confidence": "ověřené",
+    "kind": "ball",
+    "matchLegal": true,
+    "origin": [
+      "FI-14",
+      "H30"
+    ]
+  },
+  {
+    "id": "figure8-triangle",
+    "name": "Velká osmička",
+    "level": 2,
+    "minAge": 6,
+    "category": "kolem kuželů",
+    "bladeSide": "obě",
+    "grip": "obouruč",
+    "setupId": "triangle",
+    "pattern": [
+      {
+        "at": "around:1",
+        "dir": "ccw",
+        "blade": "bh"
+      },
+      {
+        "at": "around:2",
+        "dir": "cw",
+        "blade": "fh"
+      }
+    ],
+    "loop": true,
+    "callMode": "barva",
+    "tempoBpm": 25,
+    "durationSec": 40,
+    "reps": null,
+    "spaceNeeded": [
+      2.6,
+      2.8
+    ],
+    "noise": "střední",
+    "equipment": [
+      "hůl",
+      "míček",
+      "3 kužely"
+    ],
+    "voiceIntro": "Velká osmička kolem červeného a modrého kuželu. Řeknu barvu, kolem kterého jedeš.",
+    "coachingPoints": [
+      "Uprostřed přetoč čepel",
+      "Míček blízko kuželu",
+      "Hlava nahoře"
+    ],
+    "commonMistakes": [
+      "Ve středu míček ztratí"
+    ],
+    "progression": "escape-turn",
+    "regression": "figure8-spot",
+    "safetyNotes": "Hůl drž pod pasem. Uklid věci z cesty. Na hladké podlaze cvič v sálovkách nebo bos, ne v ponožkách.",
+    "sources": [
+      {
+        "url": "https://www.youtube.com/watch?v=lw7rrPkh2pc",
+        "type": "video",
+        "reliability": "ověřené"
+      },
+      {
+        "url": "https://www.mobilesport.ch/assets/lbwp-cdn/mobilesport/files/2013/09/praxis_2005_02_d.pdf",
+        "type": "metodika",
+        "reliability": "ověřené"
+      }
+    ],
+    "confidence": "ověřené",
+    "kind": "ball",
+    "matchLegal": true,
+    "origin": [
+      "H05",
+      "CH-12"
+    ]
+  },
+  {
+    "id": "triangle-reaction",
+    "name": "Které číslo?",
+    "level": 2,
+    "minAge": 6,
+    "category": "reakce",
+    "bladeSide": "obě",
+    "grip": "obouruč",
+    "setupId": "triangle",
+    "pattern": [
+      {
+        "at": 1,
+        "blade": "fh"
+      },
+      {
+        "at": "home",
+        "blade": "fh"
+      }
+    ],
+    "loop": true,
+    "callMode": "náhodná reakce",
+    "tempoBpm": 25,
+    "durationSec": 40,
+    "reps": null,
+    "spaceNeeded": [
+      2.6,
+      2.8
+    ],
+    "noise": "střední",
+    "equipment": [
+      "hůl",
+      "míček",
+      "3 kužely"
+    ],
+    "voiceIntro": "Na tabletu se rozsvítí kužel. Doveď k němu míček a hned zpátky do domečku!",
+    "coachingPoints": [
+      "Oči na tablet",
+      "Rychlý první krok",
+      "Míček pořád u hole"
+    ],
+    "commonMistakes": [
+      "Kouká na míček a nevidí, co svítí"
+    ],
+    "progression": "reaction-square",
+    "regression": "triangle-color",
+    "safetyNotes": "Hůl drž pod pasem. Uklid věci z cesty. Na hladké podlaze cvič v sálovkách nebo bos, ne v ponožkách.",
+    "sources": [
+      {
+        "url": "https://apps.apple.com/us/app/my-floorball/id949358436",
+        "type": "výrobce",
+        "reliability": "inspirace"
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=IT9Wu3P_C6I",
+        "type": "video",
+        "reliability": "inspirace"
+      },
+      {
+        "url": "https://cdn.hockeycanada.ca/hockey-canada/Hockey-Programs/Players/Downloads/2020/puck-control-overview-e.pdf",
+        "type": "metodika",
+        "reliability": "ověřené"
+      },
+      {
+        "url": "https://www.mobilesport.ch/assets/lbwp-cdn/mobilesport/files/2013/09/praxis_2005_02_d.pdf",
+        "type": "metodika",
+        "reliability": "ověřené"
+      },
+      {
+        "url": "https://www.florbal.com/doplnky/treninkove-doplnky/myfloorball-skiller-pro/",
+        "type": "výrobce",
+        "reliability": "inspirace"
+      }
+    ],
+    "confidence": "ověřené",
+    "kind": "ball",
+    "matchLegal": true,
+    "origin": [
+      "MF-02",
+      "H42",
+      "CH-06",
+      "CR-39"
+    ]
+  },
+  {
+    "id": "triangle-color",
+    "name": "Barvy v trojúhelníku",
+    "level": 1,
+    "minAge": 6,
+    "category": "reakce",
+    "bladeSide": "obě",
+    "grip": "obouruč",
+    "setupId": "triangle",
+    "pattern": [
+      {
+        "at": 1,
+        "blade": "bh"
+      },
+      {
+        "at": "home",
+        "blade": "bh"
+      },
+      {
+        "at": 3,
+        "blade": "fh"
+      },
+      {
+        "at": "home",
+        "blade": "fh"
+      },
+      {
+        "at": 3,
+        "blade": "fh"
+      },
+      {
+        "at": "home",
+        "blade": "fh"
+      },
+      {
+        "at": 2,
+        "blade": "fh"
+      },
+      {
+        "at": "home",
+        "blade": "fh"
+      },
+      {
+        "at": 1,
+        "blade": "bh"
+      },
+      {
+        "at": "home",
+        "blade": "bh"
+      },
+      {
+        "at": 2,
+        "blade": "fh"
+      },
+      {
+        "at": "home",
+        "blade": "fh"
+      }
+    ],
+    "loop": true,
+    "callMode": "barva",
+    "tempoBpm": 25,
+    "durationSec": 40,
+    "reps": null,
+    "spaceNeeded": [
+      2.6,
+      2.8
+    ],
+    "noise": "střední",
+    "equipment": [
+      "hůl",
+      "míček",
+      "3 kužely"
+    ],
+    "voiceIntro": "Řeknu barvu a ty k tomu kuželu dovedeš míček. Pak zpátky do domečku.",
+    "coachingPoints": [
+      "Poslouchej a dívej se",
+      "U kuželu zpomal",
+      "Míček blízko čepele"
+    ],
+    "commonMistakes": [
+      "Vyrazí dřív, než barvu slyší"
+    ],
+    "progression": "triangle-reaction",
+    "regression": null,
+    "safetyNotes": "Hůl drž pod pasem. Uklid věci z cesty. Na hladké podlaze cvič v sálovkách nebo bos, ne v ponožkách.",
+    "sources": [
+      {
+        "url": "https://editor.swissunihockey.ch/index.php/download_file/view/316/279",
+        "type": "metodika",
+        "reliability": "ověřené"
+      },
+      {
+        "url": "https://hockeyshot.com/products/reactive-sniper",
+        "type": "výrobce",
+        "reliability": "inspirace"
+      },
+      {
+        "url": "https://cdn.hockeycanada.ca/hockey-canada/Hockey-Programs/Players/Downloads/2020/puck-control-overview-e.pdf",
+        "type": "metodika",
+        "reliability": "ověřené"
+      }
+    ],
+    "confidence": "ověřené",
+    "kind": "ball",
+    "matchLegal": true,
+    "origin": [
+      "CH-15",
+      "H43"
+    ]
+  },
+  {
+    "id": "escape-turn",
+    "name": "Únikový obrat",
+    "level": 2,
+    "minAge": 6,
+    "category": "kličky",
+    "bladeSide": "obě",
+    "grip": "obouruč",
+    "setupId": "triangle",
+    "pattern": [
+      {
+        "at": 3,
+        "blade": "fh"
+      },
+      {
+        "at": "around:3",
+        "dir": "ccw",
+        "blade": "fh"
+      },
+      {
+        "at": "home",
+        "blade": "fh"
+      },
+      {
+        "at": 3,
+        "blade": "bh"
+      },
+      {
+        "at": "around:3",
+        "dir": "cw",
+        "blade": "bh"
+      },
+      {
+        "at": "home",
+        "blade": "bh"
+      }
+    ],
+    "loop": true,
+    "callMode": "zóna",
+    "tempoBpm": 30,
+    "durationSec": 40,
+    "reps": null,
+    "spaceNeeded": [
+      2.6,
+      2.8
+    ],
+    "noise": "střední",
+    "equipment": [
+      "hůl",
+      "míček",
+      "3 kužely"
+    ],
+    "voiceIntro": "Jeď ke žlutému kuželu, otoč se kolem něj a uteč zpátky. Jednou přes forhend, jednou přes bekhend.",
+    "coachingPoints": [
+      "Tělo mezi kuželem a míčkem",
+      "Otočka těsně",
+      "Po otočce zrychli"
+    ],
+    "commonMistakes": [
+      "Otočka je moc široká a pomalá"
+    ],
+    "progression": "fake-cone",
+    "regression": "triangle-loop-fh",
+    "safetyNotes": "Hůl drž pod pasem. Uklid věci z cesty. Na hladké podlaze cvič v sálovkách nebo bos, ne v ponožkách.",
+    "sources": [
+      {
+        "url": "https://www.hockeycanada.ca/en-ca/hockey-programs/coaching/under-9/coaches/skills",
+        "type": "metodika",
+        "reliability": "ověřené"
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=tFFCRVn9Y2I",
+        "type": "video",
+        "reliability": "inspirace"
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=O0MVVCA9H28",
+        "type": "video",
+        "reliability": "inspirace"
+      },
+      {
+        "url": "https://www.innebandy.se/ovningsbanken/vanda-jaktlek",
+        "type": "metodika (övningsbanken)",
+        "reliability": "ověřené"
+      }
+    ],
+    "confidence": "ověřené",
+    "kind": "ball",
+    "matchLegal": true,
+    "origin": [
+      "H34",
+      "T16",
+      "CR-33"
+    ]
+  },
+  {
+    "id": "fake-cone",
+    "name": "Klička s fintou",
+    "level": 3,
+    "minAge": 7,
+    "category": "kličky",
+    "bladeSide": "obě",
+    "grip": "obouruč",
+    "setupId": "triangle",
+    "pattern": [
+      {
+        "at": "around:3",
+        "dir": "ccw",
+        "blade": "fh"
+      },
+      {
+        "at": 2,
+        "blade": "fh"
+      },
+      {
+        "at": "home",
+        "blade": "fh"
+      },
+      {
+        "at": "around:3",
+        "dir": "cw",
+        "blade": "bh"
+      },
+      {
+        "at": 1,
+        "blade": "bh"
+      },
+      {
+        "at": "home",
+        "blade": "bh"
+      }
+    ],
+    "loop": true,
+    "callMode": "zóna",
+    "tempoBpm": 25,
+    "durationSec": 40,
+    "reps": null,
+    "spaceNeeded": [
+      2.6,
+      2.8
+    ],
+    "noise": "střední",
+    "equipment": [
+      "hůl",
+      "míček",
+      "3 kužely"
+    ],
+    "voiceIntro": "Žlutý kužel je obránce. Ramenem naznač jednu stranu a projeď tou druhou.",
+    "coachingPoints": [
+      "Finta ramenem a hlavou",
+      "Pak rychle druhou stranou",
+      "Střídej strany"
+    ],
+    "commonMistakes": [
+      "Finta je moc malá, kužel by ji nepoznal"
+    ],
+    "progression": "toe-drag-cone",
+    "regression": "escape-turn",
+    "safetyNotes": "Hůl drž pod pasem. Uklid věci z cesty. Na hladké podlaze cvič v sálovkách nebo bos, ne v ponožkách.",
+    "sources": [
+      {
+        "url": "https://www.youtube.com/watch?v=HV5FFCzQJfM",
+        "type": "video",
+        "reliability": "ověřené"
+      },
+      {
+        "url": "https://www.onlinehockeytraining.com/blog/hockey-stick-handling-drills",
+        "type": "článek",
+        "reliability": "inspirace"
+      },
+      {
+        "url": "https://www.mobilesport.ch/assets/lbwp-cdn/mobilesport/files/2013/09/praxis_2005_02_d.pdf",
+        "type": "metodika",
+        "reliability": "ověřené"
+      },
+      {
+        "url": "https://dspace5.zcu.cz/bitstream/11025/19998/1/Diplomova%20prace%20Matous%20Hrdlicka%202015.pdf",
+        "type": "VŠ práce (metodika ČFbU)",
+        "reliability": "ověřené"
+      }
+    ],
+    "confidence": "ověřené",
+    "kind": "ball",
+    "matchLegal": true,
+    "origin": [
+      "H17",
+      "CH-11",
+      "CZ-34"
+    ]
+  },
+  {
+    "id": "bh-fake",
+    "name": "Finta z bekhendu",
+    "level": 3,
+    "minAge": 7,
+    "category": "kličky",
+    "bladeSide": "obě",
+    "grip": "obouruč",
+    "setupId": "triangle",
+    "pattern": [
+      {
+        "at": 3,
+        "blade": "bh"
+      },
+      {
+        "at": "bh",
+        "blade": "bh"
+      },
+      {
+        "at": 2,
+        "blade": "fh"
+      },
+      {
+        "at": "home",
+        "blade": "fh"
+      }
+    ],
+    "loop": true,
+    "callMode": "zóna",
+    "tempoBpm": 25,
+    "durationSec": 40,
+    "reps": null,
+    "spaceNeeded": [
+      2.6,
+      2.8
+    ],
+    "noise": "střední",
+    "equipment": [
+      "hůl",
+      "míček",
+      "3 kužely"
+    ],
+    "voiceIntro": "Přijeď ke žlutému kuželu s míčkem na bekhendu. Naznač, že jedeš dál, a přetáhni míček na forhend.",
+    "coachingPoints": [
+      "Míček na bekhendu daleko od kuželu",
+      "Rychlé přetažení",
+      "Hlava nahoře"
+    ],
+    "commonMistakes": [
+      "Přetáhne moc brzy"
+    ],
+    "progression": "toe-drag-cone",
+    "regression": "bh-push-cones",
+    "safetyNotes": "Hůl drž pod pasem. Uklid věci z cesty. Na hladké podlaze cvič v sálovkách nebo bos, ne v ponožkách.",
+    "sources": [
+      {
+        "url": "https://www.youtube.com/watch?v=HV5FFCzQJfM",
+        "type": "video",
+        "reliability": "ověřené"
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=O0MVVCA9H28",
+        "type": "video",
+        "reliability": "inspirace"
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=6pmaHNPC-o8",
+        "type": "video",
+        "reliability": "inspirace"
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=tFFCRVn9Y2I",
+        "type": "video",
+        "reliability": "inspirace"
+      }
+    ],
+    "confidence": "ověřené",
+    "kind": "ball",
+    "matchLegal": true,
+    "origin": [
+      "H27",
+      "T14"
+    ]
+  },
+  {
+    "id": "toe-drag-cone",
+    "name": "Tah špičkou u kuželu",
+    "level": 4,
+    "minAge": 8,
+    "category": "kličky",
+    "bladeSide": "obě",
+    "grip": "obouruč",
+    "setupId": "triangle",
+    "pattern": [
+      {
+        "at": 3,
+        "blade": "fh"
+      },
+      {
+        "at": "front",
+        "blade": "fh"
+      },
+      {
+        "at": "around:3",
+        "dir": "cw",
+        "blade": "bh"
+      },
+      {
+        "at": "home",
+        "blade": "bh"
+      },
+      {
+        "at": 3,
+        "blade": "bh"
+      },
+      {
+        "at": "front",
+        "blade": "bh"
+      },
+      {
+        "at": "around:3",
+        "dir": "ccw",
+        "blade": "fh"
+      },
+      {
+        "at": "home",
+        "blade": "fh"
+      }
+    ],
+    "loop": true,
+    "callMode": "zóna",
+    "tempoBpm": 30,
+    "durationSec": 40,
+    "reps": null,
+    "spaceNeeded": [
+      2.6,
+      2.8
+    ],
+    "noise": "střední",
+    "equipment": [
+      "hůl",
+      "míček",
+      "3 kužely"
+    ],
+    "voiceIntro": "U žlutého kuželu stáhni míček špičkou k sobě a objeď kužel z druhé strany.",
+    "coachingPoints": [
+      "Tah špičkou těsně před kuželem",
+      "Hned změna směru",
+      "Obě strany"
+    ],
+    "commonMistakes": [
+      "Tah je daleko od kuželu"
+    ],
+    "progression": "triangle-combo",
+    "regression": "fake-cone",
+    "safetyNotes": "Hůl drž pod pasem. Uklid věci z cesty. Na hladké podlaze cvič v sálovkách nebo bos, ne v ponožkách.",
+    "sources": [
+      {
+        "url": "https://www.youtube.com/watch?v=UlkAnet3d-A",
+        "type": "video",
+        "reliability": "ověřené"
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=TQe8UUIICqw",
+        "type": "video",
+        "reliability": "inspirace"
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=0pOdD75Mc0k",
+        "type": "video",
+        "reliability": "inspirace"
+      },
+      {
+        "url": "https://www.hockeycanada.ca/en-ca/hockey-programs/coaching/under-9/coaches/skills",
+        "type": "metodika",
+        "reliability": "ověřené"
+      }
+    ],
+    "confidence": "odvozené",
+    "kind": "ball",
+    "matchLegal": true,
+    "origin": [
+      "H18",
+      "T15",
+      "H32"
+    ]
+  },
+  {
+    "id": "triangle-one-hand",
+    "name": "Trojúhelník jednou rukou",
+    "level": 4,
+    "minAge": 8,
+    "category": "jednoruč",
+    "bladeSide": "obě",
+    "grip": "jednoruč-horní",
+    "setupId": "triangle",
+    "pattern": [
+      {
+        "at": 1,
+        "blade": "bh",
+        "hand": "top"
+      },
+      {
+        "at": "home",
+        "blade": "fh",
+        "hand": "top"
+      },
+      {
+        "at": 2,
+        "blade": "fh",
+        "hand": "top"
+      },
+      {
+        "at": "home",
+        "blade": "bh",
+        "hand": "top"
+      }
+    ],
+    "loop": true,
+    "callMode": "zóna",
+    "tempoBpm": 25,
+    "durationSec": 20,
+    "reps": null,
+    "spaceNeeded": [
+      2.6,
+      2.8
+    ],
+    "noise": "střední",
+    "equipment": [
+      "hůl",
+      "míček",
+      "3 kužely"
+    ],
+    "voiceIntro": "Jen horní rukou doveď míček k červenému a modrému kuželu. Krátce, ruka se unaví.",
+    "coachingPoints": [
+      "Pomalu",
+      "Míček blízko čepele",
+      "Spodní ruka pomáhá s rovnováhou"
+    ],
+    "commonMistakes": [
+      "Hůl se rozkývá"
+    ],
+    "progression": null,
+    "regression": "one-hand-top",
+    "safetyNotes": "Jednou rukou se hůl ovládá hůř: pomalu, s volným místem kolem. Konec hole i čepel pod pasem.",
+    "sources": [
+      {
+        "url": "https://salibandy.fi/wp-content/uploads/2025/12/hippo-x-sabakipina-lajinomaiset-leikit.pdf",
+        "type": "metodika",
+        "reliability": "ověřené"
+      },
+      {
+        "url": "https://bin.yhdistysavain.fi/1580251/ruuOmGuWdYLL9JFkqrvC0bZWHb/SBVImuistiinpanot.pdf",
+        "type": "metodika",
+        "reliability": "ověřené"
+      },
+      {
+        "url": "https://laget.se/SkellefteaIBK/Document/Download/1088074/6494953",
+        "type": "metodika",
+        "reliability": "inspirace"
+      }
+    ],
+    "confidence": "ověřené",
+    "kind": "ball",
+    "matchLegal": true,
+    "origin": [
+      "FI-04",
+      "FI-17",
+      "SKE"
+    ]
+  },
+  {
+    "id": "triangle-combo",
+    "name": "Trojúhelníková kombinace",
+    "level": 4,
+    "minAge": 8,
+    "category": "kombinace",
+    "bladeSide": "obě",
+    "grip": "obouruč",
+    "setupId": "triangle",
+    "pattern": [
+      {
+        "at": "front",
+        "blade": "fh"
+      },
+      {
+        "at": "front",
+        "blade": "bh"
+      },
+      {
+        "at": "front",
+        "blade": "fh"
+      },
+      {
+        "at": 3,
+        "blade": "fh"
+      },
+      {
+        "at": "around:3",
+        "dir": "ccw",
+        "blade": "fh"
+      },
+      {
+        "at": "home",
+        "blade": "fh"
+      },
+      {
+        "at": "front",
+        "blade": "bh"
+      },
+      {
+        "at": "front",
+        "blade": "fh"
+      }
+    ],
+    "loop": true,
+    "callMode": "zóna",
+    "tempoBpm": 35,
+    "durationSec": 40,
+    "reps": null,
+    "spaceNeeded": [
+      2.6,
+      2.8
+    ],
+    "noise": "střední",
+    "equipment": [
+      "hůl",
+      "míček",
+      "3 kužely"
+    ],
+    "voiceIntro": "Tři přetažení na místě, pak jeď ke žlutému kuželu, otoč se a vrať se. A znova!",
+    "coachingPoints": [
+      "Na místě rychlé ruce",
+      "Ke kuželu hlava nahoře",
+      "Otočka těsně"
+    ],
+    "commonMistakes": [
+      "Zapomene na přetahování na místě"
+    ],
+    "progression": null,
+    "regression": "escape-turn",
+    "safetyNotes": "Hůl drž pod pasem. Uklid věci z cesty. Na hladké podlaze cvič v sálovkách nebo bos, ne v ponožkách.",
+    "sources": [
+      {
+        "url": "https://www.youtube.com/watch?v=7HluVwbAv3w",
+        "type": "video",
+        "reliability": "inspirace"
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=p5mfzsB4Tec",
+        "type": "video",
+        "reliability": "inspirace"
+      },
+      {
+        "url": "https://www.hockeycanada.ca/en-ca/hockey-programs/coaching/under-9/coaches/skills",
+        "type": "metodika",
+        "reliability": "ověřené"
+      },
+      {
+        "url": "https://dspace5.zcu.cz/bitstream/11025/19998/1/Diplomova%20prace%20Matous%20Hrdlicka%202015.pdf",
+        "type": "VŠ práce (metodika ČFbU)",
+        "reliability": "ověřené"
+      }
+    ],
+    "confidence": "odvozené",
+    "kind": "ball",
+    "matchLegal": true,
+    "origin": [
+      "H14",
+      "H34",
+      "CZ-24"
+    ]
   },
   {
     "id": "reaction-square",
@@ -359,6 +4709,661 @@
     "loop": true,
     "callMode": "náhodná reakce",
     "tempoBpm": 20,
+    "durationSec": 40,
+    "reps": null,
+    "spaceNeeded": [
+      2.8,
+      3.2
+    ],
+    "noise": "střední",
+    "equipment": [
+      "hůl",
+      "míček",
+      "4 kužely"
+    ],
+    "voiceIntro": "Reakce, dívej se na tablet! Jakou barvu ukážu, k tomu kuželu dovedeš míček a hned zpátky.",
+    "coachingPoints": [
+      "Hlava nahoře",
+      "Rychlý první krok",
+      "Míček pořád u hole"
+    ],
+    "commonMistakes": [
+      "Kouká jen na míček a barvu nevidí"
+    ],
+    "progression": "square-react-fast",
+    "regression": "square-color-corners",
+    "safetyNotes": "Hůl drž pod pasem. Uklid věci z cesty. Na hladké podlaze cvič v sálovkách nebo bos, ne v ponožkách.",
+    "sources": [
+      {
+        "url": "https://apps.apple.com/us/app/my-floorball/id949358436",
+        "type": "výrobce",
+        "reliability": "inspirace"
+      },
+      {
+        "url": "https://hockeyshot.com/products/reactive-sniper",
+        "type": "výrobce",
+        "reliability": "inspirace"
+      },
+      {
+        "url": "https://cdn.hockeycanada.ca/hockey-canada/Hockey-Programs/Players/Downloads/2020/puck-control-overview-e.pdf",
+        "type": "metodika",
+        "reliability": "ověřené"
+      },
+      {
+        "url": "https://www.mobilesport.ch/assets/lbwp-cdn/mobilesport/files/2013/09/praxis_2005_02_d.pdf",
+        "type": "metodika",
+        "reliability": "ověřené"
+      }
+    ],
+    "confidence": "ověřené",
+    "kind": "ball",
+    "matchLegal": true,
+    "origin": [
+      "MF-02",
+      "H43",
+      "CH-06"
+    ]
+  },
+  {
+    "id": "square-react-fast",
+    "name": "Blesková reakce",
+    "level": 4,
+    "minAge": 8,
+    "category": "reakce",
+    "bladeSide": "obě",
+    "grip": "obouruč",
+    "setupId": "square",
+    "pattern": [
+      {
+        "at": 1,
+        "blade": "fh"
+      },
+      {
+        "at": "home",
+        "blade": "fh"
+      }
+    ],
+    "loop": true,
+    "callMode": "náhodná reakce",
+    "tempoBpm": 30,
+    "durationSec": 30,
+    "reps": null,
+    "spaceNeeded": [
+      2.8,
+      3.2
+    ],
+    "noise": "střední",
+    "equipment": [
+      "hůl",
+      "míček",
+      "4 kužely"
+    ],
+    "voiceIntro": "Teď rychleji, kužely budou svítit jeden za druhým. Kdo nemá hlavu nahoře, nestihne to!",
+    "coachingPoints": [
+      "Oči na tablet",
+      "Malé rychlé kroky",
+      "Nejezdi až ke kuželu, stačí blízko"
+    ],
+    "commonMistakes": [
+      "Ztratí míček, nevadí, seber ho a jeď dál"
+    ],
+    "progression": "reaction-one-hand",
+    "regression": "reaction-square",
+    "safetyNotes": "Hůl drž pod pasem. Uklid věci z cesty. Na hladké podlaze cvič v sálovkách nebo bos, ne v ponožkách.",
+    "sources": [
+      {
+        "url": "https://apps.apple.com/us/app/my-floorball/id949358436",
+        "type": "výrobce",
+        "reliability": "inspirace"
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=IT9Wu3P_C6I",
+        "type": "video",
+        "reliability": "inspirace"
+      },
+      {
+        "url": "https://cdn.hockeycanada.ca/hockey-canada/Hockey-Programs/Players/Downloads/2020/puck-control-overview-e.pdf",
+        "type": "metodika",
+        "reliability": "ověřené"
+      }
+    ],
+    "confidence": "odvozené",
+    "kind": "ball",
+    "matchLegal": true,
+    "origin": [
+      "MF-02",
+      "H42"
+    ]
+  },
+  {
+    "id": "square-react-bh",
+    "name": "Reakce bekhendem",
+    "level": 4,
+    "minAge": 8,
+    "category": "reakce",
+    "bladeSide": "bekhend",
+    "grip": "obouruč",
+    "setupId": "square",
+    "pattern": [
+      {
+        "at": 1,
+        "blade": "bh"
+      },
+      {
+        "at": "home",
+        "blade": "bh"
+      }
+    ],
+    "loop": true,
+    "callMode": "náhodná reakce",
+    "tempoBpm": 20,
+    "durationSec": 30,
+    "reps": null,
+    "spaceNeeded": [
+      2.8,
+      3.2
+    ],
+    "noise": "střední",
+    "equipment": [
+      "hůl",
+      "míček",
+      "4 kužely"
+    ],
+    "voiceIntro": "Reakce, ale míček vedeš jen bekhendem. Hlava nahoře!",
+    "coachingPoints": [
+      "Jen bekhend",
+      "Čepel nad míčkem",
+      "Dívej se na tablet"
+    ],
+    "commonMistakes": [
+      "V rychlosti přehodí na forhend"
+    ],
+    "progression": null,
+    "regression": "reaction-square",
+    "safetyNotes": "Hůl drž pod pasem. Uklid věci z cesty. Na hladké podlaze cvič v sálovkách nebo bos, ne v ponožkách.",
+    "sources": [
+      {
+        "url": "https://www.youtube.com/watch?v=IT9Wu3P_C6I",
+        "type": "video",
+        "reliability": "inspirace"
+      },
+      {
+        "url": "https://cdn.hockeycanada.ca/hockey-canada/Hockey-Programs/Players/Downloads/2020/puck-control-overview-e.pdf",
+        "type": "metodika",
+        "reliability": "ověřené"
+      },
+      {
+        "url": "https://laget.se/SkellefteaIBK/Document/Download/1088074/6494953",
+        "type": "metodika",
+        "reliability": "inspirace"
+      }
+    ],
+    "confidence": "odvozené",
+    "kind": "ball",
+    "matchLegal": true,
+    "origin": [
+      "H42",
+      "SKE"
+    ]
+  },
+  {
+    "id": "reaction-one-hand",
+    "name": "Reakce jednou rukou",
+    "level": 5,
+    "minAge": 8,
+    "category": "reakce",
+    "bladeSide": "obě",
+    "grip": "jednoruč-horní",
+    "setupId": "square",
+    "pattern": [
+      {
+        "at": 1,
+        "blade": "fh",
+        "hand": "top"
+      },
+      {
+        "at": "home",
+        "blade": "fh",
+        "hand": "top"
+      }
+    ],
+    "loop": true,
+    "callMode": "náhodná reakce",
+    "tempoBpm": 20,
+    "durationSec": 20,
+    "reps": null,
+    "spaceNeeded": [
+      2.8,
+      3.2
+    ],
+    "noise": "střední",
+    "equipment": [
+      "hůl",
+      "míček",
+      "4 kužely"
+    ],
+    "voiceIntro": "Mistrovská reakce: míček vedeš jen horní rukou. Druhou rukou si drž rovnováhu.",
+    "coachingPoints": [
+      "Kratší kroky",
+      "Míček blízko čepele",
+      "Oči na tablet"
+    ],
+    "commonMistakes": [
+      "Hůl se rozkývá a jde nahoru"
+    ],
+    "progression": null,
+    "regression": "square-react-fast",
+    "safetyNotes": "Jednou rukou se hůl ovládá hůř: pomalu, s volným místem kolem. Konec hole i čepel pod pasem.",
+    "sources": [
+      {
+        "url": "https://salibandy.fi/wp-content/uploads/2025/12/hippo-x-sabakipina-lajinomaiset-leikit.pdf",
+        "type": "metodika",
+        "reliability": "ověřené"
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=DycV8UE5Ua0",
+        "type": "video",
+        "reliability": "ověřené"
+      },
+      {
+        "url": "https://apps.apple.com/us/app/my-floorball/id949358436",
+        "type": "výrobce",
+        "reliability": "inspirace"
+      }
+    ],
+    "confidence": "odvozené",
+    "kind": "ball",
+    "matchLegal": true,
+    "origin": [
+      "FI-04",
+      "H38",
+      "MF-02"
+    ]
+  },
+  {
+    "id": "square-color-corners",
+    "name": "Barevné rohy",
+    "level": 1,
+    "minAge": 6,
+    "category": "reakce",
+    "bladeSide": "obě",
+    "grip": "obouruč",
+    "setupId": "square",
+    "pattern": [
+      {
+        "at": 1,
+        "blade": "bh"
+      },
+      {
+        "at": "home",
+        "blade": "bh"
+      },
+      {
+        "at": 3,
+        "blade": "fh"
+      },
+      {
+        "at": "home",
+        "blade": "fh"
+      },
+      {
+        "at": 2,
+        "blade": "fh"
+      },
+      {
+        "at": "home",
+        "blade": "fh"
+      },
+      {
+        "at": 4,
+        "blade": "bh"
+      },
+      {
+        "at": "home",
+        "blade": "bh"
+      },
+      {
+        "at": 3,
+        "blade": "fh"
+      },
+      {
+        "at": "home",
+        "blade": "fh"
+      },
+      {
+        "at": 1,
+        "blade": "bh"
+      },
+      {
+        "at": "home",
+        "blade": "bh"
+      }
+    ],
+    "loop": true,
+    "callMode": "barva",
+    "tempoBpm": 20,
+    "durationSec": 40,
+    "reps": null,
+    "spaceNeeded": [
+      2.8,
+      3.2
+    ],
+    "noise": "střední",
+    "equipment": [
+      "hůl",
+      "míček",
+      "4 kužely"
+    ],
+    "voiceIntro": "Každý roh má svou barvu, jako ovoce v ovocném salátu. Řeknu barvu a ty tam dovedeš míček.",
+    "coachingPoints": [
+      "Poslouchej barvu",
+      "Míček před sebou",
+      "Zpátky do domečku"
+    ],
+    "commonMistakes": [
+      "Splete si zelenou a žlutou, podívej se na tablet"
+    ],
+    "progression": "reaction-square",
+    "regression": null,
+    "safetyNotes": "Hůl drž pod pasem. Uklid věci z cesty. Na hladké podlaze cvič v sálovkách nebo bos, ne v ponožkách.",
+    "sources": [
+      {
+        "url": "https://www.mobilesport.ch/assets/lbwp-cdn/mobilesport/files/2013/09/praxis_2005_02_d.pdf",
+        "type": "metodika",
+        "reliability": "ověřené"
+      },
+      {
+        "url": "https://hockeyshot.com/products/reactive-sniper",
+        "type": "výrobce",
+        "reliability": "inspirace"
+      },
+      {
+        "url": "https://cdn.hockeycanada.ca/hockey-canada/Hockey-Programs/Players/Downloads/2020/puck-control-overview-e.pdf",
+        "type": "metodika",
+        "reliability": "ověřené"
+      }
+    ],
+    "confidence": "ověřené",
+    "kind": "ball",
+    "matchLegal": true,
+    "origin": [
+      "CH-06",
+      "H43"
+    ]
+  },
+  {
+    "id": "square-ccw-fh",
+    "name": "Kolem čtverce forhendem",
+    "level": 1,
+    "minAge": 6,
+    "category": "vedení míčku",
+    "bladeSide": "forhend",
+    "grip": "obouruč",
+    "setupId": "square",
+    "pattern": [
+      {
+        "at": 2,
+        "blade": "fh"
+      },
+      {
+        "at": 3,
+        "blade": "fh"
+      },
+      {
+        "at": 4,
+        "blade": "fh"
+      },
+      {
+        "at": 1,
+        "blade": "fh"
+      },
+      {
+        "at": "home",
+        "blade": "fh"
+      }
+    ],
+    "loop": true,
+    "callMode": "zóna",
+    "tempoBpm": 25,
+    "durationSec": 40,
+    "reps": null,
+    "spaceNeeded": [
+      2.8,
+      3.2
+    ],
+    "noise": "střední",
+    "equipment": [
+      "hůl",
+      "míček",
+      "4 kužely"
+    ],
+    "voiceIntro": "Veď míček forhendem kolem celého čtverce, začni modrým kuželem. Oči dopředu!",
+    "coachingPoints": [
+      "Míček na kraji oka, ne pod nosem",
+      "U rohu zpomal",
+      "Kolena pokrčená"
+    ],
+    "commonMistakes": [
+      "Kouká jen pod nohy"
+    ],
+    "progression": "square-cw-bh",
+    "regression": null,
+    "safetyNotes": "Hůl drž pod pasem. Uklid věci z cesty. Na hladké podlaze cvič v sálovkách nebo bos, ne v ponožkách.",
+    "sources": [
+      {
+        "url": "https://www.youtube.com/watch?v=DycV8UE5Ua0",
+        "type": "video",
+        "reliability": "ověřené"
+      },
+      {
+        "url": "https://docs.google.com/document/d/1etvM2HK8Swz4Eit2b3P62pj4t4lCKR_jOTd2dbEV9_M/export?format=pdf",
+        "type": "metodika",
+        "reliability": "inspirace"
+      }
+    ],
+    "confidence": "ověřené",
+    "kind": "ball",
+    "matchLegal": true,
+    "origin": [
+      "H30",
+      "SE-01"
+    ]
+  },
+  {
+    "id": "square-cw-bh",
+    "name": "Kolem čtverce bekhendem",
+    "level": 2,
+    "minAge": 6,
+    "category": "vedení míčku",
+    "bladeSide": "bekhend",
+    "grip": "obouruč",
+    "setupId": "square",
+    "pattern": [
+      {
+        "at": 1,
+        "blade": "bh"
+      },
+      {
+        "at": 4,
+        "blade": "bh"
+      },
+      {
+        "at": 3,
+        "blade": "bh"
+      },
+      {
+        "at": 2,
+        "blade": "bh"
+      },
+      {
+        "at": "home",
+        "blade": "bh"
+      }
+    ],
+    "loop": true,
+    "callMode": "zóna",
+    "tempoBpm": 25,
+    "durationSec": 40,
+    "reps": null,
+    "spaceNeeded": [
+      2.8,
+      3.2
+    ],
+    "noise": "střední",
+    "equipment": [
+      "hůl",
+      "míček",
+      "4 kužely"
+    ],
+    "voiceIntro": "Teď na druhou stranu a jen bekhendem. Začni červeným kuželem.",
+    "coachingPoints": [
+      "Míček na bekhendu",
+      "Hlava nahoře",
+      "Klidné tempo"
+    ],
+    "commonMistakes": [
+      "V rohu přehodí na forhend"
+    ],
+    "progression": "diagonal-x",
+    "regression": "square-ccw-fh",
+    "safetyNotes": "Hůl drž pod pasem. Uklid věci z cesty. Na hladké podlaze cvič v sálovkách nebo bos, ne v ponožkách.",
+    "sources": [
+      {
+        "url": "https://www.youtube.com/watch?v=DycV8UE5Ua0",
+        "type": "video",
+        "reliability": "ověřené"
+      },
+      {
+        "url": "https://laget.se/SkellefteaIBK/Document/Download/1088074/6494953",
+        "type": "metodika",
+        "reliability": "inspirace"
+      }
+    ],
+    "confidence": "ověřené",
+    "kind": "ball",
+    "matchLegal": true,
+    "origin": [
+      "H30",
+      "SKE"
+    ]
+  },
+  {
+    "id": "diagonal-x",
+    "name": "Křížem krážem",
+    "level": 3,
+    "minAge": 7,
+    "category": "vedení míčku",
+    "bladeSide": "obě",
+    "grip": "obouruč",
+    "setupId": "square",
+    "pattern": [
+      {
+        "at": 1,
+        "blade": "bh"
+      },
+      {
+        "at": 3,
+        "blade": "fh"
+      },
+      {
+        "at": 2,
+        "blade": "fh"
+      },
+      {
+        "at": 4,
+        "blade": "bh"
+      }
+    ],
+    "loop": true,
+    "callMode": "zóna",
+    "tempoBpm": 25,
+    "durationSec": 40,
+    "reps": null,
+    "spaceNeeded": [
+      2.8,
+      3.2
+    ],
+    "noise": "střední",
+    "equipment": [
+      "hůl",
+      "míček",
+      "4 kužely"
+    ],
+    "voiceIntro": "Jezdi šikmo přes čtverec: z jedničky na trojku, z dvojky na čtyřku. Uprostřed nic nesrazíš.",
+    "coachingPoints": [
+      "Šikmo přes střed",
+      "U kuželu otoč čepel",
+      "Hlava nahoře uprostřed"
+    ],
+    "commonMistakes": [
+      "Jezdí po krajích místo křížem"
+    ],
+    "progression": "square-turns",
+    "regression": "square-cw-bh",
+    "safetyNotes": "Hůl drž pod pasem. Uklid věci z cesty. Na hladké podlaze cvič v sálovkách nebo bos, ne v ponožkách.",
+    "sources": [
+      {
+        "url": "https://www.onlinehockeytraining.com/blog/hockey-stick-handling-drills",
+        "type": "článek",
+        "reliability": "inspirace"
+      },
+      {
+        "url": "https://portal.usahockey.com/cx/president/hockey-devlopment/8u_fundamentals_stage-adm.pdf",
+        "type": "metodika",
+        "reliability": "ověřené"
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=Z38QfMBqHss",
+        "type": "video",
+        "reliability": "inspirace"
+      }
+    ],
+    "confidence": "ověřené",
+    "kind": "ball",
+    "matchLegal": true,
+    "origin": [
+      "H08",
+      "H22"
+    ]
+  },
+  {
+    "id": "square-turns",
+    "name": "Otočka v každém rohu",
+    "level": 3,
+    "minAge": 7,
+    "category": "kolem kuželů",
+    "bladeSide": "obě",
+    "grip": "obouruč",
+    "setupId": "square",
+    "pattern": [
+      {
+        "at": "around:1",
+        "dir": "cw",
+        "blade": "bh"
+      },
+      {
+        "at": "around:4",
+        "dir": "cw",
+        "blade": "bh"
+      },
+      {
+        "at": "around:3",
+        "dir": "ccw",
+        "blade": "fh"
+      },
+      {
+        "at": "around:2",
+        "dir": "ccw",
+        "blade": "fh"
+      },
+      {
+        "at": "home",
+        "blade": "fh"
+      }
+    ],
+    "loop": true,
+    "callMode": "zóna",
+    "tempoBpm": 20,
     "durationSec": 45,
     "reps": null,
     "spaceNeeded": [
@@ -369,34 +5374,146 @@
     "equipment": [
       "hůl",
       "míček",
-      "4 barevné kužely"
+      "4 kužely"
     ],
-    "voiceIntro": "Reakce! Dívej se na tablet. Jakou barvu ukážu, k tomu kuželu dovedeš míček a hned zpátky.",
+    "voiceIntro": "Kolem každého kuželu udělej celou otočku s míčkem. Vlevo bekhendem, vpravo forhendem.",
     "coachingPoints": [
-      "Hlava nahoře",
-      "Rychlý první krok",
-      "Míček pořád u hole"
+      "Těsně kolem kuželu",
+      "Tělo chrání míček",
+      "Po otočce zrychli"
     ],
     "commonMistakes": [
-      "Hráč kouká jen na míček a nevidí barvu"
+      "Otočka jen napůl"
     ],
-    "progression": null,
-    "regression": "fh-push-cones",
-    "safetyNotes": "Hůl vždy pod úrovní pasu. Kolem tebe volno, tablet mimo dosah čepele.",
-    "sources": [],
-    "confidence": "vlastní",
+    "progression": "free-ride",
+    "regression": "diagonal-x",
+    "safetyNotes": "Hůl drž pod pasem. Uklid věci z cesty. Na hladké podlaze cvič v sálovkách nebo bos, ne v ponožkách.",
+    "sources": [
+      {
+        "url": "https://dspace5.zcu.cz/bitstream/11025/19998/1/Diplomova%20prace%20Matous%20Hrdlicka%202015.pdf",
+        "type": "VŠ práce (metodika ČFbU)",
+        "reliability": "ověřené"
+      },
+      {
+        "url": "https://www.mobilesport.ch/assets/lbwp-cdn/mobilesport/files/2013/09/praxis_2005_02_d.pdf",
+        "type": "metodika",
+        "reliability": "ověřené"
+      },
+      {
+        "url": "https://www.innebandy.se/ovningsbanken/snurr-med-boll-grundteknik",
+        "type": "metodika (övningsbanken)",
+        "reliability": "ověřené"
+      }
+    ],
+    "confidence": "ověřené",
     "kind": "ball",
-    "matchLegal": true
+    "matchLegal": true,
+    "origin": [
+      "CZ-22",
+      "CH-12",
+      "CR-31"
+    ]
   },
   {
-    "id": "figure8-triangle",
-    "name": "Osmička",
-    "level": 3,
+    "id": "free-ride",
+    "name": "Volná jízda",
+    "level": 2,
+    "minAge": 6,
+    "category": "kombinace",
+    "bladeSide": "obě",
+    "grip": "obouruč",
+    "setupId": "square",
+    "pattern": [
+      {
+        "at": 1,
+        "blade": "bh"
+      },
+      {
+        "at": 3,
+        "blade": "fh"
+      },
+      {
+        "at": 2,
+        "blade": "fh"
+      },
+      {
+        "at": 4,
+        "blade": "bh"
+      }
+    ],
+    "loop": true,
+    "callMode": "žádný",
+    "tempoBpm": 60,
+    "durationSec": 45,
+    "reps": null,
+    "spaceNeeded": [
+      2.8,
+      3.2
+    ],
+    "noise": "střední",
+    "equipment": [
+      "hůl",
+      "míček",
+      "4 kužely"
+    ],
+    "voiceIntro": "Volná jízda! Vymysli si vlastní cestu mezi kužely a zkus u každého jiný trik.",
+    "coachingPoints": [
+      "Zkoušej nové věci",
+      "Obě strany čepele",
+      "Chyby jsou v pořádku"
+    ],
+    "commonMistakes": [
+      "Dělá pořád totéž, zkus něco nového"
+    ],
+    "progression": null,
+    "regression": null,
+    "safetyNotes": "Hůl drž pod pasem. Uklid věci z cesty. Na hladké podlaze cvič v sálovkách nebo bos, ne v ponožkách.",
+    "sources": [
+      {
+        "url": "https://www.youtube.com/watch?v=Z38QfMBqHss",
+        "type": "video",
+        "reliability": "inspirace"
+      },
+      {
+        "url": "https://cdn.hockeycanada.ca/hockey-canada/Hockey-Programs/Players/Downloads/2020/puck-control-overview-e.pdf",
+        "type": "metodika",
+        "reliability": "ověřené"
+      },
+      {
+        "url": "https://dspace5.zcu.cz/bitstream/11025/19998/1/Diplomova%20prace%20Matous%20Hrdlicka%202015.pdf",
+        "type": "VŠ práce (metodika ČFbU)",
+        "reliability": "ověřené"
+      },
+      {
+        "url": "https://www.mobilesport.ch/assets/lbwp-cdn/mobilesport/files/2013/09/praxis_2005_02_d.pdf",
+        "type": "metodika",
+        "reliability": "ověřené"
+      },
+      {
+        "url": "https://www.innebandy.se/ovningsbanken/hinderbana",
+        "type": "metodika (övningsbanken)",
+        "reliability": "ověřené"
+      }
+    ],
+    "confidence": "ověřené",
+    "kind": "ball",
+    "matchLegal": true,
+    "origin": [
+      "H23",
+      "CZ-24",
+      "CH-01",
+      "CR-38"
+    ]
+  },
+  {
+    "id": "slalom-fh-bh",
+    "name": "Slalom",
+    "level": 1,
     "minAge": 6,
     "category": "kolem kuželů",
     "bladeSide": "obě",
     "grip": "obouruč",
-    "setupId": "triangle",
+    "setupId": "line",
     "pattern": [
       {
         "at": "around:1",
@@ -407,96 +5524,736 @@
         "at": "around:2",
         "dir": "cw",
         "blade": "bh"
+      },
+      {
+        "at": "around:3",
+        "dir": "ccw",
+        "blade": "fh"
+      },
+      {
+        "at": "around:4",
+        "dir": "cw",
+        "blade": "bh"
+      },
+      {
+        "at": "home",
+        "blade": "fh"
       }
     ],
     "loop": true,
-    "callMode": "barva",
-    "tempoBpm": 22,
-    "durationSec": 45,
+    "callMode": "zóna",
+    "tempoBpm": 30,
+    "durationSec": 40,
     "reps": null,
     "spaceNeeded": [
-      2.6,
-      2.8
+      1.6,
+      4.4
     ],
-    "noise": "tichý",
+    "noise": "střední",
     "equipment": [
       "hůl",
       "míček",
-      "3 kužely"
+      "4 kužely"
     ],
-    "voiceIntro": "Jezdi s míčkem osmičku kolem červeného a modrého kuželu. Jedním směrem forhendem, druhým bekhendem.",
+    "voiceIntro": "Slalom: míček a ty jedete kolem kuželů ze stejné strany. Zpátky dojeď rovně vedle řady.",
     "coachingPoints": [
-      "Míček na vnitřní straně oblouku",
-      "Hlava nahoře"
+      "Malé doteky mezi kužely",
+      "Kolena pokrčená",
+      "Vpravo forhend, vlevo bekhend"
     ],
     "commonMistakes": [
-      "Hráč objíždí kužel daleko"
+      "Shazuje kužely",
+      "Jede moc rychle a míček uteče"
     ],
-    "progression": null,
-    "regression": "fh-push-cones",
-    "safetyNotes": "Hůl vždy pod úrovní pasu. Kolem tebe volno, tablet mimo dosah čepele.",
-    "sources": [],
-    "confidence": "vlastní",
+    "progression": "slalom-there-back",
+    "regression": null,
+    "safetyNotes": "Hůl drž pod pasem. Uklid věci z cesty. Na hladké podlaze cvič v sálovkách nebo bos, ne v ponožkách.",
+    "sources": [
+      {
+        "url": "https://dspace5.zcu.cz/bitstream/11025/19998/1/Diplomova%20prace%20Matous%20Hrdlicka%202015.pdf",
+        "type": "VŠ práce (metodika ČFbU)",
+        "reliability": "ověřené"
+      },
+      {
+        "url": "https://www.hockeycanada.ca/en-ca/hockey-programs/coaching/under-9/coaches/skills",
+        "type": "metodika",
+        "reliability": "ověřené"
+      },
+      {
+        "url": "https://laget.se/SkellefteaIBK/Document/Download/1088074/6494953",
+        "type": "metodika",
+        "reliability": "inspirace"
+      }
+    ],
+    "confidence": "ověřené",
     "kind": "ball",
-    "matchLegal": true
+    "matchLegal": true,
+    "origin": [
+      "CZ-17",
+      "H32",
+      "SE-09"
+    ]
   },
   {
-    "id": "one-hand-top",
-    "name": "Jednou rukou",
-    "level": 3,
+    "id": "slalom-there-back",
+    "name": "Slalom tam a zpět",
+    "level": 2,
     "minAge": 6,
-    "category": "jednoruč",
-    "bladeSide": "forhend",
-    "grip": "jednoruč-horní",
-    "setupId": "spot",
+    "category": "kolem kuželů",
+    "bladeSide": "obě",
+    "grip": "obouruč",
+    "setupId": "line",
     "pattern": [
       {
-        "at": "fh",
+        "at": "around:1",
+        "dir": "ccw",
+        "blade": "fh"
+      },
+      {
+        "at": "around:2",
+        "dir": "cw",
+        "blade": "bh"
+      },
+      {
+        "at": "around:3",
+        "dir": "ccw",
+        "blade": "fh"
+      },
+      {
+        "at": "around:4",
+        "dir": "cw",
+        "blade": "bh"
+      },
+      {
+        "at": "around:4",
+        "dir": "cw",
+        "blade": "bh"
+      },
+      {
+        "at": "around:3",
+        "dir": "ccw",
+        "blade": "fh"
+      },
+      {
+        "at": "around:2",
+        "dir": "cw",
+        "blade": "bh"
+      },
+      {
+        "at": "around:1",
+        "dir": "ccw",
+        "blade": "fh"
+      },
+      {
+        "at": "home",
+        "blade": "fh"
+      }
+    ],
+    "loop": true,
+    "callMode": "zóna",
+    "tempoBpm": 30,
+    "durationSec": 45,
+    "reps": null,
+    "spaceNeeded": [
+      1.6,
+      4.4
+    ],
+    "noise": "střední",
+    "equipment": [
+      "hůl",
+      "míček",
+      "4 kužely"
+    ],
+    "voiceIntro": "Slalom tam, otočka kolem zeleného kuželu a slalomem zpátky domů.",
+    "coachingPoints": [
+      "Otočka těsně kolem posledního",
+      "Zpátky stejně pečlivě",
+      "Hlava nahoře mezi kužely"
+    ],
+    "commonMistakes": [
+      "Zpátky už jede rovně, bez slalomu"
+    ],
+    "progression": "slalom-turns",
+    "regression": "slalom-fh-bh",
+    "safetyNotes": "Hůl drž pod pasem. Uklid věci z cesty. Na hladké podlaze cvič v sálovkách nebo bos, ne v ponožkách.",
+    "sources": [
+      {
+        "url": "https://www.mobilesport.ch/assets/lbwp-cdn/mobilesport/files/2013/09/praxis_2005_02_d.pdf",
+        "type": "metodika",
+        "reliability": "ověřené"
+      },
+      {
+        "url": "https://dspace.jcu.cz/bitstreams/ae895c33-887b-4ac5-b0a7-1fca35df7bb4/download",
+        "type": "VŠ práce",
+        "reliability": "inspirace"
+      },
+      {
+        "url": "https://www1.specialolympicsontario.com/resources/wp-content/uploads/sites/39/2024/10/SOI_Floorball_Coaching-Guide.pdf",
+        "type": "metodika",
+        "reliability": "ověřené"
+      },
+      {
+        "url": "https://theses.cz/id/4qeyny/",
+        "type": "VŠ práce",
+        "reliability": "ověřené"
+      }
+    ],
+    "confidence": "ověřené",
+    "kind": "ball",
+    "matchLegal": true,
+    "origin": [
+      "CH-12",
+      "CZ-36",
+      "SO-01",
+      "CR-06"
+    ]
+  },
+  {
+    "id": "slalom-fh-only",
+    "name": "Slalom jen forhendem",
+    "level": 2,
+    "minAge": 6,
+    "category": "kolem kuželů",
+    "bladeSide": "forhend",
+    "grip": "obouruč",
+    "setupId": "line",
+    "pattern": [
+      {
+        "at": "around:1",
+        "dir": "ccw",
+        "blade": "fh"
+      },
+      {
+        "at": "around:2",
+        "dir": "cw",
+        "blade": "fh"
+      },
+      {
+        "at": "around:3",
+        "dir": "ccw",
+        "blade": "fh"
+      },
+      {
+        "at": "around:4",
+        "dir": "cw",
+        "blade": "fh"
+      },
+      {
+        "at": "home",
+        "blade": "fh"
+      }
+    ],
+    "loop": true,
+    "callMode": "zóna",
+    "tempoBpm": 30,
+    "durationSec": 40,
+    "reps": null,
+    "spaceNeeded": [
+      1.6,
+      4.4
+    ],
+    "noise": "střední",
+    "equipment": [
+      "hůl",
+      "míček",
+      "4 kužely"
+    ],
+    "voiceIntro": "Slalom, ale celou dobu jen forhendem. Ty jdeš vedle řady a míček kličkuje mezi kužely.",
+    "coachingPoints": [
+      "Míček daleko od těla",
+      "Čepel se natáčí",
+      "Tělo jde rovně"
+    ],
+    "commonMistakes": [
+      "Použije bekhend"
+    ],
+    "progression": "slalom-bh-only",
+    "regression": "slalom-fh-bh",
+    "safetyNotes": "Hůl drž pod pasem. Uklid věci z cesty. Na hladké podlaze cvič v sálovkách nebo bos, ne v ponožkách.",
+    "sources": [
+      {
+        "url": "https://bin.yhdistysavain.fi/1580251/ruuOmGuWdYLL9JFkqrvC0bZWHb/SBVImuistiinpanot.pdf",
+        "type": "metodika",
+        "reliability": "ověřené"
+      },
+      {
+        "url": "https://www1.specialolympicsontario.com/resources/wp-content/uploads/sites/39/2024/10/SOI_Floorball_Coaching-Guide.pdf",
+        "type": "metodika",
+        "reliability": "ověřené"
+      },
+      {
+        "url": "https://dspace5.zcu.cz/bitstream/11025/19998/1/Diplomova%20prace%20Matous%20Hrdlicka%202015.pdf",
+        "type": "VŠ práce (metodika ČFbU)",
+        "reliability": "ověřené"
+      }
+    ],
+    "confidence": "ověřené",
+    "kind": "ball",
+    "matchLegal": true,
+    "origin": [
+      "FI-14",
+      "SO-06",
+      "CZ-18"
+    ]
+  },
+  {
+    "id": "slalom-bh-only",
+    "name": "Slalom jen bekhendem",
+    "level": 3,
+    "minAge": 7,
+    "category": "kolem kuželů",
+    "bladeSide": "bekhend",
+    "grip": "obouruč",
+    "setupId": "line",
+    "pattern": [
+      {
+        "at": "around:1",
+        "dir": "ccw",
+        "blade": "bh"
+      },
+      {
+        "at": "around:2",
+        "dir": "cw",
+        "blade": "bh"
+      },
+      {
+        "at": "around:3",
+        "dir": "ccw",
+        "blade": "bh"
+      },
+      {
+        "at": "around:4",
+        "dir": "cw",
+        "blade": "bh"
+      },
+      {
+        "at": "home",
+        "blade": "bh"
+      }
+    ],
+    "loop": true,
+    "callMode": "zóna",
+    "tempoBpm": 25,
+    "durationSec": 40,
+    "reps": null,
+    "spaceNeeded": [
+      1.6,
+      4.4
+    ],
+    "noise": "střední",
+    "equipment": [
+      "hůl",
+      "míček",
+      "4 kužely"
+    ],
+    "voiceIntro": "A teď celý slalom jen bekhendem. Pomalu a pečlivě.",
+    "coachingPoints": [
+      "Čepel nad míčkem",
+      "Malé doteky",
+      "Klidné tempo"
+    ],
+    "commonMistakes": [
+      "V zatáčce přehodí na forhend"
+    ],
+    "progression": "slalom-one-hand",
+    "regression": "slalom-fh-only",
+    "safetyNotes": "Hůl drž pod pasem. Uklid věci z cesty. Na hladké podlaze cvič v sálovkách nebo bos, ne v ponožkách.",
+    "sources": [
+      {
+        "url": "https://bin.yhdistysavain.fi/1580251/ruuOmGuWdYLL9JFkqrvC0bZWHb/SBVImuistiinpanot.pdf",
+        "type": "metodika",
+        "reliability": "ověřené"
+      },
+      {
+        "url": "https://dspace5.zcu.cz/bitstream/11025/19998/1/Diplomova%20prace%20Matous%20Hrdlicka%202015.pdf",
+        "type": "VŠ práce (metodika ČFbU)",
+        "reliability": "ověřené"
+      },
+      {
+        "url": "https://laget.se/SkellefteaIBK/Document/Download/1088074/6494953",
+        "type": "metodika",
+        "reliability": "inspirace"
+      }
+    ],
+    "confidence": "ověřené",
+    "kind": "ball",
+    "matchLegal": true,
+    "origin": [
+      "FI-14",
+      "CZ-18",
+      "SKE"
+    ]
+  },
+  {
+    "id": "slalom-one-hand",
+    "name": "Slalom jednou rukou",
+    "level": 4,
+    "minAge": 8,
+    "category": "jednoruč",
+    "bladeSide": "obě",
+    "grip": "jednoruč-horní",
+    "setupId": "line",
+    "pattern": [
+      {
+        "at": "around:1",
+        "dir": "ccw",
         "blade": "fh",
         "hand": "top"
       },
       {
-        "at": "front",
+        "at": "around:2",
+        "dir": "cw",
+        "blade": "bh",
+        "hand": "top"
+      },
+      {
+        "at": "around:3",
+        "dir": "ccw",
+        "blade": "fh",
+        "hand": "top"
+      },
+      {
+        "at": "around:4",
+        "dir": "cw",
+        "blade": "bh",
+        "hand": "top"
+      },
+      {
+        "at": "home",
         "blade": "fh",
         "hand": "top"
       }
     ],
     "loop": true,
-    "callMode": "směr",
-    "tempoBpm": 44,
+    "callMode": "zóna",
+    "tempoBpm": 25,
     "durationSec": 30,
     "reps": null,
     "spaceNeeded": [
-      1.4,
-      2
+      1.6,
+      4.4
     ],
-    "noise": "tichý",
+    "noise": "střední",
     "equipment": [
       "hůl",
-      "míček"
+      "míček",
+      "4 kužely"
     ],
-    "voiceIntro": "Drž hůl jen horní rukou a posouvej míček forhendem ze strany před sebe.",
+    "voiceIntro": "Slalom jen horní rukou. Je to těžké, tak jeď pomalu.",
     "coachingPoints": [
-      "Pevné zápěstí",
-      "Malé pohyby"
+      "Horní ruka pevně",
+      "Kratší kroky",
+      "Míček blízko"
     ],
     "commonMistakes": [
-      "Hůl jde nahoru"
+      "Hůl se kroutí v ruce"
     ],
     "progression": null,
-    "regression": "fh-bh-front",
-    "safetyNotes": "Hůl vždy pod úrovní pasu. Kolem tebe volno, tablet mimo dosah čepele.",
-    "sources": [],
-    "confidence": "vlastní",
+    "regression": "slalom-bh-only",
+    "safetyNotes": "Jednou rukou se hůl ovládá hůř: pomalu, s volným místem kolem. Konec hole i čepel pod pasem.",
+    "sources": [
+      {
+        "url": "https://bin.yhdistysavain.fi/1580251/ruuOmGuWdYLL9JFkqrvC0bZWHb/SBVImuistiinpanot.pdf",
+        "type": "metodika",
+        "reliability": "ověřené"
+      },
+      {
+        "url": "https://laget.se/SkellefteaIBK/Document/Download/1088074/6494953",
+        "type": "metodika",
+        "reliability": "inspirace"
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=DycV8UE5Ua0",
+        "type": "video",
+        "reliability": "ověřené"
+      }
+    ],
+    "confidence": "ověřené",
     "kind": "ball",
-    "matchLegal": true
+    "matchLegal": true,
+    "origin": [
+      "FI-17",
+      "SKE",
+      "H38"
+    ]
+  },
+  {
+    "id": "slalom-turns",
+    "name": "Slalom s otočkami",
+    "level": 3,
+    "minAge": 7,
+    "category": "kolem kuželů",
+    "bladeSide": "obě",
+    "grip": "obouruč",
+    "setupId": "line",
+    "pattern": [
+      {
+        "at": "around:1",
+        "dir": "ccw",
+        "blade": "fh"
+      },
+      {
+        "at": "around:2",
+        "dir": "cw",
+        "blade": "bh"
+      },
+      {
+        "at": "around:2",
+        "dir": "cw",
+        "blade": "bh"
+      },
+      {
+        "at": "around:3",
+        "dir": "ccw",
+        "blade": "fh"
+      },
+      {
+        "at": "around:4",
+        "dir": "cw",
+        "blade": "bh"
+      },
+      {
+        "at": "around:4",
+        "dir": "cw",
+        "blade": "bh"
+      },
+      {
+        "at": "home",
+        "blade": "fh"
+      }
+    ],
+    "loop": true,
+    "callMode": "zóna",
+    "tempoBpm": 25,
+    "durationSec": 45,
+    "reps": null,
+    "spaceNeeded": [
+      1.6,
+      4.4
+    ],
+    "noise": "střední",
+    "equipment": [
+      "hůl",
+      "míček",
+      "4 kužely"
+    ],
+    "voiceIntro": "Slalom, ale kolem modrého a zeleného kuželu se otoč celým kolem.",
+    "coachingPoints": [
+      "Otočka těsně",
+      "Tělo kryje míček",
+      "Po otočce pokračuj slalomem"
+    ],
+    "commonMistakes": [
+      "Otočí se moc daleko od kuželu"
+    ],
+    "progression": "slalom-pull-back",
+    "regression": "slalom-there-back",
+    "safetyNotes": "Hůl drž pod pasem. Uklid věci z cesty. Na hladké podlaze cvič v sálovkách nebo bos, ne v ponožkách.",
+    "sources": [
+      {
+        "url": "https://dspace5.zcu.cz/bitstream/11025/19998/1/Diplomova%20prace%20Matous%20Hrdlicka%202015.pdf",
+        "type": "VŠ práce (metodika ČFbU)",
+        "reliability": "ověřené"
+      },
+      {
+        "url": "https://www.mobilesport.ch/assets/lbwp-cdn/mobilesport/files/2013/09/praxis_2005_02_d.pdf",
+        "type": "metodika",
+        "reliability": "ověřené"
+      },
+      {
+        "url": "https://theses.cz/id/vj1m99/",
+        "type": "VŠ práce",
+        "reliability": "ověřené"
+      }
+    ],
+    "confidence": "ověřené",
+    "kind": "ball",
+    "matchLegal": true,
+    "origin": [
+      "CZ-22",
+      "CH-12",
+      "CR-23"
+    ]
+  },
+  {
+    "id": "slalom-pull-back",
+    "name": "Dva kroky tam, jeden zpět",
+    "level": 4,
+    "minAge": 8,
+    "category": "kličky",
+    "bladeSide": "obě",
+    "grip": "obouruč",
+    "setupId": "line",
+    "pattern": [
+      {
+        "at": 1,
+        "blade": "fh"
+      },
+      {
+        "at": "home",
+        "blade": "fh"
+      },
+      {
+        "at": 2,
+        "blade": "bh"
+      },
+      {
+        "at": 1,
+        "blade": "bh"
+      },
+      {
+        "at": 3,
+        "blade": "fh"
+      },
+      {
+        "at": 2,
+        "blade": "fh"
+      },
+      {
+        "at": 4,
+        "blade": "bh"
+      },
+      {
+        "at": "home",
+        "blade": "bh"
+      }
+    ],
+    "loop": true,
+    "callMode": "zóna",
+    "tempoBpm": 30,
+    "durationSec": 40,
+    "reps": null,
+    "spaceNeeded": [
+      1.6,
+      4.4
+    ],
+    "noise": "střední",
+    "equipment": [
+      "hůl",
+      "míček",
+      "4 kužely"
+    ],
+    "voiceIntro": "Míček vystrč ke kuželu a hned ho stáhni špičkou zpátky. Pak dál, jako vlnka dopředu a dozadu.",
+    "coachingPoints": [
+      "Stažení špičkou",
+      "Plynulá vlnka",
+      "Míček nikdy daleko"
+    ],
+    "commonMistakes": [
+      "Pohyb je trhaný"
+    ],
+    "progression": null,
+    "regression": "slalom-turns",
+    "safetyNotes": "Hůl drž pod pasem. Uklid věci z cesty. Na hladké podlaze cvič v sálovkách nebo bos, ne v ponožkách.",
+    "sources": [
+      {
+        "url": "https://dspace5.zcu.cz/bitstream/11025/19998/1/Diplomova%20prace%20Matous%20Hrdlicka%202015.pdf",
+        "type": "VŠ práce (metodika ČFbU)",
+        "reliability": "ověřené"
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=Z38QfMBqHss",
+        "type": "video",
+        "reliability": "inspirace"
+      }
+    ],
+    "confidence": "ověřené",
+    "kind": "ball",
+    "matchLegal": true,
+    "origin": [
+      "CZ-19",
+      "H21"
+    ]
+  },
+  {
+    "id": "line-reaction",
+    "name": "Slalomová reakce",
+    "level": 3,
+    "minAge": 7,
+    "category": "reakce",
+    "bladeSide": "obě",
+    "grip": "obouruč",
+    "setupId": "line",
+    "pattern": [
+      {
+        "at": 1,
+        "blade": "fh"
+      },
+      {
+        "at": "home",
+        "blade": "fh"
+      }
+    ],
+    "loop": true,
+    "callMode": "náhodná reakce",
+    "tempoBpm": 20,
+    "durationSec": 40,
+    "reps": null,
+    "spaceNeeded": [
+      1.6,
+      4.4
+    ],
+    "noise": "střední",
+    "equipment": [
+      "hůl",
+      "míček",
+      "4 kužely"
+    ],
+    "voiceIntro": "Rozsvítí se kužel v řadě, doveď k němu míček a zpátky. Čím dál, tím rychlejší nohy!",
+    "coachingPoints": [
+      "Hlava nahoře",
+      "K dalekému kuželu zrychli",
+      "Zpátky couvej s míčkem"
+    ],
+    "commonMistakes": [
+      "Ke vzdálenému kuželu kopne míček dopředu"
+    ],
+    "progression": null,
+    "regression": "triangle-reaction",
+    "safetyNotes": "Hůl drž pod pasem. Uklid věci z cesty. Na hladké podlaze cvič v sálovkách nebo bos, ne v ponožkách.",
+    "sources": [
+      {
+        "url": "https://apps.apple.com/us/app/my-floorball/id949358436",
+        "type": "výrobce",
+        "reliability": "inspirace"
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=IT9Wu3P_C6I",
+        "type": "video",
+        "reliability": "inspirace"
+      },
+      {
+        "url": "https://cdn.hockeycanada.ca/hockey-canada/Hockey-Programs/Players/Downloads/2020/puck-control-overview-e.pdf",
+        "type": "metodika",
+        "reliability": "ověřené"
+      },
+      {
+        "url": "https://dspace.jcu.cz/bitstreams/ae895c33-887b-4ac5-b0a7-1fca35df7bb4/download",
+        "type": "VŠ práce",
+        "reliability": "inspirace"
+      },
+      {
+        "url": "https://theses.cz/id/4qeyny/",
+        "type": "VŠ práce",
+        "reliability": "ověřené"
+      }
+    ],
+    "confidence": "odvozené",
+    "kind": "ball",
+    "matchLegal": true,
+    "origin": [
+      "MF-02",
+      "H42",
+      "CZ-37",
+      "CR-10"
+    ]
   },
   {
     "id": "zigzag-carry",
-    "name": "Cik-cak vedení",
-    "level": 3,
+    "name": "Cik-cak",
+    "level": 2,
     "minAge": 6,
-    "category": "kombinace",
+    "category": "vedení míčku",
     "bladeSide": "obě",
     "grip": "obouruč",
     "setupId": "zigzag",
@@ -529,7 +6286,7 @@
     "loop": true,
     "callMode": "zóna",
     "tempoBpm": 30,
-    "durationSec": 60,
+    "durationSec": 40,
     "reps": null,
     "spaceNeeded": [
       2.6,
@@ -541,55 +6298,656 @@
       "míček",
       "5 kuželů"
     ],
-    "voiceIntro": "Veď míček cik-cak od kuželu ke kuželu. Ke každému kuželu jinou stranou čepele.",
+    "voiceIntro": "Jeď cik-cak od kuželu ke kuželu. Vlevo bekhendem, vpravo forhendem.",
     "coachingPoints": [
-      "Změna směru těsně u kuželu",
-      "Míček blízko"
+      "U kuželu změna strany",
+      "Mezi kužely zrychli",
+      "Hlava nahoře"
     ],
     "commonMistakes": [
-      "Hráč zpomalí a zastaví míček"
+      "Celou dobu jen forhend"
     ],
-    "progression": null,
+    "progression": "zigzag-drag",
     "regression": "slalom-fh-bh",
-    "safetyNotes": "Hůl vždy pod úrovní pasu. Kolem tebe volno, tablet mimo dosah čepele.",
-    "sources": [],
-    "confidence": "vlastní",
+    "safetyNotes": "Hůl drž pod pasem. Uklid věci z cesty. Na hladké podlaze cvič v sálovkách nebo bos, ne v ponožkách.",
+    "sources": [
+      {
+        "url": "https://www.youtube.com/watch?v=GQK1RBm8Vx4",
+        "type": "video",
+        "reliability": "inspirace"
+      },
+      {
+        "url": "https://dspace5.zcu.cz/bitstream/11025/19998/1/Diplomova%20prace%20Matous%20Hrdlicka%202015.pdf",
+        "type": "VŠ práce (metodika ČFbU)",
+        "reliability": "ověřené"
+      }
+    ],
+    "confidence": "ověřené",
     "kind": "ball",
-    "matchLegal": true
+    "matchLegal": true,
+    "origin": [
+      "H33",
+      "CZ-18"
+    ]
   },
   {
-    "id": "stretch-end",
-    "name": "Protažení",
-    "level": 1,
-    "minAge": 6,
-    "category": "koordinace bez míčku",
+    "id": "zigzag-drag",
+    "name": "Cik-cak s obloukem",
+    "level": 3,
+    "minAge": 7,
+    "category": "kolem kuželů",
     "bladeSide": "obě",
     "grip": "obouruč",
-    "setupId": "spot",
-    "pattern": [],
-    "loop": false,
-    "callMode": "žádný",
-    "tempoBpm": 15,
+    "setupId": "zigzag",
+    "pattern": [
+      {
+        "at": "around:1",
+        "dir": "cw",
+        "blade": "bh"
+      },
+      {
+        "at": "around:2",
+        "dir": "ccw",
+        "blade": "fh"
+      },
+      {
+        "at": "around:3",
+        "dir": "cw",
+        "blade": "bh"
+      },
+      {
+        "at": "around:4",
+        "dir": "ccw",
+        "blade": "fh"
+      },
+      {
+        "at": "around:5",
+        "dir": "cw",
+        "blade": "bh"
+      },
+      {
+        "at": "home",
+        "blade": "fh"
+      }
+    ],
+    "loop": true,
+    "callMode": "zóna",
+    "tempoBpm": 25,
+    "durationSec": 45,
+    "reps": null,
+    "spaceNeeded": [
+      2.6,
+      4.6
+    ],
+    "noise": "střední",
+    "equipment": [
+      "hůl",
+      "míček",
+      "5 kuželů"
+    ],
+    "voiceIntro": "Teď objeď každý kužel zvenku obloukem a pak ostře změň směr k dalšímu.",
+    "coachingPoints": [
+      "Oblouk těsně kolem kuželu",
+      "Ostrá změna směru",
+      "Kolena pokrčená"
+    ],
+    "commonMistakes": [
+      "Oblouk moc široký"
+    ],
+    "progression": "zigzag-master",
+    "regression": "zigzag-carry",
+    "safetyNotes": "Hůl drž pod pasem. Uklid věci z cesty. Na hladké podlaze cvič v sálovkách nebo bos, ne v ponožkách.",
+    "sources": [
+      {
+        "url": "https://www.youtube.com/watch?v=GQK1RBm8Vx4",
+        "type": "video",
+        "reliability": "inspirace"
+      }
+    ],
+    "confidence": "odvozené",
+    "kind": "ball",
+    "matchLegal": true,
+    "origin": [
+      "H33"
+    ]
+  },
+  {
+    "id": "zigzag-fh-only",
+    "name": "Cik-cak forhendem",
+    "level": 3,
+    "minAge": 7,
+    "category": "vedení míčku",
+    "bladeSide": "forhend",
+    "grip": "obouruč",
+    "setupId": "zigzag",
+    "pattern": [
+      {
+        "at": 1,
+        "blade": "fh"
+      },
+      {
+        "at": 2,
+        "blade": "fh"
+      },
+      {
+        "at": 3,
+        "blade": "fh"
+      },
+      {
+        "at": 4,
+        "blade": "fh"
+      },
+      {
+        "at": 5,
+        "blade": "fh"
+      },
+      {
+        "at": "home",
+        "blade": "fh"
+      }
+    ],
+    "loop": true,
+    "callMode": "zóna",
+    "tempoBpm": 30,
     "durationSec": 40,
     "reps": null,
     "spaceNeeded": [
-      1.4,
-      2
+      2.6,
+      4.6
     ],
-    "noise": "tichý",
-    "equipment": [],
-    "voiceIntro": "Na závěr se protáhneme. Opři hůl o zem, pomalu se předkloň a dýchej. Pak protáhni ruce nad hlavu.",
+    "noise": "střední",
+    "equipment": [
+      "hůl",
+      "míček",
+      "5 kuželů"
+    ],
+    "voiceIntro": "Cik-cak celou dobu jen forhendem. U levých kuželů musíš míček přetáhnout daleko.",
     "coachingPoints": [
-      "Pomalu, bez houpání",
-      "Klidně dýchej"
+      "Míček na forhendu",
+      "Natáčej čepel",
+      "Hlava nahoře"
     ],
-    "commonMistakes": [],
-    "progression": null,
+    "commonMistakes": [
+      "U levého kuželu použije bekhend"
+    ],
+    "progression": "zigzag-bh-only",
+    "regression": "zigzag-carry",
+    "safetyNotes": "Hůl drž pod pasem. Uklid věci z cesty. Na hladké podlaze cvič v sálovkách nebo bos, ne v ponožkách.",
+    "sources": [
+      {
+        "url": "https://www1.specialolympicsontario.com/resources/wp-content/uploads/sites/39/2024/10/SOI_Floorball_Coaching-Guide.pdf",
+        "type": "metodika",
+        "reliability": "ověřené"
+      },
+      {
+        "url": "https://salibandy.fi/wp-content/uploads/2025/12/hippo-x-sabakipina-lajinomaiset-leikit.pdf",
+        "type": "metodika",
+        "reliability": "ověřené"
+      }
+    ],
+    "confidence": "ověřené",
+    "kind": "ball",
+    "matchLegal": true,
+    "origin": [
+      "SO-06",
+      "FI-07"
+    ]
+  },
+  {
+    "id": "zigzag-bh-only",
+    "name": "Cik-cak bekhendem",
+    "level": 3,
+    "minAge": 7,
+    "category": "vedení míčku",
+    "bladeSide": "bekhend",
+    "grip": "obouruč",
+    "setupId": "zigzag",
+    "pattern": [
+      {
+        "at": 1,
+        "blade": "bh"
+      },
+      {
+        "at": 2,
+        "blade": "bh"
+      },
+      {
+        "at": 3,
+        "blade": "bh"
+      },
+      {
+        "at": 4,
+        "blade": "bh"
+      },
+      {
+        "at": 5,
+        "blade": "bh"
+      },
+      {
+        "at": "home",
+        "blade": "bh"
+      }
+    ],
+    "loop": true,
+    "callMode": "zóna",
+    "tempoBpm": 25,
+    "durationSec": 40,
+    "reps": null,
+    "spaceNeeded": [
+      2.6,
+      4.6
+    ],
+    "noise": "střední",
+    "equipment": [
+      "hůl",
+      "míček",
+      "5 kuželů"
+    ],
+    "voiceIntro": "A teď cik-cak jen bekhendem. Pomalu, čepel nad míčkem.",
+    "coachingPoints": [
+      "Bekhend celou dobu",
+      "U pravých kuželů se natáhni",
+      "Klidné tempo"
+    ],
+    "commonMistakes": [
+      "Přehodí na forhend"
+    ],
+    "progression": "zigzag-one-hand",
+    "regression": "zigzag-fh-only",
+    "safetyNotes": "Hůl drž pod pasem. Uklid věci z cesty. Na hladké podlaze cvič v sálovkách nebo bos, ne v ponožkách.",
+    "sources": [
+      {
+        "url": "https://laget.se/SkellefteaIBK/Document/Download/1088074/6494953",
+        "type": "metodika",
+        "reliability": "inspirace"
+      },
+      {
+        "url": "https://bin.yhdistysavain.fi/1580251/ruuOmGuWdYLL9JFkqrvC0bZWHb/SBVImuistiinpanot.pdf",
+        "type": "metodika",
+        "reliability": "ověřené"
+      }
+    ],
+    "confidence": "ověřené",
+    "kind": "ball",
+    "matchLegal": true,
+    "origin": [
+      "SKE",
+      "FI-14"
+    ]
+  },
+  {
+    "id": "zigzag-reaction",
+    "name": "Cik-cak reakce",
+    "level": 3,
+    "minAge": 7,
+    "category": "reakce",
+    "bladeSide": "obě",
+    "grip": "obouruč",
+    "setupId": "zigzag",
+    "pattern": [
+      {
+        "at": 1,
+        "blade": "fh"
+      },
+      {
+        "at": "home",
+        "blade": "fh"
+      }
+    ],
+    "loop": true,
+    "callMode": "náhodná reakce",
+    "tempoBpm": 18,
+    "durationSec": 40,
+    "reps": null,
+    "spaceNeeded": [
+      2.6,
+      4.6
+    ],
+    "noise": "střední",
+    "equipment": [
+      "hůl",
+      "míček",
+      "5 kuželů"
+    ],
+    "voiceIntro": "Pět kuželů, pět barev. Který se rozsvítí, k tomu dovez míček a zpátky.",
+    "coachingPoints": [
+      "Oči na tablet",
+      "Ke vzdáleným zrychli",
+      "Míček u hole"
+    ],
+    "commonMistakes": [
+      "Pospíchá a míček uteče"
+    ],
+    "progression": "square-react-fast",
+    "regression": "zigzag-color",
+    "safetyNotes": "Hůl drž pod pasem. Uklid věci z cesty. Na hladké podlaze cvič v sálovkách nebo bos, ne v ponožkách.",
+    "sources": [
+      {
+        "url": "https://apps.apple.com/us/app/my-floorball/id949358436",
+        "type": "výrobce",
+        "reliability": "inspirace"
+      },
+      {
+        "url": "https://klickin.swissunihockey.ch/index.php/download_file/view/313/279",
+        "type": "metodika",
+        "reliability": "ověřené"
+      }
+    ],
+    "confidence": "odvozené",
+    "kind": "ball",
+    "matchLegal": true,
+    "origin": [
+      "MF-02",
+      "CH-25"
+    ]
+  },
+  {
+    "id": "zigzag-color",
+    "name": "Duhový cik-cak",
+    "level": 2,
+    "minAge": 6,
+    "category": "reakce",
+    "bladeSide": "obě",
+    "grip": "obouruč",
+    "setupId": "zigzag",
+    "pattern": [
+      {
+        "at": 1,
+        "blade": "bh"
+      },
+      {
+        "at": "home",
+        "blade": "bh"
+      },
+      {
+        "at": 4,
+        "blade": "fh"
+      },
+      {
+        "at": "home",
+        "blade": "fh"
+      },
+      {
+        "at": 2,
+        "blade": "fh"
+      },
+      {
+        "at": "home",
+        "blade": "fh"
+      },
+      {
+        "at": 5,
+        "blade": "bh"
+      },
+      {
+        "at": "home",
+        "blade": "bh"
+      },
+      {
+        "at": 3,
+        "blade": "bh"
+      },
+      {
+        "at": "home",
+        "blade": "bh"
+      }
+    ],
+    "loop": true,
+    "callMode": "barva",
+    "tempoBpm": 18,
+    "durationSec": 40,
+    "reps": null,
+    "spaceNeeded": [
+      2.6,
+      4.6
+    ],
+    "noise": "střední",
+    "equipment": [
+      "hůl",
+      "míček",
+      "5 kuželů"
+    ],
+    "voiceIntro": "Řeknu barvu a ty k ní dovedeš míček. Bílý kužel je nejdál!",
+    "coachingPoints": [
+      "Poslouchej barvu",
+      "Ke vzdáleným zrychli",
+      "Zpátky do domečku"
+    ],
+    "commonMistakes": [
+      "Splete si barvy, podívej se na tablet"
+    ],
+    "progression": "zigzag-reaction",
     "regression": null,
-    "safetyNotes": "Hůl vždy pod úrovní pasu. Kolem tebe volno, tablet mimo dosah čepele.",
-    "sources": [],
-    "confidence": "vlastní",
-    "kind": "stretch",
-    "matchLegal": true
+    "safetyNotes": "Hůl drž pod pasem. Uklid věci z cesty. Na hladké podlaze cvič v sálovkách nebo bos, ne v ponožkách.",
+    "sources": [
+      {
+        "url": "https://hockeyshot.com/products/reactive-sniper",
+        "type": "výrobce",
+        "reliability": "inspirace"
+      },
+      {
+        "url": "https://cdn.hockeycanada.ca/hockey-canada/Hockey-Programs/Players/Downloads/2020/puck-control-overview-e.pdf",
+        "type": "metodika",
+        "reliability": "ověřené"
+      },
+      {
+        "url": "https://editor.swissunihockey.ch/index.php/download_file/view/316/279",
+        "type": "metodika",
+        "reliability": "ověřené"
+      },
+      {
+        "url": "https://theses.cz/id/vj1m99/",
+        "type": "VŠ práce",
+        "reliability": "ověřené"
+      }
+    ],
+    "confidence": "ověřené",
+    "kind": "ball",
+    "matchLegal": true,
+    "origin": [
+      "H43",
+      "CH-15",
+      "CR-21"
+    ]
+  },
+  {
+    "id": "zigzag-one-hand",
+    "name": "Cik-cak jednou rukou",
+    "level": 4,
+    "minAge": 8,
+    "category": "jednoruč",
+    "bladeSide": "obě",
+    "grip": "jednoruč-horní",
+    "setupId": "zigzag",
+    "pattern": [
+      {
+        "at": 1,
+        "blade": "bh",
+        "hand": "top"
+      },
+      {
+        "at": 2,
+        "blade": "fh",
+        "hand": "top"
+      },
+      {
+        "at": 3,
+        "blade": "bh",
+        "hand": "top"
+      },
+      {
+        "at": 4,
+        "blade": "fh",
+        "hand": "top"
+      },
+      {
+        "at": 5,
+        "blade": "bh",
+        "hand": "top"
+      },
+      {
+        "at": "home",
+        "blade": "fh",
+        "hand": "top"
+      }
+    ],
+    "loop": true,
+    "callMode": "zóna",
+    "tempoBpm": 25,
+    "durationSec": 25,
+    "reps": null,
+    "spaceNeeded": [
+      2.6,
+      4.6
+    ],
+    "noise": "střední",
+    "equipment": [
+      "hůl",
+      "míček",
+      "5 kuželů"
+    ],
+    "voiceIntro": "Cik-cak jen horní rukou. Druhou ruku dej do strany jako křídlo.",
+    "coachingPoints": [
+      "Kratší kroky",
+      "Míček blízko",
+      "Pomalu"
+    ],
+    "commonMistakes": [
+      "Hůl se rozkývá"
+    ],
+    "progression": null,
+    "regression": "zigzag-bh-only",
+    "safetyNotes": "Jednou rukou se hůl ovládá hůř: pomalu, s volným místem kolem. Konec hole i čepel pod pasem.",
+    "sources": [
+      {
+        "url": "https://bin.yhdistysavain.fi/1580251/ruuOmGuWdYLL9JFkqrvC0bZWHb/SBVImuistiinpanot.pdf",
+        "type": "metodika",
+        "reliability": "ověřené"
+      },
+      {
+        "url": "https://salibandy.fi/wp-content/uploads/2025/12/hippo-x-sabakipina-lajinomaiset-leikit.pdf",
+        "type": "metodika",
+        "reliability": "ověřené"
+      },
+      {
+        "url": "https://laget.se/SkellefteaIBK/Document/Download/1088074/6494953",
+        "type": "metodika",
+        "reliability": "inspirace"
+      }
+    ],
+    "confidence": "ověřené",
+    "kind": "ball",
+    "matchLegal": true,
+    "origin": [
+      "FI-17",
+      "FI-04",
+      "SKE"
+    ]
+  },
+  {
+    "id": "zigzag-master",
+    "name": "Mistr cik-caku",
+    "level": 5,
+    "minAge": 8,
+    "category": "kombinace",
+    "bladeSide": "obě",
+    "grip": "obouruč",
+    "setupId": "zigzag",
+    "pattern": [
+      {
+        "at": "around:1",
+        "dir": "cw",
+        "blade": "bh"
+      },
+      {
+        "at": "front",
+        "blade": "bh"
+      },
+      {
+        "at": "around:2",
+        "dir": "ccw",
+        "blade": "fh"
+      },
+      {
+        "at": "front",
+        "blade": "fh"
+      },
+      {
+        "at": "around:3",
+        "dir": "cw",
+        "blade": "bh"
+      },
+      {
+        "at": "around:4",
+        "dir": "ccw",
+        "blade": "fh"
+      },
+      {
+        "at": "around:5",
+        "dir": "cw",
+        "blade": "bh"
+      },
+      {
+        "at": "home",
+        "blade": "bh"
+      }
+    ],
+    "loop": true,
+    "callMode": "zóna",
+    "tempoBpm": 25,
+    "durationSec": 45,
+    "reps": null,
+    "spaceNeeded": [
+      2.6,
+      4.6
+    ],
+    "noise": "střední",
+    "equipment": [
+      "hůl",
+      "míček",
+      "5 kuželů"
+    ],
+    "voiceIntro": "Pro mistry: oblouk kolem kuželu, tah špičkou, oblouk, tah. Kdo to zvládne bez chyby, je frajer.",
+    "coachingPoints": [
+      "Tah špičkou hned za kuželem",
+      "Hlava nahoře mezi kužely",
+      "Klidné tempo, přesnost"
+    ],
+    "commonMistakes": [
+      "Zrychlí a ztratí kontrolu"
+    ],
+    "progression": null,
+    "regression": "zigzag-drag",
+    "safetyNotes": "Hůl drž pod pasem. Uklid věci z cesty. Na hladké podlaze cvič v sálovkách nebo bos, ne v ponožkách.",
+    "sources": [
+      {
+        "url": "https://www.youtube.com/watch?v=GQK1RBm8Vx4",
+        "type": "video",
+        "reliability": "inspirace"
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=UlkAnet3d-A",
+        "type": "video",
+        "reliability": "ověřené"
+      },
+      {
+        "url": "https://www.youtube.com/watch?v=TQe8UUIICqw",
+        "type": "video",
+        "reliability": "inspirace"
+      },
+      {
+        "url": "https://dspace5.zcu.cz/bitstream/11025/19998/1/Diplomova%20prace%20Matous%20Hrdlicka%202015.pdf",
+        "type": "VŠ práce (metodika ČFbU)",
+        "reliability": "ověřené"
+      }
+    ],
+    "confidence": "odvozené",
+    "kind": "ball",
+    "matchLegal": true,
+    "origin": [
+      "H33",
+      "H18",
+      "CZ-24"
+    ]
   }
 ]

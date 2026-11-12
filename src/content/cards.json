@@ -1,0 +1,484 @@
+[
+  {
+    "id": "card-first-touch",
+    "name": "První dotek",
+    "rarity": "common",
+    "description": "Dokončil jsi první cvik s míčkem.",
+    "unlock": {
+      "type": "drill",
+      "id": "fh-bh-front"
+    },
+    "skillCategory": "tahy"
+  },
+  {
+    "id": "card-wide",
+    "name": "Široký dosah",
+    "rarity": "common",
+    "description": "Míček vozíš od kuželu ke kuželu.",
+    "unlock": {
+      "type": "drill",
+      "id": "fh-bh-wide"
+    },
+    "skillCategory": "tahy"
+  },
+  {
+    "id": "card-quick-hands",
+    "name": "Rychlé ruce",
+    "rarity": "common",
+    "description": "Ruce kmitají a míček neutíká.",
+    "unlock": {
+      "type": "drill",
+      "id": "toe-to-toe"
+    },
+    "skillCategory": "tahy"
+  },
+  {
+    "id": "card-bh-friend",
+    "name": "Kamarád bekhend",
+    "rarity": "common",
+    "description": "Bekhend je tvoje druhá silná strana.",
+    "unlock": {
+      "type": "drill",
+      "id": "bh-only-front"
+    },
+    "skillCategory": "tahy"
+  },
+  {
+    "id": "card-eight",
+    "name": "Osmičkář",
+    "rarity": "common",
+    "description": "Osmička kolem kuželů ti jde jako po másle.",
+    "unlock": {
+      "type": "drill",
+      "id": "figure8-spot"
+    },
+    "skillCategory": "kolem kuželů"
+  },
+  {
+    "id": "card-slalom",
+    "name": "Slalomář",
+    "rarity": "common",
+    "description": "Projel jsi slalom a nic nespadlo.",
+    "unlock": {
+      "type": "drill",
+      "id": "slalom-fh-bh"
+    },
+    "skillCategory": "kolem kuželů"
+  },
+  {
+    "id": "card-zigzag",
+    "name": "Cik-cak",
+    "rarity": "common",
+    "description": "Kličkuješ do W jako blesk.",
+    "unlock": {
+      "type": "drill",
+      "id": "zigzag-carry"
+    },
+    "skillCategory": "vedení míčku"
+  },
+  {
+    "id": "card-heads-up",
+    "name": "Hlava nahoře",
+    "rarity": "common",
+    "description": "Vidíš tablet i míček zároveň.",
+    "unlock": {
+      "type": "drill",
+      "id": "heads-up-spot"
+    },
+    "skillCategory": "reakce"
+  },
+  {
+    "id": "card-color-eye",
+    "name": "Barevné oko",
+    "rarity": "rare",
+    "description": "Barvy chytáš dřív, než dozní.",
+    "unlock": {
+      "type": "drill",
+      "id": "reaction-square"
+    },
+    "skillCategory": "reakce"
+  },
+  {
+    "id": "card-lightning",
+    "name": "Blesk",
+    "rarity": "epic",
+    "description": "Blesková reakce bez ztráty míčku.",
+    "unlock": {
+      "type": "drill",
+      "id": "square-react-fast"
+    },
+    "skillCategory": "reakce"
+  },
+  {
+    "id": "card-one-hand",
+    "name": "Jedna ruka stačí",
+    "rarity": "rare",
+    "description": "Míček vedeš jen horní rukou.",
+    "unlock": {
+      "type": "drill",
+      "id": "one-hand-top"
+    },
+    "skillCategory": "jednoruč"
+  },
+  {
+    "id": "card-bottom-hand",
+    "name": "Spodní síla",
+    "rarity": "epic",
+    "description": "Zvládl jsi i jen spodní ruku.",
+    "unlock": {
+      "type": "drill",
+      "id": "one-hand-bottom"
+    },
+    "skillCategory": "jednoruč"
+  },
+  {
+    "id": "card-fake",
+    "name": "Fintér",
+    "rarity": "rare",
+    "description": "Kužel se nechal napálit tvou fintou.",
+    "unlock": {
+      "type": "drill",
+      "id": "fake-cone"
+    },
+    "skillCategory": "kličky"
+  },
+  {
+    "id": "card-escape",
+    "name": "Únikář",
+    "rarity": "common",
+    "description": "Otočíš se a obránce je pryč.",
+    "unlock": {
+      "type": "drill",
+      "id": "escape-turn"
+    },
+    "skillCategory": "kličky"
+  },
+  {
+    "id": "card-blind",
+    "name": "Cítím míček",
+    "rarity": "rare",
+    "description": "Míček cítíš čepelí i se zavřenýma očima.",
+    "unlock": {
+      "type": "drill",
+      "id": "eyes-closed"
+    },
+    "skillCategory": "tahy"
+  },
+  {
+    "id": "card-zigzag-master",
+    "name": "Mistr cik-caku",
+    "rarity": "legend",
+    "description": "Nejtěžší cik-cak bez chyby.",
+    "unlock": {
+      "type": "drill",
+      "id": "zigzag-master"
+    },
+    "skillCategory": "kombinace"
+  },
+  {
+    "id": "card-carousel",
+    "name": "Kolotočář",
+    "rarity": "common",
+    "description": "Míček jezdí kolem tebe jako na kolotoči.",
+    "unlock": {
+      "type": "trick",
+      "id": "kolotoc"
+    },
+    "skillCategory": "triky"
+  },
+  {
+    "id": "card-blade-magic",
+    "name": "Kouzelník čepele",
+    "rarity": "common",
+    "description": "Udržíš míček na čepeli.",
+    "unlock": {
+      "type": "trick",
+      "id": "balanc"
+    },
+    "skillCategory": "triky"
+  },
+  {
+    "id": "card-digger",
+    "name": "Bagr",
+    "rarity": "rare",
+    "description": "Míček nabereš na čepel jedním pohybem.",
+    "unlock": {
+      "type": "trick",
+      "id": "nabrani"
+    },
+    "skillCategory": "triky"
+  },
+  {
+    "id": "card-waiter",
+    "name": "Číšník",
+    "rarity": "rare",
+    "description": "Neseš míček na čepeli jako tác.",
+    "unlock": {
+      "type": "trick",
+      "id": "chuze-cepel"
+    },
+    "skillCategory": "triky"
+  },
+  {
+    "id": "card-icecream",
+    "name": "Zmrzlinář",
+    "rarity": "rare",
+    "description": "Točíš čepel s míčkem jako zmrzlinu.",
+    "unlock": {
+      "type": "trick",
+      "id": "zmrzlina"
+    },
+    "skillCategory": "triky"
+  },
+  {
+    "id": "card-zorro",
+    "name": "Mistr Zorra",
+    "rarity": "epic",
+    "description": "Zorro z forhendu na bekhend a zpátky.",
+    "unlock": {
+      "type": "trick",
+      "id": "zorro"
+    },
+    "skillCategory": "triky"
+  },
+  {
+    "id": "card-zorro-shot",
+    "name": "Zorro střelec",
+    "rarity": "epic",
+    "description": "Dáváš góly Zorrem.",
+    "unlock": {
+      "type": "trick",
+      "id": "zorro-strelec"
+    },
+    "skillCategory": "triky"
+  },
+  {
+    "id": "card-zorro-mirror",
+    "name": "Zorro zrcadlo",
+    "rarity": "epic",
+    "description": "Zorro umíš i z bekhendu.",
+    "unlock": {
+      "type": "trick",
+      "id": "zorro-bh"
+    },
+    "skillCategory": "triky"
+  },
+  {
+    "id": "card-zorro-one",
+    "name": "Zorro jedné ruky",
+    "rarity": "legend",
+    "description": "Zorro jen horní rukou.",
+    "unlock": {
+      "type": "trick",
+      "id": "zorro-jednoruc"
+    },
+    "skillCategory": "triky"
+  },
+  {
+    "id": "card-lacrosse",
+    "name": "Lacrosse legenda",
+    "rarity": "legend",
+    "description": "Gól zpoza branky jako profík.",
+    "unlock": {
+      "type": "trick",
+      "id": "lacrosse"
+    },
+    "skillCategory": "triky"
+  },
+  {
+    "id": "card-bh-wizard",
+    "name": "Bekhendový kouzelník",
+    "rarity": "common",
+    "description": "Bekhendová klička kolem obránce.",
+    "unlock": {
+      "type": "trick",
+      "id": "bh-klicka"
+    },
+    "skillCategory": "kličky"
+  },
+  {
+    "id": "card-hook",
+    "name": "Háček",
+    "rarity": "rare",
+    "description": "Špičkou stáhneš míček, kam chceš.",
+    "unlock": {
+      "type": "trick",
+      "id": "hacek"
+    },
+    "skillCategory": "kličky"
+  },
+  {
+    "id": "card-propeller",
+    "name": "Vrtule",
+    "rarity": "rare",
+    "description": "Otočka dokola a míček pořád u tebe.",
+    "unlock": {
+      "type": "trick",
+      "id": "vrtule"
+    },
+    "skillCategory": "kličky"
+  },
+  {
+    "id": "card-tunnel",
+    "name": "Tunelář",
+    "rarity": "rare",
+    "description": "Míček prostrčíš mezi nohama.",
+    "unlock": {
+      "type": "trick",
+      "id": "tunelar"
+    },
+    "skillCategory": "kličky"
+  },
+  {
+    "id": "card-juggler",
+    "name": "Žonglér",
+    "rarity": "epic",
+    "description": "Deset odrazů v řadě. Domácí frajeřinka!",
+    "unlock": {
+      "type": "trick",
+      "id": "zonglovani"
+    },
+    "skillCategory": "triky"
+  },
+  {
+    "id": "card-juggler-master",
+    "name": "Mistr žonglér",
+    "rarity": "legend",
+    "description": "Žongluješ střídavě forhendem a bekhendem.",
+    "unlock": {
+      "type": "trick",
+      "id": "zonglovani-fb"
+    },
+    "skillCategory": "triky"
+  },
+  {
+    "id": "card-kicker",
+    "name": "Kopačka",
+    "rarity": "rare",
+    "description": "Nakopneš míček nohou rovnou na čepel.",
+    "unlock": {
+      "type": "trick",
+      "id": "kopacka"
+    },
+    "skillCategory": "triky"
+  },
+  {
+    "id": "card-precise",
+    "name": "Přesná ruka",
+    "rarity": "epic",
+    "description": "Položíš míček na kužel.",
+    "unlock": {
+      "type": "trick",
+      "id": "na-kuzel"
+    },
+    "skillCategory": "triky"
+  },
+  {
+    "id": "card-record-drag",
+    "name": "Rekordman přetahování",
+    "rarity": "rare",
+    "description": "Překonal jsi svůj rekord v přetahování.",
+    "unlock": {
+      "type": "test",
+      "id": "test-drag-20",
+      "event": "record"
+    },
+    "skillCategory": "tahy"
+  },
+  {
+    "id": "card-record-slalom",
+    "name": "Slalomový rekord",
+    "rarity": "rare",
+    "description": "Slalom jsi zajel rychleji než kdy předtím.",
+    "unlock": {
+      "type": "test",
+      "id": "test-slalom",
+      "event": "record"
+    },
+    "skillCategory": "kolem kuželů"
+  },
+  {
+    "id": "card-post",
+    "name": "Tyčkař",
+    "rarity": "common",
+    "description": "Trefil jsi tyčku v souboji.",
+    "unlock": {
+      "type": "challenge",
+      "id": "tycka",
+      "event": "played"
+    },
+    "skillCategory": "výzvy"
+  },
+  {
+    "id": "card-rooster",
+    "name": "Kohout",
+    "rarity": "rare",
+    "description": "Vyhrál jsi KOHOUTA.",
+    "unlock": {
+      "type": "challenge",
+      "id": "kohout",
+      "event": "win"
+    },
+    "skillCategory": "výzvy"
+  },
+  {
+    "id": "card-volley",
+    "name": "Volejbalista",
+    "rarity": "rare",
+    "description": "Volej ze vzduchu doma. V zápase by to byl faul!",
+    "unlock": {
+      "type": "challenge",
+      "id": "volej",
+      "event": "played"
+    },
+    "skillCategory": "výzvy"
+  },
+  {
+    "id": "card-rematch",
+    "name": "Odveta!",
+    "rarity": "common",
+    "description": "Po prohře jsi šel do odvety.",
+    "unlock": {
+      "type": "challenge",
+      "id": "any",
+      "event": "rematch"
+    },
+    "skillCategory": "výzvy"
+  },
+  {
+    "id": "card-week-1",
+    "name": "Týden splněn",
+    "rarity": "common",
+    "description": "Čtyři tréninkové dny v jednom týdnu.",
+    "unlock": {
+      "type": "streak",
+      "id": "week-goal",
+      "count": 1
+    },
+    "skillCategory": "vytrvalost"
+  },
+  {
+    "id": "card-week-4",
+    "name": "Měsíc v tahu",
+    "rarity": "rare",
+    "description": "Splněný týdenní cíl čtyřikrát.",
+    "unlock": {
+      "type": "streak",
+      "id": "week-goal",
+      "count": 4
+    },
+    "skillCategory": "vytrvalost"
+  },
+  {
+    "id": "card-week-12",
+    "name": "Hattrick legenda",
+    "rarity": "legend",
+    "description": "Splněný týdenní cíl dvanáctkrát.",
+    "unlock": {
+      "type": "streak",
+      "id": "week-goal",
+      "count": 12
+    },
+    "skillCategory": "vytrvalost"
+  }
+]

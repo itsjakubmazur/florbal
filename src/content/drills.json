@@ -1,714 +1,595 @@
 [
   {
-    "id": "sole-taps",
-    "name": "Podrážkou na míč",
+    "id": "wu-quick-feet",
+    "name": "Rychlé nohy",
     "level": 1,
-    "durationSec": 30,
-    "tempoBpm": 55,
+    "minAge": 6,
+    "category": "koordinace bez míčku",
+    "bladeSide": "obě",
+    "grip": "obouruč",
+    "setupId": "spot",
     "pattern": [
-      1
+      {
+        "at": 1
+      },
+      {
+        "at": "home"
+      },
+      {
+        "at": 2
+      },
+      {
+        "at": "home"
+      }
     ],
-    "foot": "both",
-    "info": "Střídavě klepej podrážkou na míč.",
-    "media": {
-      "animation": true
-    }
-  },
-  {
-    "id": "side-push-left",
-    "name": "Boční tlak levou",
-    "level": 1,
-    "durationSec": 30,
+    "loop": true,
+    "callMode": "zóna",
     "tempoBpm": 50,
-    "pattern": [
-      1,
+    "durationSec": 40,
+    "reps": null,
+    "spaceNeeded": [
+      1.4,
       2
     ],
-    "foot": "left",
-    "info": "Tlač míč bokem vlevo a vrať ho zpátky.",
-    "media": {
-      "animation": true
-    },
-    "call": "direction"
-  },
-  {
-    "id": "side-push-right",
-    "name": "Boční tlak pravou",
-    "level": 1,
-    "durationSec": 30,
-    "tempoBpm": 50,
-    "pattern": [
-      1,
-      6
+    "noise": "střední",
+    "equipment": [
+      "2 kužely"
     ],
-    "foot": "right",
-    "info": "Tlač míč bokem vpravo a vrať ho zpátky.",
-    "media": {
-      "animation": true
-    },
-    "call": "direction"
-  },
-  {
-    "id": "diag-left",
-    "name": "Šikmo vlevo",
-    "level": 1,
-    "durationSec": 30,
-    "tempoBpm": 50,
-    "pattern": [
-      1,
-      3
+    "voiceIntro": "Rozcvička bez míčku. Krátkými kroky dojdi ke kuželu, který řeknu, a hned zpátky do domečku.",
+    "coachingPoints": [
+      "Malé rychlé kroky",
+      "Kolena pokrčená",
+      "Dívej se na tablet"
     ],
-    "foot": "left",
-    "info": "Tlač míč šikmo doleva dopředu a vrať ho zpátky.",
-    "media": {
-      "animation": true
-    },
-    "call": "direction"
-  },
-  {
-    "id": "diag-right",
-    "name": "Šikmo vpravo",
-    "level": 1,
-    "durationSec": 30,
-    "tempoBpm": 50,
-    "pattern": [
-      1,
-      5
+    "commonMistakes": [
+      "Velké skoky místo malých kroků"
     ],
-    "foot": "right",
-    "info": "Tlač míč šikmo doprava dopředu a vrať ho zpátky.",
-    "media": {
-      "animation": true
-    },
-    "call": "direction"
+    "progression": null,
+    "regression": null,
+    "safetyNotes": "Hůl vždy pod úrovní pasu. Kolem tebe volno, tablet mimo dosah čepele.",
+    "sources": [],
+    "confidence": "vlastní",
+    "kind": "nobal",
+    "matchLegal": true
   },
   {
-    "id": "forward-back",
-    "name": "Dopředu a zpět",
+    "id": "wu-stick-circles",
+    "name": "Kroužení s holí",
     "level": 1,
-    "durationSec": 30,
-    "tempoBpm": 50,
+    "minAge": 6,
+    "category": "koordinace bez míčku",
+    "bladeSide": "obě",
+    "grip": "obouruč",
+    "setupId": "spot",
     "pattern": [
-      1,
-      4
+      {
+        "at": "fh"
+      },
+      {
+        "at": "front"
+      },
+      {
+        "at": "bh"
+      },
+      {
+        "at": "front"
+      }
     ],
-    "foot": "both",
-    "info": "Tlač míč rovně dopředu a vrať ho zpátky k sobě.",
-    "media": {
-      "animation": true
-    },
-    "call": "direction"
+    "loop": true,
+    "callMode": "žádný",
+    "tempoBpm": 40,
+    "durationSec": 30,
+    "reps": null,
+    "spaceNeeded": [
+      1.4,
+      2
+    ],
+    "noise": "tichý",
+    "equipment": [
+      "hůl"
+    ],
+    "voiceIntro": "Drž hůl oběma rukama a pomalu s ní kresli po zemi velký oblouk ze strany na stranu. Rozhýbej ramena.",
+    "coachingPoints": [
+      "Čepel celou dobu na zemi",
+      "Pomalu a plynule"
+    ],
+    "commonMistakes": [
+      "Hůl jde nahoru nad kolena"
+    ],
+    "progression": null,
+    "regression": null,
+    "safetyNotes": "Hůl vždy pod úrovní pasu. Kolem tebe volno, tablet mimo dosah čepele.",
+    "sources": [],
+    "confidence": "vlastní",
+    "kind": "nobal",
+    "matchLegal": true
   },
   {
-    "id": "diag-both",
-    "name": "Šikmo střídavě",
-    "level": 2,
+    "id": "fh-bh-front",
+    "name": "Přetahování před tělem",
+    "level": 1,
+    "minAge": 6,
+    "category": "tahy",
+    "bladeSide": "obě",
+    "grip": "obouruč",
+    "setupId": "spot",
+    "pattern": [
+      {
+        "at": "fh",
+        "blade": "fh"
+      },
+      {
+        "at": "bh",
+        "blade": "bh"
+      }
+    ],
+    "loop": true,
+    "callMode": "směr",
+    "tempoBpm": 56,
     "durationSec": 40,
-    "tempoBpm": 60,
-    "pattern": [
-      1,
-      3,
-      1,
-      5
+    "reps": null,
+    "spaceNeeded": [
+      1.4,
+      2
     ],
-    "foot": "both",
-    "info": "Střídavě šikmo doleva a šikmo doprava, vždy míč vrať.",
-    "media": {
-      "animation": true
-    },
-    "call": "direction"
+    "noise": "tichý",
+    "equipment": [
+      "hůl",
+      "míček"
+    ],
+    "voiceIntro": "Přetahuj míček před sebou z forhendu na bekhend a zpátky. Hlava nahoře!",
+    "coachingPoints": [
+      "Kolena pokrčená",
+      "Míček před tělem, ne u nohou",
+      "Čepel měkce, bez ťukání"
+    ],
+    "commonMistakes": [
+      "Míček odskakuje, protože hráč tluče čepelí"
+    ],
+    "progression": "fh-push-cones",
+    "regression": null,
+    "safetyNotes": "Hůl vždy pod úrovní pasu. Kolem tebe volno, tablet mimo dosah čepele.",
+    "sources": [],
+    "confidence": "vlastní",
+    "kind": "ball",
+    "matchLegal": true
   },
   {
-    "id": "drag-back",
-    "name": "Přitáhni míč zpět",
-    "level": 1,
-    "durationSec": 30,
-    "tempoBpm": 50,
+    "id": "bh-only-front",
+    "name": "Jen bekhendem",
+    "level": 2,
+    "minAge": 6,
+    "category": "vedení míčku",
+    "bladeSide": "bekhend",
+    "grip": "obouruč",
+    "setupId": "spot",
     "pattern": [
-      4,
-      1
+      {
+        "at": "front",
+        "blade": "bh"
+      },
+      {
+        "at": "bh",
+        "blade": "bh"
+      }
     ],
-    "foot": "both",
-    "info": "Míč zepředu přitáhni podrážkou k sobě.",
-    "media": {
-      "animation": true
-    },
-    "call": "direction"
+    "loop": true,
+    "callMode": "směr",
+    "tempoBpm": 48,
+    "durationSec": 30,
+    "reps": null,
+    "spaceNeeded": [
+      1.4,
+      2
+    ],
+    "noise": "tichý",
+    "equipment": [
+      "hůl",
+      "míček"
+    ],
+    "voiceIntro": "Teď jen bekhendem. Posuň míček před sebe a zase ho přitáhni na bekhendovou stranu.",
+    "coachingPoints": [
+      "Míček pořád u čepele",
+      "Hýbou se zápěstí, ne celé tělo"
+    ],
+    "commonMistakes": [
+      "Hráč si pomáhá forhendem"
+    ],
+    "progression": null,
+    "regression": "fh-bh-front",
+    "safetyNotes": "Hůl vždy pod úrovní pasu. Kolem tebe volno, tablet mimo dosah čepele.",
+    "sources": [],
+    "confidence": "vlastní",
+    "kind": "ball",
+    "matchLegal": true
   },
   {
-    "id": "jump-over",
-    "name": "Přeskoky míče",
-    "type": "jump",
-    "sides": [
-      "left",
-      "right"
-    ],
+    "id": "fh-push-cones",
+    "name": "Vedení ke kuželům",
     "level": 1,
+    "minAge": 6,
+    "category": "vedení míčku",
+    "bladeSide": "forhend",
+    "grip": "obouruč",
+    "setupId": "triangle",
+    "pattern": [
+      {
+        "at": 1,
+        "blade": "fh"
+      },
+      {
+        "at": "home",
+        "blade": "fh"
+      },
+      {
+        "at": 2,
+        "blade": "fh"
+      },
+      {
+        "at": "home",
+        "blade": "fh"
+      },
+      {
+        "at": 3,
+        "blade": "fh"
+      },
+      {
+        "at": "home",
+        "blade": "fh"
+      }
+    ],
+    "loop": true,
+    "callMode": "zóna",
+    "tempoBpm": 26,
+    "durationSec": 45,
+    "reps": null,
+    "spaceNeeded": [
+      2.6,
+      2.8
+    ],
+    "noise": "tichý",
+    "equipment": [
+      "hůl",
+      "míček",
+      "3 kužely"
+    ],
+    "voiceIntro": "Veď míček forhendem ke kuželu, který řeknu, a vrať se do domečku.",
+    "coachingPoints": [
+      "Míček blízko čepele",
+      "Malé dotyky",
+      "Zvedni hlavu, ať slyšíš a vidíš číslo"
+    ],
+    "commonMistakes": [
+      "Míček daleko před tělem"
+    ],
+    "progression": "slalom-fh-bh",
+    "regression": "fh-bh-front",
+    "safetyNotes": "Hůl vždy pod úrovní pasu. Kolem tebe volno, tablet mimo dosah čepele.",
+    "sources": [],
+    "confidence": "vlastní",
+    "kind": "ball",
+    "matchLegal": true
+  },
+  {
+    "id": "slalom-fh-bh",
+    "name": "Slalom forhend – bekhend",
+    "level": 2,
+    "minAge": 6,
+    "category": "kolem kuželů",
+    "bladeSide": "obě",
+    "grip": "obouruč",
+    "setupId": "line",
+    "pattern": [
+      {
+        "at": "around:1",
+        "dir": "cw",
+        "blade": "fh"
+      },
+      {
+        "at": "around:2",
+        "dir": "ccw",
+        "blade": "bh"
+      },
+      {
+        "at": "around:3",
+        "dir": "cw",
+        "blade": "fh"
+      },
+      {
+        "at": "around:4",
+        "dir": "ccw",
+        "blade": "bh"
+      },
+      {
+        "at": "home",
+        "blade": "fh"
+      }
+    ],
+    "loop": true,
+    "callMode": "zóna",
+    "tempoBpm": 28,
+    "durationSec": 60,
+    "reps": null,
+    "spaceNeeded": [
+      1.6,
+      4.4
+    ],
+    "noise": "tichý",
+    "equipment": [
+      "hůl",
+      "míček",
+      "4 kužely"
+    ],
+    "voiceIntro": "Slalom! Kolem jednoho kuželu forhendem, kolem dalšího bekhendem. Na konci zpátky do domečku.",
+    "coachingPoints": [
+      "Těsně kolem kuželu",
+      "Střídej strany čepele",
+      "Pokrčená kolena"
+    ],
+    "commonMistakes": [
+      "Široké oblouky daleko od kuželu"
+    ],
+    "progression": "zigzag-carry",
+    "regression": "fh-push-cones",
+    "safetyNotes": "Hůl vždy pod úrovní pasu. Kolem tebe volno, tablet mimo dosah čepele.",
+    "sources": [],
+    "confidence": "vlastní",
+    "kind": "ball",
+    "matchLegal": true
+  },
+  {
+    "id": "reaction-square",
+    "name": "Barevná reakce",
+    "level": 2,
+    "minAge": 6,
+    "category": "reakce",
+    "bladeSide": "obě",
+    "grip": "obouruč",
+    "setupId": "square",
+    "pattern": [
+      {
+        "at": 1,
+        "blade": "fh"
+      },
+      {
+        "at": "home",
+        "blade": "fh"
+      }
+    ],
+    "loop": true,
+    "callMode": "náhodná reakce",
+    "tempoBpm": 20,
+    "durationSec": 45,
+    "reps": null,
+    "spaceNeeded": [
+      2.8,
+      3.2
+    ],
+    "noise": "střední",
+    "equipment": [
+      "hůl",
+      "míček",
+      "4 barevné kužely"
+    ],
+    "voiceIntro": "Reakce! Dívej se na tablet. Jakou barvu ukážu, k tomu kuželu dovedeš míček a hned zpátky.",
+    "coachingPoints": [
+      "Hlava nahoře",
+      "Rychlý první krok",
+      "Míček pořád u hole"
+    ],
+    "commonMistakes": [
+      "Hráč kouká jen na míček a nevidí barvu"
+    ],
+    "progression": null,
+    "regression": "fh-push-cones",
+    "safetyNotes": "Hůl vždy pod úrovní pasu. Kolem tebe volno, tablet mimo dosah čepele.",
+    "sources": [],
+    "confidence": "vlastní",
+    "kind": "ball",
+    "matchLegal": true
+  },
+  {
+    "id": "figure8-triangle",
+    "name": "Osmička",
+    "level": 3,
+    "minAge": 6,
+    "category": "kolem kuželů",
+    "bladeSide": "obě",
+    "grip": "obouruč",
+    "setupId": "triangle",
+    "pattern": [
+      {
+        "at": "around:1",
+        "dir": "ccw",
+        "blade": "fh"
+      },
+      {
+        "at": "around:2",
+        "dir": "cw",
+        "blade": "bh"
+      }
+    ],
+    "loop": true,
+    "callMode": "barva",
+    "tempoBpm": 22,
+    "durationSec": 45,
+    "reps": null,
+    "spaceNeeded": [
+      2.6,
+      2.8
+    ],
+    "noise": "tichý",
+    "equipment": [
+      "hůl",
+      "míček",
+      "3 kužely"
+    ],
+    "voiceIntro": "Jezdi s míčkem osmičku kolem červeného a modrého kuželu. Jedním směrem forhendem, druhým bekhendem.",
+    "coachingPoints": [
+      "Míček na vnitřní straně oblouku",
+      "Hlava nahoře"
+    ],
+    "commonMistakes": [
+      "Hráč objíždí kužel daleko"
+    ],
+    "progression": null,
+    "regression": "fh-push-cones",
+    "safetyNotes": "Hůl vždy pod úrovní pasu. Kolem tebe volno, tablet mimo dosah čepele.",
+    "sources": [],
+    "confidence": "vlastní",
+    "kind": "ball",
+    "matchLegal": true
+  },
+  {
+    "id": "one-hand-top",
+    "name": "Jednou rukou",
+    "level": 3,
+    "minAge": 6,
+    "category": "jednoruč",
+    "bladeSide": "forhend",
+    "grip": "jednoruč-horní",
+    "setupId": "spot",
+    "pattern": [
+      {
+        "at": "fh",
+        "blade": "fh",
+        "hand": "top"
+      },
+      {
+        "at": "front",
+        "blade": "fh",
+        "hand": "top"
+      }
+    ],
+    "loop": true,
+    "callMode": "směr",
+    "tempoBpm": 44,
     "durationSec": 30,
-    "tempoBpm": 50,
+    "reps": null,
+    "spaceNeeded": [
+      1.4,
+      2
+    ],
+    "noise": "tichý",
+    "equipment": [
+      "hůl",
+      "míček"
+    ],
+    "voiceIntro": "Drž hůl jen horní rukou a posouvej míček forhendem ze strany před sebe.",
+    "coachingPoints": [
+      "Pevné zápěstí",
+      "Malé pohyby"
+    ],
+    "commonMistakes": [
+      "Hůl jde nahoru"
+    ],
+    "progression": null,
+    "regression": "fh-bh-front",
+    "safetyNotes": "Hůl vždy pod úrovní pasu. Kolem tebe volno, tablet mimo dosah čepele.",
+    "sources": [],
+    "confidence": "vlastní",
+    "kind": "ball",
+    "matchLegal": true
+  },
+  {
+    "id": "zigzag-carry",
+    "name": "Cik-cak vedení",
+    "level": 3,
+    "minAge": 6,
+    "category": "kombinace",
+    "bladeSide": "obě",
+    "grip": "obouruč",
+    "setupId": "zigzag",
+    "pattern": [
+      {
+        "at": 1,
+        "blade": "bh"
+      },
+      {
+        "at": 2,
+        "blade": "fh"
+      },
+      {
+        "at": 3,
+        "blade": "bh"
+      },
+      {
+        "at": 4,
+        "blade": "fh"
+      },
+      {
+        "at": 5,
+        "blade": "bh"
+      },
+      {
+        "at": "home",
+        "blade": "fh"
+      }
+    ],
+    "loop": true,
+    "callMode": "zóna",
+    "tempoBpm": 30,
+    "durationSec": 60,
+    "reps": null,
+    "spaceNeeded": [
+      2.6,
+      4.6
+    ],
+    "noise": "střední",
+    "equipment": [
+      "hůl",
+      "míček",
+      "5 kuželů"
+    ],
+    "voiceIntro": "Veď míček cik-cak od kuželu ke kuželu. Ke každému kuželu jinou stranou čepele.",
+    "coachingPoints": [
+      "Změna směru těsně u kuželu",
+      "Míček blízko"
+    ],
+    "commonMistakes": [
+      "Hráč zpomalí a zastaví míček"
+    ],
+    "progression": null,
+    "regression": "slalom-fh-bh",
+    "safetyNotes": "Hůl vždy pod úrovní pasu. Kolem tebe volno, tablet mimo dosah čepele.",
+    "sources": [],
+    "confidence": "vlastní",
+    "kind": "ball",
+    "matchLegal": true
+  },
+  {
+    "id": "stretch-end",
+    "name": "Protažení",
+    "level": 1,
+    "minAge": 6,
+    "category": "koordinace bez míčku",
+    "bladeSide": "obě",
+    "grip": "obouruč",
+    "setupId": "spot",
     "pattern": [],
-    "foot": "both",
-    "info": "Míč stojí, ty ho přeskakuješ z jedné strany na druhou.",
-    "media": {
-      "animation": true
-    }
-  },
-  {
-    "id": "drag-back-left",
-    "name": "Přitáhni zpět levou",
-    "level": 2,
+    "loop": false,
+    "callMode": "žádný",
+    "tempoBpm": 15,
     "durationSec": 40,
-    "tempoBpm": 60,
-    "pattern": [
-      4,
-      1
+    "reps": null,
+    "spaceNeeded": [
+      1.4,
+      2
     ],
-    "foot": "left",
-    "info": "Přitahuj míč levou nohou.",
-    "media": {
-      "animation": true
-    },
-    "call": "direction"
-  },
-  {
-    "id": "drag-back-right",
-    "name": "Přitáhni zpět pravou",
-    "level": 2,
-    "durationSec": 40,
-    "tempoBpm": 60,
-    "pattern": [
-      4,
-      1
+    "noise": "tichý",
+    "equipment": [],
+    "voiceIntro": "Na závěr se protáhneme. Opři hůl o zem, pomalu se předkloň a dýchej. Pak protáhni ruce nad hlavu.",
+    "coachingPoints": [
+      "Pomalu, bez houpání",
+      "Klidně dýchej"
     ],
-    "foot": "right",
-    "info": "Přitahuj míč pravou nohou.",
-    "media": {
-      "animation": true
-    },
-    "call": "direction"
-  },
-  {
-    "id": "triangle-left",
-    "name": "Přihraj a přitáhni levou",
-    "level": 2,
-    "durationSec": 40,
-    "tempoBpm": 60,
-    "pattern": [
-      1,
-      2,
-      3
-    ],
-    "foot": "left",
-    "info": "Míč pošli doleva, přihraj dopředu a přitáhni zpět.",
-    "media": {
-      "animation": true
-    },
-    "call": "direction"
-  },
-  {
-    "id": "triangle-right",
-    "name": "Přihraj a přitáhni pravou",
-    "level": 2,
-    "durationSec": 40,
-    "tempoBpm": 60,
-    "pattern": [
-      1,
-      6,
-      5
-    ],
-    "foot": "right",
-    "info": "Míč pošli doprava, přihraj dopředu a přitáhni zpět.",
-    "media": {
-      "animation": true
-    },
-    "call": "direction"
-  },
-  {
-    "id": "pass-drag-both",
-    "name": "Přihraj a přitáhni oběma",
-    "level": 2,
-    "durationSec": 40,
-    "tempoBpm": 60,
-    "pattern": [
-      1,
-      2,
-      1,
-      6
-    ],
-    "foot": "both",
-    "info": "Střídej strany, pokaždé míč vrať doprostřed.",
-    "media": {
-      "animation": true
-    },
-    "call": "direction"
-  },
-  {
-    "id": "pass-around-left",
-    "name": "Kolem levé nohy",
-    "level": 2,
-    "durationSec": 40,
-    "tempoBpm": 60,
-    "pattern": [
-      1,
-      2,
-      3,
-      4
-    ],
-    "foot": "left",
-    "info": "Obkroužení míče kolem opěrné nohy zleva.",
-    "media": {
-      "animation": true
-    },
-    "call": "direction"
-  },
-  {
-    "id": "pass-around-right",
-    "name": "Kolem pravé nohy",
-    "level": 2,
-    "durationSec": 40,
-    "tempoBpm": 60,
-    "pattern": [
-      1,
-      6,
-      5,
-      4
-    ],
-    "foot": "right",
-    "info": "Obkroužení míče kolem opěrné nohy zprava.",
-    "media": {
-      "animation": true
-    },
-    "call": "direction"
-  },
-  {
-    "id": "drag-combo-left",
-    "name": "Přitáhni a tlač levou",
-    "level": 2,
-    "durationSec": 40,
-    "tempoBpm": 65,
-    "pattern": [
-      4,
-      1,
-      2,
-      1
-    ],
-    "foot": "left",
-    "info": "Kombinace přitažení a bočního tlaku levou.",
-    "media": {
-      "animation": true
-    },
-    "call": "direction"
-  },
-  {
-    "id": "drag-combo-right",
-    "name": "Přitáhni a tlač pravou",
-    "level": 2,
-    "durationSec": 40,
-    "tempoBpm": 65,
-    "pattern": [
-      4,
-      1,
-      6,
-      1
-    ],
-    "foot": "right",
-    "info": "Kombinace přitažení a bočního tlaku pravou.",
-    "media": {
-      "animation": true
-    },
-    "call": "direction"
-  },
-  {
-    "id": "side-to-side",
-    "name": "Z boku na bok",
-    "level": 2,
-    "durationSec": 40,
-    "tempoBpm": 60,
-    "pattern": [
-      2,
-      1,
-      6,
-      1
-    ],
-    "foot": "both",
-    "info": "Míč jezdí přes střed na obě strany.",
-    "media": {
-      "animation": true
-    },
-    "call": "direction"
-  },
-  {
-    "id": "front-corners",
-    "name": "Přední rohy",
-    "level": 2,
-    "durationSec": 40,
-    "tempoBpm": 65,
-    "pattern": [
-      3,
-      4,
-      5,
-      4
-    ],
-    "foot": "both",
-    "info": "Míč objíždí přední rohy.",
-    "media": {
-      "animation": true
-    },
-    "call": "direction",
-    "travel": true
-  },
-  {
-    "id": "dummy-jump",
-    "name": "Klam: dvojité přeskoky",
-    "type": "jump",
-    "sides": [
-      "left",
-      "left",
-      "right",
-      "right"
-    ],
-    "level": 2,
-    "durationSec": 40,
-    "tempoBpm": 60,
-    "pattern": [],
-    "foot": "both",
-    "info": "Dvakrát na jednu stranu, pak dvakrát na druhou.",
-    "media": {
-      "animation": true
-    }
-  },
-  {
-    "id": "step-corners",
-    "name": "Skoky do rohů",
-    "type": "step",
-    "level": 2,
-    "durationSec": 40,
-    "tempoBpm": 65,
-    "pattern": [
-      2,
-      3,
-      5,
-      6
-    ],
-    "foot": "both",
-    "info": "Bez míče: skákej oběma nohama vedle sebe do čtyř rohů.",
-    "media": {
-      "animation": true
-    },
-    "feet": "pair"
-  },
-  {
-    "id": "circle",
-    "name": "Dokola kolem podložky",
-    "level": 3,
-    "durationSec": 45,
-    "tempoBpm": 60,
-    "pattern": [
-      2,
-      3,
-      4,
-      5,
-      6,
-      1
-    ],
-    "foot": "both",
-    "info": "Míč objede všechna čísla dokola.",
-    "media": {
-      "animation": true
-    },
-    "travel": true
-  },
-  {
-    "id": "w-drill",
-    "name": "Cvik W",
-    "level": 3,
-    "durationSec": 45,
-    "tempoBpm": 60,
-    "pattern": [
-      3,
-      2,
-      4,
-      6,
-      5
-    ],
-    "foot": "both",
-    "info": "Míč kreslí na podložce písmeno W.",
-    "media": {
-      "animation": true
-    },
-    "travel": true
-  },
-  {
-    "id": "zigzag",
-    "name": "Cik-cak",
-    "level": 3,
-    "durationSec": 45,
-    "tempoBpm": 70,
-    "pattern": [
-      2,
-      3,
-      1,
-      5,
-      6,
-      1
-    ],
-    "foot": "both",
-    "info": "Cik-cak mezi čísly, vždy přes střed.",
-    "media": {
-      "animation": true
-    },
-    "travel": true
-  },
-  {
-    "id": "cross",
-    "name": "Křížem",
-    "level": 3,
-    "durationSec": 45,
-    "tempoBpm": 70,
-    "pattern": [
-      2,
-      5,
-      3,
-      6
-    ],
-    "foot": "both",
-    "info": "Míč jede křížem přes podložku.",
-    "media": {
-      "animation": true
-    },
-    "travel": true
-  },
-  {
-    "id": "combo",
-    "name": "Kombinace",
-    "level": 3,
-    "durationSec": 45,
-    "tempoBpm": 75,
-    "pattern": [
-      1,
-      2,
-      1,
-      4,
-      1,
-      6,
-      1,
-      3,
-      1,
-      5
-    ],
-    "foot": "both",
-    "info": "Pokaždé zpět na střed a na další číslo.",
-    "media": {
-      "animation": true
-    }
-  },
-  {
-    "id": "stepover-pass-drag",
-    "name": "Překroč, přihraj, přitáhni",
-    "level": 3,
-    "durationSec": 45,
-    "tempoBpm": 65,
-    "pattern": [
-      1,
-      2,
-      1,
-      6,
-      1,
-      3,
-      1,
-      5
-    ],
-    "foot": "both",
-    "info": "Přes míč překroč nohou, přihraj a přitáhni.",
-    "media": {
-      "animation": true
-    }
-  },
-  {
-    "id": "stepover-dummy",
-    "name": "Kličky a klam",
-    "type": "jump",
-    "sides": [
-      "left",
-      "right",
-      "right",
-      "left"
-    ],
-    "level": 3,
-    "durationSec": 45,
-    "tempoBpm": 70,
-    "pattern": [],
-    "foot": "both",
-    "info": "Rychlejší přeskoky s měnící se stranou.",
-    "media": {
-      "animation": true
-    }
-  },
-  {
-    "id": "step-zigzag",
-    "name": "Cik-cak kroky",
-    "type": "step",
-    "level": 3,
-    "durationSec": 45,
-    "tempoBpm": 75,
-    "pattern": [
-      1,
-      2,
-      1,
-      3,
-      1,
-      4,
-      1,
-      5,
-      1,
-      6
-    ],
-    "foot": "both",
-    "info": "Twister: levá noha na levá čísla, pravá na pravá, vždy zpátky doprostřed.",
-    "media": {
-      "animation": true
-    },
-    "feet": "alternate"
-  },
-  {
-    "id": "jump-fast",
-    "name": "Rychlé přeskoky",
-    "type": "jump",
-    "sides": [
-      "left",
-      "right"
-    ],
-    "level": 3,
-    "durationSec": 40,
-    "tempoBpm": 85,
-    "pattern": [],
-    "foot": "both",
-    "info": "Rychlejší přeskoky míče.",
-    "media": {
-      "animation": true
-    }
-  },
-  {
-    "id": "fast-feet",
-    "name": "Rychlé nožičky",
-    "level": 4,
-    "durationSec": 30,
-    "tempoBpm": 140,
-    "pattern": [
-      1
-    ],
-    "foot": "both",
-    "info": "Co nejrychleji klepej podrážkou.",
-    "media": {
-      "animation": true
-    }
-  },
-  {
-    "id": "speed-corners",
-    "name": "Rychlé rohy",
-    "level": 4,
-    "durationSec": 45,
-    "tempoBpm": 95,
-    "pattern": [
-      2,
-      3,
-      4,
-      5,
-      6
-    ],
-    "foot": "both",
-    "info": "Míč objede čísla ve velkém tempu.",
-    "media": {
-      "animation": true
-    },
-    "travel": true
-  },
-  {
-    "id": "w-fast",
-    "name": "Cvik W rychle",
-    "level": 4,
-    "durationSec": 45,
-    "tempoBpm": 85,
-    "pattern": [
-      3,
-      2,
-      4,
-      6,
-      5
-    ],
-    "foot": "both",
-    "info": "Písmeno W ve vysokém tempu.",
-    "media": {
-      "animation": true
-    },
-    "travel": true
-  },
-  {
-    "id": "combo-pro",
-    "name": "Kombinace pro profíky",
-    "level": 4,
-    "durationSec": 50,
-    "tempoBpm": 90,
-    "pattern": [
-      1,
-      2,
-      3,
-      1,
-      4,
-      1,
-      5,
-      6,
-      1
-    ],
-    "foot": "both",
-    "info": "Dlouhá kombinace přes střed a rohy.",
-    "media": {
-      "animation": true
-    },
-    "travel": true
-  },
-  {
-    "id": "jump-master",
-    "name": "Přeskoky naplno",
-    "type": "jump",
-    "sides": [
-      "left",
-      "right"
-    ],
-    "level": 4,
-    "durationSec": 40,
-    "tempoBpm": 115,
-    "pattern": [],
-    "foot": "both",
-    "info": "Přeskoky v nejvyšším tempu.",
-    "media": {
-      "animation": true
-    }
-  },
-  {
-    "id": "step-master",
-    "name": "Kroky naplno",
-    "type": "step",
-    "level": 4,
-    "durationSec": 45,
-    "tempoBpm": 100,
-    "pattern": [
-      1,
-      2,
-      1,
-      3,
-      1,
-      4,
-      1,
-      5,
-      1,
-      6
-    ],
-    "foot": "both",
-    "info": "Twister ve vysokém tempu: levá noha vlevo, pravá vpravo.",
-    "media": {
-      "animation": true
-    },
-    "feet": "alternate"
+    "commonMistakes": [],
+    "progression": null,
+    "regression": null,
+    "safetyNotes": "Hůl vždy pod úrovní pasu. Kolem tebe volno, tablet mimo dosah čepele.",
+    "sources": [],
+    "confidence": "vlastní",
+    "kind": "stretch",
+    "matchLegal": true
   }
 ]

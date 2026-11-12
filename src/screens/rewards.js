@@ -1,79 +1,67 @@
-import { h, btn, u, icon } from '../ui/dom.js';
+// Vitrína odměn a „Moje cesta“ (hodnosti podle XP).
+import { h, btn, u, icon, header } from '../ui/dom.js';
 import { getProfile, listHistory } from '../domain/profiles.js';
-import { REWARDS, CATEGORIES, UNIT_LABEL, statsOf, isUnlocked, rewardProgress, nextXpReward } from '../domain/rewards.js';
-import { rewardIcon } from '../ui/RewardIcon.js';
-import { applyTheme, getTeam } from '../ui/theme.js';
+import { REWARDS, CATEGORIES, UNIT_LABEL, TIERS, statsOf, isUnlocked, rewardProgress } from '../domain/rewards.js';
+import { RANKS, xpForRank, rankInfo } from '../domain/xp.js';
 
-// Vitrína odměn po sekcích (za XP, tréninky, pravidelnost, dovednosti). Dlaždice jdou projet šipkami, obrazovka se posouvá.
-// Získané svítí, ostatní jsou ztlumené a ukazují, kolik chybí.
+/** Ikona odměny: kruh v barvě kovu s ikonou Lucide (dočasně, finální grafiku dodá designer). */
+export function rewardIcon(r, size, { locked = false } = {}) {
+  const t = TIERS[r.tier] || TIERS.bronze;
+  const el = h('div', '');
+  el.style.cssText = `width:${size};height:${size};flex:none;border-radius:50%;display:flex;align-items:center;justify-content:center;` +
+    `background:${locked ? 'var(--surface-2)' : t.color};color:${locked ? 'var(--muted)' : '#14161C'};font-size:calc(${size} * .5);${locked ? 'opacity:.5' : ''}`;
+  el.innerHTML = icon(r.kind);
+  return el;
+}
+
 export default function rewards({ profileId }, { go, back }) {
-  const el = h('section', 'screen');
-  el.style.cssText += `;justify-content:flex-start;overflow-y:auto;gap:${u(1.4)}`;
+  const el = h('section', 'screen top');
+  el.dataset.test = 'rewards';
   (async () => {
     const p = await getProfile(profileId);
     if (!p) return go('profiles', {}, { replace: true });
-    applyTheme(getTeam(p.team));
-    const st = statsOf(await listHistory(p.id), p.hand || 'right', p);
-    let onlyOwn = false; try { onlyOwn = localStorage.getItem('rewardsOwnOnly') === '1'; } catch (e) { /* bez úložiště */ }
+    const st = statsOf(await listHistory(p.id), p);
     const xp = p.xp || 0;
     const got = REWARDS.filter((r) => isUnlocked(r, xp, st)).length;
-
-    // záhlaví: nadpis vlevo, Zpět vpravo
-    const head = h('div', 'flex items-center justify-between w-full');
-    const ttlBox = h('div', 'flex flex-col gap-1');
-    const ttl = h('div', 'title', `Odměny <span class="accent">${got} z ${REWARDS.length}</span>`); ttl.style.fontSize = u(3.4);
-    ttlBox.append(h('div', 'eyebrow', `Vitrína · ${xp} XP · ${st.trainings} tréninků`), ttl);
-    const bk = btn(`${icon('back')}Zpět`, 'btn-primary', () => back(), { auto: true });
-    bk.style.minHeight = u(6); bk.style.fontSize = u(2.1);
-    const filt = btn('', 'btn', () => { onlyOwn = !onlyOwn; try { localStorage.setItem('rewardsOwnOnly', onlyOwn ? '1' : '0'); } catch (e) { /* bez úložiště */ } paintFilter(); drawAll(); });
-    filt.style.minHeight = u(6); filt.style.fontSize = u(1.9);
-    const paintFilter = () => { filt.innerHTML = onlyOwn ? `${icon('grid')}Zobrazit všechny` : `${icon('check')}Jen získané`; };
-    paintFilter();
-    const acts = h('div', 'flex'); acts.style.gap = u(1.4); acts.append(filt, bk);
-    head.append(ttlBox, acts);
-    el.append(head);
-
-    const nx = nextXpReward(xp);
-    if (nx) {
-      const box = h('div', 'flex items-center w-full'); box.style.gap = u(1.4);
-      const lab = h('div', 'muted', `Další za XP: ${nx.reward.name}`); lab.style.cssText = `font-size:${u(1.6)};white-space:nowrap`;
-      const bar = h('div', ''); bar.style.cssText = `flex:1;height:${u(1)};background:rgba(255,255,255,.1);border-radius:99px;overflow:hidden`;
-      bar.innerHTML = `<div style="width:${Math.round(nx.progress * 100)}%;height:100%;border-radius:99px;background:linear-gradient(90deg,var(--c-sun),var(--acc-soft));box-shadow:0 0 12px rgba(var(--acc-rgb),.5)"></div>`;
-      const rem = h('div', 'muted', `ještě ${nx.remaining} XP`); rem.style.cssText = `font-size:${u(1.6)};white-space:nowrap`;
-      box.append(lab, bar, rem); el.append(box);
-    }
-
-    const body = h('div', 'flex flex-col w-full'); body.style.gap = u(1.4); el.append(body);
-    const drawAll = () => {
-    body.replaceChildren();
+    el.append(header(`${xp} XP · ${st.trainings} tréninků`, `Odměny <span class="accent">${got} z ${REWARDS.length}</span>`, () => back()));
     for (const cat of CATEGORIES) {
-      const all = REWARDS.filter((r) => r.cat === cat.id);
-      const list = onlyOwn ? all.filter((r) => isUnlocked(r, xp, st)) : all;
-      if (!list.length) continue;
-      const done = all.filter((r) => isUnlocked(r, xp, st)).length;
-      const sec = h('div', 'flex flex-col w-full'); sec.style.gap = u(0.9);
-      const lab = h('div', 'eyebrow', `${cat.name} · ${done} z ${all.length}`);
-      const grid = h('div', '');
-      grid.style.cssText = `display:grid;grid-template-columns:repeat(8,minmax(0,1fr));gap:${u(0.9)}`;
+      const list = REWARDS.filter((r) => r.cat === cat.id);
+      const sec = h('div', 'w-full flex flex-col'); sec.style.gap = u(1);
+      sec.append(h('div', 'eyebrow', `${cat.name} · ${list.filter((r) => isUnlocked(r, xp, st)).length} z ${list.length}`));
+      const grid = h('div', 'tiles'); grid.style.gridTemplateColumns = `repeat(auto-fill, minmax(max(120px, ${u(15)}), 1fr))`;
       for (const r of list) {
         const on = isUnlocked(r, xp, st);
-        const tile = btn('', 'card', () => {});
-        tile.style.cssText += `;display:flex;flex-direction:column;align-items:center;text-align:center;gap:${u(0.4)};padding:${u(0.9)} ${u(0.5)} ${u(0.8)};min-width:0;cursor:default;` +
-          `border-radius:var(--r-btn);border:1px solid ${on ? 'rgba(var(--acc-rgb),.55)' : 'var(--line)'};background:${on ? 'linear-gradient(160deg,rgba(var(--acc-rgb),.16),rgba(255,255,255,.03))' : 'rgba(255,255,255,.025)'}`;
-        tile.append(rewardIcon(r, u(7), { locked: !on }));
-        const nm = h('div', '', r.name);
-        nm.style.cssText = `font-weight:800;font-size:${u(1.3)};line-height:1.15;letter-spacing:-0.02em;min-height:${u(3)};display:flex;align-items:center;color:${on ? '#fff' : 'var(--c-mute)'}`;
         const pr = rewardProgress(r, xp, st);
-        const sub = h('div', 'muted', on ? 'Získáno' : (UNIT_LABEL[r.unit] ? `${Math.min(pr.value, pr.need)} / ${pr.need} ${UNIT_LABEL[r.unit]}` : r.desc));
-        sub.style.cssText = `font-size:${u(1.1)};font-weight:600;line-height:1.2;${on ? 'color:var(--c-sun)' : ''}`;
-        tile.append(nm, sub); grid.append(tile);
+        const c = h('div', `card${on ? ' on' : ''}`); c.style.cssText += `;cursor:default;display:flex;flex-direction:column;align-items:center;gap:${u(0.6)}`;
+        c.append(rewardIcon(r, `max(44px, ${u(6)})`, { locked: !on }), h('div', '', `<b>${r.name}</b>`), h('div', 'muted', on ? 'Získáno' : `${Math.min(pr.value, pr.need)} / ${pr.need} ${UNIT_LABEL[r.unit] || ''}`));
+        grid.append(c);
       }
-      sec.append(lab, grid); body.append(sec);
+      sec.append(grid); el.append(sec);
     }
-    if (!body.children.length) body.append(h('div', 'muted', 'Zatím žádná odměna. Dokonči trénink!'));
-    };
-    drawAll();
-    bk.focus();
+  })();
+  return el;
+}
+
+export function levels({ profileId }, { go, back }) {
+  const el = h('section', 'screen top');
+  el.dataset.test = 'levels';
+  (async () => {
+    const p = await getProfile(profileId);
+    if (!p) return go('profiles', {}, { replace: true });
+    const rk = rankInfo(p.xp || 0);
+    el.append(header('Cesta mladého florbalisty', `${rk.name}`, () => back()));
+    const grid = h('div', 'tiles'); grid.style.gridTemplateColumns = `repeat(auto-fill, minmax(max(130px, ${u(17)}), 1fr))`;
+    RANKS.forEach((name, i) => {
+      const n = i + 1; const cur = n === rk.rank; const reached = n < rk.rank;
+      const c = h('div', `card${cur ? ' on' : ''}`); c.style.cssText += `;cursor:default;display:flex;flex-direction:column;align-items:center;gap:${u(0.5)};opacity:${n > rk.rank ? 0.5 : 1}`;
+      const badge = h('div', '', reached ? icon('check') : String(n));
+      badge.style.cssText = `width:max(44px, ${u(6)});height:max(44px, ${u(6)});border-radius:50%;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:max(20px, ${u(2.6)});` +
+        (cur ? 'background:var(--accent);color:var(--accent-ink)' : reached ? 'border:3px solid var(--accent);color:var(--accent)' : 'border:2px dashed var(--line)');
+      c.append(badge, h('div', '', `<b>${name}</b>`), h('div', 'muted', n === 1 ? 'start' : `${xpForRank(n)} XP`));
+      if (cur && !rk.maxed) { const bar = h('div', ''); bar.style.cssText = 'width:80%;height:8px;border-radius:99px;background:var(--surface-2);overflow:hidden'; bar.innerHTML = `<div style="width:${Math.round(rk.progress * 100)}%;height:100%;background:var(--accent)"></div>`; c.append(bar); }
+      grid.append(c);
+    });
+    el.append(grid);
   })();
   return el;
 }

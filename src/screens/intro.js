@@ -1,58 +1,27 @@
+// Úvodní obrazovka: krátká animace nápisu, klepnutím přeskočit (a zároveň odemknout zvuk).
 import { h, u } from '../ui/dom.js';
-import { sfx } from '../core/audio.js';
 
-// Úvodní animace při spuštění: zářící míč (hero_ball.webp) se zvětší do prostoru, nápis FOTBAL se poskládá po písmenech, pod ním se vykreslí žlutá čára.
-// Jde přeskočit (OK / klik). Po skončení přejde na výběr hráče.
 export default function intro(_p, { go }) {
   const el = h('section', 'screen');
-  el.style.gap = u(2);
+  el.dataset.test = 'intro';
   el.style.cursor = 'pointer';
-
-  const ballBox = h('div', '');
-  ballBox.style.cssText = `width:${u(30)};height:${u(23)};opacity:0;-webkit-mask-image:radial-gradient(closest-side,#000 78%,transparent 100%);mask-image:radial-gradient(closest-side,#000 78%,transparent 100%)`;
-  ballBox.innerHTML = '<img src="img/art/hero_ball.webp" alt="" draggable="false" style="width:100%;height:100%;object-fit:contain">';
-
-  const word = h('div', 'flex');
-  word.style.cssText = `font-weight:800;font-size:${u(10)};letter-spacing:-0.06em;line-height:1`;
-  const letters = [...'FOTBAL'].map((c) => { const s = h('span', '', c); s.style.cssText = 'display:inline-block;opacity:0'; word.append(s); return s; });
-  const dot = h('span', '', '.'); dot.style.cssText = 'display:inline-block;opacity:0;color:var(--c-sun)'; word.append(dot);
-
-  const line = h('div', '');
-  line.style.cssText = `height:${u(0.6)};width:${u(46)};border-radius:99px;background:linear-gradient(90deg,transparent,var(--c-sun),var(--acc-soft),transparent);transform:scaleX(0);box-shadow:0 0 ${u(2)} rgba(var(--acc-rgb),.6)`;
-  const sub = h('div', 'eyebrow', 'Tréninková podložka'); sub.style.opacity = 0;
-
-  el.append(ballBox, word, line, sub);
-
+  const logo = h('div', '');
+  logo.style.cssText = `width:max(120px, ${u(22)});height:max(120px, ${u(22)})`;
+  logo.innerHTML = `<svg viewBox="0 0 512 512" width="100%" height="100%" aria-hidden="true">
+    <path d="M150 70 L300 330" stroke="var(--accent-2)" stroke-width="30" stroke-linecap="round"/>
+    <path d="M300 330 C 318 368, 360 392, 420 384 L 428 418 C 350 432, 288 404, 266 352 Z" fill="var(--accent)"/>
+    <circle cx="250" cy="392" r="62" fill="var(--ball)"/></svg>`;
+  const word = h('div', 'title', 'Florbal <span class="accent">Trenér</span>');
+  word.style.fontSize = `max(40px, ${u(9)})`;
+  const sub = h('div', 'muted', 'Klepni a jdeme na to');
+  el.append(logo, word, sub);
   let done = false;
-  const finish = () => { if (done) return; done = true; go('profiles', {}, { replace: true }); };
-
-  // animace (Web Animations); bez podpory se rovnou přejde dál
-  const A = (node, keyframes, opts) => (node.animate ? node.animate(keyframes, { fill: 'forwards', ...opts }) : null);
-  const t0 = 150;
-  // míč se zvětší z lehce menšího a jemně se usadí
-  A(ballBox, [
-    { opacity: 0, transform: 'scale(.72) translateY(4vh)', offset: 0 },
-    { opacity: 1, transform: 'scale(1.05)', offset: 0.65 },
-    { opacity: 1, transform: 'scale(1)', offset: 1 },
-  ], { duration: 1200, delay: t0, easing: 'cubic-bezier(.2,.8,.2,1)' });
-  // písmena poskakují nahoru jedno po druhém
-  [...letters, dot].forEach((l, i) => {
-    A(l, [{ opacity: 0, transform: 'translateY(60%) scale(.8)' }, { opacity: 1, transform: 'translateY(-8%) scale(1.05)', offset: 0.65 }, { opacity: 1, transform: 'translateY(0) scale(1)' }],
-      { duration: 480, delay: 900 + i * 85, easing: 'cubic-bezier(.2,.8,.2,1)' });
-  });
-  A(line, [{ transform: 'scaleX(0)' }, { transform: 'scaleX(1)' }], { duration: 650, delay: 1500, easing: 'ease-out' });
-  A(sub, [{ opacity: 0, transform: 'translateY(8px)' }, { opacity: 1, transform: 'none' }], { duration: 500, delay: 1750 });
-  // odchod: krátké zhasnutí
-  const total = 2900;
-  const out = setTimeout(() => { A(el, [{ opacity: 1 }, { opacity: 0 }], { duration: 350 }); setTimeout(finish, 340); }, total);
-  sfx('intro');
-
-  // přeskočit klávesou nebo klikem
-  const skip = () => { clearTimeout(out); finish(); };
-  el.addEventListener('click', skip);
-  el.tabIndex = 0;
-  el.addEventListener('keydown', (e) => { if (e.key === 'Enter' || e.key === ' ' || e.key === 'Escape') { e.preventDefault(); skip(); } });
-  setTimeout(() => el.focus(), 0);
-  if (!el.animate) setTimeout(finish, 300);
+  const finish = () => { if (done) return; done = true; clearTimeout(t); go('profiles', {}, { replace: true }); };
+  if (logo.animate) {
+    logo.animate([{ transform: 'translateY(30px) rotate(-12deg)', opacity: 0 }, { transform: 'none', opacity: 1 }], { duration: 700, easing: 'cubic-bezier(.2,.8,.2,1)' });
+    word.animate([{ opacity: 0, transform: 'translateY(16px)' }, { opacity: 1, transform: 'none' }], { duration: 600, delay: 250, fill: 'backwards' });
+  }
+  const t = setTimeout(finish, 2200);
+  el.addEventListener('click', finish);
   return el;
 }

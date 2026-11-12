@@ -1,18 +1,14 @@
-// Ukázkový hráč pro vyzkoušení: odkaz ...?demo vytvoří hráče „Jakub“ s trochou postupu (XP, týden, karty).
-// Nic nemaže: pokud už v prohlížeči nějací hráči jsou, nedělá se nic.
-import { listProfiles, createProfile, saveProfile, addHistory } from '../domain/profiles.js';
-import { allCards } from '../domain/extras.js';
+// ?demo vytvoří smyšleného ukázkového hráče „Tonda Čepel“ s trochou postupu. Nic nemaže: když už hráči existují, nedělá nic.
+import { listProfiles, createProfile, addHistory } from '../domain/profiles.js';
 import { storage } from '../storage/index.js';
+
+export const DEMO_NAME = 'Tonda Čepel';
 
 export async function ensureDemoPlayer() {
   if ((await listProfiles()).length) return null;
-  const p = await createProfile({ name: 'Jakub', jersey: '24', team: 'cze' });
-  for (let i = 0; i < 3; i++) await addHistory(p.id, { durationSec: 360, xp: 60, drills: ['sole-taps', 'side-push-left', 'drag-back'], stars: 3 - (i % 2) });
+  const p = await createProfile({ name: DEMO_NAME, age: 8, grip: 'left', level: 2, jersey: '17', sessionLength: 10, space: 'medium', cones: 4 });
+  for (let i = 0; i < 3; i++) await addHistory(p.id, { durationSec: 480, xp: 70, drills: ['wu-quick-feet', 'fh-bh-front', 'fh-push-cones', 'bh-only-front', 'stretch-end'], stars: 3 - (i % 2) });
   const hist = await storage.list('history');
-  hist.forEach((h, i) => { h.date = Date.now() - (hist.length - 1 - i) * 2 * 86400000; storage.put('history', h); });
-  const fresh = await storage.get('profiles', p.id);
-  fresh.cards = Object.fromEntries(allCards().filter((_, i) => i % 4 === 0 || i < 4).map((c) => [c.id, 1]));
-  fresh.level = 2; fresh.matches = 2;
-  await saveProfile(fresh);
-  return fresh;
+  for (const [i, e] of hist.entries()) { e.date = Date.now() - (hist.length - 1 - i) * 2 * 86400000; await storage.put('history', e); }
+  return p;
 }

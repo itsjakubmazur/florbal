@@ -1,36 +1,31 @@
 {
-  "name": "fotbal-treninkova-podlozka",
-  "version": "0.0.1",
+  "name": "florbal-trener",
+  "version": "0.3.0",
   "private": true,
   "type": "module",
+  "description": "Florbal Trenér – domácí florbalový trénink s hlasovým trenérem (PWA pro iPad)",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
-    "preview": "vite preview",
-    "cap:sync": "vite build && cap sync android",
-    "android:debug": "npm run cap:sync && cd android && gradlew.bat assembleDebug",
-    "build:web": "vite build --config vite.config.web.js"
-  },
-  "devDependencies": {
-    "@capacitor/cli": "^6.2.3",
-    "autoprefixer": "^10.6.2",
-    "lucide-static": "^1.71.0",
-    "mpg123-decoder": "^1.0.3",
-    "node-edge-tts": "^1.2.12",
-    "pngjs": "^7.0.0",
-    "postcss": "^8.5.32",
-    "tailwindcss": "3.4",
-    "vite": "^5.4.21"
+    "preview": "vite preview --port 4173 --strictPort",
+    "test": "playwright test",
+    "check": "node scripts/check-content.mjs",
+    "icons": "node scripts/build-icons.mjs"
   },
   "dependencies": {
-    "@capacitor/android": "^6.2.3",
-    "@capacitor/app": "^6.0.3",
-    "@capacitor/core": "^6.2.3",
-    "@fontsource/baloo-2": "^5.3.0",
-    "@fontsource/inter": "^5.3.0",
-    "@fontsource/nunito": "^5.3.0"
+    "@fontsource/inter": "^5.3.0"
   },
-  "license": "MIT",
-  "description": "Fotbalová tréninková podložka pro děti (web, Android, Android TV)",
-  "author": "Jakub Uhlíř"
+  "devDependencies": {
+    "@playwright/test": "^1.56.0",
+    "autoprefixer": "^10.4.20",
+    "lucide-static": "^1.71.0",
+    "node-edge-tts": "^1.2.12",
+    "nosleep.js": "0.12.0",
+    "postcss": "^8.5.3",
+    "tailwindcss": "3.4",
+    "vite": "^5.4.21",
+    "vite-plugin-pwa": "^1.3.0",
+    "workbox-window": "^7.3.0"
+  },
+  "license": "MIT"
 }

@@ -32,6 +32,10 @@ input { user-select: text; -webkit-user-select: text; }
     animation: screen-in .35s ease-out backwards;
   }
   .screen.top { justify-content: flex-start; }
+  /* vertikální centrování, které při přetečení neuřízne horní okraj (místo justify-content: safe center) */
+  .screen:not(.top):not(.player) { justify-content: flex-start; }
+  .screen:not(.top):not(.player) > :first-child { margin-top: auto; }
+  .screen:not(.top):not(.player) > :last-child { margin-bottom: auto; }
   .screen > * { max-width: 100%; }
   .title { font-weight: 800; font-size: max(26px, calc(var(--u) * 4.4)); line-height: 1.05; letter-spacing: -0.035em; text-align: center; }
   .title .accent, .accent-text { color: var(--accent); }
@@ -107,7 +111,8 @@ button:active, .card:active { transform: scale(.97); }
 .player-overlay { position: absolute; inset: 0; z-index: 10; display: flex; flex-direction: column; align-items: center; justify-content: center;
   gap: calc(var(--u) * 3); background: color-mix(in srgb, var(--bg) 88%, transparent); cursor: default; }
 .countdown { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; pointer-events: none;
-  font-weight: 800; font-size: max(120px, 45vh); color: var(--accent); opacity: 0; }
+  font-weight: 800; font-size: min(max(120px, 45vh), 70vw); color: var(--accent); overflow: hidden; }
+.countdown > span { opacity: 0; display: inline-block; }
 @media (orientation: portrait) {
   .player-main { flex-direction: column; }
   .player-stage { flex: 1.4; }

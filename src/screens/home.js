@@ -10,7 +10,7 @@ import { weekOf, WEEK_GOAL, challengeOf, challengeDone, completeChallenge, CHALL
 export default function home({ profileId }, { go }) {
   const el = h('section', 'screen');
   el.dataset.test = 'home';
-  el.style.gap = u(2);
+  el.style.gap = u(1.6);
   (async () => {
     const p = await getProfile(profileId);
     if (!p) return go('profiles', {}, { replace: true });
@@ -41,8 +41,10 @@ export default function home({ profileId }, { go }) {
     const quiet = btn(`${icon(s.quiet ? 'mute' : 'volume')}${s.quiet ? 'Tichý trénink: zapnuto' : 'Tichý trénink: vypnuto'}`, `btn${s.quiet ? ' on' : ''}`, async () => {
       s.quiet = !s.quiet; await settings.save({ quiet: s.quiet }); sfx('tap'); go('home', { profileId }, { replace: true });
     }, { test: 'quiet' });
-    const startBox = h('div', 'flex flex-col items-center'); startBox.style.gap = u(1.2);
-    startBox.append(start, sub, quiet);
+    const startBox = h('div', 'flex flex-wrap items-center justify-center'); startBox.style.gap = u(2);
+    const quietBox = h('div', 'flex flex-col items-center'); quietBox.style.gap = u(0.6);
+    quietBox.append(quiet, sub);
+    startBox.append(start, quietBox);
 
     // týden + výzva dne
     const hist = await listHistory(p.id);
@@ -59,7 +61,7 @@ export default function home({ profileId }, { go }) {
       wk.append(c);
     });
     const ch = btn('', 'card', async () => { if (!challengeDone(p) && await completeChallenge(p)) { paintCh(); sfx('success'); sayGroup('praise'); } }, { test: 'challenge' });
-    ch.style.cssText += `;text-align:left;display:flex;flex-direction:column;gap:${u(0.5)};max-width:${u(44)}`;
+    ch.style.cssText += `;text-align:left;display:flex;flex-direction:column;gap:${u(0.5)};flex:1 1 ${u(30)};max-width:${u(46)}`;
     const paintCh = () => {
       const dn = challengeDone(p);
       ch.classList.toggle('on', dn);

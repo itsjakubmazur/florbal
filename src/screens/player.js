@@ -41,6 +41,7 @@ export default function player({ profile, workout, settings: s = {} }, { go, onB
   callBox.append(callBig, callWord, taskEl);
   main.append(stage, callBox);
   const cd = h('div', 'countdown');
+  const cdText = h('span'); cd.append(cdText);
   el.append(top, prog, main, cd);
 
   // ---- stav ----
@@ -200,8 +201,8 @@ export default function player({ profile, workout, settings: s = {} }, { go, onB
   }
 
   function flash(text) {
-    cd.textContent = text;
-    if (cd.animate) cd.animate([{ opacity: 0, transform: 'scale(.6)' }, { opacity: 1, transform: 'scale(1.03)', offset: 0.3 }, { opacity: 0, transform: 'scale(1.1)' }], { duration: Math.max(300, T(950)), easing: 'ease-out', fill: 'forwards' });
+    cdText.textContent = text;
+    if (cdText.animate) cdText.animate([{ opacity: 0, transform: 'scale(.6)' }, { opacity: 1, transform: 'scale(1.03)', offset: 0.3 }, { opacity: 0, transform: 'scale(1.1)' }], { duration: Math.max(300, T(950)), easing: 'ease-out', fill: 'forwards' });
   }
 
   let cdLast = 4;

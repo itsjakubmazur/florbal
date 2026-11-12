@@ -2,8 +2,8 @@ import './ui/styles.css';
 import { applyTheme } from './ui/tokens.js';
 import { register, go } from './core/router.js';
 import { installAudioUnlock, setVolume, setVoiceMode, preloadCommon } from './core/audio.js';
-import { initPwa } from './core/pwa.js';
-import { DEMO, NO_INTRO } from './core/env.js';
+import { initPwa, _simulateUpdate, isBusy } from './core/pwa.js';
+import { DEMO, NO_INTRO, FAST } from './core/env.js';
 import { settings, requestPersist } from './storage/index.js';
 import profiles, { newPlayer } from './screens/profiles.js';
 import home from './screens/home.js';
@@ -35,6 +35,7 @@ register('rewards', rewards);
 register('levels', levels);
 
 installAudioUnlock();
+if (FAST) window.__florbalTest = { simulateUpdate: _simulateUpdate, isBusy }; // jen pro Playwright testy (?fast=1)
 window.addEventListener('pointerdown', () => preloadCommon(), { once: true, capture: true });
 
 async function boot() {

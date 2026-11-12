@@ -14,6 +14,15 @@ import parent, { pinScreen, pinResetScreen, setPinScreen } from './screens/paren
 import { drillsScreen, stationsScreen } from './screens/library.js';
 import rewards, { levels } from './screens/rewards.js';
 import intro from './screens/intro.js';
+// M4: Souboje a frajeřinky, testy, karty, zápas
+import arena from './screens/arena.js';
+import { duelsScreen, duelSetupScreen, customChallengeScreen } from './screens/duels.js';
+import duelPlay from './screens/duelPlay.js';
+import duelStats from './screens/duelStats.js';
+import { tricksScreen, trickScreen } from './screens/tricks.js';
+import { skillTestsScreen, skillTestScreen } from './screens/skilltests.js';
+import cardsScreen from './screens/cards.js';
+import { matchScreen } from './screens/quick.js';
 
 // D-pad vrstva (src/core/focus.js) zůstává pro budoucí TV režim; ve v1 se initFocus() nevolá.
 applyTheme();
@@ -33,6 +42,18 @@ register('drills', drillsScreen);
 register('stations', stationsScreen);
 register('rewards', rewards);
 register('levels', levels);
+register('arena', arena);
+register('duels', duelsScreen);
+register('duelSetup', duelSetupScreen);
+register('customChallenge', customChallengeScreen);
+register('duelPlay', duelPlay);
+register('duelStats', duelStats);
+register('tricks', tricksScreen);
+register('trick', trickScreen);
+register('skilltests', skillTestsScreen);
+register('skilltest', skillTestScreen);
+register('cards', cardsScreen);
+register('match', matchScreen);
 
 installAudioUnlock();
 if (FAST) window.__florbalTest = { simulateUpdate: _simulateUpdate, isBusy }; // jen pro Playwright testy (?fast=1)

@@ -5,6 +5,7 @@ import { XP_PER_DRILL, XP_WORKOUT_BONUS, stars, rankInfo } from '../domain/xp.js
 import { addHistory, listHistory, getProfile } from '../domain/profiles.js';
 import { REWARDS, statsOf, isUnlocked, nextXpReward } from '../domain/rewards.js';
 import { rewardIcon } from './rewards.js';
+import { afterWorkout } from './afterWorkout.js';
 
 export default function result({ profileId, drillIds = [], total = 0, done = 0, aborted = false, durationSec = 0 }, { go }) {
   const el = h('section', 'screen');
@@ -57,6 +58,7 @@ export default function result({ profileId, drillIds = [], total = 0, done = 0, 
       }
     }
     if (st > 0) sayGroup(complete ? 'end' : 'aborted');
+    afterWorkout(el, p.id, { done }); // M4: „Jak se ti to líbilo?“ + nejvýš 1 nová karta
   })();
   return el;
 }

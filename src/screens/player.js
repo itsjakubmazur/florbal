@@ -106,6 +106,16 @@ export default function player({ profile, workout, settings: s = {} }, { go, onB
     if (callBig.animate && callBig.dataset.kind !== 'none') callBig.animate([{ transform: 'scale(.9)', opacity: 0.6 }, { transform: 'none', opacity: 1 }], { duration: 140, easing: 'cubic-bezier(0.22, 1, 0.36, 1)' });
   }
 
+  // úder → krok patternu (kroky s `beats` > 1 zabírají víc úderů)
+  const tlCache = new WeakMap();
+  function timeline(pt) {
+    if (tlCache.has(pt)) return tlCache.get(pt);
+    const tl = [];
+    pt.forEach((s, k) => { const n = Math.max(1, Math.round(s.beats || 1)); for (let b = 0; b < n; b++) tl.push({ k, first: b === 0 }); });
+    tlCache.set(pt, tl);
+    return tl;
+  }
+
   // ---- jeden úder cviku ----
   function onBeat(i, glideMs, demo = false) {
     const d = drill();
@@ -122,8 +132,14 @@ export default function player({ profile, workout, settings: s = {} }, { go, onB
       }
       next = null;
     } else {
-      step = pt[i % pt.length];
-      next = pt.length > 1 ? pt[(i + 1) % pt.length] : null;
+      if (d.freeform) { sv.hideNext(); sv.highlight([]); return; } // Volná jízda: jen tempo, žádná trasa
+      // krok může trvat víc úderů (`beats`, dlouhé přesuny): na jeho dalších úderech se jen pokračuje v pohybu
+      const tl = timeline(pt);
+      const slot = tl[i % tl.length];
+      if (!slot.first) return;
+      step = pt[slot.k];
+      next = pt.length > 1 ? pt[(slot.k + 1) % pt.length] : null;
+      glideMs = glideMs * (step.beats || 1);
     }
     sv.moveTo(step, glideMs);
     if (next) sv.showNext(next); else sv.hideNext();
@@ -164,7 +180,7 @@ export default function player({ profile, workout, settings: s = {} }, { go, onB
     const vm = getVoiceMode();
     const bpm = FAST ? Math.max(d.tempoBpm * tempoMul, 120) : d.tempoBpm * tempoMul;
     const glide = Math.min(1100, (60000 / bpm) * 0.6);
-    metro = createMetronome({ bpm, click: vm === 'off' ? false : vm === 'beeps' ? 'beep' : 'tick', accentEvery: pattern(d).length > 1 ? pattern(d).length : 0, onBeat: (i) => onBeat(i, glide) });
+    metro = createMetronome({ bpm, click: vm === 'off' ? false : vm === 'beeps' ? 'beep' : 'tick', accentEvery: !d.freeform && d.callMode !== 'náhodná reakce' && timeline(pattern(d)).length > 1 ? timeline(pattern(d)).length : 0, onBeat: (i) => onBeat(i, glide) });
     metro.start(fromBeat);
   }
   function stopMetro() { if (metro) { nextBeat = metro.stop(); metro = null; } }

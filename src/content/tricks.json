@@ -2,8 +2,8 @@
   {
     "setupId": "spot",
     "spaceNeeded": [
-      1.4,
-      2
+      2.4,
+      2.4
     ],
     "equipment": [
       "hůl",
@@ -136,8 +136,8 @@
   {
     "setupId": "spot",
     "spaceNeeded": [
-      1.4,
-      2
+      2.4,
+      2.4
     ],
     "equipment": [
       "hůl",
@@ -246,8 +246,8 @@
   {
     "setupId": "spot",
     "spaceNeeded": [
-      1.4,
-      2
+      2.4,
+      2.4
     ],
     "equipment": [
       "hůl",
@@ -371,7 +371,7 @@
   {
     "setupId": "line",
     "spaceNeeded": [
-      1.6,
+      2.4,
       4.4
     ],
     "equipment": [
@@ -461,7 +461,7 @@
       {
         "id": "chuze-4",
         "name": "Slalom číšníka",
-        "howTo": "Projdi s míčkem na čepeli slalom kolem obou kuželů.",
+        "howTo": "Projdi s míčkem na čepeli slalom kolem prvních dvou kuželů.",
         "criterion": "2 z 5 pokusů.",
         "voice": "Slalom s míčkem na čepeli. To je pro mistry!",
         "animation": [
@@ -502,8 +502,8 @@
   {
     "setupId": "spot",
     "spaceNeeded": [
-      1.4,
-      2
+      2.4,
+      2.4
     ],
     "equipment": [
       "hůl",
@@ -636,8 +636,8 @@
   {
     "setupId": "spot",
     "spaceNeeded": [
-      1.4,
-      2
+      2.4,
+      2.4
     ],
     "equipment": [
       "hůl",
@@ -827,7 +827,7 @@
   {
     "setupId": "line",
     "spaceNeeded": [
-      1.6,
+      2.4,
       4.4
     ],
     "equipment": [
@@ -979,8 +979,8 @@
   {
     "setupId": "spot",
     "spaceNeeded": [
-      1.4,
-      2
+      2.4,
+      2.4
     ],
     "equipment": [
       "hůl",
@@ -1091,8 +1091,8 @@
   {
     "setupId": "spot",
     "spaceNeeded": [
-      1.4,
-      2
+      3,
+      3
     ],
     "equipment": [
       "hůl",
@@ -1215,7 +1215,7 @@
   {
     "setupId": "line",
     "spaceNeeded": [
-      1.6,
+      2.4,
       4.4
     ],
     "equipment": [
@@ -1343,8 +1343,8 @@
   {
     "setupId": "spot",
     "spaceNeeded": [
-      1.4,
-      2
+      2.4,
+      2.4
     ],
     "equipment": [
       "hůl",
@@ -1461,8 +1461,8 @@
   {
     "setupId": "spot",
     "spaceNeeded": [
-      1.4,
-      2
+      2.4,
+      2.4
     ],
     "equipment": [
       "hůl",
@@ -1588,8 +1588,8 @@
   {
     "setupId": "spot",
     "spaceNeeded": [
-      1.4,
-      2
+      2.4,
+      2.4
     ],
     "equipment": [
       "hůl",
@@ -1737,8 +1737,8 @@
   {
     "setupId": "spot",
     "spaceNeeded": [
-      1.4,
-      2
+      2.4,
+      2.4
     ],
     "equipment": [
       "hůl",
@@ -1850,8 +1850,8 @@
   {
     "setupId": "spot",
     "spaceNeeded": [
-      1.4,
-      2
+      2.4,
+      2.4
     ],
     "equipment": [
       "hůl",
@@ -2026,8 +2026,8 @@
   {
     "setupId": "spot",
     "spaceNeeded": [
-      1.4,
-      2
+      2.4,
+      2.4
     ],
     "equipment": [
       "hůl",
@@ -2141,8 +2141,8 @@
   {
     "setupId": "spot",
     "spaceNeeded": [
-      1.4,
-      2
+      2.4,
+      2.4
     ],
     "equipment": [
       "hůl",
@@ -2273,8 +2273,8 @@
   {
     "setupId": "spot",
     "spaceNeeded": [
-      1.4,
-      2
+      2.4,
+      2.4
     ],
     "equipment": [
       "hůl",

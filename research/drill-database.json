@@ -8500,7 +8500,7 @@
     ],
     "loop": true,
     "callMode": "směr",
-    "tempoBpm": 70,
+    "tempoBpm": 60,
     "durationSec": 30,
     "reps": null,
     "spaceNeeded": [

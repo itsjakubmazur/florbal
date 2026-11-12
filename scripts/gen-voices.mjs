@@ -14,7 +14,7 @@ const phrases = read('src/content/phrases.json');
 const TEXT = { ...phrases.fixed };
 for (const [g, list] of Object.entries(phrases.groups)) list.forEach((t, i) => { TEXT[`${g}_${i + 1}`] = t; });
 for (const d of read('src/content/drills.json')) TEXT[`drill_${d.id}`] = d.voiceIntro;
-const swapLR = (t) => t.replace(/doleva|doprava|vlevo|vpravo/g, (w) => ({ doleva: 'doprava', doprava: 'doleva', vlevo: 'vpravo', vpravo: 'vlevo' }[w]));
+const swapLR = (t) => t.replace(/(doleva|doprava|vlevo|vpravo)/gi, (w) => { const m = { doleva: 'doprava', doprava: 'doleva', vlevo: 'vpravo', vpravo: 'vlevo' }[w.toLowerCase()]; return w[0] === w[0].toUpperCase() ? m[0].toUpperCase() + m.slice(1) : m; });
 for (const s of read('src/content/stations.json')) {
   s.setupSteps.forEach((st, i) => { TEXT[`${s.voiceSetup}_${i + 1}`] = st.text; });
   // zrcadlená verze pro leváky (asymetrická stanoviště, mirror: true) – stejná logika jako stationFor() v src/domain/stations.js

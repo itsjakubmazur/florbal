@@ -332,14 +332,14 @@ Sloupce: Úr. = úroveň 1–5, Strana = strana čepele, Zápas = povolené v z�
 | toe-drag-fh | Tah špičkou forhendem | ball | 3 | kličky | forhend | spot | směr | 45 | 30 | tichý | H18, T15 |
 | toe-drag-bh | Tah špičkou bekhendem | ball | 3 | kličky | bekhend | spot | směr | 45 | 30 | tichý | H19, T15 |
 | toe-drag-double | Dvojitý tah | ball | 4 | kličky | obě | spot | směr | 55 | 30 | tichý | H20 |
-| toilet-roll | Rulička na holi | ball | 2 | tahy | obě | spot | směr | 70 | 30 | tichý | H39 |
+| toilet-roll | Rulička na holi | ball | 2 | tahy | obě | spot | směr | 60 | 30 | tichý | H39 |
 | one-hand-top | Jen horní ruka | ball | 3 | jednoruč | obě | spot | směr | 55 | 20 | tichý | H38, FI-17, SKE |
 | one-hand-long-bh | Dlouhý bekhend | ball | 3 | jednoruč | obě | spot | směr | 45 | 30 | tichý | CZ-01, SO-08 |
 | heads-up-spot | Červená, nebo modrá? | ball | 1 | reakce | obě | spot | barva | 35 | 30 | tichý | H41, CZ-31, CH-15, CR-39 |
 | spot-color-call | Barvy rychle | ball | 2 | reakce | obě | spot | barva | 50 | 30 | tichý | H43, CH-15, CZ-31, CR-39 |
 | eyes-closed | Bez očí | ball | 3 | tahy | obě | spot | směr | 45 | 20 | tichý | CH-19, H44 |
 | one-leg-dribble | Čáp s míčkem | ball | 3 | práce nohou | obě | spot | směr | 55 | 20 | tichý | H31 |
-| happy-feet | Ruce a nohy | ball | 2 | práce nohou | obě | spot | směr | 70 | 30 | tichý | H29 |
+| happy-feet | Ruce a nohy | ball | 2 | práce nohou | obě | spot | směr | 60 | 30 | tichý | H29 |
 | low-stance | Nízko jako žába | ball | 2 | tahy | obě | spot | směr | 60 | 30 | tichý | CZ-06 |
 | stick-foot-stick | Hůl, bota, hůl | ball | 3 | práce nohou | obě | spot | směr | 45 | 30 | střední | H28 |
 | fh-push-cones | Ke kuželům forhendem | ball | 1 | vedení míčku | forhend | triangle | zóna | 30 | 40 | střední | SO-06, FI-07, MF-02 |

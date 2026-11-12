@@ -8,7 +8,7 @@ const TABLET = (where) => `Tablet postav ${where}, výš než čepel, na židli 
 
 export const stations = [
   {
-    id: 'spot', name: 'Malý prostor', short: '1 × 2 m, 2 značky', size: [1.4, 2], space: 'small', minCones: 2, mirror: true,
+    id: 'spot', name: 'Malý prostor', short: '1 × 2 m + místo pro tablet asi 2 m před tebou', size: [1.4, 2], space: 'small', minCones: 2, mirror: true,
     home: { x: 0, y: 0 },
     cones: [ { n: 1, x: -0.5, y: 0.7, color: 'red' }, { n: 2, x: 0.5, y: 0.7, color: 'blue' } ],
     voiceSetup: 'setup_spot',

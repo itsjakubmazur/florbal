@@ -73,6 +73,10 @@ Každý krok = jeden úder metronomu. Pole:
 - U `around:N` určuje `blade`, kterou stranou čepele se míček vede kolem kuželu (= na které straně těla míček je).
 - `freeform: true` na úrovni cviku: kužely bez pevné trasy (Volná jízda), přehrávač ukazuje jen tempo.
 
+### Strany a zrcadlení (doplněk podle oponentury)
+- `around:N` + `dir`: pohled shora, `ccw` = míjení kuželu tak, že je kužel po levé ruce hráče jedoucího dopředu (míček jde kolem kuželu proti směru hodin), `cw` opačně. Pro leváka (`grip: left`, stanoviště `mirror: true`) přehrávač prohazuje `cw ↔ ccw` (`dirOf` v `StationView`).
+- `swapLR` (src/domain/stations.js) prohazuje v návodech stanovišť slova doleva/doprava/vlevo/vpravo pro leváka. Texty cviků, triků a výzev tato slova obsahovat nesmí (hlídá `scripts/content/check-refs.mjs`) – mluví o forhendové/bekhendové straně, číslech a barvách kuželů.
+
 Přehrávač hlásí podle `callMode`: `zóna` → „jedna“, „tři“…; `barva` → „červená“…; `směr` → „forhend“/„bekhend“ (nebo „vlevo“/„vpravo“); `náhodná reakce` → pattern se ignoruje, cíl se losuje z kuželů stanoviště, nikdy dvakrát stejný.
 
 ## 4. Výzvy, triky, testy

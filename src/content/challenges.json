@@ -124,9 +124,9 @@
     "format": "pokusy",
     "attempts": 10,
     "scoring": "trefy",
-    "rules": "Táta stojí bokem dva metry od tebe a spodem nadhodí míček do výšky mezi koleny a pasem. Ty ho trefíš do branky bez brankáře dřív, než spadne.",
+    "rules": "Táta stojí bokem dva metry od tebe a spodem nadhodí míček do výšky mezi koleny a půlkou stehen. Ty ho trefíš do branky bez brankáře dřív, než spadne.",
     "voiceIntro": "Volej ze vzduchu! Míček nad koleny je jen domácí frajeřinka, v zápase by to byl faul.",
-    "safety": "Nadhazovač stojí z boku, ne před holí, aspoň 2 m daleko. Míček nejvýš do pasu, hůl pod pasem. Branka bez brankáře. Nasaď si florbalové brýle.",
+    "safety": "Nadhazovač stojí z boku, ne před holí, aspoň 2 m daleko. Nadhoz i zásah pod pasem, hůl pod pasem. Branka bez brankáře. Nasaď si florbalové brýle.",
     "homeOnlyLine": "Míček nad koleny je jen domácí frajeřinka, v zápase by to byl faul.",
     "equipment": [
       "branka nebo krabice",
@@ -797,7 +797,7 @@
     "players": "2",
     "noise": "střední",
     "handicap": [
-      "Táta smí sahat jen jednou rukou"
+      "Táta smí přiklápět jen každé druhé pípnutí"
     ],
     "id": "udrz-micek",
     "name": "Udrž si míček",
@@ -805,13 +805,15 @@
     "format": "série",
     "scoring": "čas",
     "attempts": 4,
-    "rules": "Ve čtverci aspoň 2,5 × 2,5 m vedeš míček. Táta je bez hole a klečí na podložce. Míček smí jen přikrýt dlaní na zemi. Kolo trvá 20 s, pak spočítejte, kolikrát míček přikryl.",
-    "voiceIntro": "Udrž si míček! Táta je bez hole a chce míček přikrýt dlaní. Schovej ho tělem a hůl drž u země.",
-    "safety": "Táta je bez hole. Hůl dítěte jen po zemi, nikdy k tátově hlavě. Když je táta blíž než na délku hole, Trenér řekne STOP. Rohy nábytku pryč, doporučené florbalové brýle.",
+    "rules": "Ve čtverci aspoň 2,5 × 2,5 m vedeš míček. Táta je bez hole, klečí na podložce a má velký plastový kelímek nebo kyblík. Ten drží na natažené ruce a snaží se jím míček přiklopit, hlavu má nahoře. Když táta přiklápí, ty dáš hůl stop a od míčku. Kolo trvá 20 s, pak spočítejte, kolikrát míček přiklopil. Kdo řekne STOP, kolo se hned zastaví.",
+    "voiceIntro": "Udrž si míček! Táta ho chce přiklopit kelímkem. Schovej ho tělem, a když táta přiklápí, hůl stop.",
+    "safety": "Táta je bez hole a nosí florbalové brýle, to je povinné. Kelímek drží na natažené ruce, hlavu nahoře. Hůl dítěte jen po zemi, nikdy k tátově ruce nebo hlavě. Kdo řekne STOP, kolo se zastaví. Rohy nábytku pryč.",
     "equipment": [
       "míček",
       "4 kužely",
-      "podložka pod kolena"
+      "velký plastový kelímek nebo kyblík",
+      "podložka pod kolena",
+      "florbalové brýle"
     ],
     "origin": [
       "H47",

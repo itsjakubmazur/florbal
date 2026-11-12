@@ -69,6 +69,9 @@ Každý krok = jeden úder metronomu. Pole:
 - `hand` (volitelné): `both | top | bottom` – jednoruč.
 - `say` (volitelné): přepíše hlášku kroku (klíč fráze).
 - `air` (volitelné, jen triky): míček je ve vzduchu (animace výskoku).
+- `beats` (volitelné, výchozí 1): kolik úderů metronomu krok trvá (dlouhé přesuny mezi kužely; generátor počítá z geometrie, 0,8 m/s s míčkem).
+- U `around:N` určuje `blade`, kterou stranou čepele se míček vede kolem kuželu (= na které straně těla míček je).
+- `freeform: true` na úrovni cviku: kužely bez pevné trasy (Volná jízda), přehrávač ukazuje jen tempo.
 
 Přehrávač hlásí podle `callMode`: `zóna` → „jedna“, „tři“…; `barva` → „červená“…; `směr` → „forhend“/„bekhend“ (nebo „vlevo“/„vpravo“); `náhodná reakce` → pattern se ignoruje, cíl se losuje z kuželů stanoviště, nikdy dvakrát stejný.
 

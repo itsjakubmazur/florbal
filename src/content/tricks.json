@@ -1,5 +1,14 @@
 [
   {
+    "setupId": "spot",
+    "spaceNeeded": [
+      1.4,
+      2
+    ],
+    "equipment": [
+      "hůl",
+      "míček"
+    ],
     "id": "kolotoc",
     "name": "Kolotoč",
     "card": "Kolotočář",
@@ -7,7 +16,7 @@
     "requires": [],
     "matchLegal": true,
     "matchNote": "V zápase povolené, míček je na zemi.",
-    "safety": "Hůl drž pod pasem. Kolem tebe dva metry volno, nikdo v dosahu hole. Stůj čelem ke zdi nebo k pohovce, ne k oknu ani k televizi.",
+    "safety": "Hůl drž pod pasem. Kolem tebe volno na délku hole a ještě kousek, nikdo v dosahu. Stůj čelem ke zdi nebo k pohovce, ne k oknu ani k televizi.",
     "origin": [
       "T01"
     ],
@@ -17,14 +26,14 @@
         "name": "Tah špičkou",
         "howTo": "Míček je u špičky čepele. Táhni ho po zemi tam a zpátky před sebou.",
         "criterion": "10 tahů tam a zpět, míček neopustí čepel.",
-        "voice": "Míček jezdí jen u špičky čepele. Tam a zpátky, deset krát!",
+        "voice": "Míček jezdí jen u špičky čepele. Tam a zpátky, desetkrát!",
         "animation": [
           {
             "at": "fh",
             "blade": "fh"
           },
           {
-            "at": "bh",
+            "at": "front",
             "blade": "fh"
           }
         ]
@@ -105,7 +114,6 @@
         ]
       }
     ],
-    "setupId": "spot",
     "sources": [
       {
         "url": "https://www.youtube.com/watch?v=ZCEezWMOdA4",
@@ -126,6 +134,15 @@
     "confidence": "odvozené"
   },
   {
+    "setupId": "spot",
+    "spaceNeeded": [
+      1.4,
+      2
+    ],
+    "equipment": [
+      "hůl",
+      "míček"
+    ],
     "id": "balanc",
     "name": "Míček na čepeli",
     "card": "Kouzelník čepele",
@@ -133,7 +150,7 @@
     "requires": [],
     "matchLegal": true,
     "matchNote": "V zápase to jde, ale jen když míček zůstane pod koleny.",
-    "safety": "Hůl drž pod pasem. Kolem tebe dva metry volno, nikdo v dosahu hole. Stůj čelem ke zdi nebo k pohovce, ne k oknu ani k televizi.",
+    "safety": "Hůl drž pod pasem. Kolem tebe volno na délku hole a ještě kousek, nikdo v dosahu. Stůj čelem ke zdi nebo k pohovce, ne k oknu ani k televizi.",
     "origin": [
       "T03",
       "CH-03",
@@ -167,11 +184,6 @@
             "air": true
           },
           {
-            "at": "back",
-            "blade": "fh",
-            "air": true
-          },
-          {
             "at": "front",
             "blade": "fh",
             "air": true
@@ -181,7 +193,7 @@
       {
         "id": "balanc-3",
         "name": "Do stran",
-        "howTo": "Míček na čepeli posouvej pomalu doleva a doprava.",
+        "howTo": "Míček na čepeli posouvej pomalu ze strany na stranu.",
         "criterion": "10 s bez pádu míčku.",
         "voice": "Teď posouvej míček do stran. Pomalu a měkce.",
         "animation": [
@@ -212,7 +224,6 @@
         ]
       }
     ],
-    "setupId": "spot",
     "sources": [
       {
         "url": "https://www.youtube.com/watch?v=UPtyRyLBawo",
@@ -233,6 +244,15 @@
     "confidence": "odvozené"
   },
   {
+    "setupId": "spot",
+    "spaceNeeded": [
+      1.4,
+      2
+    ],
+    "equipment": [
+      "hůl",
+      "míček"
+    ],
     "id": "nabrani",
     "name": "Nabrání na čepel",
     "card": "Bagr",
@@ -242,7 +262,7 @@
     ],
     "matchLegal": true,
     "matchNote": "V zápase to jde, ale jen když míček zůstane pod koleny.",
-    "safety": "Hůl drž pod pasem. Kolem tebe dva metry volno, nikdo v dosahu hole. Stůj čelem ke zdi nebo k pohovce, ne k oknu ani k televizi. Míček nikdy nad pas. Nenaklánej se nad čepel, ať ti míček nevyletí do obličeje.",
+    "safety": "Hůl drž pod pasem. Kolem tebe volno na délku hole a ještě kousek, nikdo v dosahu. Stůj čelem ke zdi nebo k pohovce, ne k oknu ani k televizi. Míček nikdy nad pas. Nenaklánej se nad čepel. Když míček letí vzduchem, nasaď si florbalové brýle.",
     "origin": [
       "T02",
       "CZ-10"
@@ -329,7 +349,6 @@
         ]
       }
     ],
-    "setupId": "spot",
     "sources": [
       {
         "url": "https://www.youtube.com/watch?v=iGx8arbYMhg",
@@ -350,6 +369,16 @@
     "confidence": "odvozené"
   },
   {
+    "setupId": "line",
+    "spaceNeeded": [
+      1.6,
+      4.4
+    ],
+    "equipment": [
+      "hůl",
+      "míček",
+      "2 kužely"
+    ],
     "id": "chuze-cepel",
     "name": "Číšník",
     "card": "Číšník",
@@ -359,7 +388,7 @@
     ],
     "matchLegal": true,
     "matchNote": "V zápase to jde, ale jen když míček zůstane pod koleny.",
-    "safety": "Hůl drž pod pasem. Kolem tebe dva metry volno, nikdo v dosahu hole. Stůj čelem ke zdi nebo k pohovce, ne k oknu ani k televizi.",
+    "safety": "Hůl drž pod pasem. Kolem tebe volno na délku hole a ještě kousek, nikdo v dosahu. Stůj čelem ke zdi nebo k pohovce, ne k oknu ani k televizi.",
     "origin": [
       "T07",
       "FI-11",
@@ -392,8 +421,8 @@
       },
       {
         "id": "chuze-2",
-        "name": "Přes pokoj",
-        "howTo": "Dojdi s míčkem na čepeli až ke kuželu.",
+        "name": "Ke druhému kuželu",
+        "howTo": "Dojdi s míčkem na čepeli až k modrému kuželu.",
         "criterion": "2 ze 3 pokusů bez pádu.",
         "voice": "Dojdi s míčkem až ke kuželu. Čepel nízko!",
         "animation": [
@@ -451,7 +480,6 @@
         ]
       }
     ],
-    "setupId": "spot",
     "sources": [
       {
         "url": "https://www.youtube.com/watch?v=UPtyRyLBawo",
@@ -472,6 +500,15 @@
     "confidence": "odvozené"
   },
   {
+    "setupId": "spot",
+    "spaceNeeded": [
+      1.4,
+      2
+    ],
+    "equipment": [
+      "hůl",
+      "míček"
+    ],
     "id": "zmrzlina",
     "name": "Točená zmrzlina",
     "card": "Zmrzlinář",
@@ -482,7 +519,7 @@
     ],
     "matchLegal": true,
     "matchNote": "V zápase to jde, ale jen když míček zůstane pod koleny.",
-    "safety": "Hůl drž pod pasem. Kolem tebe dva metry volno, nikdo v dosahu hole. Stůj čelem ke zdi nebo k pohovce, ne k oknu ani k televizi.",
+    "safety": "Hůl drž pod pasem. Kolem tebe volno na délku hole a ještě kousek, nikdo v dosahu. Stůj čelem ke zdi nebo k pohovce, ne k oknu ani k televizi.",
     "origin": [
       "T08"
     ],
@@ -526,8 +563,8 @@
       {
         "id": "zmrzlina-3",
         "name": "Celá zmrzlina",
-        "howTo": "Protoč čepel s míčkem nahoru a zpátky, jako když točíš zmrzlinu.",
-        "criterion": "3× v řadě.",
+        "howTo": "Protoč čepel s míčkem o půl otáčky a zpátky, jako když točíš zmrzlinu.",
+        "criterion": "Čepel se otočí o půl otáčky a zpět a míček nespadne, 3× v řadě.",
         "voice": "Teď celá točená zmrzlina! Obloukem, žádné cuknutí.",
         "animation": [
           {
@@ -582,7 +619,6 @@
         ]
       }
     ],
-    "setupId": "spot",
     "sources": [
       {
         "url": "https://www.youtube.com/watch?v=gvFCTOKb7JA",
@@ -598,6 +634,15 @@
     "confidence": "odvozené"
   },
   {
+    "setupId": "spot",
+    "spaceNeeded": [
+      1.4,
+      2
+    ],
+    "equipment": [
+      "hůl",
+      "míček"
+    ],
     "id": "zorro",
     "name": "Zorro",
     "card": "Mistr Zorra",
@@ -608,7 +653,7 @@
     ],
     "matchLegal": true,
     "matchNote": "V zápase povolené, jen když je čepel s míčkem pod koleny. Na trestném střílení smí míček ve vzduchu změnit směr jen jednou.",
-    "safety": "Hůl drž pod pasem. Kolem tebe dva metry volno, nikdo v dosahu hole. Stůj čelem ke zdi nebo k pohovce, ne k oknu ani k televizi. Míček nikdy nad pas. Nenaklánej se nad čepel, ať ti míček nevyletí do obličeje. Nikdo nestojí na straně, kam čepel kreslí oblouk.",
+    "safety": "Hůl drž pod pasem. Kolem tebe volno na délku hole a ještě kousek, nikdo v dosahu. Stůj čelem ke zdi nebo k pohovce, ne k oknu ani k televizi. Míček nikdy nad pas. Nenaklánej se nad čepel. Když míček letí vzduchem, nasaď si florbalové brýle. Nikdo nestojí na straně, kam čepel kreslí oblouk.",
     "origin": [
       "T09"
     ],
@@ -720,7 +765,7 @@
         "name": "Rychlé Zorro",
         "howTo": "Zorro rychle a bez zastavení uprostřed.",
         "criterion": "5 výměn strany za 5 s.",
-        "voice": "Teď švihni! Pět výměn za pět vteřin. Čepel pod koleny!",
+        "voice": "Teď rychleji, ale pořád nízko! Pět výměn za pět vteřin.",
         "animation": [
           {
             "at": "fh",
@@ -750,7 +795,6 @@
         ]
       }
     ],
-    "setupId": "spot",
     "sources": [
       {
         "url": "https://www.youtube.com/watch?v=UPtyRyLBawo",
@@ -781,6 +825,16 @@
     "confidence": "odvozené"
   },
   {
+    "setupId": "line",
+    "spaceNeeded": [
+      1.6,
+      4.4
+    ],
+    "equipment": [
+      "hůl",
+      "10 míčků",
+      "krabice"
+    ],
     "id": "zorro-strelec",
     "name": "Zorro střelec",
     "card": "Zorro střelec",
@@ -790,7 +844,7 @@
     ],
     "matchLegal": true,
     "matchNote": "V zápase to jde, ale jen když míček zůstane pod koleny.",
-    "safety": "Hůl drž pod pasem. Kolem tebe dva metry volno, nikdo v dosahu hole. Stůj čelem ke zdi nebo k pohovce, ne k oknu ani k televizi. Míček nikdy nad pas. Nenaklánej se nad čepel, ať ti míček nevyletí do obličeje. Střílej jen do krabice u zdi, nikdy na lidi.",
+    "safety": "Hůl drž pod pasem. Kolem tebe volno na délku hole a ještě kousek, nikdo v dosahu. Stůj čelem ke zdi nebo k pohovce, ne k oknu ani k televizi. Míček nikdy nad pas. Nenaklánej se nad čepel. Když míček letí vzduchem, nasaď si florbalové brýle. Střílej jen do krabice u zdi, nikdy na lidi.",
     "origin": [
       "T10",
       "C08",
@@ -898,7 +952,6 @@
         ]
       }
     ],
-    "setupId": "spot",
     "sources": [
       {
         "url": "https://www.youtube.com/watch?v=gvFCTOKb7JA",
@@ -924,6 +977,15 @@
     "confidence": "odvozené"
   },
   {
+    "setupId": "spot",
+    "spaceNeeded": [
+      1.4,
+      2
+    ],
+    "equipment": [
+      "hůl",
+      "míček"
+    ],
     "id": "zorro-bh",
     "name": "Zorro z bekhendu",
     "card": "Zorro zrcadlo",
@@ -933,7 +995,7 @@
     ],
     "matchLegal": true,
     "matchNote": "V zápase to jde, ale jen když míček zůstane pod koleny.",
-    "safety": "Hůl drž pod pasem. Kolem tebe dva metry volno, nikdo v dosahu hole. Stůj čelem ke zdi nebo k pohovce, ne k oknu ani k televizi. Míček nikdy nad pas. Nenaklánej se nad čepel, ať ti míček nevyletí do obličeje.",
+    "safety": "Hůl drž pod pasem. Kolem tebe volno na délku hole a ještě kousek, nikdo v dosahu. Stůj čelem ke zdi nebo k pohovce, ne k oknu ani k televizi. Míček nikdy nad pas. Nenaklánej se nad čepel. Když míček letí vzduchem, nasaď si florbalové brýle.",
     "origin": [
       "T11"
     ],
@@ -1012,7 +1074,6 @@
         ]
       }
     ],
-    "setupId": "spot",
     "sources": [
       {
         "url": "https://www.youtube.com/watch?v=6ZRkkhVpz48",
@@ -1028,6 +1089,15 @@
     "confidence": "odvozené"
   },
   {
+    "setupId": "spot",
+    "spaceNeeded": [
+      1.4,
+      2
+    ],
+    "equipment": [
+      "hůl",
+      "míček"
+    ],
     "id": "zorro-jednoruc",
     "name": "Zorro jednou rukou",
     "card": "Zorro jedné ruky",
@@ -1037,7 +1107,7 @@
     ],
     "matchLegal": true,
     "matchNote": "V zápase to jde, ale jen když míček zůstane pod koleny.",
-    "safety": "Hůl drž pod pasem. Kolem tebe dva metry volno, nikdo v dosahu hole. Stůj čelem ke zdi nebo k pohovce, ne k oknu ani k televizi. Míček nikdy nad pas. Nenaklánej se nad čepel, ať ti míček nevyletí do obličeje. Jednou rukou potřebuješ kolem sebe aspoň tři metry volna.",
+    "safety": "Hůl drž pod pasem. Kolem tebe volno na délku hole a ještě kousek, nikdo v dosahu. Stůj čelem ke zdi nebo k pohovce, ne k oknu ani k televizi. Míček nikdy nad pas. Nenaklánej se nad čepel. Když míček letí vzduchem, nasaď si florbalové brýle. Jednou rukou potřebuješ kolem sebe aspoň tři metry volna.",
     "origin": [
       "T12"
     ],
@@ -1133,7 +1203,6 @@
         ]
       }
     ],
-    "setupId": "spot",
     "sources": [
       {
         "url": "https://www.youtube.com/watch?v=gvFCTOKb7JA",
@@ -1144,6 +1213,16 @@
     "confidence": "odvozené"
   },
   {
+    "setupId": "line",
+    "spaceNeeded": [
+      1.6,
+      4.4
+    ],
+    "equipment": [
+      "hůl",
+      "míček",
+      "branka nebo krabice"
+    ],
     "id": "lacrosse",
     "name": "Lacrosse zpoza branky",
     "card": "Lacrosse legenda",
@@ -1153,7 +1232,7 @@
     ],
     "matchLegal": true,
     "matchNote": "V zápase povolené jen nízko pod koleny. Vysoko do horního rohu je to faul.",
-    "safety": "Hůl drž pod pasem. Kolem tebe dva metry volno, nikdo v dosahu hole. Stůj čelem ke zdi nebo k pohovce, ne k oknu ani k televizi. Míček nikdy nad pas. Nenaklánej se nad čepel, ať ti míček nevyletí do obličeje. Táta jako brankář klečí mimo oblouk čepele a chrání si obličej.",
+    "safety": "Hůl drž pod pasem. Kolem tebe volno na délku hole a ještě kousek, nikdo v dosahu. Stůj čelem ke zdi nebo k pohovce, ne k oknu ani k televizi. Míček nikdy nad pas. Nenaklánej se nad čepel. Když míček letí vzduchem, nasaď si florbalové brýle. Branka bez brankáře, nikdo za brankou.",
     "origin": [
       "T13",
       "C19"
@@ -1242,7 +1321,6 @@
         ]
       }
     ],
-    "setupId": "spot",
     "sources": [
       {
         "url": "https://www.youtube.com/watch?v=JIeMV8U03WY",
@@ -1263,6 +1341,15 @@
     "confidence": "odvozené"
   },
   {
+    "setupId": "spot",
+    "spaceNeeded": [
+      1.4,
+      2
+    ],
+    "equipment": [
+      "hůl",
+      "míček"
+    ],
     "id": "bh-klicka",
     "name": "Bekhendová klička",
     "card": "Bekhendový kouzelník",
@@ -1270,7 +1357,7 @@
     "requires": [],
     "matchLegal": true,
     "matchNote": "V zápase povolené.",
-    "safety": "Hůl drž pod pasem. Kolem tebe dva metry volno, nikdo v dosahu hole. Stůj čelem ke zdi nebo k pohovce, ne k oknu ani k televizi.",
+    "safety": "Hůl drž pod pasem. Kolem tebe volno na délku hole a ještě kousek, nikdo v dosahu. Stůj čelem ke zdi nebo k pohovce, ne k oknu ani k televizi.",
     "origin": [
       "T14"
     ],
@@ -1297,7 +1384,7 @@
         "name": "Široký tah",
         "howTo": "Přetáhni míček široko, až na šířku ramen.",
         "criterion": "10× v řadě.",
-        "voice": "Teď široko, až za rameno.",
+        "voice": "Teď široko, na šířku ramen.",
         "animation": [
           {
             "at": "fh",
@@ -1352,7 +1439,6 @@
         ]
       }
     ],
-    "setupId": "spot",
     "sources": [
       {
         "url": "https://www.youtube.com/watch?v=O0MVVCA9H28",
@@ -1373,6 +1459,15 @@
     "confidence": "odvozené"
   },
   {
+    "setupId": "spot",
+    "spaceNeeded": [
+      1.4,
+      2
+    ],
+    "equipment": [
+      "hůl",
+      "míček"
+    ],
     "id": "hacek",
     "name": "Háček (toe drag)",
     "card": "Háček",
@@ -1382,7 +1477,7 @@
     ],
     "matchLegal": true,
     "matchNote": "V zápase povolené.",
-    "safety": "Hůl drž pod pasem. Kolem tebe dva metry volno, nikdo v dosahu hole. Stůj čelem ke zdi nebo k pohovce, ne k oknu ani k televizi.",
+    "safety": "Hůl drž pod pasem. Kolem tebe volno na délku hole a ještě kousek, nikdo v dosahu. Stůj čelem ke zdi nebo k pohovce, ne k oknu ani k televizi.",
     "origin": [
       "T15",
       "H18",
@@ -1466,7 +1561,6 @@
         ]
       }
     ],
-    "setupId": "spot",
     "sources": [
       {
         "url": "https://www.youtube.com/watch?v=0pOdD75Mc0k",
@@ -1476,7 +1570,7 @@
       {
         "url": "https://www.youtube.com/watch?v=UlkAnet3d-A",
         "type": "video",
-        "reliability": "ověřené"
+        "reliability": "inspirace"
       },
       {
         "url": "https://www.youtube.com/watch?v=TQe8UUIICqw",
@@ -1492,6 +1586,15 @@
     "confidence": "odvozené"
   },
   {
+    "setupId": "spot",
+    "spaceNeeded": [
+      1.4,
+      2
+    ],
+    "equipment": [
+      "hůl",
+      "míček"
+    ],
     "id": "vrtule",
     "name": "Otočka 360",
     "card": "Vrtule",
@@ -1501,7 +1604,7 @@
     ],
     "matchLegal": true,
     "matchNote": "V zápase povolené.",
-    "safety": "Hůl drž pod pasem. Kolem tebe dva metry volno, nikdo v dosahu hole. Stůj čelem ke zdi nebo k pohovce, ne k oknu ani k televizi. Nejvýš tři otočky za sebou, ať se ti nezatočí hlava.",
+    "safety": "Hůl drž pod pasem. Kolem tebe volno na délku hole a ještě kousek, nikdo v dosahu. Stůj čelem ke zdi nebo k pohovce, ne k oknu ani k televizi. Nejvýš tři otočky za sebou, ať se ti nezatočí hlava.",
     "origin": [
       "T16",
       "CZ-09",
@@ -1511,9 +1614,9 @@
       {
         "id": "vrtule-1",
         "name": "Bez míčku",
-        "howTo": "Otoč se dokola s čepelí na zemi. Každým směrem.",
+        "howTo": "Otoč se dokola, hůl drž u těla a čepel na zemi blízko bot. Každým směrem.",
         "criterion": "5× každým směrem.",
-        "voice": "Bez míčku se otoč dokola. Čepel na zemi.",
+        "voice": "Nejdřív se rozhlédni, ať je kolem volno. Pomalu se otoč dokola, čepel u bot, nejvýš třikrát.",
         "animation": [
           {
             "at": "fh"
@@ -1602,7 +1705,6 @@
         ]
       }
     ],
-    "setupId": "spot",
     "sources": [
       {
         "url": "https://www.youtube.com/watch?v=tFFCRVn9Y2I",
@@ -1633,6 +1735,15 @@
     "confidence": "odvozené"
   },
   {
+    "setupId": "spot",
+    "spaceNeeded": [
+      1.4,
+      2
+    ],
+    "equipment": [
+      "hůl",
+      "míček"
+    ],
     "id": "tunelar",
     "name": "Mezi nohama",
     "card": "Tunelář",
@@ -1642,7 +1753,7 @@
     ],
     "matchLegal": true,
     "matchNote": "Mezi vlastníma nohama je to v zápase v pořádku. Holí soupeři mezi nohy ale nesmíš, to je faul.",
-    "safety": "Hůl drž pod pasem. Kolem tebe dva metry volno, nikdo v dosahu hole. Stůj čelem ke zdi nebo k pohovce, ne k oknu ani k televizi. Pomalu, ať o hůl nezakopneš.",
+    "safety": "Hůl drž pod pasem. Kolem tebe volno na délku hole a ještě kousek, nikdo v dosahu. Stůj čelem ke zdi nebo k pohovce, ne k oknu ani k televizi. Pomalu, ať o hůl nezakopneš.",
     "origin": [
       "T17",
       "CZ-16"
@@ -1650,13 +1761,13 @@
     "steps": [
       {
         "id": "tunel-1",
-        "name": "Dopředu mezi nohama",
-        "howTo": "Široký stoj. Pošli míček mezi nohama dopředu a převezmi ho.",
+        "name": "Dozadu mezi nohama",
+        "howTo": "Široký stoj. Pošli míček mezi nohama dozadu a převezmi ho.",
         "criterion": "5 z 5.",
-        "voice": "Nohy široko a míček mezi nimi dopředu.",
+        "voice": "Nohy široko a míček mezi nimi dozadu.",
         "animation": [
           {
-            "at": "back",
+            "at": "front",
             "blade": "fh"
           },
           {
@@ -1664,7 +1775,7 @@
             "blade": "fh"
           },
           {
-            "at": "front",
+            "at": "back",
             "blade": "fh"
           }
         ]
@@ -1712,7 +1823,6 @@
         ]
       }
     ],
-    "setupId": "spot",
     "sources": [
       {
         "url": "https://www.youtube.com/watch?v=KBtAcR6ZAi4",
@@ -1738,6 +1848,15 @@
     "confidence": "odvozené"
   },
   {
+    "setupId": "spot",
+    "spaceNeeded": [
+      1.4,
+      2
+    ],
+    "equipment": [
+      "hůl",
+      "míček"
+    ],
     "id": "zonglovani",
     "name": "Žonglování",
     "card": "Žonglér",
@@ -1746,8 +1865,8 @@
       "balanc"
     ],
     "matchLegal": false,
-    "matchNote": "Tohle je jen domácí frajeřinka, v zápase by to byl faul.",
-    "safety": "Hůl drž pod pasem. Kolem tebe dva metry volno, nikdo v dosahu hole. Stůj čelem ke zdi nebo k pohovce, ne k oknu ani k televizi. Míček nikdy nad pas. Nenaklánej se nad čepel, ať ti míček nevyletí do obličeje.",
+    "matchNote": "Nízké odrazy pod koleny jsou v zápase v pořádku. Žonglovací série nad koleny je jen domácí frajeřinka, v zápase by to byl faul.",
+    "safety": "Hůl drž pod pasem. Kolem tebe volno na délku hole a ještě kousek, nikdo v dosahu. Stůj čelem ke zdi nebo k pohovce, ne k oknu ani k televizi. Míček nikdy nad pas. Nenaklánej se nad čepel. Když míček letí vzduchem, nasaď si florbalové brýle.",
     "origin": [
       "T04",
       "CZ-11",
@@ -1822,7 +1941,26 @@
         "name": "Deset",
         "howTo": "Žonglovací série.",
         "criterion": "10 odrazů v řadě.",
-        "voice": "Deset v řadě! Doma frajeřinka, v zápase by to byl faul.",
+        "voice": "Deset v řadě! Nad koleny je to domácí frajeřinka, v zápase by to byl faul.",
+        "animation": [
+          {
+            "at": "front",
+            "blade": "fh",
+            "air": true
+          },
+          {
+            "at": "front",
+            "blade": "fh",
+            "air": true
+          }
+        ]
+      },
+      {
+        "id": "zongl-4b",
+        "name": "Patnáct",
+        "howTo": "Delší série.",
+        "criterion": "15 odrazů v řadě.",
+        "voice": "Patnáct v řadě, jde ti to!",
         "animation": [
           {
             "at": "front",
@@ -1856,7 +1994,6 @@
         ]
       }
     ],
-    "setupId": "spot",
     "sources": [
       {
         "url": "https://www.youtube.com/watch?v=uZdYUHfvZbE",
@@ -1864,7 +2001,7 @@
         "reliability": "inspirace"
       },
       {
-        "url": "https://floorball.sport/2020/11/26/presenting-freestyle-floorball-cup-contestant-agnes-holgersson",
+        "url": "https://web.archive.org/web/20220816034720/https://floorball.sport/2020/11/26/presenting-freestyle-floorball-cup-contestant-agnes-holgersson/",
         "type": "článek",
         "reliability": "inspirace"
       },
@@ -1887,6 +2024,15 @@
     "confidence": "odvozené"
   },
   {
+    "setupId": "spot",
+    "spaceNeeded": [
+      1.4,
+      2
+    ],
+    "equipment": [
+      "hůl",
+      "míček"
+    ],
     "id": "zonglovani-fb",
     "name": "Žonglování střídavě",
     "card": "Mistr žonglér",
@@ -1895,8 +2041,8 @@
       "zonglovani"
     ],
     "matchLegal": false,
-    "matchNote": "Tohle je jen domácí frajeřinka, v zápase by to byl faul.",
-    "safety": "Hůl drž pod pasem. Kolem tebe dva metry volno, nikdo v dosahu hole. Stůj čelem ke zdi nebo k pohovce, ne k oknu ani k televizi. Míček nikdy nad pas. Nenaklánej se nad čepel, ať ti míček nevyletí do obličeje.",
+    "matchNote": "Pod koleny je to v zápase v pořádku. Nad koleny je to jen domácí frajeřinka, v zápase by to byl faul.",
+    "safety": "Hůl drž pod pasem. Kolem tebe volno na délku hole a ještě kousek, nikdo v dosahu. Stůj čelem ke zdi nebo k pohovce, ne k oknu ani k televizi. Míček nikdy nad pas. Nenaklánej se nad čepel. Když míček letí vzduchem, nasaď si florbalové brýle.",
     "origin": [
       "T05"
     ],
@@ -1978,7 +2124,6 @@
         ]
       }
     ],
-    "setupId": "spot",
     "sources": [
       {
         "url": "https://www.youtube.com/watch?v=GRMyIeTzqV8",
@@ -1994,6 +2139,15 @@
     "confidence": "odvozené"
   },
   {
+    "setupId": "spot",
+    "spaceNeeded": [
+      1.4,
+      2
+    ],
+    "equipment": [
+      "hůl",
+      "míček"
+    ],
     "id": "kopacka",
     "name": "Nakopnutí na čepel",
     "card": "Kopačka",
@@ -2002,9 +2156,9 @@
       "balanc",
       "nabrani"
     ],
-    "matchLegal": false,
-    "matchNote": "Tohle je jen domácí frajeřinka, v zápase by to byl faul.",
-    "safety": "Hůl drž pod pasem. Kolem tebe dva metry volno, nikdo v dosahu hole. Stůj čelem ke zdi nebo k pohovce, ne k oknu ani k televizi. Míček nikdy nad pas. Nenaklánej se nad čepel, ať ti míček nevyletí do obličeje. Kopej jen jemně, míček nikdy do výšky obličeje.",
+    "matchLegal": true,
+    "matchNote": "Nadzvednout si míček nohou pod kolenem na vlastní čepel je v zápase v pořádku. Žonglování nad koleny už ne.",
+    "safety": "Hůl drž pod pasem. Kolem tebe volno na délku hole a ještě kousek, nikdo v dosahu. Stůj čelem ke zdi nebo k pohovce, ne k oknu ani k televizi. Míček nikdy nad pas. Nenaklánej se nad čepel. Když míček letí vzduchem, nasaď si florbalové brýle. Kopej jen jemně, míček nikdy do výšky obličeje.",
     "origin": [
       "T18"
     ],
@@ -2078,7 +2232,7 @@
         "name": "A žonglovat",
         "howTo": "Nakopnout, chytit a hned žonglovat.",
         "criterion": "3 z 10.",
-        "voice": "Nakopni, chyť a žongluj. Doma frajeřinka, v zápase by to byl faul.",
+        "voice": "Nakopni, chyť a žongluj. Pod koleny v pořádku, nad koleny je to jen domácí frajeřinka.",
         "animation": [
           {
             "at": "back",
@@ -2102,7 +2256,6 @@
         ]
       }
     ],
-    "setupId": "spot",
     "sources": [
       {
         "url": "https://www.youtube.com/watch?v=h3GauavBPtE",
@@ -2118,6 +2271,18 @@
     "confidence": "odvozené"
   },
   {
+    "setupId": "spot",
+    "spaceNeeded": [
+      1.4,
+      2
+    ],
+    "equipment": [
+      "hůl",
+      "míček",
+      "krabice",
+      "plastový kelímek",
+      "kužel"
+    ],
     "id": "na-kuzel",
     "name": "Míček na kužel",
     "card": "Přesná ruka",
@@ -2128,7 +2293,7 @@
     ],
     "matchLegal": false,
     "matchNote": "Je to jen domácí kousek citu, ve hře se nepoužívá.",
-    "safety": "Hůl drž pod pasem. Kolem tebe dva metry volno, nikdo v dosahu hole. Stůj čelem ke zdi nebo k pohovce, ne k oknu ani k televizi.",
+    "safety": "Hůl drž pod pasem. Kolem tebe volno na délku hole a ještě kousek, nikdo v dosahu. Stůj čelem ke zdi nebo k pohovce, ne k oknu ani k televizi.",
     "origin": [
       "CZ-23",
       "SO-05"
@@ -2203,7 +2368,6 @@
         ]
       }
     ],
-    "setupId": "spot",
     "sources": [
       {
         "url": "https://dspace5.zcu.cz/bitstream/11025/19998/1/Diplomova%20prace%20Matous%20Hrdlicka%202015.pdf",

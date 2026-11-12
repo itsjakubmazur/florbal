@@ -29,7 +29,8 @@ for (const t of tricks) for (const o of t.origin) addRef(o, 'trick', t.id);
 for (const c of challenges) for (const o of c.origin) addRef(o, 'challenge', c.id);
 for (const t of skilltests) for (const o of t.origin) addRef(o, 'test', t.id);
 
-const FOUL = new Set(['CH-04', 'CZ-11', 'CZ-12', 'CZ-13', 'CZ-38', 'T04', 'T05', 'T06', 'T18', 'C04', 'C09', 'H51', 'C17']);
+const FOUL = new Set(['CH-04', 'CZ-11', 'CZ-13', 'CZ-38', 'T04', 'T05', 'T06', 'C04', 'C09', 'H51', 'C17']);
+const DUEL = new Set(['CH-10', 'FI-01', 'SE-05', 'SE-07', 'CH-17', 'H47', 'H48', 'SO-09', 'CR-25', 'CR-33', 'CH-07', 'CR-22']);
 const minAge = (l) => (l <= 2 ? 6 : l === 3 ? 7 : 8);
 const problems = [];
 const db = rows.map(([origin, name, category, level, bladeSide, grip, noise, kind, principle, reason]) => {
@@ -48,7 +49,7 @@ const db = rows.map(([origin, name, category, level, bladeSide, grip, noise, kin
     spaceNeeded: ad ? ad.spaceNeeded : null, noise, equipment: ad ? ad.equipment : [],
     voiceIntro: ad ? ad.voiceIntro : null, coachingPoints: ad ? ad.coachingPoints : [], commonMistakes: ad ? ad.commonMistakes : [],
     progression: null, regression: null,
-    safetyNotes: ad ? ad.safetyNotes : (FOUL.has(origin) ? 'Míček nad koleny: jen domácí frajeřinka, v zápase faul. Hůl pod pasem.' : 'Hůl pod pasem, kolem volno.'),
+    safetyNotes: ad ? ad.safetyNotes : (FOUL.has(origin) ? 'Míček nad koleny: jen domácí frajeřinka, v zápase faul. Hůl pod pasem.' : DUEL.has(origin) || ['team', 'parent'].includes(reason) ? 'Hraje se jen na míček, hůl po zemi, nikdo nemíří holí na tělo. Druhý hráč mimo dosah čepele.' : 'Hůl pod pasem, kolem volno.'),
     sources, confidence: conf, kind, matchLegal: !FOUL.has(origin),
     inApp, inAppAs: r, notInAppReason: inApp ? null : REASONS[reason] || reason,
   };

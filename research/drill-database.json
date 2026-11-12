@@ -30,7 +30,7 @@
     ],
     "loop": true,
     "callMode": "žádný",
-    "tempoBpm": 60,
+    "tempoBpm": 20,
     "durationSec": 45,
     "reps": null,
     "spaceNeeded": [
@@ -309,7 +309,7 @@
     ],
     "progression": null,
     "regression": null,
-    "safetyNotes": "Hůl nech mimo čtverec. Ve čtverci nic neleží.",
+    "safetyNotes": "Hůl nech mimo čtverec. Ve čtverci nic neleží. Neběhej v ponožkách.",
     "sources": [
       {
         "url": "https://www.mobilesport.ch/assets/lbwp-cdn/mobilesport/files/2013/09/praxis_2005_02_d.pdf",
@@ -354,7 +354,7 @@
     "commonMistakes": [],
     "progression": null,
     "regression": null,
-    "safetyNotes": "Hůl pod pasem, kolem volno.",
+    "safetyNotes": "Hraje se jen na míček, hůl po zemi, nikdo nemíří holí na tělo. Druhý hráč mimo dosah čepele.",
     "sources": [
       {
         "url": "https://www.mobilesport.ch/assets/lbwp-cdn/mobilesport/files/2013/09/praxis_2005_02_d.pdf",
@@ -396,7 +396,7 @@
     "commonMistakes": [],
     "progression": null,
     "regression": null,
-    "safetyNotes": "Hůl pod pasem, kolem volno.",
+    "safetyNotes": "Hraje se jen na míček, hůl po zemi, nikdo nemíří holí na tělo. Druhý hráč mimo dosah čepele.",
     "sources": [
       {
         "url": "https://www.mobilesport.ch/assets/lbwp-cdn/mobilesport/files/2013/09/praxis_2005_02_d.pdf",
@@ -476,7 +476,7 @@
     "commonMistakes": [],
     "progression": null,
     "regression": null,
-    "safetyNotes": "Hůl pod pasem, kolem volno.",
+    "safetyNotes": "Hraje se jen na míček, hůl po zemi, nikdo nemíří holí na tělo. Druhý hráč mimo dosah čepele.",
     "sources": [
       {
         "url": "https://www.mobilesport.ch/assets/lbwp-cdn/mobilesport/files/2013/09/praxis_2005_02_d.pdf",
@@ -506,16 +506,7 @@
     "setupId": "triangle",
     "pattern": [
       {
-        "at": "around:3",
-        "dir": "ccw",
-        "blade": "fh"
-      },
-      {
-        "at": 2,
-        "blade": "fh"
-      },
-      {
-        "at": "home",
+        "at": 3,
         "blade": "fh"
       },
       {
@@ -524,12 +515,21 @@
         "blade": "bh"
       },
       {
-        "at": 1,
+        "at": "home",
         "blade": "bh"
       },
       {
-        "at": "home",
+        "at": 3,
         "blade": "bh"
+      },
+      {
+        "at": "around:3",
+        "dir": "ccw",
+        "blade": "fh"
+      },
+      {
+        "at": "home",
+        "blade": "fh"
       }
     ],
     "loop": true,
@@ -547,7 +547,7 @@
       "míček",
       "3 kužely"
     ],
-    "voiceIntro": "Žlutý kužel je obránce. Ramenem naznač jednu stranu a projeď tou druhou.",
+    "voiceIntro": "Žlutý kužel je obránce. Přijeď k němu s míčkem na forhendu, ramenem naznač forhend a objeď ho bekhendem.",
     "coachingPoints": [
       "Finta ramenem a hlavou",
       "Pak rychle druhou stranou",
@@ -671,7 +671,7 @@
     "commonMistakes": [],
     "progression": null,
     "regression": null,
-    "safetyNotes": "Hůl pod pasem, kolem volno.",
+    "safetyNotes": "Hraje se jen na míček, hůl po zemi, nikdo nemíří holí na tělo. Druhý hráč mimo dosah čepele.",
     "sources": [
       {
         "url": "https://klickin.swissunihockey.ch/index.php/download_file/view/312/279",
@@ -821,7 +821,7 @@
     ],
     "progression": null,
     "regression": null,
-    "safetyNotes": "Hůl nech mimo čtverec. Ve čtverci nic neleží.",
+    "safetyNotes": "Hůl nech mimo čtverec. Ve čtverci nic neleží. Neběhej v ponožkách.",
     "sources": [
       {
         "url": "https://editor.swissunihockey.ch/index.php/download_file/view/316/279",
@@ -871,7 +871,8 @@
         "dir": "cw"
       },
       {
-        "at": "home"
+        "at": "home",
+        "beats": 2
       }
     ],
     "loop": true,
@@ -941,7 +942,7 @@
     "commonMistakes": [],
     "progression": null,
     "regression": null,
-    "safetyNotes": "Hůl pod pasem, kolem volno.",
+    "safetyNotes": "Hraje se jen na míček, hůl po zemi, nikdo nemíří holí na tělo. Druhý hráč mimo dosah čepele.",
     "sources": [
       {
         "url": "https://editor.swissunihockey.ch/index.php/download_file/view/316/279",
@@ -981,7 +982,7 @@
     "commonMistakes": [],
     "progression": null,
     "regression": null,
-    "safetyNotes": "Hůl pod pasem, kolem volno.",
+    "safetyNotes": "Hraje se jen na míček, hůl po zemi, nikdo nemíří holí na tělo. Druhý hráč mimo dosah čepele.",
     "sources": [
       {
         "url": "https://www.mobilesport.ch/assets/lbwp-cdn/mobilesport/files/2011/02/Unihockey_3_Ich-und-der-Ball-III_d.pdf",
@@ -1029,8 +1030,9 @@
     "noise": "tichý",
     "equipment": [
       "hůl",
-      "míček",
-      "2 kužely nebo boty"
+      "měkký pěnový míček (v bytě)",
+      "2 kužely nebo boty",
+      "koberec nebo deka"
     ],
     "voiceIntro": "Přetahuj na místě a zkus zavřít oči, míček ucítíš čepelí. Když uteče, otevři oči a začni znova.",
     "coachingPoints": [
@@ -1291,7 +1293,7 @@
     ],
     "loop": true,
     "callMode": "náhodná reakce",
-    "tempoBpm": 18,
+    "tempoBpm": 13,
     "durationSec": 40,
     "reps": null,
     "spaceNeeded": [
@@ -1357,7 +1359,7 @@
     "commonMistakes": [],
     "progression": null,
     "regression": null,
-    "safetyNotes": "Hůl pod pasem, kolem volno.",
+    "safetyNotes": "Hraje se jen na míček, hůl po zemi, nikdo nemíří holí na tělo. Druhý hráč mimo dosah čepele.",
     "sources": [
       {
         "url": "https://salibandy.fi/wp-content/uploads/2025/12/hippo-x-sabakipina-lajinomaiset-leikit.pdf",
@@ -1557,7 +1559,7 @@
     "commonMistakes": [],
     "progression": null,
     "regression": null,
-    "safetyNotes": "Hůl pod pasem, kolem volno.",
+    "safetyNotes": "Hraje se jen na míček, hůl po zemi, nikdo nemíří holí na tělo. Druhý hráč mimo dosah čepele.",
     "sources": [
       {
         "url": "https://salibandy.fi/wp-content/uploads/2025/12/hippo-x-sabakipina-lajinomaiset-leikit.pdf",
@@ -1597,7 +1599,7 @@
     "commonMistakes": [],
     "progression": null,
     "regression": null,
-    "safetyNotes": "Hůl pod pasem, kolem volno.",
+    "safetyNotes": "Hraje se jen na míček, hůl po zemi, nikdo nemíří holí na tělo. Druhý hráč mimo dosah čepele.",
     "sources": [
       {
         "url": "https://salibandy.fi/wp-content/uploads/2025/12/hippo-x-sabakipina-lajinomaiset-leikit.pdf",
@@ -1913,8 +1915,9 @@
     "noise": "tichý",
     "equipment": [
       "hůl",
-      "míček",
-      "2 kužely nebo boty"
+      "měkký pěnový míček (v bytě)",
+      "2 kužely nebo boty",
+      "koberec nebo deka"
     ],
     "voiceIntro": "Přetahuj míček před sebou z forhendu na bekhend a zpátky. Potichu, jako by spalo miminko.",
     "coachingPoints": [
@@ -1995,8 +1998,9 @@
     "noise": "tichý",
     "equipment": [
       "hůl",
-      "míček",
-      "2 kužely nebo boty"
+      "měkký pěnový míček (v bytě)",
+      "2 kužely nebo boty",
+      "koberec nebo deka"
     ],
     "voiceIntro": "Míček jede osmičku kolem tvých bot a mezi nohama. Nohy dej hodně široko.",
     "coachingPoints": [
@@ -2241,8 +2245,9 @@
     "noise": "tichý",
     "equipment": [
       "hůl",
-      "míček",
-      "2 kužely nebo boty"
+      "měkký pěnový míček (v bytě)",
+      "2 kužely nebo boty",
+      "koberec nebo deka"
     ],
     "voiceIntro": "Spodní ruku dej za záda a horní rukou veď míček před sebou a na bekhend. Jen chvilku, ruka se unaví.",
     "coachingPoints": [
@@ -2618,7 +2623,7 @@
     "commonMistakes": [],
     "progression": null,
     "regression": null,
-    "safetyNotes": "Hůl pod pasem, kolem volno.",
+    "safetyNotes": "Hraje se jen na míček, hůl po zemi, nikdo nemíří holí na tělo. Druhý hráč mimo dosah čepele.",
     "sources": [
       {
         "url": "https://docs.google.com/document/d/1etvM2HK8Swz4Eit2b3P62pj4t4lCKR_jOTd2dbEV9_M/export?format=pdf",
@@ -2660,7 +2665,7 @@
     "commonMistakes": [],
     "progression": null,
     "regression": null,
-    "safetyNotes": "Hůl pod pasem, kolem volno.",
+    "safetyNotes": "Hraje se jen na míček, hůl po zemi, nikdo nemíří holí na tělo. Druhý hráč mimo dosah čepele.",
     "sources": [
       {
         "url": "https://docs.google.com/document/d/1etvM2HK8Swz4Eit2b3P62pj4t4lCKR_jOTd2dbEV9_M/export?format=pdf",
@@ -2700,7 +2705,7 @@
     "commonMistakes": [],
     "progression": null,
     "regression": null,
-    "safetyNotes": "Hůl pod pasem, kolem volno.",
+    "safetyNotes": "Hraje se jen na míček, hůl po zemi, nikdo nemíří holí na tělo. Druhý hráč mimo dosah čepele.",
     "sources": [
       {
         "url": "https://docs.google.com/document/d/1etvM2HK8Swz4Eit2b3P62pj4t4lCKR_jOTd2dbEV9_M/export?format=pdf",
@@ -2789,7 +2794,8 @@
       },
       {
         "at": "home",
-        "blade": "fh"
+        "blade": "fh",
+        "beats": 2
       }
     ],
     "loop": true,
@@ -2811,7 +2817,7 @@
     "coachingPoints": [
       "Malé doteky mezi kužely",
       "Kolena pokrčená",
-      "Vpravo forhend, vlevo bekhend"
+      "Na forhendové straně forhend, na bekhendové bekhend"
     ],
     "commonMistakes": [
       "Shazuje kužely",
@@ -2869,8 +2875,9 @@
     "noise": "tichý",
     "equipment": [
       "hůl",
-      "míček",
-      "2 kužely nebo boty"
+      "měkký pěnový míček (v bytě)",
+      "2 kužely nebo boty",
+      "koberec nebo deka"
     ],
     "voiceIntro": "Přetahuj míček před sebou z forhendu na bekhend a zpátky. Potichu, jako by spalo miminko.",
     "coachingPoints": [
@@ -2905,7 +2912,7 @@
   {
     "id": "cz-02",
     "origin": "CZ-02",
-    "name": "Driblink vedle pravé nohy",
+    "name": "Driblink vedle forhendové nohy",
     "principle": "Krátké přetahování vedle nohy před a za chodidlem.",
     "level": 2,
     "minAge": 6,
@@ -2935,8 +2942,9 @@
     "noise": "tichý",
     "equipment": [
       "hůl",
-      "míček",
-      "2 kužely nebo boty"
+      "měkký pěnový míček (v bytě)",
+      "2 kužely nebo boty",
+      "koberec nebo deka"
     ],
     "voiceIntro": "Míček je vedle tebe na forhendu. Posouvej ho dopředu a dozadu, nohy se nehýbou.",
     "coachingPoints": [
@@ -2970,7 +2978,7 @@
   {
     "id": "cz-03",
     "origin": "CZ-03",
-    "name": "Driblink vedle levé nohy",
+    "name": "Driblink vedle bekhendové nohy",
     "principle": "Totéž na druhé straně těla.",
     "level": 2,
     "minAge": 6,
@@ -3000,8 +3008,9 @@
     "noise": "tichý",
     "equipment": [
       "hůl",
-      "míček",
-      "2 kužely nebo boty"
+      "měkký pěnový míček (v bytě)",
+      "2 kužely nebo boty",
+      "koberec nebo deka"
     ],
     "voiceIntro": "Míček je vedle tebe na bekhendu a jezdí dopředu a dozadu. Bekhend je stejně důležitý jako forhend!",
     "coachingPoints": [
@@ -3089,8 +3098,9 @@
     "noise": "tichý",
     "equipment": [
       "hůl",
-      "míček",
-      "2 kužely nebo boty"
+      "měkký pěnový míček (v bytě)",
+      "2 kužely nebo boty",
+      "koberec nebo deka"
     ],
     "voiceIntro": "Stáhni míček dozadu až za paty a zase ho vrať dopředu. Ramena se otočí s ním.",
     "coachingPoints": [
@@ -3133,17 +3143,17 @@
     "setupId": "spot",
     "pattern": [
       {
-        "at": "front",
+        "at": "fh",
         "blade": "fh"
       },
       {
-        "at": "fh",
-        "blade": "fh"
+        "at": "back",
+        "blade": "bh"
       }
     ],
     "loop": true,
     "callMode": "směr",
-    "tempoBpm": 60,
+    "tempoBpm": 50,
     "durationSec": 30,
     "reps": null,
     "spaceNeeded": [
@@ -3153,17 +3163,18 @@
     "noise": "tichý",
     "equipment": [
       "hůl",
-      "míček",
-      "2 kužely nebo boty"
+      "měkký pěnový míček (v bytě)",
+      "2 kužely nebo boty",
+      "koberec nebo deka"
     ],
-    "voiceIntro": "Míček zůstává jen na forhendu. Čepel se překlápí: jednou ho vezeš patou, jednou špičkou.",
+    "voiceIntro": "Míček zůstává na forhendové straně těla. Dopředu ho posuneš forhendem, pak čepel překlopíš a stáhneš ho zpátky bekhendem.",
     "coachingPoints": [
-      "Čepel přetáčí spodní ruka",
-      "Míček se drží u čepele",
+      "Čepel překlápí zápěstí",
+      "Míček nepřechází před tělo",
       "Pomalu, pak rychleji"
     ],
     "commonMistakes": [
-      "Přejde na bekhend",
+      "Přetáhne míček před sebe na bekhend",
       "Čepel se nepřeklopí, jen tlačí"
     ],
     "progression": null,
@@ -3304,8 +3315,9 @@
     "noise": "tichý",
     "equipment": [
       "hůl",
-      "míček",
-      "2 kužely nebo boty"
+      "měkký pěnový míček (v bytě)",
+      "2 kužely nebo boty",
+      "koberec nebo deka"
     ],
     "voiceIntro": "Objeď míčkem jednu botu dokola, forhendem. Pak tu druhou bekhendem.",
     "coachingPoints": [
@@ -3371,8 +3383,9 @@
     "noise": "tichý",
     "equipment": [
       "hůl",
-      "míček",
-      "2 kužely nebo boty"
+      "měkký pěnový míček (v bytě)",
+      "2 kužely nebo boty",
+      "koberec nebo deka"
     ],
     "voiceIntro": "Teď osmička na druhou stranu. Je to těžší, tak klidně pomalu.",
     "coachingPoints": [
@@ -3554,7 +3567,7 @@
     "commonMistakes": [],
     "progression": null,
     "regression": null,
-    "safetyNotes": "Míček nad koleny: jen domácí frajeřinka, v zápase faul. Hůl pod pasem.",
+    "safetyNotes": "Hůl pod pasem, kolem volno.",
     "sources": [
       {
         "url": "https://dspace5.zcu.cz/bitstream/11025/19998/1/Diplomova%20prace%20Matous%20Hrdlicka%202015.pdf",
@@ -3564,7 +3577,7 @@
     ],
     "confidence": "ověřené",
     "kind": "ball",
-    "matchLegal": false,
+    "matchLegal": true,
     "inApp": false,
     "inAppAs": [],
     "notInAppReason": "Hlučné (střelba, nárazy, doskoky), do bytu nevhodné. Zvážit pro velký prostor."
@@ -3638,25 +3651,25 @@
         "blade": "bh"
       },
       {
-        "at": "front",
+        "at": "fh",
         "blade": "fh"
+      },
+      {
+        "at": "back",
+        "blade": "bh"
       },
       {
         "at": "fh",
         "blade": "fh"
       },
       {
-        "at": "front",
-        "blade": "fh"
-      },
-      {
-        "at": "fh",
-        "blade": "fh"
+        "at": "back",
+        "blade": "bh"
       }
     ],
     "loop": true,
     "callMode": "směr",
-    "tempoBpm": 70,
+    "tempoBpm": 60,
     "durationSec": 40,
     "reps": null,
     "spaceNeeded": [
@@ -3666,10 +3679,11 @@
     "noise": "tichý",
     "equipment": [
       "hůl",
-      "míček",
-      "2 kužely nebo boty"
+      "měkký pěnový míček (v bytě)",
+      "2 kužely nebo boty",
+      "koberec nebo deka"
     ],
-    "voiceIntro": "Střídáme: čtyřikrát přetáhni z forhendu na bekhend, pak čtyřikrát jen forhendem s překlápěním.",
+    "voiceIntro": "Střídáme: dvakrát přetáhni před sebou z forhendu na bekhend, pak dvakrát florbalový driblink vedle forhendové nohy.",
     "coachingPoints": [
       "Poslouchej, co hlásím",
       "Plynule, bez zastavení",
@@ -3778,8 +3792,9 @@
     "noise": "tichý",
     "equipment": [
       "hůl",
-      "míček",
-      "2 kužely nebo boty"
+      "měkký pěnový míček (v bytě)",
+      "2 kužely nebo boty",
+      "koberec nebo deka"
     ],
     "voiceIntro": "Stoupni si široko. Protáhni míček mezi nohama dozadu a zase dopředu.",
     "coachingPoints": [
@@ -3840,7 +3855,8 @@
         "dir": "cw"
       },
       {
-        "at": "home"
+        "at": "home",
+        "beats": 2
       }
     ],
     "loop": true,
@@ -3920,7 +3936,8 @@
       },
       {
         "at": "home",
-        "blade": "fh"
+        "blade": "fh",
+        "beats": 2
       }
     ],
     "loop": true,
@@ -3938,11 +3955,11 @@
       "míček",
       "4 kužely"
     ],
-    "voiceIntro": "Slalom, ale celou dobu jen forhendem. Ty jdeš vedle řady a míček kličkuje mezi kužely.",
+    "voiceIntro": "Normální slalom, ale míček vedeš celou dobu jen forhendem.",
     "coachingPoints": [
-      "Míček daleko od těla",
+      "Na bekhendové straně se natáhni",
       "Čepel se natáčí",
-      "Tělo jde rovně"
+      "Malé doteky"
     ],
     "commonMistakes": [
       "Použije bekhend"
@@ -4010,7 +4027,8 @@
       },
       {
         "at": "home",
-        "blade": "bh"
+        "blade": "bh",
+        "beats": 2
       }
     ],
     "loop": true,
@@ -4190,7 +4208,7 @@
       "míček",
       "4 kužely"
     ],
-    "voiceIntro": "Kolem každého kuželu udělej celou otočku s míčkem. Vlevo bekhendem, vpravo forhendem.",
+    "voiceIntro": "Kolem každého kuželu udělej celou otočku s míčkem. U červeného a zeleného bekhendem, u modrého a žlutého forhendem.",
     "coachingPoints": [
       "Těsně kolem kuželu",
       "Tělo chrání míček",
@@ -4296,15 +4314,8 @@
       },
       {
         "at": "home",
-        "blade": "fh"
-      },
-      {
-        "at": "front",
-        "blade": "bh"
-      },
-      {
-        "at": "front",
-        "blade": "fh"
+        "blade": "fh",
+        "beats": 2
       }
     ],
     "loop": true,
@@ -4417,7 +4428,7 @@
     "commonMistakes": [],
     "progression": null,
     "regression": null,
-    "safetyNotes": "Hůl pod pasem, kolem volno.",
+    "safetyNotes": "Hraje se jen na míček, hůl po zemi, nikdo nemíří holí na tělo. Druhý hráč mimo dosah čepele.",
     "sources": [
       {
         "url": "https://dspace5.zcu.cz/bitstream/11025/19998/1/Diplomova%20prace%20Matous%20Hrdlicka%202015.pdf",
@@ -4457,7 +4468,7 @@
     "commonMistakes": [],
     "progression": null,
     "regression": null,
-    "safetyNotes": "Hůl pod pasem, kolem volno.",
+    "safetyNotes": "Hraje se jen na míček, hůl po zemi, nikdo nemíří holí na tělo. Druhý hráč mimo dosah čepele.",
     "sources": [
       {
         "url": "https://dspace5.zcu.cz/bitstream/11025/19998/1/Diplomova%20prace%20Matous%20Hrdlicka%202015.pdf",
@@ -4497,7 +4508,7 @@
     "commonMistakes": [],
     "progression": null,
     "regression": null,
-    "safetyNotes": "Hůl pod pasem, kolem volno.",
+    "safetyNotes": "Hraje se jen na míček, hůl po zemi, nikdo nemíří holí na tělo. Druhý hráč mimo dosah čepele.",
     "sources": [
       {
         "url": "https://dspace5.zcu.cz/bitstream/11025/19998/1/Diplomova%20prace%20Matous%20Hrdlicka%202015.pdf",
@@ -4537,7 +4548,7 @@
     "commonMistakes": [],
     "progression": null,
     "regression": null,
-    "safetyNotes": "Hůl pod pasem, kolem volno.",
+    "safetyNotes": "Hraje se jen na míček, hůl po zemi, nikdo nemíří holí na tělo. Druhý hráč mimo dosah čepele.",
     "sources": [
       {
         "url": "https://dspace5.zcu.cz/bitstream/11025/19998/1/Diplomova%20prace%20Matous%20Hrdlicka%202015.pdf",
@@ -4661,8 +4672,9 @@
     "noise": "tichý",
     "equipment": [
       "hůl",
-      "míček",
-      "2 kužely nebo boty"
+      "měkký pěnový míček (v bytě)",
+      "2 kužely nebo boty",
+      "koberec nebo deka"
     ],
     "voiceIntro": "Dívej se na tablet, ne na míček! Jakou barvu uvidíš, k tomu kuželu míček dovez.",
     "coachingPoints": [
@@ -4813,16 +4825,7 @@
     "setupId": "triangle",
     "pattern": [
       {
-        "at": "around:3",
-        "dir": "ccw",
-        "blade": "fh"
-      },
-      {
-        "at": 2,
-        "blade": "fh"
-      },
-      {
-        "at": "home",
+        "at": 3,
         "blade": "fh"
       },
       {
@@ -4831,12 +4834,21 @@
         "blade": "bh"
       },
       {
-        "at": 1,
+        "at": "home",
         "blade": "bh"
       },
       {
-        "at": "home",
+        "at": 3,
         "blade": "bh"
+      },
+      {
+        "at": "around:3",
+        "dir": "ccw",
+        "blade": "fh"
+      },
+      {
+        "at": "home",
+        "blade": "fh"
       }
     ],
     "loop": true,
@@ -4854,7 +4866,7 @@
       "míček",
       "3 kužely"
     ],
-    "voiceIntro": "Žlutý kužel je obránce. Ramenem naznač jednu stranu a projeď tou druhou.",
+    "voiceIntro": "Žlutý kužel je obránce. Přijeď k němu s míčkem na forhendu, ramenem naznač forhend a objeď ho bekhendem.",
     "coachingPoints": [
       "Finta ramenem a hlavou",
       "Pak rychle druhou stranou",
@@ -4907,7 +4919,7 @@
     "commonMistakes": [],
     "progression": null,
     "regression": null,
-    "safetyNotes": "Hůl pod pasem, kolem volno.",
+    "safetyNotes": "Hraje se jen na míček, hůl po zemi, nikdo nemíří holí na tělo. Druhý hráč mimo dosah čepele.",
     "sources": [
       {
         "url": "https://dspace5.zcu.cz/bitstream/11025/19998/1/Diplomova%20prace%20Matous%20Hrdlicka%202015.pdf",
@@ -5046,7 +5058,7 @@
     ],
     "loop": true,
     "callMode": "náhodná reakce",
-    "tempoBpm": 20,
+    "tempoBpm": 15,
     "durationSec": 40,
     "reps": null,
     "spaceNeeded": [
@@ -5261,8 +5273,9 @@
     "noise": "tichý",
     "equipment": [
       "hůl",
-      "míček",
-      "2 kužely nebo boty"
+      "měkký pěnový míček (v bytě)",
+      "2 kužely nebo boty",
+      "koberec nebo deka"
     ],
     "voiceIntro": "Přetahuj míček před sebou z forhendu na bekhend a zpátky. Potichu, jako by spalo miminko.",
     "coachingPoints": [
@@ -5379,8 +5392,9 @@
     "noise": "tichý",
     "equipment": [
       "hůl",
-      "míček",
-      "2 kužely nebo boty"
+      "měkký pěnový míček (v bytě)",
+      "2 kužely nebo boty",
+      "koberec nebo deka"
     ],
     "voiceIntro": "Stoupni si široko. Protáhni míček mezi nohama dozadu a zase dopředu.",
     "coachingPoints": [
@@ -5632,8 +5646,9 @@
     "noise": "tichý",
     "equipment": [
       "hůl",
-      "míček",
-      "2 kužely nebo boty"
+      "měkký pěnový míček (v bytě)",
+      "2 kužely nebo boty",
+      "koberec nebo deka"
     ],
     "voiceIntro": "Objeď míčkem jednu botu dokola, forhendem. Pak tu druhou bekhendem.",
     "coachingPoints": [
@@ -5690,7 +5705,7 @@
     "commonMistakes": [],
     "progression": null,
     "regression": null,
-    "safetyNotes": "Hůl pod pasem, kolem volno.",
+    "safetyNotes": "Hraje se jen na míček, hůl po zemi, nikdo nemíří holí na tělo. Druhý hráč mimo dosah čepele.",
     "sources": [
       {
         "url": "https://www1.specialolympicsontario.com/resources/wp-content/uploads/sites/39/2024/10/SOI_Floorball_Coaching-Guide.pdf",
@@ -5890,8 +5905,9 @@
     "noise": "tichý",
     "equipment": [
       "hůl",
-      "míček",
-      "2 kužely nebo boty"
+      "měkký pěnový míček (v bytě)",
+      "2 kužely nebo boty",
+      "koberec nebo deka"
     ],
     "voiceIntro": "Přetahuj míček před sebou z forhendu na bekhend a zpátky. Potichu, jako by spalo miminko.",
     "coachingPoints": [
@@ -5910,15 +5926,15 @@
       {
         "url": "https://www.youtube.com/watch?v=HFlw8A4xye0",
         "type": "video",
-        "reliability": "ověřené"
+        "reliability": "inspirace"
       },
       {
         "url": "https://www.youtube.com/watch?v=DycV8UE5Ua0",
         "type": "video",
-        "reliability": "ověřené"
+        "reliability": "inspirace"
       }
     ],
-    "confidence": "ověřené",
+    "confidence": "odvozené",
     "kind": "ball",
     "matchLegal": true,
     "inApp": true,
@@ -5960,8 +5976,9 @@
     "noise": "tichý",
     "equipment": [
       "hůl",
-      "míček",
-      "2 kužely nebo boty"
+      "měkký pěnový míček (v bytě)",
+      "2 kužely nebo boty",
+      "koberec nebo deka"
     ],
     "voiceIntro": "Teď široce: táhni míček až k červenému kuželu a pak až k modrému. Celé tělo jde s ním.",
     "coachingPoints": [
@@ -5980,7 +5997,7 @@
       {
         "url": "https://www.youtube.com/watch?v=BIRR2Kb0aEA",
         "type": "video",
-        "reliability": "ověřené"
+        "reliability": "inspirace"
       },
       {
         "url": "https://www.youtube.com/watch?v=7HluVwbAv3w",
@@ -5988,7 +6005,7 @@
         "reliability": "inspirace"
       }
     ],
-    "confidence": "ověřené",
+    "confidence": "odvozené",
     "kind": "ball",
     "matchLegal": true,
     "inApp": true,
@@ -6028,7 +6045,7 @@
     ],
     "loop": true,
     "callMode": "zóna",
-    "tempoBpm": 60,
+    "tempoBpm": 50,
     "durationSec": 40,
     "reps": null,
     "spaceNeeded": [
@@ -6038,8 +6055,9 @@
     "noise": "tichý",
     "equipment": [
       "hůl",
-      "míček",
-      "2 kužely nebo boty"
+      "měkký pěnový míček (v bytě)",
+      "2 kužely nebo boty",
+      "koberec nebo deka"
     ],
     "voiceIntro": "Dvakrát přetáhni blízko u sebe a pak natáhni ruce a vezmi míček daleko ke kuželům.",
     "coachingPoints": [
@@ -6057,10 +6075,10 @@
       {
         "url": "https://www.youtube.com/watch?v=JQ-SLP2V5W8",
         "type": "video",
-        "reliability": "ověřené"
+        "reliability": "inspirace"
       }
     ],
-    "confidence": "ověřené",
+    "confidence": "odvozené",
     "kind": "ball",
     "matchLegal": true,
     "inApp": true,
@@ -6099,10 +6117,10 @@
       {
         "url": "https://www.youtube.com/watch?v=o9JQAEPACr4",
         "type": "video",
-        "reliability": "ověřené"
+        "reliability": "inspirace"
       }
     ],
-    "confidence": "ověřené",
+    "confidence": "odvozené",
     "kind": "ball",
     "matchLegal": true,
     "inApp": false,
@@ -6144,8 +6162,9 @@
     "noise": "tichý",
     "equipment": [
       "hůl",
-      "míček",
-      "2 kužely nebo boty"
+      "měkký pěnový míček (v bytě)",
+      "2 kužely nebo boty",
+      "koberec nebo deka"
     ],
     "voiceIntro": "Nakresli míčkem ležatou osmičku kolem obou kuželů. Kolem červeného bekhendem, kolem modrého forhendem.",
     "coachingPoints": [
@@ -6164,10 +6183,10 @@
       {
         "url": "https://www.youtube.com/watch?v=lw7rrPkh2pc",
         "type": "video",
-        "reliability": "ověřené"
+        "reliability": "inspirace"
       }
     ],
-    "confidence": "ověřené",
+    "confidence": "odvozené",
     "kind": "ball",
     "matchLegal": true,
     "inApp": true,
@@ -6252,8 +6271,9 @@
     "noise": "tichý",
     "equipment": [
       "hůl",
-      "míček",
-      "2 kužely nebo boty"
+      "měkký pěnový míček (v bytě)",
+      "2 kužely nebo boty",
+      "koberec nebo deka"
     ],
     "voiceIntro": "Míček je vedle tebe na forhendu. Posouvej ho dopředu a dozadu, nohy se nehýbou.",
     "coachingPoints": [
@@ -6310,7 +6330,8 @@
       },
       {
         "at": 3,
-        "blade": "fh"
+        "blade": "fh",
+        "beats": 2
       },
       {
         "at": 2,
@@ -6318,7 +6339,8 @@
       },
       {
         "at": 4,
-        "blade": "bh"
+        "blade": "bh",
+        "beats": 2
       }
     ],
     "loop": true,
@@ -6400,6 +6422,26 @@
       {
         "at": "front",
         "blade": "fh"
+      },
+      {
+        "at": "fh",
+        "blade": "fh"
+      },
+      {
+        "at": 2,
+        "blade": "fh"
+      },
+      {
+        "at": 1,
+        "blade": "bh"
+      },
+      {
+        "at": "bh",
+        "blade": "bh"
+      },
+      {
+        "at": "front",
+        "blade": "bh"
       }
     ],
     "loop": true,
@@ -6414,14 +6456,15 @@
     "noise": "tichý",
     "equipment": [
       "hůl",
-      "míček",
-      "2 kužely nebo boty"
+      "měkký pěnový míček (v bytě)",
+      "2 kužely nebo boty",
+      "koberec nebo deka"
     ],
     "voiceIntro": "Veď míček po velkém kruhu před sebou. U nohou ho vezeš špičkou, daleko patou čepele.",
     "coachingPoints": [
       "Spodní ruka klouže po holi",
       "Kruh je kulatý, ne hranatý",
-      "V půlce otoč směr"
+      "Po jednom kole jeď obráceně"
     ],
     "commonMistakes": [
       "Kruh se zmenší jen na malé kolečko"
@@ -6433,10 +6476,10 @@
       {
         "url": "https://www.youtube.com/watch?v=8l4CnuQcZKo",
         "type": "video",
-        "reliability": "ověřené"
+        "reliability": "inspirace"
       }
     ],
-    "confidence": "ověřené",
+    "confidence": "odvozené",
     "kind": "ball",
     "matchLegal": true,
     "inApp": true,
@@ -6502,8 +6545,9 @@
     "noise": "tichý",
     "equipment": [
       "hůl",
-      "míček",
-      "2 kužely nebo boty"
+      "měkký pěnový míček (v bytě)",
+      "2 kužely nebo boty",
+      "koberec nebo deka"
     ],
     "voiceIntro": "Stáhni míček dozadu až za paty a zase ho vrať dopředu. Ramena se otočí s ním.",
     "coachingPoints": [
@@ -6521,10 +6565,10 @@
       {
         "url": "https://www.youtube.com/watch?v=qybWCftpnbk",
         "type": "video",
-        "reliability": "ověřené"
+        "reliability": "inspirace"
       }
     ],
-    "confidence": "ověřené",
+    "confidence": "odvozené",
     "kind": "ball",
     "matchLegal": true,
     "inApp": true,
@@ -6564,6 +6608,26 @@
       {
         "at": "front",
         "blade": "fh"
+      },
+      {
+        "at": "fh",
+        "blade": "fh"
+      },
+      {
+        "at": 2,
+        "blade": "fh"
+      },
+      {
+        "at": 1,
+        "blade": "bh"
+      },
+      {
+        "at": "bh",
+        "blade": "bh"
+      },
+      {
+        "at": "front",
+        "blade": "bh"
       }
     ],
     "loop": true,
@@ -6578,14 +6642,15 @@
     "noise": "tichý",
     "equipment": [
       "hůl",
-      "míček",
-      "2 kužely nebo boty"
+      "měkký pěnový míček (v bytě)",
+      "2 kužely nebo boty",
+      "koberec nebo deka"
     ],
     "voiceIntro": "Veď míček po velkém kruhu před sebou. U nohou ho vezeš špičkou, daleko patou čepele.",
     "coachingPoints": [
       "Spodní ruka klouže po holi",
       "Kruh je kulatý, ne hranatý",
-      "V půlce otoč směr"
+      "Po jednom kole jeď obráceně"
     ],
     "commonMistakes": [
       "Kruh se zmenší jen na malé kolečko"
@@ -6597,10 +6662,10 @@
       {
         "url": "https://www.youtube.com/watch?v=aEsQAQGETEY",
         "type": "video",
-        "reliability": "ověřené"
+        "reliability": "inspirace"
       }
     ],
-    "confidence": "ověřené",
+    "confidence": "odvozené",
     "kind": "ball",
     "matchLegal": true,
     "inApp": true,
@@ -6639,10 +6704,10 @@
       {
         "url": "https://www.youtube.com/watch?v=C6n2gCRYgzY",
         "type": "video",
-        "reliability": "ověřené"
+        "reliability": "inspirace"
       }
     ],
-    "confidence": "ověřené",
+    "confidence": "odvozené",
     "kind": "ball",
     "matchLegal": true,
     "inApp": false,
@@ -6671,7 +6736,7 @@
       }
     ],
     "loop": true,
-    "callMode": "směr",
+    "callMode": "žádný",
     "tempoBpm": 90,
     "durationSec": 20,
     "reps": null,
@@ -6682,8 +6747,9 @@
     "noise": "tichý",
     "equipment": [
       "hůl",
-      "míček",
-      "2 kužely nebo boty"
+      "měkký pěnový míček (v bytě)",
+      "2 kužely nebo boty",
+      "koberec nebo deka"
     ],
     "voiceIntro": "Rychlé ruce: krátce přetahuj od špičky jedné boty ke špičce druhé. Rychle, ale potichu!",
     "coachingPoints": [
@@ -6761,7 +6827,7 @@
     ],
     "loop": true,
     "callMode": "směr",
-    "tempoBpm": 80,
+    "tempoBpm": 60,
     "durationSec": 40,
     "reps": null,
     "spaceNeeded": [
@@ -6771,10 +6837,11 @@
     "noise": "tichý",
     "equipment": [
       "hůl",
-      "míček",
-      "2 kužely nebo boty"
+      "měkký pěnový míček (v bytě)",
+      "2 kužely nebo boty",
+      "koberec nebo deka"
     ],
-    "voiceIntro": "Tři malé doteky před sebou a na čtyři hop daleko do strany. Poslouchej, kam řeknu.",
+    "voiceIntro": "Tři malé doteky před sebou a na čtyři šup daleko do strany. Poslouchej, kam řeknu.",
     "coachingPoints": [
       "Počítej v duchu raz, dva, tři",
       "Na čtyři široký tah",
@@ -6889,8 +6956,9 @@
     "noise": "tichý",
     "equipment": [
       "hůl",
-      "míček",
-      "2 kužely nebo boty"
+      "měkký pěnový míček (v bytě)",
+      "2 kužely nebo boty",
+      "koberec nebo deka"
     ],
     "voiceIntro": "Míček schválně uteče za paty. Špičkou čepele ho vyhákni zpátky dopředu.",
     "coachingPoints": [
@@ -6899,7 +6967,7 @@
       "Hůl nízko, žádný švih"
     ],
     "commonMistakes": [
-      "Švihne holí dozadu nahoru"
+      "Zvedá hůl dozadu nahoru"
     ],
     "progression": null,
     "regression": null,
@@ -6933,16 +7001,7 @@
     "setupId": "triangle",
     "pattern": [
       {
-        "at": "around:3",
-        "dir": "ccw",
-        "blade": "fh"
-      },
-      {
-        "at": 2,
-        "blade": "fh"
-      },
-      {
-        "at": "home",
+        "at": 3,
         "blade": "fh"
       },
       {
@@ -6951,12 +7010,21 @@
         "blade": "bh"
       },
       {
-        "at": 1,
+        "at": "home",
         "blade": "bh"
       },
       {
-        "at": "home",
+        "at": 3,
         "blade": "bh"
+      },
+      {
+        "at": "around:3",
+        "dir": "ccw",
+        "blade": "fh"
+      },
+      {
+        "at": "home",
+        "blade": "fh"
       }
     ],
     "loop": true,
@@ -6974,7 +7042,7 @@
       "míček",
       "3 kužely"
     ],
-    "voiceIntro": "Žlutý kužel je obránce. Ramenem naznač jednu stranu a projeď tou druhou.",
+    "voiceIntro": "Žlutý kužel je obránce. Přijeď k němu s míčkem na forhendu, ramenem naznač forhend a objeď ho bekhendem.",
     "coachingPoints": [
       "Finta ramenem a hlavou",
       "Pak rychle druhou stranou",
@@ -6990,7 +7058,7 @@
       {
         "url": "https://www.youtube.com/watch?v=HV5FFCzQJfM",
         "type": "video",
-        "reliability": "ověřené"
+        "reliability": "inspirace"
       },
       {
         "url": "https://www.onlinehockeytraining.com/blog/hockey-stick-handling-drills",
@@ -6998,7 +7066,7 @@
         "reliability": "inspirace"
       }
     ],
-    "confidence": "ověřené",
+    "confidence": "odvozené",
     "kind": "ball",
     "matchLegal": true,
     "inApp": true,
@@ -7040,8 +7108,9 @@
     "noise": "tichý",
     "equipment": [
       "hůl",
-      "míček",
-      "2 kužely nebo boty"
+      "měkký pěnový míček (v bytě)",
+      "2 kužely nebo boty",
+      "koberec nebo deka"
     ],
     "voiceIntro": "Vystrč míček do strany na forhend. Pak přetoč čepel špičkou přes míček a stáhni ho k sobě.",
     "coachingPoints": [
@@ -7059,7 +7128,7 @@
       {
         "url": "https://www.youtube.com/watch?v=UlkAnet3d-A",
         "type": "video",
-        "reliability": "ověřené"
+        "reliability": "inspirace"
       },
       {
         "url": "https://www.youtube.com/watch?v=TQe8UUIICqw",
@@ -7067,7 +7136,7 @@
         "reliability": "inspirace"
       }
     ],
-    "confidence": "ověřené",
+    "confidence": "odvozené",
     "kind": "ball",
     "matchLegal": true,
     "inApp": true,
@@ -7112,8 +7181,9 @@
     "noise": "tichý",
     "equipment": [
       "hůl",
-      "míček",
-      "2 kužely nebo boty"
+      "měkký pěnový míček (v bytě)",
+      "2 kužely nebo boty",
+      "koberec nebo deka"
     ],
     "voiceIntro": "Stejný tah, ale z bekhendu. Ve florbalu to jde z obou stran, tak ho budeme umět obě.",
     "coachingPoints": [
@@ -7185,8 +7255,9 @@
     "noise": "tichý",
     "equipment": [
       "hůl",
-      "míček",
-      "2 kužely nebo boty"
+      "měkký pěnový míček (v bytě)",
+      "2 kužely nebo boty",
+      "koberec nebo deka"
     ],
     "voiceIntro": "Tah špičkou na forhendu, hned tah na bekhendu. Jako kouzelník, který ukáže míček a zase ho schová.",
     "coachingPoints": [
@@ -7258,7 +7329,8 @@
       },
       {
         "at": "home",
-        "blade": "bh"
+        "blade": "bh",
+        "beats": 2
       }
     ],
     "loop": true,
@@ -7322,7 +7394,8 @@
       },
       {
         "at": 3,
-        "blade": "fh"
+        "blade": "fh",
+        "beats": 2
       },
       {
         "at": 2,
@@ -7330,7 +7403,8 @@
       },
       {
         "at": 4,
-        "blade": "bh"
+        "blade": "bh",
+        "beats": 2
       }
     ],
     "loop": true,
@@ -7407,7 +7481,7 @@
     ],
     "loop": true,
     "callMode": "žádný",
-    "tempoBpm": 60,
+    "tempoBpm": 20,
     "durationSec": 45,
     "reps": null,
     "spaceNeeded": [
@@ -7638,10 +7712,10 @@
       {
         "url": "https://www.youtube.com/watch?v=HV5FFCzQJfM",
         "type": "video",
-        "reliability": "ověřené"
+        "reliability": "inspirace"
       }
     ],
-    "confidence": "ověřené",
+    "confidence": "odvozené",
     "kind": "ball",
     "matchLegal": true,
     "inApp": true,
@@ -7785,15 +7859,15 @@
       {
         "url": "https://www.youtube.com/watch?v=5Ls0RzDATIY",
         "type": "video",
-        "reliability": "ověřené"
+        "reliability": "inspirace"
       },
       {
         "url": "https://www.youtube.com/watch?v=DycV8UE5Ua0",
         "type": "video",
-        "reliability": "ověřené"
+        "reliability": "inspirace"
       }
     ],
-    "confidence": "ověřené",
+    "confidence": "odvozené",
     "kind": "ball",
     "matchLegal": true,
     "inApp": true,
@@ -7867,10 +7941,10 @@
       {
         "url": "https://www.youtube.com/watch?v=DycV8UE5Ua0",
         "type": "video",
-        "reliability": "ověřené"
+        "reliability": "inspirace"
       }
     ],
-    "confidence": "ověřené",
+    "confidence": "odvozené",
     "kind": "ball",
     "matchLegal": true,
     "inApp": true,
@@ -7915,8 +7989,9 @@
     "noise": "tichý",
     "equipment": [
       "hůl",
-      "míček",
-      "2 kužely nebo boty"
+      "měkký pěnový míček (v bytě)",
+      "2 kužely nebo boty",
+      "koberec nebo deka"
     ],
     "voiceIntro": "Stoupni si na jednu nohu a přetahuj míček. Na půlce cviku vyměň nohu.",
     "coachingPoints": [
@@ -7934,10 +8009,10 @@
       {
         "url": "https://www.youtube.com/watch?v=4WBgqEPIFxw",
         "type": "video",
-        "reliability": "ověřené"
+        "reliability": "inspirace"
       }
     ],
-    "confidence": "ověřené",
+    "confidence": "odvozené",
     "kind": "ball",
     "matchLegal": true,
     "inApp": true,
@@ -7969,7 +8044,8 @@
       {
         "at": "around:3",
         "dir": "cw",
-        "blade": "bh"
+        "blade": "bh",
+        "beats": 2
       },
       {
         "at": "home",
@@ -7986,7 +8062,8 @@
       {
         "at": "around:3",
         "dir": "ccw",
-        "blade": "fh"
+        "blade": "fh",
+        "beats": 2
       },
       {
         "at": "home",
@@ -8071,7 +8148,8 @@
       },
       {
         "at": "home",
-        "blade": "fh"
+        "blade": "fh",
+        "beats": 3
       }
     ],
     "loop": true,
@@ -8089,7 +8167,7 @@
       "míček",
       "5 kuželů"
     ],
-    "voiceIntro": "Jeď cik-cak od kuželu ke kuželu. Vlevo bekhendem, vpravo forhendem.",
+    "voiceIntro": "Jeď cik-cak od kuželu ke kuželu. U kuželů na bekhendové straně bekhendem, na forhendové forhendem.",
     "coachingPoints": [
       "U kuželu změna strany",
       "Mezi kužely zrychli",
@@ -8273,7 +8351,7 @@
       {
         "url": "https://www.youtube.com/watch?v=P5dO2zNmxhc",
         "type": "video",
-        "reliability": "ověřené"
+        "reliability": "inspirace"
       },
       {
         "url": "https://schools.wrdsb.ca/athome/learn/elementary-home/elementary-2/healthy-active-living/healthy-active-living-all-grades/skill-development/hockey-skills-drills-and-challenges/",
@@ -8281,7 +8359,7 @@
         "reliability": "inspirace"
       }
     ],
-    "confidence": "ověřené",
+    "confidence": "odvozené",
     "kind": "ball",
     "matchLegal": true,
     "inApp": false,
@@ -8365,8 +8443,9 @@
     "noise": "tichý",
     "equipment": [
       "hůl",
-      "míček",
-      "2 kužely nebo boty"
+      "měkký pěnový míček (v bytě)",
+      "2 kužely nebo boty",
+      "koberec nebo deka"
     ],
     "voiceIntro": "Spodní ruku dej za záda a horní rukou veď míček před sebou a na bekhend. Jen chvilku, ruka se unaví.",
     "coachingPoints": [
@@ -8384,10 +8463,10 @@
       {
         "url": "https://www.youtube.com/watch?v=DycV8UE5Ua0",
         "type": "video",
-        "reliability": "ověřené"
+        "reliability": "inspirace"
       }
     ],
-    "confidence": "ověřené",
+    "confidence": "odvozené",
     "kind": "ball",
     "matchLegal": true,
     "inApp": true,
@@ -8431,9 +8510,10 @@
     "noise": "tichý",
     "equipment": [
       "hůl",
-      "míček",
+      "měkký pěnový míček (v bytě)",
       "rulička od toaletního papíru",
-      "2 kužely nebo boty"
+      "2 kužely nebo boty",
+      "koberec nebo deka"
     ],
     "voiceIntro": "Navlékni na hůl ruličku od toaletního papíru a spodní rukou drž jen ji. Kdo ji rozmačká, mačká moc.",
     "coachingPoints": [
@@ -8451,10 +8531,10 @@
       {
         "url": "https://www.youtube.com/watch?v=DycV8UE5Ua0",
         "type": "video",
-        "reliability": "ověřené"
+        "reliability": "inspirace"
       }
     ],
-    "confidence": "ověřené",
+    "confidence": "odvozené",
     "kind": "ball",
     "matchLegal": true,
     "inApp": true,
@@ -8473,61 +8553,35 @@
     "category": "jednoruč",
     "bladeSide": "obě",
     "grip": "jednoruč-dolní",
-    "setupId": "spot",
-    "pattern": [
-      {
-        "at": "front",
-        "blade": "fh",
-        "hand": "bottom"
-      },
-      {
-        "at": "front",
-        "blade": "bh",
-        "hand": "bottom"
-      }
-    ],
-    "loop": true,
-    "callMode": "směr",
-    "tempoBpm": 45,
-    "durationSec": 20,
+    "setupId": null,
+    "pattern": null,
+    "loop": null,
+    "callMode": null,
+    "tempoBpm": null,
+    "durationSec": null,
     "reps": null,
-    "spaceNeeded": [
-      1.4,
-      2
-    ],
+    "spaceNeeded": null,
     "noise": "tichý",
-    "equipment": [
-      "hůl",
-      "míček",
-      "2 kužely nebo boty"
-    ],
-    "voiceIntro": "Těžká výzva: drž hůl jen spodní rukou uprostřed a dělej malé doteky před sebou.",
-    "coachingPoints": [
-      "Ruka drží hůl uprostřed",
-      "Malinké doteky",
-      "Konec hole hlídej, ať nejde nahoru"
-    ],
-    "commonMistakes": [
-      "Konec hole se zvedá k bradě"
-    ],
+    "equipment": [],
+    "voiceIntro": null,
+    "coachingPoints": [],
+    "commonMistakes": [],
     "progression": null,
     "regression": null,
-    "safetyNotes": "Jednou rukou se hůl ovládá hůř: pomalu, s volným místem kolem. Konec hole i čepel pod pasem. Nikdo v okruhu dvou metrů.",
+    "safetyNotes": "Hůl pod pasem, kolem volno.",
     "sources": [
       {
         "url": "https://cdn.hockeycanada.ca/hockey-canada/Hockey-Programs/Players/Downloads/2020/puck-control-overview-e.pdf",
         "type": "metodika",
-        "reliability": "odvozené"
+        "reliability": "inspirace"
       }
     ],
     "confidence": "odvozené",
     "kind": "ball",
     "matchLegal": true,
-    "inApp": true,
-    "inAppAs": [
-      "drill:one-hand-bottom"
-    ],
-    "notInAppReason": null
+    "inApp": false,
+    "inAppAs": [],
+    "notInAppReason": "Konec hole volně kmitá až k bradě a očím, pro 8 let doma nevhodné. Jednoruč jen horní rukou."
   },
   {
     "id": "h41",
@@ -8598,8 +8652,9 @@
     "noise": "tichý",
     "equipment": [
       "hůl",
-      "míček",
-      "2 kužely nebo boty"
+      "měkký pěnový míček (v bytě)",
+      "2 kužely nebo boty",
+      "koberec nebo deka"
     ],
     "voiceIntro": "Dívej se na tablet, ne na míček! Jakou barvu uvidíš, k tomu kuželu míček dovez.",
     "coachingPoints": [
@@ -8765,8 +8820,9 @@
     "noise": "tichý",
     "equipment": [
       "hůl",
-      "míček",
-      "2 kužely nebo boty"
+      "měkký pěnový míček (v bytě)",
+      "2 kužely nebo boty",
+      "koberec nebo deka"
     ],
     "voiceIntro": "Barvy teď poletí rychleji. Někdy dvakrát stejná, tak dávej pozor!",
     "coachingPoints": [
@@ -8838,8 +8894,9 @@
     "noise": "tichý",
     "equipment": [
       "hůl",
-      "míček",
-      "2 kužely nebo boty"
+      "měkký pěnový míček (v bytě)",
+      "2 kužely nebo boty",
+      "koberec nebo deka"
     ],
     "voiceIntro": "Přetahuj na místě a zkus zavřít oči, míček ucítíš čepelí. Když uteče, otevři oči a začni znova.",
     "coachingPoints": [
@@ -8857,10 +8914,10 @@
       {
         "url": "https://www.youtube.com/watch?v=bYFiH1BF_HA",
         "type": "video",
-        "reliability": "ověřené"
+        "reliability": "inspirace"
       }
     ],
-    "confidence": "ověřené",
+    "confidence": "odvozené",
     "kind": "ball",
     "matchLegal": true,
     "inApp": true,
@@ -8894,15 +8951,15 @@
     "commonMistakes": [],
     "progression": null,
     "regression": null,
-    "safetyNotes": "Hůl pod pasem, kolem volno.",
+    "safetyNotes": "Hraje se jen na míček, hůl po zemi, nikdo nemíří holí na tělo. Druhý hráč mimo dosah čepele.",
     "sources": [
       {
         "url": "https://www.youtube.com/watch?v=GU47Ecj98JM",
         "type": "video",
-        "reliability": "ověřené"
+        "reliability": "inspirace"
       }
     ],
-    "confidence": "ověřené",
+    "confidence": "odvozené",
     "kind": "ball",
     "matchLegal": true,
     "inApp": false,
@@ -8939,7 +8996,7 @@
       {
         "url": "https://portal.usahockey.com/cx/president/hockey-devlopment/8u_fundamentals_stage-adm.pdf",
         "type": "metodika",
-        "reliability": "odvozené"
+        "reliability": "inspirace"
       }
     ],
     "confidence": "odvozené",
@@ -8974,7 +9031,7 @@
     "commonMistakes": [],
     "progression": null,
     "regression": null,
-    "safetyNotes": "Hůl pod pasem, kolem volno.",
+    "safetyNotes": "Hraje se jen na míček, hůl po zemi, nikdo nemíří holí na tělo. Druhý hráč mimo dosah čepele.",
     "sources": [
       {
         "url": "https://schools.wrdsb.ca/athome/learn/elementary-home/elementary-2/healthy-active-living/healthy-active-living-all-grades/skill-development/hockey-skills-drills-and-challenges/",
@@ -9021,7 +9078,7 @@
     "commonMistakes": [],
     "progression": null,
     "regression": null,
-    "safetyNotes": "Hůl pod pasem, kolem volno.",
+    "safetyNotes": "Hraje se jen na míček, hůl po zemi, nikdo nemíří holí na tělo. Druhý hráč mimo dosah čepele.",
     "sources": [
       {
         "url": "https://www.admkids.com/news_article/show/411437",
@@ -9058,7 +9115,7 @@
       }
     ],
     "loop": true,
-    "callMode": "směr",
+    "callMode": "žádný",
     "tempoBpm": 90,
     "durationSec": 20,
     "reps": null,
@@ -9069,8 +9126,9 @@
     "noise": "tichý",
     "equipment": [
       "hůl",
-      "míček",
-      "2 kužely nebo boty"
+      "měkký pěnový míček (v bytě)",
+      "2 kužely nebo boty",
+      "koberec nebo deka"
     ],
     "voiceIntro": "Rychlé ruce: krátce přetahuj od špičky jedné boty ke špičce druhé. Rychle, ale potichu!",
     "coachingPoints": [
@@ -9087,8 +9145,8 @@
     "sources": [
       {
         "url": "https://dspace.cuni.cz/handle/20.500.11956/191512",
-        "type": "VŠ práce",
-        "reliability": "odvozené"
+        "type": "VŠ práce (hokej)",
+        "reliability": "inspirace"
       },
       {
         "url": "https://www.youtube.com/watch?v=7HluVwbAv3w",
@@ -9217,10 +9275,10 @@
       {
         "url": "https://www.youtube.com/watch?v=rP-KX2zzzqA",
         "type": "video",
-        "reliability": "ověřené"
+        "reliability": "inspirace"
       }
     ],
-    "confidence": "ověřené",
+    "confidence": "odvozené",
     "kind": "ball",
     "matchLegal": true,
     "inApp": false,
@@ -9417,7 +9475,7 @@
         "reliability": "inspirace"
       },
       {
-        "url": "https://floorball.sport/2020/11/26/presenting-freestyle-floorball-cup-contestant-agnes-holgersson",
+        "url": "https://web.archive.org/web/20220816034720/https://floorball.sport/2020/11/26/presenting-freestyle-floorball-cup-contestant-agnes-holgersson/",
         "type": "článek",
         "reliability": "inspirace"
       },
@@ -9999,8 +10057,9 @@
     "noise": "tichý",
     "equipment": [
       "hůl",
-      "míček",
-      "2 kužely nebo boty"
+      "měkký pěnový míček (v bytě)",
+      "2 kužely nebo boty",
+      "koberec nebo deka"
     ],
     "voiceIntro": "Vystrč míček do strany na forhend. Pak přetoč čepel špičkou přes míček a stáhni ho k sobě.",
     "coachingPoints": [
@@ -10023,10 +10082,10 @@
       {
         "url": "https://www.youtube.com/watch?v=UlkAnet3d-A",
         "type": "video",
-        "reliability": "ověřené"
+        "reliability": "inspirace"
       }
     ],
-    "confidence": "ověřené",
+    "confidence": "odvozené",
     "kind": "ball",
     "matchLegal": true,
     "inApp": true,
@@ -10172,8 +10231,9 @@
     "noise": "tichý",
     "equipment": [
       "hůl",
-      "míček",
-      "2 kužely nebo boty"
+      "měkký pěnový míček (v bytě)",
+      "2 kužely nebo boty",
+      "koberec nebo deka"
     ],
     "voiceIntro": "Stoupni si široko. Protáhni míček mezi nohama dozadu a zase dopředu.",
     "coachingPoints": [
@@ -10240,7 +10300,7 @@
     "commonMistakes": [],
     "progression": null,
     "regression": null,
-    "safetyNotes": "Míček nad koleny: jen domácí frajeřinka, v zápase faul. Hůl pod pasem.",
+    "safetyNotes": "Hůl pod pasem, kolem volno.",
     "sources": [
       {
         "url": "https://www.youtube.com/watch?v=h3GauavBPtE",
@@ -10255,7 +10315,7 @@
     ],
     "confidence": "ověřené",
     "kind": "ball",
-    "matchLegal": false,
+    "matchLegal": true,
     "inApp": true,
     "inAppAs": [
       "trick:kopacka"
@@ -10652,7 +10712,7 @@
         "reliability": "inspirace"
       },
       {
-        "url": "https://floorball.sport/2020/11/26/presenting-freestyle-floorball-cup-contestant-agnes-holgersson",
+        "url": "https://web.archive.org/web/20220816034720/https://floorball.sport/2020/11/26/presenting-freestyle-floorball-cup-contestant-agnes-holgersson/",
         "type": "článek",
         "reliability": "inspirace"
       }
@@ -10742,11 +10802,6 @@
     "safetyNotes": "Hůl pod pasem, kolem volno.",
     "sources": [
       {
-        "url": "https://www.milsport.admin.ch/media/postPdf/SpielFit_Unihockey_Slalom_Torschuss.pdf",
-        "type": "metodika",
-        "reliability": "ověřené"
-      },
-      {
         "url": "https://www.mobilesport.ch/assets/lbwp-cdn/mobilesport/files/2013/09/praxis_2005_02_d.pdf",
         "type": "metodika",
         "reliability": "ověřené"
@@ -10796,8 +10851,9 @@
     "noise": "tichý",
     "equipment": [
       "hůl",
-      "míček",
-      "2 kužely nebo boty"
+      "měkký pěnový míček (v bytě)",
+      "2 kužely nebo boty",
+      "koberec nebo deka"
     ],
     "voiceIntro": "Nakresli míčkem ležatou osmičku kolem obou kuželů. Kolem červeného bekhendem, kolem modrého forhendem.",
     "coachingPoints": [
@@ -11665,7 +11721,7 @@
     ],
     "loop": true,
     "callMode": "náhodná reakce",
-    "tempoBpm": 20,
+    "tempoBpm": 15,
     "durationSec": 40,
     "reps": null,
     "spaceNeeded": [
@@ -11851,7 +11907,7 @@
     "commonMistakes": [],
     "progression": null,
     "regression": null,
-    "safetyNotes": "Hůl pod pasem, kolem volno.",
+    "safetyNotes": "Hraje se jen na míček, hůl po zemi, nikdo nemíří holí na tělo. Druhý hráč mimo dosah čepele.",
     "sources": [
       {
         "url": "https://theses.cz/id/7arhdl/",
@@ -12051,7 +12107,7 @@
     "commonMistakes": [],
     "progression": null,
     "regression": null,
-    "safetyNotes": "Hůl pod pasem, kolem volno.",
+    "safetyNotes": "Hraje se jen na míček, hůl po zemi, nikdo nemíří holí na tělo. Druhý hráč mimo dosah čepele.",
     "sources": [
       {
         "url": "https://theses.cz/id/7arhdl/",
@@ -12184,11 +12240,13 @@
       },
       {
         "at": 5,
-        "blade": "bh"
+        "blade": "bh",
+        "beats": 2
       },
       {
         "at": "home",
-        "blade": "bh"
+        "blade": "bh",
+        "beats": 2
       },
       {
         "at": 3,
@@ -12267,7 +12325,7 @@
     "commonMistakes": [],
     "progression": null,
     "regression": null,
-    "safetyNotes": "Hůl pod pasem, kolem volno.",
+    "safetyNotes": "Hraje se jen na míček, hůl po zemi, nikdo nemíří holí na tělo. Druhý hráč mimo dosah čepele.",
     "sources": [
       {
         "url": "https://theses.cz/id/vj1m99/",
@@ -12328,7 +12386,8 @@
       },
       {
         "at": "home",
-        "blade": "fh"
+        "blade": "fh",
+        "beats": 2
       }
     ],
     "loop": true,
@@ -12439,7 +12498,7 @@
     "commonMistakes": [],
     "progression": null,
     "regression": null,
-    "safetyNotes": "Hůl pod pasem, kolem volno.",
+    "safetyNotes": "Hraje se jen na míček, hůl po zemi, nikdo nemíří holí na tělo. Druhý hráč mimo dosah čepele.",
     "sources": [
       {
         "url": "https://theses.cz/id/vj1m99/",
@@ -12519,7 +12578,7 @@
     "commonMistakes": [],
     "progression": null,
     "regression": null,
-    "safetyNotes": "Hůl pod pasem, kolem volno.",
+    "safetyNotes": "Hraje se jen na míček, hůl po zemi, nikdo nemíří holí na tělo. Druhý hráč mimo dosah čepele.",
     "sources": [
       {
         "url": "https://theses.cz/id/vj1m99/",
@@ -12559,7 +12618,7 @@
     "commonMistakes": [],
     "progression": null,
     "regression": null,
-    "safetyNotes": "Hůl pod pasem, kolem volno.",
+    "safetyNotes": "Hraje se jen na míček, hůl po zemi, nikdo nemíří holí na tělo. Druhý hráč mimo dosah čepele.",
     "sources": [
       {
         "url": "https://www.innebandy.se/ovningsbanken/jag-och-bollen",
@@ -12607,8 +12666,9 @@
     "noise": "tichý",
     "equipment": [
       "hůl",
-      "míček",
-      "2 kužely nebo boty"
+      "měkký pěnový míček (v bytě)",
+      "2 kužely nebo boty",
+      "koberec nebo deka"
     ],
     "voiceIntro": "Míček je vedle tebe na forhendu. Posouvej ho dopředu a dozadu, nohy se nehýbou.",
     "coachingPoints": [
@@ -12680,8 +12740,9 @@
     "noise": "tichý",
     "equipment": [
       "hůl",
-      "míček",
-      "2 kužely nebo boty"
+      "měkký pěnový míček (v bytě)",
+      "2 kužely nebo boty",
+      "koberec nebo deka"
     ],
     "voiceIntro": "Přetahuj míček a přitom dělej malé úkroky k červenému a k modrému kuželu.",
     "coachingPoints": [
@@ -12764,7 +12825,7 @@
       "míček",
       "4 kužely"
     ],
-    "voiceIntro": "Kolem každého kuželu udělej celou otočku s míčkem. Vlevo bekhendem, vpravo forhendem.",
+    "voiceIntro": "Kolem každého kuželu udělej celou otočku s míčkem. U červeného a zeleného bekhendem, u modrého a žlutého forhendem.",
     "coachingPoints": [
       "Těsně kolem kuželu",
       "Tělo chrání míček",
@@ -13109,7 +13170,7 @@
     ],
     "loop": true,
     "callMode": "žádný",
-    "tempoBpm": 60,
+    "tempoBpm": 20,
     "durationSec": 45,
     "reps": null,
     "spaceNeeded": [
@@ -13219,8 +13280,9 @@
     "noise": "tichý",
     "equipment": [
       "hůl",
-      "míček",
-      "2 kužely nebo boty"
+      "měkký pěnový míček (v bytě)",
+      "2 kužely nebo boty",
+      "koberec nebo deka"
     ],
     "voiceIntro": "Dívej se na tablet, ne na míček! Jakou barvu uvidíš, k tomu kuželu míček dovez.",
     "coachingPoints": [

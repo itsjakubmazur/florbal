@@ -1,5 +1,6 @@
 // Mapa zdrojů z rešerše: origin id -> [{url, type, reliability}]
-const V = (url, rel = 'ověřené', type = 'video') => ({ url, type, reliability: rel });
+// Jednotlivá videa jsou vždy 'inspirace' (BRIEF 4.2), i když jsou od svazu. 'ověřené' jen metodiky, pravidla, VŠ práce.
+const V = (url, _rel, type = 'video') => ({ url, type, reliability: 'inspirace' });
 const M = (url, rel = 'ověřené', type = 'metodika') => ({ url, type, reliability: rel });
 
 export const URL = {
@@ -58,9 +59,7 @@ export const URL = {
   BARBER_SHOOT: 'https://www.youtube.com/watch?v=q5O5Qi-ZQY4',
   WAREHOUSE: 'https://www.youtube.com/watch?v=P7ezNqf1VzI',
   USTI_DIZZY: 'https://www.youtube.com/watch?v=Za4j_Myq-kU',
-  MILSPORT: 'https://www.milsport.admin.ch/media/postPdf/SpielFit_Unihockey_Slalom_Torschuss.pdf',
-  IFF_FREESTYLE: 'https://floorball.sport/2020/11/26/presenting-freestyle-floorball-cup-contestant-agnes-holgersson',
-  IFF_EGLI: 'https://floorball.sport/2020/12/09/presenting-freestyle-floorball-cup-contestant-jonathan-egli',
+  IFF_FREESTYLE: 'https://web.archive.org/web/20220816034720/https://floorball.sport/2020/11/26/presenting-freestyle-floorball-cup-contestant-agnes-holgersson/',
   FLOOR_MINDSET: 'https://www.youtube.com/watch?v=h3GauavBPtE',
   F221_LEGS: 'https://www.youtube.com/watch?v=8AWo_5Z9Q7o',
   WRDSB: 'https://schools.wrdsb.ca/athome/learn/elementary-home/elementary-2/healthy-active-living/healthy-active-living-all-grades/skill-development/hockey-skills-drills-and-challenges/',
@@ -108,16 +107,16 @@ const H = {
   H37: [M('https://www.hockeyshare.com/drills/print/477220', 'inspirace', 'článek')],
   H38: [V(U.USAOFF)],
   H39: [V(U.USAOFF)],
-  H40: [M(U.HCPUCK, 'odvozené')],
+  H40: [M(U.HCPUCK, 'inspirace')],
   H41: [V(U.HTH, 'inspirace')],
   H42: [V('https://www.youtube.com/watch?v=IT9Wu3P_C6I', 'inspirace'), M(U.HCPUCK)],
   H43: [M('https://hockeyshot.com/products/reactive-sniper', 'inspirace', 'výrobce'), M(U.HCPUCK)],
   H44: [V('https://www.youtube.com/watch?v=bYFiH1BF_HA')],
   H45: [V('https://www.youtube.com/watch?v=GU47Ecj98JM')],
-  H46: [M(U.ADM8, 'odvozené')],
+  H46: [M(U.ADM8, 'inspirace')],
   H47: [M(U.WRDSB, 'inspirace', 'článek'), M(U.HCPUCK)],
   H48: [M(U.ADMSTAT)],
-  H49: [M(U.CUNI_U9, 'odvozené', 'VŠ práce'), V(U.HTH, 'inspirace')],
+  H49: [M(U.CUNI_U9, 'inspirace', 'VŠ práce (hokej)'), V(U.HTH, 'inspirace')],
   H50: [V('https://www.youtube.com/watch?v=XzQ_26K05sU', 'inspirace')],
   H51: [V('https://www.youtube.com/watch?v=pmNnMqKU-PU', 'inspirace')],
   H52: [V('https://www.youtube.com/watch?v=rP-KX2zzzqA')],
@@ -178,7 +177,7 @@ const C = {
   C08: [V(U.FITKOUC, 'inspirace')],
   C09: [V(U.FB_JUGGLE, 'inspirace'), M(U.IFF_FREESTYLE, 'inspirace', 'článek')],
   C10: [V(U.BARBER_ZORRO, 'inspirace'), M(U.SOI)],
-  C11: [M(U.MILSPORT, 'ověřené'), M(U.CH_MP)],
+  C11: [M(U.CH_MP)],
   C12: [V(U.HAYUNGS, 'inspirace')],
   C13: [M(U.CH_MP), M(U.CH_L10)],
   C14: [V(U.BARBER_SHOOT, 'inspirace'), V(U.LANGER_FRODL, 'inspirace')],

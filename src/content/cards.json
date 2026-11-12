@@ -121,15 +121,26 @@
     "skillCategory": "jednoruč"
   },
   {
-    "id": "card-bottom-hand",
-    "name": "Spodní síla",
-    "rarity": "epic",
-    "description": "Zvládl jsi i jen spodní ruku.",
+    "id": "card-long-bh",
+    "name": "Dlouhá ruka",
+    "rarity": "rare",
+    "description": "Dlouhý bekhend jednou rukou ti jde.",
     "unlock": {
       "type": "drill",
-      "id": "one-hand-bottom"
+      "id": "one-hand-long-bh"
     },
     "skillCategory": "jednoruč"
+  },
+  {
+    "id": "card-hook-master",
+    "name": "Mistr kliček",
+    "rarity": "legend",
+    "description": "Dvojitý tah špičkou bez chyby.",
+    "unlock": {
+      "type": "drill",
+      "id": "toe-drag-double"
+    },
+    "skillCategory": "kličky"
   },
   {
     "id": "card-fake",
@@ -167,7 +178,7 @@
   {
     "id": "card-zigzag-master",
     "name": "Mistr cik-caku",
-    "rarity": "legend",
+    "rarity": "epic",
     "description": "Nejtěžší cik-cak bez chyby.",
     "unlock": {
       "type": "drill",

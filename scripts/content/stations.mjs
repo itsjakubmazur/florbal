@@ -1,6 +1,10 @@
 // Stanoviště (SPEC kap. 2). Souřadnice pro praváka (forhend = vpravo = +x). mirror: true -> pro leváka x -> -x
 // a v textech se prohodí doleva/doprava (src/domain/stations.js swapLR). Kužel 1 je vždy na bekhendové straně.
 const SUB = 'Nemáš kužely? Stačí boty, ponožky srolované do kuličky nebo kousek lepicí pásky na zemi.';
+// Velký krok osmiletého dítěte ≈ 0,6 m.
+const CHECK = 'Polož čepel hole na zem a pomalu s ní opiš kruh kolem sebe. Čepel nesmí do ničeho narazit.';
+const QUIET = 'Cvičíš v bytě? Vezmi měkký pěnový míček a cvič na koberci nebo dece, ať to sousedi neslyší.';
+const TABLET = (where) => `Tablet postav ${where}, výš než čepel, na židli nebo stojan. Nikdy ne tam, kam poběžíš.`;
 
 export const stations = [
   {
@@ -10,11 +14,13 @@ export const stations = [
     voiceSetup: 'setup_spot',
     quiet: true,
     setupSteps: [
-      { text: 'Najdi volné místo. Rozpaž ruce s holí a zatoč se: nic se nesmí dotknout.', highlight: [] },
+      { text: CHECK, highlight: [] },
+      { text: QUIET, highlight: [] },
       { text: SUB, highlight: [] },
-      { text: 'Červený kužel jedna polož jeden malý krok před sebe a trochu doleva.', highlight: [1] },
-      { text: 'Modrý kužel dva polož stejně daleko, ale doprava. Mezi kužely je asi jeden metr.', highlight: [2] },
-      { text: 'Ty stojíš v domečku za kužely. Tablet dej daleko dopředu, kam hůl nedosáhne.', highlight: [1, 2] },
+      { text: 'Červený kužel jedna polož jeden velký krok před sebe a kousek doleva.', highlight: [1] },
+      { text: 'Modrý kužel dva polož stejně daleko, ale kousek doprava. Mezi kužely je asi jeden metr.', highlight: [2] },
+      { text: TABLET('aspoň tři velké kroky před kužely'), highlight: [1, 2] },
+      { text: 'Hotovo! Stoupni si do domečku za kužely.', highlight: [1, 2] },
     ],
   },
   {
@@ -23,12 +29,13 @@ export const stations = [
     cones: [ { n: 1, x: -0.9, y: 1.1, color: 'red' }, { n: 2, x: 0.9, y: 1.1, color: 'blue' }, { n: 3, x: 0, y: 2.2, color: 'yellow' } ],
     voiceSetup: 'setup_triangle',
     setupSteps: [
-      { text: 'Stoupni si do domečku. Tablet je daleko před tebou.', highlight: [] },
+      { text: 'Stoupni si do domečku. Před tebou musí být volno na čtyři velké kroky.', highlight: [] },
       { text: SUB, highlight: [] },
-      { text: 'Červený kužel jedna polož jeden velký krok dopředu a doleva.', highlight: [1] },
-      { text: 'Modrý kužel dva polož jeden velký krok dopředu a doprava.', highlight: [2] },
-      { text: 'Žlutý kužel tři dej doprostřed, o další velký krok dál.', highlight: [3] },
-      { text: 'Hotovo! Máš trojúhelník. Tablet je až za žlutým kuželem.', highlight: [1, 2, 3] },
+      { text: 'Červený kužel jedna polož dva velké kroky dopředu a jeden a půl kroku doleva.', highlight: [1] },
+      { text: 'Modrý kužel dva polož dva velké kroky dopředu a jeden a půl kroku doprava.', highlight: [2] },
+      { text: 'Žlutý kužel tři dej doprostřed, o další dva velké kroky dál.', highlight: [3] },
+      { text: TABLET('aspoň dva velké kroky za žlutý kužel a ještě kus stranou'), highlight: [3] },
+      { text: 'Hotovo! Máš trojúhelník.', highlight: [1, 2, 3] },
     ],
   },
   {
@@ -40,12 +47,13 @@ export const stations = [
     ],
     voiceSetup: 'setup_square',
     setupSteps: [
-      { text: 'Stoupni si do domečku. Tablet je daleko před tebou.', highlight: [] },
+      { text: 'Stoupni si do domečku. Před tebou musí být volno na pět velkých kroků.', highlight: [] },
       { text: SUB, highlight: [] },
-      { text: 'Červený kužel jedna polož malý krok dopředu a velký krok doleva.', highlight: [1] },
-      { text: 'Modrý kužel dva polož malý krok dopředu a velký krok doprava.', highlight: [2] },
-      { text: 'Žlutý kužel tři polož dva velké kroky za modrý.', highlight: [3] },
-      { text: 'Zelený kužel čtyři polož dva velké kroky za červený.', highlight: [4] },
+      { text: 'Červený kužel jedna polož jeden a půl kroku dopředu a jeden a půl kroku doleva.', highlight: [1] },
+      { text: 'Modrý kužel dva polož jeden a půl kroku dopředu a jeden a půl kroku doprava.', highlight: [2] },
+      { text: 'Žlutý kužel tři polož skoro tři velké kroky za modrý.', highlight: [3] },
+      { text: 'Zelený kužel čtyři polož skoro tři velké kroky za červený.', highlight: [4] },
+      { text: TABLET('aspoň dva velké kroky za žlutý a zelený kužel a kus stranou'), highlight: [3, 4] },
       { text: 'Hotovo! Máš čtverec. Uvnitř nesmí nic ležet.', highlight: [1, 2, 3, 4] },
     ],
   },
@@ -58,13 +66,14 @@ export const stations = [
     ],
     voiceSetup: 'setup_line',
     setupSteps: [
-      { text: 'Stoupni si do domečku. Před tebou postavíme rovnou řadu.', highlight: [] },
+      { text: 'Stoupni si do domečku. Před tebou postavíme rovnou řadu, potřebuješ volno na osm velkých kroků.', highlight: [] },
       { text: SUB, highlight: [] },
-      { text: 'Červený kužel jedna polož jeden velký krok před sebe.', highlight: [1] },
-      { text: 'Modrý kužel dva dej o další velký krok dál.', highlight: [2] },
-      { text: 'Žlutý kužel tři zase o velký krok dál.', highlight: [3] },
-      { text: 'Zelený kužel čtyři je poslední. Za ním musí být ještě kus volného místa na otočku.', highlight: [4] },
-      { text: 'Hotovo! Máš slalom. Tablet dej stranou, ne hned za poslední kužel.', highlight: [1, 2, 3, 4] },
+      { text: 'Červený kužel jedna polož jeden a půl velkého kroku před sebe.', highlight: [1] },
+      { text: 'Modrý kužel dva dej o další jeden a půl kroku dál.', highlight: [2] },
+      { text: 'Žlutý kužel tři zase o jeden a půl kroku dál.', highlight: [3] },
+      { text: 'Zelený kužel čtyři je poslední. Za ním musí být ještě dva kroky volna na otočku.', highlight: [4] },
+      { text: TABLET('tři velké kroky za zelený kužel a kus stranou'), highlight: [4] },
+      { text: 'Hotovo! Máš slalom.', highlight: [1, 2, 3, 4] },
     ],
   },
   {
@@ -77,13 +86,14 @@ export const stations = [
     ],
     voiceSetup: 'setup_zigzag',
     setupSteps: [
-      { text: 'Stoupni si do domečku. Postavíme cik-cak jako písmeno W.', highlight: [] },
+      { text: 'Stoupni si do domečku. Postavíme cik-cak jako písmeno W, potřebuješ volno na osm velkých kroků.', highlight: [] },
       { text: SUB, highlight: [] },
-      { text: 'Červený kužel jedna polož kousek dopředu a doleva.', highlight: [1] },
-      { text: 'Modrý kužel dva polož o krok dál a doprava.', highlight: [2] },
-      { text: 'Žlutý kužel tři zase o krok dál a doleva.', highlight: [3] },
-      { text: 'Zelený kužel čtyři o krok dál a doprava.', highlight: [4] },
-      { text: 'Bílý kužel pět o krok dál a doleva. Bílý může být i ponožka.', highlight: [5] },
+      { text: 'Červený kužel jedna polož jeden velký krok dopředu a jeden velký krok doleva.', highlight: [1] },
+      { text: 'Modrý kužel dva polož o velký krok dál a dva a půl kroku doprava od červeného.', highlight: [2] },
+      { text: 'Žlutý kužel tři polož o velký krok dál a zase doleva, na stejnou stranu jako červený.', highlight: [3] },
+      { text: 'Zelený kužel čtyři polož o velký krok dál a doprava, na stejnou stranu jako modrý.', highlight: [4] },
+      { text: 'Bílý kužel pět polož o velký krok dál a doleva, na stejnou stranu jako žlutý. Bílý může být i ponožka.', highlight: [5] },
+      { text: TABLET('dva velké kroky za bílý kužel a kus stranou'), highlight: [5] },
       { text: 'Hotovo! Máš cik-cak.', highlight: [1, 2, 3, 4, 5] },
     ],
   },

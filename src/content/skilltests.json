@@ -47,8 +47,8 @@
     "sources": [
       {
         "url": "https://dspace.cuni.cz/handle/20.500.11956/191512",
-        "type": "VŠ práce",
-        "reliability": "odvozené"
+        "type": "VŠ práce (hokej)",
+        "reliability": "inspirace"
       },
       {
         "url": "https://www.youtube.com/watch?v=7HluVwbAv3w",
@@ -88,8 +88,8 @@
       },
       {
         "url": "https://dspace.cuni.cz/handle/20.500.11956/191512",
-        "type": "VŠ práce",
-        "reliability": "odvozené"
+        "type": "VŠ práce (hokej)",
+        "reliability": "inspirace"
       },
       {
         "url": "https://www.youtube.com/watch?v=7HluVwbAv3w",
@@ -142,7 +142,7 @@
     "unit": "počet",
     "better": "higher",
     "howTo": "Kolik odrazů míčku na čepeli uděláš v řadě bez pádu? Tři pokusy, platí nejlepší. Odrazy nejvýš do pasu.",
-    "voiceIntro": "Žonglovací rekord! Počítej se mnou. Doma frajeřinka, v zápase by to byl faul.",
+    "voiceIntro": "Žonglovací rekord! Nad koleny je to jen domácí frajeřinka, v zápase by to byl faul.",
     "equipment": [
       "hůl",
       "míček"
@@ -158,7 +158,7 @@
         "reliability": "inspirace"
       },
       {
-        "url": "https://floorball.sport/2020/11/26/presenting-freestyle-floorball-cup-contestant-agnes-holgersson",
+        "url": "https://web.archive.org/web/20220816034720/https://floorball.sport/2020/11/26/presenting-freestyle-floorball-cup-contestant-agnes-holgersson/",
         "type": "článek",
         "reliability": "inspirace"
       },
@@ -231,7 +231,7 @@
       {
         "url": "https://www.youtube.com/watch?v=lw7rrPkh2pc",
         "type": "video",
-        "reliability": "ověřené"
+        "reliability": "inspirace"
       }
     ]
   },

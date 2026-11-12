@@ -18,20 +18,58 @@ const SAFE_NOBAL = 'Hůl nech ležet stranou, ať o ni nezakopneš. Malé kroky,
 
 const minAge = (l) => (l <= 2 ? 6 : l === 3 ? 7 : 8);
 
+// Geometrie kroků (shodná s src/domain/stations.js) pro výpočet počtu úderů na dlouhé přesuny.
+const REL = { fh: [0.48, 0.45], bh: [-0.48, 0.45], front: [0, 0.72], back: [0.1, 0.12], between: [0, 0.02], home: [0, 0.45] };
+const ST = Object.fromEntries(stations.map((s) => [s.id, s]));
+function pt(st, at) {
+  if (REL[at]) return REL[at];
+  const n = Number(String(at).replace('around:', ''));
+  const c = st.cones.find((k) => k.n === n);
+  return c ? [c.x, c.y] : REL.home;
+}
+// beats = kolik úderů metronomu krok trvá (výchozí 1). Jen u stanovišť, kde hráč jezdí; na spotu pracuje jen hůl. Rychlost s míčkem 0,8 m/s, bez míčku 1,2 m/s.
+function withBeats(pattern, st, bpm, kind) {
+  const v = kind === 'ball' ? 0.8 : 1.2; const per = v * 60 / bpm;
+  return pattern.map((step, i) => {
+    const prev = pattern[(i - 1 + pattern.length) % pattern.length];
+    const [ax, ay] = pt(st, prev.at); const [bx, by] = pt(st, step.at);
+    const dist = Math.hypot(bx - ax, by - ay) + (String(step.at).startsWith('around:') ? 0.4 : 0);
+    const beats = Math.ceil(dist / per - 0.15);
+    return beats >= 2 ? { ...step, beats } : step;
+  });
+}
+const confOf = (given, sources) => {
+  if (given !== 'ověřené') return given || 'odvozené';
+  const strong = sources.filter((s) => s.reliability === 'ověřené');
+  return strong.length >= 2 || strong.some((s) => /metodika|VŠ práce|pravidla|svaz/.test(s.type)) ? 'ověřené' : 'odvozené';
+};
+
 function D(o) {
   const kind = o.kind || 'ball';
+  const st = ST[o.setupId];
+  let tempo = o.tempoBpm ?? 60;
+  // náhodná reakce: jeden úder musí stačit na cestu k nejvzdálenějšímu kuželu a zpět do domečku
+  if (o.callMode === 'náhodná reakce') {
+    const far = Math.max(...st.cones.map((c) => Math.hypot(c.x - REL.home[0], c.y - REL.home[1])));
+    tempo = Math.min(tempo, Math.floor(60 * (kind === 'ball' ? 0.8 : 1.4) / far));
+  }
+  const quiet = kind === 'ball' && (o.noise || 'tichý') === 'tichý';
+  const baseEq = o.equipment || (kind === 'ball' ? ['hůl', 'míček', CONES[o.setupId]] : kind === 'nobal' ? ['hůl', CONES[o.setupId]] : []);
+  const equipment = quiet ? [...baseEq.map((e) => (e === 'míček' ? 'měkký pěnový míček (v bytě)' : e)), 'koberec nebo deka'] : baseEq;
+  const sources = srcFor(o.origin);
   const d = {
     id: o.id, name: o.name, level: o.level, minAge: o.minAge ?? minAge(o.level), category: o.category,
     bladeSide: o.bladeSide || 'obě', grip: o.grip || 'obouruč', setupId: o.setupId,
-    pattern: o.pattern || [], loop: o.loop ?? (kind !== 'stretch'), callMode: o.callMode || 'žádný',
-    tempoBpm: o.tempoBpm ?? 60, durationSec: o.durationSec ?? 30, reps: o.reps ?? null,
+    pattern: o.pattern && o.callMode !== 'náhodná reakce' && o.setupId !== 'spot' ? withBeats(o.pattern, st, tempo, kind) : (o.pattern || []),
+    loop: o.loop ?? (kind !== 'stretch'), callMode: o.callMode || 'žádný',
+    tempoBpm: tempo, durationSec: o.durationSec ?? 30, reps: o.reps ?? null,
     spaceNeeded: o.spaceNeeded || SIZE[o.setupId], noise: o.noise || 'tichý',
-    equipment: o.equipment || (kind === 'ball' ? ['hůl', 'míček', CONES[o.setupId]] : kind === 'nobal' ? ['hůl', CONES[o.setupId]] : []),
+    equipment,
     voiceIntro: o.voiceIntro, coachingPoints: o.coachingPoints, commonMistakes: o.commonMistakes || [],
     progression: o.progression ?? null, regression: o.regression ?? null,
     safetyNotes: o.safetyNotes || (kind === 'nobal' ? SAFE_NOBAL : (o.noise && o.noise !== 'tichý') ? SAFE_MOVE : SAFE),
-    sources: srcFor(o.origin), confidence: o.confidence || 'odvozené', kind, matchLegal: o.matchLegal ?? true,
-    origin: o.origin,
+    sources, confidence: confOf(o.confidence, sources), kind, matchLegal: o.matchLegal ?? true,
+    origin: o.origin, ...(o.freeform ? { freeform: true } : {}),
   };
   return d;
 }
@@ -46,9 +84,9 @@ export const drills = [
     commonMistakes: ['Velké dupavé skoky', 'Stojí rovně jako tyčka'],
     progression: 'wu-react-run', origin: ['H29', 'CZ-33', 'ADM'] }),
   D({ id: 'wu-stick-circles', name: 'Kroužení zápěstím', level: 1, category: 'koordinace bez míčku', setupId: 'spot', kind: 'nobal',
-    pattern: [p('fh'), p('front'), p('bh'), p('front')], tempoBpm: 60, durationSec: 30, equipment: ['hůl'],
+    pattern: [p('fh'), p('front'), p('bh'), p('front'), p('bh'), p('front'), p('fh'), p('front')], tempoBpm: 60, durationSec: 30, equipment: ['hůl'],
     voiceIntro: 'Chyť hůl oběma rukama a kresli čepelí po zemi malé kroužky. Zápěstí jsou měkká jako guma.',
-    coachingPoints: ['Čepel zůstává u země', 'Kroužky dělají zápěstí, ne ramena', 'V půlce kruž na druhou stranu'],
+    coachingPoints: ['Čepel zůstává u země', 'Kroužky dělají zápěstí, ne ramena', 'Na pípnutí kruž na druhou stranu'],
     commonMistakes: ['Čepel jde nahoru nad kolena', 'Ruce svírají hůl moc pevně'],
     safetyNotes: 'Čepel celou dobu u země, hůl pod pasem. Kolem tebe nikdo.', origin: ['ADM', 'JS'] }),
   D({ id: 'wu-side-shuffle', name: 'Úkroky stranou', level: 1, category: 'práce nohou', setupId: 'spot', kind: 'nobal',
@@ -87,7 +125,7 @@ export const drills = [
     voiceIntro: 'Bez hole a bez míčku! Řeknu barvu, ty k tomu kuželu doběhni, dotkni se ho rukou a vrať se do domečku.',
     coachingPoints: ['Vyběhni až po barvě', 'U kuželu malé brzdicí kroky', 'Zpátky čelem k tabletu'],
     commonMistakes: ['Vybíhá dřív, než barvu uslyší', 'Kouká do země'],
-    safetyNotes: 'Hůl nech mimo čtverec. Ve čtverci nic neleží.', origin: ['CH-06', 'CH-15'] }),
+    safetyNotes: 'Hůl nech mimo čtverec. Ve čtverci nic neleží. Neběhej v ponožkách.', origin: ['CH-06', 'CH-15'] }),
   D({ id: 'wu-react-run', name: 'Bleskové nohy', level: 2, category: 'koordinace bez míčku', setupId: 'triangle', kind: 'nobal',
     pattern: [p(1), p('home')], callMode: 'náhodná reakce', tempoBpm: 25, durationSec: 30, noise: 'střední', equipment: ['3 kužely'],
     voiceIntro: 'Bez míčku! Kužel, který ukážu, ťukni rukou a hned zpátky do domečku.',
@@ -157,15 +195,15 @@ export const drills = [
     commonMistakes: ['Míček u kuželu odpálí', 'Ruce drží u břicha'],
     progression: 'reach-near-far', regression: 'fh-bh-front', confidence: 'ověřené', origin: ['H02', 'FI-12'] }),
   D({ id: 'toe-to-toe', name: 'Rychlé ruce', level: 2, category: 'tahy', setupId: 'spot',
-    pattern: [p('fh', 'fh'), p('bh', 'bh')], callMode: 'směr', tempoBpm: 90, durationSec: 20,
+    pattern: [p('fh', 'fh'), p('bh', 'bh')], callMode: 'žádný', tempoBpm: 90, durationSec: 20,
     voiceIntro: 'Rychlé ruce: krátce přetahuj od špičky jedné boty ke špičce druhé. Rychle, ale potichu!',
     coachingPoints: ['Krátké pohyby', 'Hlavně zápěstí', 'Nakoukni a zvedni oči'],
     commonMistakes: ['Zrychlí a ztratí míček, zkus o kousek pomaleji'],
     progression: 'fh-bh-rhythm', regression: 'fh-bh-front', origin: ['H13', 'H49'] }),
   D({ id: 'fh-bh-rhythm', name: 'Raz, dva, tři, hop', level: 2, category: 'tahy', setupId: 'spot',
     pattern: [p('front', 'fh'), p('front', 'bh'), p('front', 'fh'), p('bh', 'bh'), p('front', 'bh'), p('front', 'fh'), p('front', 'bh'), p('fh', 'fh')],
-    callMode: 'směr', tempoBpm: 80, durationSec: 40,
-    voiceIntro: 'Tři malé doteky před sebou a na čtyři hop daleko do strany. Poslouchej, kam řeknu.',
+    callMode: 'směr', tempoBpm: 60, durationSec: 40,
+    voiceIntro: 'Tři malé doteky před sebou a na čtyři šup daleko do strany. Poslouchej, kam řeknu.',
     coachingPoints: ['Počítej v duchu raz, dva, tři', 'Na čtyři široký tah', 'Kolena pořád pokrčená'],
     commonMistakes: ['Ztratí rytmus, nevadí, chyť se dalšího pípnutí'],
     progression: 'fh-bh-switch', regression: 'toe-to-toe', origin: ['H14'] }),
@@ -181,29 +219,29 @@ export const drills = [
     coachingPoints: ['Čepel nakloněná nad míček', 'Nohy čelem k tabletu', 'Měkce, bez ťukání'],
     commonMistakes: ['Přehodí míček zpátky na forhend', 'Míček daleko od čepele'],
     progression: 'toe-drag-bh', regression: 'fh-bh-front', confidence: 'ověřené', origin: ['H07', 'CZ-03', 'SKE'] }),
-  D({ id: 'fh-flip-dribble', name: 'Florbalový driblink', level: 3, category: 'tahy', bladeSide: 'forhend', setupId: 'spot',
-    pattern: [p('front', 'fh'), p('fh', 'fh')], callMode: 'směr', tempoBpm: 60, durationSec: 30,
-    voiceIntro: 'Míček zůstává jen na forhendu. Čepel se překlápí: jednou ho vezeš patou, jednou špičkou.',
-    coachingPoints: ['Čepel přetáčí spodní ruka', 'Míček se drží u čepele', 'Pomalu, pak rychleji'],
-    commonMistakes: ['Přejde na bekhend', 'Čepel se nepřeklopí, jen tlačí'],
+  D({ id: 'fh-flip-dribble', name: 'Florbalový driblink', level: 3, category: 'tahy', setupId: 'spot',
+    pattern: [p('fh', 'fh'), p('back', 'bh')], callMode: 'směr', tempoBpm: 50, durationSec: 30,
+    voiceIntro: 'Míček zůstává na forhendové straně těla. Dopředu ho posuneš forhendem, pak čepel překlopíš a stáhneš ho zpátky bekhendem.',
+    coachingPoints: ['Čepel překlápí zápěstí', 'Míček nepřechází před tělo', 'Pomalu, pak rychleji'],
+    commonMistakes: ['Přetáhne míček před sebe na bekhend', 'Čepel se nepřeklopí, jen tlačí'],
     progression: 'fh-bh-switch', regression: 'fh-only-side', confidence: 'ověřené', origin: ['CZ-05'] }),
   D({ id: 'fh-bh-switch', name: 'Hokejový a florbalový driblink', level: 3, category: 'tahy', setupId: 'spot',
-    pattern: [p('fh', 'fh'), p('bh', 'bh'), p('fh', 'fh'), p('bh', 'bh'), p('front', 'fh'), p('fh', 'fh'), p('front', 'fh'), p('fh', 'fh')],
-    callMode: 'směr', tempoBpm: 70, durationSec: 40,
-    voiceIntro: 'Střídáme: čtyřikrát přetáhni z forhendu na bekhend, pak čtyřikrát jen forhendem s překlápěním.',
+    pattern: [p('fh', 'fh'), p('bh', 'bh'), p('fh', 'fh'), p('bh', 'bh'), p('fh', 'fh'), p('back', 'bh'), p('fh', 'fh'), p('back', 'bh')],
+    callMode: 'směr', tempoBpm: 60, durationSec: 40,
+    voiceIntro: 'Střídáme: dvakrát přetáhni před sebou z forhendu na bekhend, pak dvakrát florbalový driblink vedle forhendové nohy.',
     coachingPoints: ['Poslouchej, co hlásím', 'Plynule, bez zastavení', 'Hlava nahoře'],
     commonMistakes: ['Zapomene přepnout, nevadí, poslouchej Trenéra'],
     regression: 'fh-flip-dribble', confidence: 'ověřené', origin: ['CZ-14'] }),
   D({ id: 'reach-near-far', name: 'Blízko a daleko', level: 2, category: 'tahy', setupId: 'spot',
-    pattern: [p('front', 'fh'), p('front', 'bh'), p(1, 'bh'), p(2, 'fh')], callMode: 'zóna', tempoBpm: 60, durationSec: 40,
+    pattern: [p('front', 'fh'), p('front', 'bh'), p(1, 'bh'), p(2, 'fh')], callMode: 'zóna', tempoBpm: 50, durationSec: 40,
     voiceIntro: 'Dvakrát přetáhni blízko u sebe a pak natáhni ruce a vezmi míček daleko ke kuželům.',
     coachingPoints: ['Daleko = ruce natažené', 'Blízko = ruce u sebe', 'Kolena pokrčená celou dobu'],
     commonMistakes: ['Předklání se místo natažení rukou'],
     progression: 'circle-big', regression: 'fh-bh-wide', confidence: 'ověřené', origin: ['H03'] }),
   D({ id: 'circle-big', name: 'Velký kruh', level: 2, category: 'vedení míčku', setupId: 'spot',
-    pattern: [p('bh', 'bh'), p(1, 'bh'), p(2, 'fh'), p('fh', 'fh'), p('front', 'fh')], callMode: 'zóna', tempoBpm: 45, durationSec: 30,
+    pattern: [p('bh', 'bh'), p(1, 'bh'), p(2, 'fh'), p('fh', 'fh'), p('front', 'fh'), p('fh', 'fh'), p(2, 'fh'), p(1, 'bh'), p('bh', 'bh'), p('front', 'bh')], callMode: 'zóna', tempoBpm: 45, durationSec: 30,
     voiceIntro: 'Veď míček po velkém kruhu před sebou. U nohou ho vezeš špičkou, daleko patou čepele.',
-    coachingPoints: ['Spodní ruka klouže po holi', 'Kruh je kulatý, ne hranatý', 'V půlce otoč směr'],
+    coachingPoints: ['Spodní ruka klouže po holi', 'Kruh je kulatý, ne hranatý', 'Po jednom kole jeď obráceně'],
     commonMistakes: ['Kruh se zmenší jen na malé kolečko'],
     progression: 'figure8-spot', regression: 'reach-near-far', confidence: 'ověřené', origin: ['H11', 'H09'] }),
   D({ id: 'figure8-spot', name: 'Osmička kolem kuželů', level: 2, category: 'kolem kuželů', setupId: 'spot',
@@ -243,7 +281,7 @@ export const drills = [
     pattern: [p('back', 'bh'), p('front', 'fh'), p('back', 'fh'), p('front', 'bh')], callMode: 'směr', tempoBpm: 40, durationSec: 30,
     voiceIntro: 'Míček schválně uteče za paty. Špičkou čepele ho vyhákni zpátky dopředu.',
     coachingPoints: ['Špička čepele za míček', 'Krátký tah dopředu', 'Hůl nízko, žádný švih'],
-    commonMistakes: ['Švihne holí dozadu nahoru'],
+    commonMistakes: ['Zvedá hůl dozadu nahoru'],
     regression: 'behind-body', origin: ['H16'] }),
   D({ id: 'between-legs', name: 'Mezi nohama', level: 3, category: 'kličky', setupId: 'spot',
     pattern: [p('front', 'fh'), p('between', 'fh'), p('front', 'bh'), p('between', 'bh')], callMode: 'směr', tempoBpm: 45, durationSec: 30,
@@ -287,13 +325,7 @@ export const drills = [
     voiceIntro: 'Před sebou držíš hůl oběma rukama. Když jde míček daleko na bekhend, pusť spodní ruku a natáhni se.',
     coachingPoints: ['Pusť spodní ruku až na bekhendu', 'Natáhni se daleko', 'Zpátky zase obě ruce'],
     commonMistakes: ['Pouští ruku moc brzy'],
-    progression: 'one-hand-bottom', regression: 'one-hand-top', safetyNotes: SAFE_ONE, confidence: 'ověřené', origin: ['CZ-01', 'SO-08'] }),
-  D({ id: 'one-hand-bottom', name: 'Jen spodní ruka', level: 5, category: 'jednoruč', grip: 'jednoruč-dolní', setupId: 'spot',
-    pattern: [bot('front', 'fh'), bot('front', 'bh')], callMode: 'směr', tempoBpm: 45, durationSec: 20,
-    voiceIntro: 'Těžká výzva: drž hůl jen spodní rukou uprostřed a dělej malé doteky před sebou.',
-    coachingPoints: ['Ruka drží hůl uprostřed', 'Malinké doteky', 'Konec hole hlídej, ať nejde nahoru'],
-    commonMistakes: ['Konec hole se zvedá k bradě'],
-    regression: 'one-hand-long-bh', safetyNotes: SAFE_ONE + ' Nikdo v okruhu dvou metrů.', origin: ['H40'] }),
+    progression: 'slalom-one-hand', regression: 'one-hand-top', safetyNotes: SAFE_ONE, confidence: 'ověřené', origin: ['CZ-01', 'SO-08'] }),
   D({ id: 'heads-up-spot', name: 'Červená, nebo modrá?', level: 1, category: 'reakce', setupId: 'spot',
     pattern: [p(1, 'bh'), p('home', 'fh'), p(1, 'bh'), p('home', 'bh'), p(2, 'fh'), p('home', 'fh'), p(2, 'fh'), p(1, 'bh'), p('home', 'bh'), p(2, 'fh'), p('home', 'fh')],
     callMode: 'barva', tempoBpm: 35, durationSec: 30,
@@ -390,8 +422,8 @@ export const drills = [
     commonMistakes: ['Otočka je moc široká a pomalá'],
     progression: 'fake-cone', regression: 'triangle-loop-fh', confidence: 'ověřené', origin: ['H34', 'T16', 'CR-33'] }),
   D({ id: 'fake-cone', name: 'Klička s fintou', level: 3, category: 'kličky', setupId: 'triangle', noise: 'střední',
-    pattern: [a(3, 'ccw', 'fh'), p(2, 'fh'), p('home', 'fh'), a(3, 'cw', 'bh'), p(1, 'bh'), p('home', 'bh')], callMode: 'zóna', tempoBpm: 25, durationSec: 40,
-    voiceIntro: 'Žlutý kužel je obránce. Ramenem naznač jednu stranu a projeď tou druhou.',
+    pattern: [p(3, 'fh'), a(3, 'cw', 'bh'), p('home', 'bh'), p(3, 'bh'), a(3, 'ccw', 'fh'), p('home', 'fh')], callMode: 'zóna', tempoBpm: 25, durationSec: 40,
+    voiceIntro: 'Žlutý kužel je obránce. Přijeď k němu s míčkem na forhendu, ramenem naznač forhend a objeď ho bekhendem.',
     coachingPoints: ['Finta ramenem a hlavou', 'Pak rychle druhou stranou', 'Střídej strany'],
     commonMistakes: ['Finta je moc malá, kužel by ji nepoznal'],
     progression: 'toe-drag-cone', regression: 'escape-turn', confidence: 'ověřené', origin: ['H17', 'CH-11', 'CZ-34'] }),
@@ -415,7 +447,7 @@ export const drills = [
     commonMistakes: ['Hůl se rozkývá'],
     regression: 'one-hand-top', safetyNotes: SAFE_ONE, confidence: 'ověřené', origin: ['FI-04', 'FI-17', 'SKE'] }),
   D({ id: 'triangle-combo', name: 'Trojúhelníková kombinace', level: 4, category: 'kombinace', setupId: 'triangle', noise: 'střední',
-    pattern: [p('front', 'fh'), p('front', 'bh'), p('front', 'fh'), p(3, 'fh'), a(3, 'ccw', 'fh'), p('home', 'fh'), p('front', 'bh'), p('front', 'fh')],
+    pattern: [p('front', 'fh'), p('front', 'bh'), p('front', 'fh'), p(3, 'fh'), a(3, 'ccw', 'fh'), p('home', 'fh')],
     callMode: 'zóna', tempoBpm: 35, durationSec: 40,
     voiceIntro: 'Tři přetažení na místě, pak jeď ke žlutému kuželu, otoč se a vrať se. A znova!',
     coachingPoints: ['Na místě rychlé ruce', 'Ke kuželu hlava nahoře', 'Otočka těsně'],
@@ -431,7 +463,7 @@ export const drills = [
     progression: 'square-react-fast', regression: 'square-color-corners', confidence: 'ověřené', origin: ['MF-02', 'H43', 'CH-06'] }),
   D({ id: 'square-react-fast', name: 'Blesková reakce', level: 4, category: 'reakce', setupId: 'square', noise: 'střední',
     pattern: [p(1, 'fh'), p('home', 'fh')], callMode: 'náhodná reakce', tempoBpm: 30, durationSec: 30,
-    voiceIntro: 'Teď rychleji, kužely budou svítit jeden za druhým. Kdo nemá hlavu nahoře, nestihne to!',
+    voiceIntro: 'Teď rychleji, kužely budou svítit jeden za druhým. Hlava nahoře a stihneš to!',
     coachingPoints: ['Oči na tablet', 'Malé rychlé kroky', 'Nejezdi až ke kuželu, stačí blízko'],
     commonMistakes: ['Ztratí míček, nevadí, seber ho a jeď dál'],
     progression: 'reaction-one-hand', regression: 'reaction-square', origin: ['MF-02', 'H42'] }),
@@ -474,12 +506,12 @@ export const drills = [
     progression: 'square-turns', regression: 'square-cw-bh', confidence: 'ověřené', origin: ['H08', 'H22'] }),
   D({ id: 'square-turns', name: 'Otočka v každém rohu', level: 3, category: 'kolem kuželů', setupId: 'square', noise: 'střední',
     pattern: [a(1, 'cw', 'bh'), a(4, 'cw', 'bh'), a(3, 'ccw', 'fh'), a(2, 'ccw', 'fh'), p('home', 'fh')], callMode: 'zóna', tempoBpm: 20, durationSec: 45,
-    voiceIntro: 'Kolem každého kuželu udělej celou otočku s míčkem. Vlevo bekhendem, vpravo forhendem.',
+    voiceIntro: 'Kolem každého kuželu udělej celou otočku s míčkem. U červeného a zeleného bekhendem, u modrého a žlutého forhendem.',
     coachingPoints: ['Těsně kolem kuželu', 'Tělo chrání míček', 'Po otočce zrychli'],
     commonMistakes: ['Otočka jen napůl'],
-    progression: 'free-ride', regression: 'diagonal-x', confidence: 'ověřené', origin: ['CZ-22', 'CH-12', 'CR-31'] }),
+    progression: 'triangle-combo', regression: 'diagonal-x', confidence: 'ověřené', origin: ['CZ-22', 'CH-12', 'CR-31'] }),
   D({ id: 'free-ride', name: 'Volná jízda', level: 2, category: 'kombinace', setupId: 'square', noise: 'střední',
-    pattern: [p(1, 'bh'), p(3, 'fh'), p(2, 'fh'), p(4, 'bh')], callMode: 'žádný', tempoBpm: 60, durationSec: 45,
+    pattern: [p(1, 'bh'), p(3, 'fh'), p(2, 'fh'), p(4, 'bh')], callMode: 'žádný', tempoBpm: 20, durationSec: 45, freeform: true,
     voiceIntro: 'Volná jízda! Vymysli si vlastní cestu mezi kužely a zkus u každého jiný trik.',
     coachingPoints: ['Zkoušej nové věci', 'Obě strany čepele', 'Chyby jsou v pořádku'],
     commonMistakes: ['Dělá pořád totéž, zkus něco nového'],
@@ -489,7 +521,7 @@ export const drills = [
   D({ id: 'slalom-fh-bh', name: 'Slalom', level: 1, category: 'kolem kuželů', setupId: 'line', noise: 'střední',
     pattern: [a(1, 'ccw', 'fh'), a(2, 'cw', 'bh'), a(3, 'ccw', 'fh'), a(4, 'cw', 'bh'), p('home', 'fh')], callMode: 'zóna', tempoBpm: 30, durationSec: 40,
     voiceIntro: 'Slalom: míček a ty jedete kolem kuželů ze stejné strany. Zpátky dojeď rovně vedle řady.',
-    coachingPoints: ['Malé doteky mezi kužely', 'Kolena pokrčená', 'Vpravo forhend, vlevo bekhend'],
+    coachingPoints: ['Malé doteky mezi kužely', 'Kolena pokrčená', 'Na forhendové straně forhend, na bekhendové bekhend'],
     commonMistakes: ['Shazuje kužely', 'Jede moc rychle a míček uteče'],
     progression: 'slalom-there-back', confidence: 'ověřené', origin: ['CZ-17', 'H32', 'SE-09'] }),
   D({ id: 'slalom-there-back', name: 'Slalom tam a zpět', level: 2, category: 'kolem kuželů', setupId: 'line', noise: 'střední',
@@ -501,8 +533,8 @@ export const drills = [
     progression: 'slalom-turns', regression: 'slalom-fh-bh', confidence: 'ověřené', origin: ['CH-12', 'CZ-36', 'SO-01', 'CR-06'] }),
   D({ id: 'slalom-fh-only', name: 'Slalom jen forhendem', level: 2, category: 'kolem kuželů', bladeSide: 'forhend', setupId: 'line', noise: 'střední',
     pattern: [a(1, 'ccw', 'fh'), a(2, 'cw', 'fh'), a(3, 'ccw', 'fh'), a(4, 'cw', 'fh'), p('home', 'fh')], callMode: 'zóna', tempoBpm: 30, durationSec: 40,
-    voiceIntro: 'Slalom, ale celou dobu jen forhendem. Ty jdeš vedle řady a míček kličkuje mezi kužely.',
-    coachingPoints: ['Míček daleko od těla', 'Čepel se natáčí', 'Tělo jde rovně'],
+    voiceIntro: 'Normální slalom, ale míček vedeš celou dobu jen forhendem.',
+    coachingPoints: ['Na bekhendové straně se natáhni', 'Čepel se natáčí', 'Malé doteky'],
     commonMistakes: ['Použije bekhend'],
     progression: 'slalom-bh-only', regression: 'slalom-fh-bh', confidence: 'ověřené', origin: ['FI-14', 'SO-06', 'CZ-18'] }),
   D({ id: 'slalom-bh-only', name: 'Slalom jen bekhendem', level: 3, category: 'kolem kuželů', bladeSide: 'bekhend', setupId: 'line', noise: 'střední',
@@ -541,7 +573,7 @@ export const drills = [
   // ---------------- CIK-CAK (zigzag) ----------------
   D({ id: 'zigzag-carry', name: 'Cik-cak', level: 2, category: 'vedení míčku', setupId: 'zigzag', noise: 'střední',
     pattern: [p(1, 'bh'), p(2, 'fh'), p(3, 'bh'), p(4, 'fh'), p(5, 'bh'), p('home', 'fh')], callMode: 'zóna', tempoBpm: 30, durationSec: 40,
-    voiceIntro: 'Jeď cik-cak od kuželu ke kuželu. Vlevo bekhendem, vpravo forhendem.',
+    voiceIntro: 'Jeď cik-cak od kuželu ke kuželu. U kuželů na bekhendové straně bekhendem, na forhendové forhendem.',
     coachingPoints: ['U kuželu změna strany', 'Mezi kužely zrychli', 'Hlava nahoře'],
     commonMistakes: ['Celou dobu jen forhend'],
     progression: 'zigzag-drag', regression: 'slalom-fh-bh', confidence: 'ověřené', origin: ['H33', 'CZ-18'] }),
@@ -553,14 +585,14 @@ export const drills = [
     progression: 'zigzag-master', regression: 'zigzag-carry', origin: ['H33'] }),
   D({ id: 'zigzag-fh-only', name: 'Cik-cak forhendem', level: 3, category: 'vedení míčku', bladeSide: 'forhend', setupId: 'zigzag', noise: 'střední',
     pattern: [p(1, 'fh'), p(2, 'fh'), p(3, 'fh'), p(4, 'fh'), p(5, 'fh'), p('home', 'fh')], callMode: 'zóna', tempoBpm: 30, durationSec: 40,
-    voiceIntro: 'Cik-cak celou dobu jen forhendem. U levých kuželů musíš míček přetáhnout daleko.',
+    voiceIntro: 'Cik-cak celou dobu jen forhendem. U kuželů na bekhendové straně musíš míček přetáhnout daleko.',
     coachingPoints: ['Míček na forhendu', 'Natáčej čepel', 'Hlava nahoře'],
-    commonMistakes: ['U levého kuželu použije bekhend'],
+    commonMistakes: ['U kuželu na bekhendové straně použije bekhend'],
     progression: 'zigzag-bh-only', regression: 'zigzag-carry', confidence: 'ověřené', origin: ['SO-06', 'FI-07'] }),
   D({ id: 'zigzag-bh-only', name: 'Cik-cak bekhendem', level: 3, category: 'vedení míčku', bladeSide: 'bekhend', setupId: 'zigzag', noise: 'střední',
     pattern: [p(1, 'bh'), p(2, 'bh'), p(3, 'bh'), p(4, 'bh'), p(5, 'bh'), p('home', 'bh')], callMode: 'zóna', tempoBpm: 25, durationSec: 40,
     voiceIntro: 'A teď cik-cak jen bekhendem. Pomalu, čepel nad míčkem.',
-    coachingPoints: ['Bekhend celou dobu', 'U pravých kuželů se natáhni', 'Klidné tempo'],
+    coachingPoints: ['Bekhend celou dobu', 'U kuželů na forhendové straně se natáhni', 'Klidné tempo'],
     commonMistakes: ['Přehodí na forhend'],
     progression: 'zigzag-one-hand', regression: 'zigzag-fh-only', confidence: 'ověřené', origin: ['SKE', 'FI-14'] }),
   D({ id: 'zigzag-reaction', name: 'Cik-cak reakce', level: 3, category: 'reakce', setupId: 'zigzag', noise: 'střední',
@@ -585,7 +617,7 @@ export const drills = [
   D({ id: 'zigzag-master', name: 'Mistr cik-caku', level: 5, category: 'kombinace', setupId: 'zigzag', noise: 'střední',
     pattern: [a(1, 'cw', 'bh'), p('front', 'bh'), a(2, 'ccw', 'fh'), p('front', 'fh'), a(3, 'cw', 'bh'), a(4, 'ccw', 'fh'), a(5, 'cw', 'bh'), p('home', 'bh')],
     callMode: 'zóna', tempoBpm: 25, durationSec: 45,
-    voiceIntro: 'Pro mistry: oblouk kolem kuželu, tah špičkou, oblouk, tah. Kdo to zvládne bez chyby, je frajer.',
+    voiceIntro: 'Pro mistry: oblouk kolem kuželu, tah špičkou, oblouk, tah. Kdo to zkusí, je frajer, a bez chyby jsi mistr!',
     coachingPoints: ['Tah špičkou hned za kuželem', 'Hlava nahoře mezi kužely', 'Klidné tempo, přesnost'],
     commonMistakes: ['Zrychlí a ztratí kontrolu'],
     regression: 'zigzag-drag', origin: ['H33', 'H18', 'CZ-24'] }),

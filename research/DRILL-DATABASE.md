@@ -1,9 +1,9 @@
 # Databáze cvičení (rešerše)
 
-Strojová verze: `research/drill-database.json` (233 záznamů). Přehratelné cviky pro appku: `research/content-draft/drills.json` (88).
+Strojová verze: `research/drill-database.json` (233 záznamů). Přehratelné cviky pro appku: `research/content-draft/drills.json` (87).
 Každý záznam je princip z rešerše převyprávěný vlastními slovy. `inApp` říká, kde je záznam v appce použitý (cvik, trik, výzva, test). U ostatních je důvod, proč zatím ne.
 
-**Souhrn:** 233 záznamů, v appce použito 156, mimo appku 77. Ověřené zdroje: 164.
+**Souhrn:** 233 záznamů, v appce použito 155, mimo appku 78. Ověřené zdroje: 142.
 
 Sloupce: Úr. = úroveň 1–5, Strana = strana čepele, Zápas = povolené v zápase (ano / jen doma).
 
@@ -81,8 +81,8 @@ Sloupce: Úr. = úroveň 1–5, Strana = strana čepele, Zápas = povolené v z�
 | ID | Název | Kategorie | Úr. | Strana | Hluk | Zápas | Spolehl. | V appce | Princip / důvod | Zdroj |
 |---|---|---|---|---|---|---|---|---|---|---|
 | CZ-01 | Hokejový driblink před tělem | tahy | 1 | obě | tichý | ano | ověřené | drill:fh-bh-front, drill:one-hand-long-bh | Přetahování FH–BH před tělem, dlouhá varianta s pouštěním ruky na bekhendu. | [1](https://dspace5.zcu.cz/bitstream/11025/19998/1/Diplomova%20prace%20Matous%20Hrdlicka%202015.pdf) |
-| CZ-02 | Driblink vedle pravé nohy | tahy | 2 | obě | tichý | ano | ověřené | drill:fh-only-side | Krátké přetahování vedle nohy před a za chodidlem. | [1](https://dspace5.zcu.cz/bitstream/11025/19998/1/Diplomova%20prace%20Matous%20Hrdlicka%202015.pdf) |
-| CZ-03 | Driblink vedle levé nohy | tahy | 2 | obě | tichý | ano | ověřené | drill:bh-only-front | Totéž na druhé straně těla. | [1](https://dspace5.zcu.cz/bitstream/11025/19998/1/Diplomova%20prace%20Matous%20Hrdlicka%202015.pdf) |
+| CZ-02 | Driblink vedle forhendové nohy | tahy | 2 | obě | tichý | ano | ověřené | drill:fh-only-side | Krátké přetahování vedle nohy před a za chodidlem. | [1](https://dspace5.zcu.cz/bitstream/11025/19998/1/Diplomova%20prace%20Matous%20Hrdlicka%202015.pdf) |
+| CZ-03 | Driblink vedle bekhendové nohy | tahy | 2 | obě | tichý | ano | ověřené | drill:bh-only-front | Totéž na druhé straně těla. | [1](https://dspace5.zcu.cz/bitstream/11025/19998/1/Diplomova%20prace%20Matous%20Hrdlicka%202015.pdf) |
 | CZ-04 | Driblink za tělem | tahy | 3 | obě | tichý | ano | ověřené | drill:behind-body | Přetahování za patami s rotací trupu. | [1](https://dspace5.zcu.cz/bitstream/11025/19998/1/Diplomova%20prace%20Matous%20Hrdlicka%202015.pdf) |
 | CZ-05 | Florbalový driblink | tahy | 2 | forhend | tichý | ano | ověřené | drill:fh-flip-dribble | Míček jen na forhendu, čepel se překlápí pata–špička. | [1](https://dspace5.zcu.cz/bitstream/11025/19998/1/Diplomova%20prace%20Matous%20Hrdlicka%202015.pdf) |
 | CZ-06 | Driblink se sníženým těžištěm | tahy | 2 | obě | tichý | ano | ověřené | drill:wu-ready-stance, drill:low-stance | Driblink v hlubokém postoji, chrání záda. | [1](https://dspace5.zcu.cz/bitstream/11025/19998/1/Diplomova%20prace%20Matous%20Hrdlicka%202015.pdf) |
@@ -91,7 +91,7 @@ Sloupce: Úr. = úroveň 1–5, Strana = strana čepele, Zápas = povolené v z�
 | CZ-09 | Otočky kolem vlastní osy | vedení míčku | 2 | obě | tichý | ano | ověřené | trick:vrtule | Hráč se točí a míček drží u čepele. | [1](https://dspace5.zcu.cz/bitstream/11025/19998/1/Diplomova%20prace%20Matous%20Hrdlicka%202015.pdf) |
 | CZ-10 | Nabírání míčku na čepel | koordinace bez míčku | 2 | forhend | tichý | ano | ověřené | trick:nabrani | Míček se dostane na čepel přes špičku nebo přitažením. | [1](https://dspace5.zcu.cz/bitstream/11025/19998/1/Diplomova%20prace%20Matous%20Hrdlicka%202015.pdf) |
 | CZ-11 | Žonglování a chycení | koordinace bez míčku | 3 | obě | střední | jen doma | ověřené | trick:zonglovani | Podbíjení míčku a jeho chycení klidně na čepel. | [1](https://dspace5.zcu.cz/bitstream/11025/19998/1/Diplomova%20prace%20Matous%20Hrdlicka%202015.pdf) |
-| CZ-12 | Basketbalový driblink | koordinace bez míčku | 3 | forhend | střední | jen doma | ověřené | ne | Míček se čepelí odráží o zem nahoru a dolů. *Proč ne: Hlučné (střelba, nárazy, doskoky), do bytu nevhodné. Zvážit pro velký prostor.* | [1](https://dspace5.zcu.cz/bitstream/11025/19998/1/Diplomova%20prace%20Matous%20Hrdlicka%202015.pdf) |
+| CZ-12 | Basketbalový driblink | koordinace bez míčku | 3 | forhend | střední | ano | ověřené | ne | Míček se čepelí odráží o zem nahoru a dolů. *Proč ne: Hlučné (střelba, nárazy, doskoky), do bytu nevhodné. Zvážit pro velký prostor.* | [1](https://dspace5.zcu.cz/bitstream/11025/19998/1/Diplomova%20prace%20Matous%20Hrdlicka%202015.pdf) |
 | CZ-13 | Vyhození a zpracování na zemi | koordinace bez míčku | 3 | obě | střední | jen doma | ověřené | ne | Nadhoz čepelí a tlumené zpracování po dopadu. *Proč ne: Míček nad zemí (nadhozy), patří do stromu triků, ne do tréninku v tempu.* | [1](https://dspace5.zcu.cz/bitstream/11025/19998/1/Diplomova%20prace%20Matous%20Hrdlicka%202015.pdf) |
 | CZ-14 | Střídání hokejového a florbalového driblinku | tahy | 3 | obě | tichý | ano | ověřené | drill:fh-bh-switch | Několik přetažení FH–BH a pak několik doteků jen forhendem. | [1](https://dspace5.zcu.cz/bitstream/11025/19998/1/Diplomova%20prace%20Matous%20Hrdlicka%202015.pdf) |
 | CZ-15 | Driblink se dvěma míčky | koordinace bez míčku | 4 | obě | tichý | ano | ověřené | ne | Dva míčky na holi, nebo jeden na holi a druhý u nohou. *Proč ne: Animace shora to neukáže srozumitelně (pohyb hráče podél překážek, dva míčky).* | [1](https://dspace5.zcu.cz/bitstream/11025/19998/1/Diplomova%20prace%20Matous%20Hrdlicka%202015.pdf) |
@@ -145,24 +145,24 @@ Sloupce: Úr. = úroveň 1–5, Strana = strana čepele, Zápas = povolené v z�
 
 | ID | Název | Kategorie | Úr. | Strana | Hluk | Zápas | Spolehl. | V appce | Princip / důvod | Zdroj |
 |---|---|---|---|---|---|---|---|---|---|---|
-| H01 | Měkké doteky vpředu | tahy | 1 | obě | tichý | ano | ověřené | drill:fh-bh-front | Krátké rychlé doteky FH–BH před špičkami jen zápěstím. | [1](https://www.youtube.com/watch?v=HFlw8A4xye0) [2](https://www.youtube.com/watch?v=DycV8UE5Ua0) |
-| H02 | Široké vedení | tahy | 1 | obě | tichý | ano | ověřené | drill:fh-bh-wide | Míček ze strany na stranu co nejšíř, váha se přenáší. | [1](https://www.youtube.com/watch?v=BIRR2Kb0aEA) [2](https://www.youtube.com/watch?v=7HluVwbAv3w) |
-| H03 | Rozšiřování dosahu | tahy | 1 | obě | tichý | ano | ověřené | drill:reach-near-far | Vedení blízko, středně a daleko od těla. | [1](https://www.youtube.com/watch?v=JQ-SLP2V5W8) |
-| H04 | Rychlá hůl přes řadu překážek | tahy | 2 | obě | střední | ano | ověřené | ne | Postup podél řady talířků s přetahováním přes každou mezeru. *Proč ne: Animace shora to neukáže srozumitelně (pohyb hráče podél překážek, dva míčky).* | [1](https://www.youtube.com/watch?v=o9JQAEPACr4) |
-| H05 | Osmičky kolem dvou kuželů | kolem kuželů | 1 | obě | tichý | ano | ověřené | drill:figure8-spot, drill:figure8-spot-reverse, drill:figure8-triangle, test:test-figure8 | Ležatá osmička kolem dvou blízkých kuželů. | [1](https://www.youtube.com/watch?v=lw7rrPkh2pc) |
+| H01 | Měkké doteky vpředu | tahy | 1 | obě | tichý | ano | odvozené | drill:fh-bh-front | Krátké rychlé doteky FH–BH před špičkami jen zápěstím. | [1](https://www.youtube.com/watch?v=HFlw8A4xye0) [2](https://www.youtube.com/watch?v=DycV8UE5Ua0) |
+| H02 | Široké vedení | tahy | 1 | obě | tichý | ano | odvozené | drill:fh-bh-wide | Míček ze strany na stranu co nejšíř, váha se přenáší. | [1](https://www.youtube.com/watch?v=BIRR2Kb0aEA) [2](https://www.youtube.com/watch?v=7HluVwbAv3w) |
+| H03 | Rozšiřování dosahu | tahy | 1 | obě | tichý | ano | odvozené | drill:reach-near-far | Vedení blízko, středně a daleko od těla. | [1](https://www.youtube.com/watch?v=JQ-SLP2V5W8) |
+| H04 | Rychlá hůl přes řadu překážek | tahy | 2 | obě | střední | ano | odvozené | ne | Postup podél řady talířků s přetahováním přes každou mezeru. *Proč ne: Animace shora to neukáže srozumitelně (pohyb hráče podél překážek, dva míčky).* | [1](https://www.youtube.com/watch?v=o9JQAEPACr4) |
+| H05 | Osmičky kolem dvou kuželů | kolem kuželů | 1 | obě | tichý | ano | odvozené | drill:figure8-spot, drill:figure8-spot-reverse, drill:figure8-triangle, test:test-figure8 | Ležatá osmička kolem dvou blízkých kuželů. | [1](https://www.youtube.com/watch?v=lw7rrPkh2pc) |
 | H06 | Kolem čepele pata–špička | tahy | 2 | obě | tichý | ano | odvozené | ne | Míček se pomalu kutálí po celé délce čepele, průprava na Zorro. *Proč ne: Pokryto jiným cvikem nebo výzvou v appce.* | [1](https://www.youtube.com/watch?v=7HluVwbAv3w) |
 | H07 | Dopředu–dozadu vedle těla | tahy | 2 | obě | tichý | ano | ověřené | drill:fh-only-side, drill:bh-only-front, drill:bh-push-cones, test:test-bh-20 | Míček vedle nohy jezdí rovnoběžně s chodidly, nejdřív FH, pak BH. | [1](https://www.youtube.com/watch?v=IT9Wu3P_C6I) [2](https://portal.usahockey.com/cx/president/hockey-devlopment/8u_fundamentals_stage-adm.pdf) |
 | H08 | Diagonály (vzor X) | vedení míčku | 2 | obě | tichý | ano | ověřené | drill:diagonal-x | Míček jezdí šikmo křížem, ruce se kříží. | [1](https://www.onlinehockeytraining.com/blog/hockey-stick-handling-drills) [2](https://portal.usahockey.com/cx/president/hockey-devlopment/8u_fundamentals_stage-adm.pdf) |
-| H09 | Kolem těla blízko a daleko | tahy | 2 | obě | tichý | ano | ověřené | drill:circle-big | Půlkruh kolem těla, střídá se těsná a široká dráha. | [1](https://www.youtube.com/watch?v=8l4CnuQcZKo) |
-| H10 | Za tělem | tahy | 3 | obě | tichý | ano | ověřené | drill:behind-body | Míček za úroveň pat s otočením trupu. | [1](https://www.youtube.com/watch?v=qybWCftpnbk) |
-| H11 | Velký kruh před tělem | vedení míčku | 2 | obě | tichý | ano | ověřené | drill:circle-big | Velký kruh, u bot špičkou, daleko patou, spodní ruka klouže. | [1](https://www.youtube.com/watch?v=aEsQAQGETEY) |
-| H12 | Ťukání špičkou | tahy | 2 | obě | tichý | ano | ověřené | ne | Míček se drží jen špičkou čepele. *Proč ne: Pokryto jiným cvikem nebo výzvou v appce.* | [1](https://www.youtube.com/watch?v=C6n2gCRYgzY) |
+| H09 | Kolem těla blízko a daleko | tahy | 2 | obě | tichý | ano | odvozené | drill:circle-big | Půlkruh kolem těla, střídá se těsná a široká dráha. | [1](https://www.youtube.com/watch?v=8l4CnuQcZKo) |
+| H10 | Za tělem | tahy | 3 | obě | tichý | ano | odvozené | drill:behind-body | Míček za úroveň pat s otočením trupu. | [1](https://www.youtube.com/watch?v=qybWCftpnbk) |
+| H11 | Velký kruh před tělem | vedení míčku | 2 | obě | tichý | ano | odvozené | drill:circle-big | Velký kruh, u bot špičkou, daleko patou, spodní ruka klouže. | [1](https://www.youtube.com/watch?v=aEsQAQGETEY) |
+| H12 | Ťukání špičkou | tahy | 2 | obě | tichý | ano | odvozené | ne | Míček se drží jen špičkou čepele. *Proč ne: Pokryto jiným cvikem nebo výzvou v appce.* | [1](https://www.youtube.com/watch?v=C6n2gCRYgzY) |
 | H13 | Od špičky ke špičce | tahy | 1 | obě | tichý | ano | odvozené | drill:toe-to-toe, test:test-drag-30 | Rychlé přesuny mezi špičkami bot a měkké chycení. | [1](https://www.youtube.com/watch?v=7HluVwbAv3w) |
 | H14 | Rytmická sekvence | tahy | 2 | obě | tichý | ano | odvozené | drill:fh-bh-rhythm, drill:triangle-combo | Tři doteky na místě a na čtyři přesun do strany. | [1](https://www.youtube.com/watch?v=7HluVwbAv3w) [2](https://www.youtube.com/watch?v=p5mfzsB4Tec) |
 | H15 | Páskový box | tahy | 1 | obě | tichý | ano | odvozené | ne | Doteky uprostřed a vytažení míčku do rohů páskového obdélníku. *Proč ne: Pokryto jiným cvikem nebo výzvou v appce.* | [1](https://www.onlinehockeytraining.com/blog/hockey-stick-handling-drills) |
 | H16 | Zachraň míček za patami | tahy | 3 | obě | tichý | ano | odvozené | drill:heel-rescue | Míček za patami se špičkou vyhákne zpět dopředu. | [1](https://www.onlinehockeytraining.com/blog/hockey-stick-handling-drills) |
-| H17 | Finta před kuželem | kličky | 2 | obě | střední | ano | ověřené | drill:fake-cone | Naznačit směr rameny a hlavou a projet druhou stranou. | [1](https://www.youtube.com/watch?v=HV5FFCzQJfM) [2](https://www.onlinehockeytraining.com/blog/hockey-stick-handling-drills) |
-| H18 | Tah špičkou na místě | kličky | 2 | forhend | tichý | ano | ověřené | drill:toe-drag-fh, drill:toe-drag-cone, drill:zigzag-master, trick:hacek | Čepel se přetočí přes míček a táhne ho k tělu. Toe drag. | [1](https://www.youtube.com/watch?v=UlkAnet3d-A) [2](https://www.youtube.com/watch?v=TQe8UUIICqw) |
+| H17 | Finta před kuželem | kličky | 2 | obě | střední | ano | odvozené | drill:fake-cone | Naznačit směr rameny a hlavou a projet druhou stranou. | [1](https://www.youtube.com/watch?v=HV5FFCzQJfM) [2](https://www.onlinehockeytraining.com/blog/hockey-stick-handling-drills) |
+| H18 | Tah špičkou na místě | kličky | 2 | forhend | tichý | ano | odvozené | drill:toe-drag-fh, drill:toe-drag-cone, drill:zigzag-master, trick:hacek | Čepel se přetočí přes míček a táhne ho k tělu. Toe drag. | [1](https://www.youtube.com/watch?v=UlkAnet3d-A) [2](https://www.youtube.com/watch?v=TQe8UUIICqw) |
 | H19 | Bekhendový tah špičkou | kličky | 3 | bekhend | tichý | ano | odvozené | drill:toe-drag-bh, trick:hacek | Zrcadlový tah z bekhendové strany. | [1](https://www.youtube.com/watch?v=A1cfLXnJ16s) |
 | H20 | Trojitý tah | kličky | 4 | obě | tichý | ano | odvozené | drill:toe-drag-double | Tři tahy po sobě bez zastavení, pro 8 let jako dvojitý. | [1](https://www.youtube.com/watch?v=6J0qRfZRVNM) |
 | H21 | Branky: prostrčit a stáhnout | kličky | 3 | obě | tichý | ano | odvozené | drill:slalom-pull-back | Míček jednou mezerou bekhendem, druhou zpět tahem. | [1](https://www.youtube.com/watch?v=Z38QfMBqHss) |
@@ -171,32 +171,32 @@ Sloupce: Úr. = úroveň 1–5, Strana = strana čepele, Zápas = povolené v z�
 | H24 | Dva míčky najednou | koordinace bez míčku | 4 | obě | střední | ano | odvozené | ne | Vedení dvou míčků současně, přetížení pozornosti. *Proč ne: Animace shora to neukáže srozumitelně (pohyb hráče podél překážek, dva míčky).* | [1](https://www.youtube.com/watch?v=Z38QfMBqHss) |
 | H25 | Prostrčit mezerou a objet | kličky | 3 | obě | střední | ano | odvozené | ne | Míček úzkou mezerou, hráč oběhne a převezme za ní. *Proč ne: Animace shora to neukáže srozumitelně (pohyb hráče podél překážek, dva míčky).* | [1](https://hockeyshot.com/blogs/training-academy/movement-puck-vision) |
 | H26 | Krytí míčku kolem obránce | kličky | 3 | obě | střední | ano | ověřené | ne | Finta, stáhnout míček široko za tělo a obkroužit obránce. *Proč ne: Pokryto jiným cvikem nebo výzvou v appce.* | [1](https://cdn.hockeycanada.ca/hockey-canada/Hockey-Programs/Players/Downloads/2020/puck-control-overview-e.pdf) [2](https://hockeyshot.com/blogs/training-academy/movement-puck-vision) |
-| H27 | Finty z bekhendu | kličky | 2 | obě | tichý | ano | ověřené | drill:bh-fake | Progrese: bekhend + finta, pak přetažení, pak F-B-F. | [1](https://www.youtube.com/watch?v=HV5FFCzQJfM) |
+| H27 | Finty z bekhendu | kličky | 2 | obě | tichý | ano | odvozené | drill:bh-fake | Progrese: bekhend + finta, pak přetažení, pak F-B-F. | [1](https://www.youtube.com/watch?v=HV5FFCzQJfM) |
 | H28 | Hůl–noha–hůl | práce nohou | 3 | obě | střední | ano | odvozené | drill:stick-foot-stick | Míček k botě a vnitřní stranou boty zpět na čepel. | [1](https://www.onlinehockeytraining.com/blog/hockey-stick-handling-drills) |
-| H29 | Ruce a nohy | práce nohou | 2 | obě | střední | ano | ověřené | drill:wu-quick-feet, drill:fh-bh-side-steps, drill:happy-feet | Rychlé doteky a nohy běží na místě. | [1](https://www.youtube.com/watch?v=5Ls0RzDATIY) [2](https://www.youtube.com/watch?v=DycV8UE5Ua0) |
-| H30 | Vedení po místnosti s hlavou nahoře | vedení míčku | 1 | obě | střední | ano | ověřené | drill:triangle-loop-fh, drill:triangle-loop-bh, drill:square-ccw-fh, drill:square-cw-bh | Chůze a klus po obvodu čtverce, míček v periferním vidění. | [1](https://www.youtube.com/watch?v=DycV8UE5Ua0) |
-| H31 | Vedení na jedné noze | práce nohou | 3 | obě | tichý | ano | ověřené | drill:one-leg-dribble | Vedení ve stoji na jedné noze, doma bez poskoků. | [1](https://www.youtube.com/watch?v=4WBgqEPIFxw) |
+| H29 | Ruce a nohy | práce nohou | 2 | obě | střední | ano | odvozené | drill:wu-quick-feet, drill:fh-bh-side-steps, drill:happy-feet | Rychlé doteky a nohy běží na místě. | [1](https://www.youtube.com/watch?v=5Ls0RzDATIY) [2](https://www.youtube.com/watch?v=DycV8UE5Ua0) |
+| H30 | Vedení po místnosti s hlavou nahoře | vedení míčku | 1 | obě | střední | ano | odvozené | drill:triangle-loop-fh, drill:triangle-loop-bh, drill:square-ccw-fh, drill:square-cw-bh | Chůze a klus po obvodu čtverce, míček v periferním vidění. | [1](https://www.youtube.com/watch?v=DycV8UE5Ua0) |
+| H31 | Vedení na jedné noze | práce nohou | 3 | obě | tichý | ano | odvozené | drill:one-leg-dribble | Vedení ve stoji na jedné noze, doma bez poskoků. | [1](https://www.youtube.com/watch?v=4WBgqEPIFxw) |
 | H32 | Slalom mezi kužely | kolem kuželů | 1 | obě | střední | ano | ověřené | drill:toe-drag-cone, drill:slalom-fh-bh | Vedení kličkou mezi kužely, U9 dovednost. | [1](https://www.hockeycanada.ca/en-ca/hockey-programs/coaching/under-9/coaches/skills) |
 | H33 | Cik-cak s tahem | kolem kuželů | 2 | obě | střední | ano | odvozené | drill:zigzag-carry, drill:zigzag-drag, drill:zigzag-master | Kužely do W, u každého tah nebo změna strany. | [1](https://www.youtube.com/watch?v=GQK1RBm8Vx4) |
 | H34 | Únikový obrat u kuželu | kličky | 2 | obě | střední | ano | ověřené | drill:cone-there-back, drill:escape-turn, drill:triangle-combo | U kuželu obrat o 180° s míčkem chráněným tělem. | [1](https://www.hockeycanada.ca/en-ca/hockey-programs/coaching/under-9/coaches/skills) |
 | H35 | Rozjezd s míčkem | vedení míčku | 1 | obě | hlasitý | ano | ověřené | ne | Krátký sprint s míčkem do 5 s a klidný návrat. *Proč ne: Hlučné (střelba, nárazy, doskoky), do bytu nevhodné. Zvážit pro velký prostor.* | [1](https://portal.usahockey.com/cx/president/hockey-devlopment/8u_fundamentals_stage-adm.pdf) |
-| H36 | Překážková dráha z domácích věcí | kombinace | 1 | obě | střední | ano | ověřené | ne | Dráha z polštářů a židlí, dítě ji staví samo. *Proč ne: Volná tvorba dráhy dítětem, appka ji nepřehrává. Částečně pokrývá cvik Volná jízda.* | [1](https://www.youtube.com/watch?v=P5dO2zNmxhc) [2](https://schools.wrdsb.ca/athome/learn/elementary-home/elementary-2/healthy-active-living/healthy-active-living-all-grades/skill-development/hockey-skills-drills-and-challenges/) |
+| H36 | Překážková dráha z domácích věcí | kombinace | 1 | obě | střední | ano | odvozené | ne | Dráha z polštářů a židlí, dítě ji staví samo. *Proč ne: Volná tvorba dráhy dítětem, appka ji nepřehrává. Částečně pokrývá cvik Volná jízda.* | [1](https://www.youtube.com/watch?v=P5dO2zNmxhc) [2](https://schools.wrdsb.ca/athome/learn/elementary-home/elementary-2/healthy-active-living/healthy-active-living-all-grades/skill-development/hockey-skills-drills-and-challenges/) |
 | H37 | Odraz od zdi nebo krabice | kombinace | 2 | obě | hlasitý | ano | odvozené | challenge:zed-prihravky | Vedení u zdi a přihrávka sám sobě odrazem. | [1](https://www.hockeyshare.com/drills/print/477220) |
-| H38 | Jen horní ruka | jednoruč | 3 | obě | tichý | ano | ověřené | drill:one-hand-top, drill:reaction-one-hand, drill:slalom-one-hand | Celé vedení dělá horní ruka, krátké bloky. | [1](https://www.youtube.com/watch?v=DycV8UE5Ua0) |
-| H39 | Rulička od toaletního papíru | tahy | 2 | obě | tichý | ano | ověřené | drill:toilet-roll | Spodní ruka drží jen ruličku, kdo ji rozmačká, mačká moc. | [1](https://www.youtube.com/watch?v=DycV8UE5Ua0) |
-| H40 | Jen spodní ruka | jednoruč | 4 | obě | tichý | ano | odvozené | drill:one-hand-bottom | Krátké doteky jen spodní rukou uprostřed hole. | [1](https://cdn.hockeycanada.ca/hockey-canada/Hockey-Programs/Players/Downloads/2020/puck-control-overview-e.pdf) |
+| H38 | Jen horní ruka | jednoruč | 3 | obě | tichý | ano | odvozené | drill:one-hand-top, drill:reaction-one-hand, drill:slalom-one-hand | Celé vedení dělá horní ruka, krátké bloky. | [1](https://www.youtube.com/watch?v=DycV8UE5Ua0) |
+| H39 | Rulička od toaletního papíru | tahy | 2 | obě | tichý | ano | odvozené | drill:toilet-roll | Spodní ruka drží jen ruličku, kdo ji rozmačká, mačká moc. | [1](https://www.youtube.com/watch?v=DycV8UE5Ua0) |
+| H40 | Jen spodní ruka | jednoruč | 4 | obě | tichý | ano | odvozené | ne | Krátké doteky jen spodní rukou uprostřed hole. *Proč ne: Konec hole volně kmitá až k bradě a očím, pro 8 let doma nevhodné. Jednoruč jen horní rukou.* | [1](https://cdn.hockeycanada.ca/hockey-canada/Hockey-Programs/Players/Downloads/2020/puck-control-overview-e.pdf) |
 | H41 | Kukni a zvedni hlavu | reakce | 1 | obě | tichý | ano | odvozené | drill:heads-up-spot | Jen krátký pohled na míček a oči zase nahoru. | [1](https://www.youtube.com/watch?v=7HluVwbAv3w) |
 | H42 | Reakce na číslo kuželu | reakce | 2 | obě | tichý | ano | ověřené | drill:wu-react-run, drill:triangle-reaction, drill:square-react-fast, drill:square-react-bh, drill:line-reaction, test:test-reaction | Někdo hlásí místo a hráč tam míček přesune. | [1](https://www.youtube.com/watch?v=IT9Wu3P_C6I) [2](https://cdn.hockeycanada.ca/hockey-canada/Hockey-Programs/Players/Downloads/2020/puck-control-overview-e.pdf) |
 | H43 | Reakce na barvu | reakce | 2 | obě | tichý | ano | ověřené | drill:spot-color-call, drill:triangle-color, drill:reaction-square, drill:square-color-corners, drill:zigzag-color | Barevné kužely a hlas nebo světlo ukáže cíl. | [1](https://hockeyshot.com/products/reactive-sniper) [2](https://cdn.hockeycanada.ca/hockey-canada/Hockey-Programs/Players/Downloads/2020/puck-control-overview-e.pdf) |
-| H44 | Vedení naslepo | tahy | 3 | obě | tichý | ano | ověřené | drill:eyes-closed | Clona zakryje míček, hráč ho musí cítit čepelí. | [1](https://www.youtube.com/watch?v=bYFiH1BF_HA) |
-| H45 | Ukaž prsty / chytej kartu | reakce | 2 | obě | tichý | ano | ověřené | ne | Rodič ukazuje prsty nebo kartu, hráč při vedení odpovídá. *Proč ne: Potřebuje aktivního druhého hráče (rodiče) jako soupeře nebo vzor. Kandidát do sekce Výzvy v další verzi.* | [1](https://www.youtube.com/watch?v=GU47Ecj98JM) |
+| H44 | Vedení naslepo | tahy | 3 | obě | tichý | ano | odvozené | drill:eyes-closed | Clona zakryje míček, hráč ho musí cítit čepelí. | [1](https://www.youtube.com/watch?v=bYFiH1BF_HA) |
+| H45 | Ukaž prsty / chytej kartu | reakce | 2 | obě | tichý | ano | odvozené | ne | Rodič ukazuje prsty nebo kartu, hráč při vedení odpovídá. *Proč ne: Potřebuje aktivního druhého hráče (rodiče) jako soupeře nebo vzor. Kandidát do sekce Výzvy v další verzi.* | [1](https://www.youtube.com/watch?v=GU47Ecj98JM) |
 | H46 | Semafor | reakce | 1 | obě | střední | ano | odvozené | ne | Zelená vedení, žlutá doteky na místě, červená stop. *Proč ne: Přehrávač zatím neumí povel „stop / zmraz“ v náhodných intervalech. Kandidát na nový callMode.* | [1](https://portal.usahockey.com/cx/president/hockey-devlopment/8u_fundamentals_stage-adm.pdf) |
 | H47 | Udrž si míček | kličky | 2 | obě | hlasitý | ano | ověřené | challenge:udrz-micek | Rodič na kolenou se snaží míček vypíchnout, dítě ho kryje. | [1](https://schools.wrdsb.ca/athome/learn/elementary-home/elementary-2/healthy-active-living/healthy-active-living-all-grades/skill-development/hockey-skills-drills-and-challenges/) [2](https://cdn.hockeycanada.ca/hockey-canada/Hockey-Programs/Players/Downloads/2020/puck-control-overview-e.pdf) |
 | H48 | Býk v kruhu | kličky | 3 | obě | hlasitý | ano | ověřené | ne | Souboj o míček v malém kruhu, krytí a postavení těla. *Proč ne: Pokryto jiným cvikem nebo výzvou v appce.* | [1](https://www.admkids.com/news_article/show/411437) |
 | H49 | Test 30 sekund | tahy | 1 | obě | tichý | ano | odvozené | drill:toe-to-toe, test:test-drag-30, test:test-bh-20 | Počet přesunů za 30 s, počítá rodič, osobní rekord. | [1](https://dspace.cuni.cz/handle/20.500.11956/191512) [2](https://www.youtube.com/watch?v=7HluVwbAv3w) |
 | H50 | Vedení na balanční desce | práce nohou | 4 | obě | tichý | ano | odvozené | ne | Vedení na nestabilní podložce. *Proč ne: Bezpečnostní riziko pro 8 let doma (pád, točení hlavy, nestabilní podložka). Nechat posoudit drill-reviewera.* | [1](https://www.youtube.com/watch?v=XzQ_26K05sU) |
 | H51 | Nadhoz přes překážku | kličky | 4 | obě | střední | jen doma | odvozené | ne | Puk/míček se flipne přes nízkou lištu. *Proč ne: Míček nad zemí (nadhozy), patří do stromu triků, ne do tréninku v tempu.* | [1](https://www.youtube.com/watch?v=pmNnMqKU-PU) |
-| H52 | Přerychlení lehčím míčkem | tahy | 4 | obě | hlasitý | ano | ověřené | ne | Golfák jako rychlejší pomůcka, pro florbal nevhodný. *Proč ne: Potřebuje pomůcku, kterou doma většinou nemáme (obruč, lavička, golfák).* | [1](https://www.youtube.com/watch?v=rP-KX2zzzqA) |
+| H52 | Přerychlení lehčím míčkem | tahy | 4 | obě | hlasitý | ano | odvozené | ne | Golfák jako rychlejší pomůcka, pro florbal nevhodný. *Proč ne: Potřebuje pomůcku, kterou doma většinou nemáme (obruč, lavička, golfák).* | [1](https://www.youtube.com/watch?v=rP-KX2zzzqA) |
 
 ## Triky (sociální sítě) (18)
 
@@ -205,7 +205,7 @@ Sloupce: Úr. = úroveň 1–5, Strana = strana čepele, Zápas = povolené v z�
 | T01 | Tah po špičce kolem těla (kolotoč) | kombinace | 1 | forhend | tichý | ano | odvozené | trick:kolotoc | Míček jen špičkou čepele obloukem kolem těla. | [1](https://www.youtube.com/watch?v=ZCEezWMOdA4) [2](https://www.youtube.com/watch?v=gvFCTOKb7JA) [3](https://www.youtube.com/watch?v=UPtyRyLBawo) |
 | T02 | Nabrání míčku na čepel | kombinace | 2 | forhend | tichý | ano | ověřené | trick:nabrani | Přitáhnout a naklonit čepel, míček vyjede nahoru. | [1](https://www.youtube.com/watch?v=iGx8arbYMhg) [2](https://www.youtube.com/watch?v=3NIkT5qidpM) [3](https://dspace5.zcu.cz/bitstream/11025/19998/1/Diplomova%20prace%20Matous%20Hrdlicka%202015.pdf) |
 | T03 | Míček na čepeli | kombinace | 1 | obě | tichý | ano | ověřené | trick:balanc, test:test-balance | Držení míčku v jamce čepele v klidu i v pohybu. | [1](https://www.youtube.com/watch?v=UPtyRyLBawo) [2](https://www.mobilesport.ch/assets/lbwp-cdn/mobilesport/files/2013/09/praxis_2005_02_d.pdf) [3](https://www1.specialolympicsontario.com/resources/wp-content/uploads/sites/39/2024/10/SOI_Floorball_Coaching-Guide.pdf) |
-| T04 | Žonglování na forhendu | kombinace | 2 | forhend | střední | jen doma | ověřené | trick:zonglovani, test:test-juggle | Opakované odrážení míčku čepelí nahoru. | [1](https://www.youtube.com/watch?v=uZdYUHfvZbE) [2](https://floorball.sport/2020/11/26/presenting-freestyle-floorball-cup-contestant-agnes-holgersson) [3](https://dspace5.zcu.cz/bitstream/11025/19998/1/Diplomova%20prace%20Matous%20Hrdlicka%202015.pdf) |
+| T04 | Žonglování na forhendu | kombinace | 2 | forhend | střední | jen doma | ověřené | trick:zonglovani, test:test-juggle | Opakované odrážení míčku čepelí nahoru. | [1](https://www.youtube.com/watch?v=uZdYUHfvZbE) [2](https://web.archive.org/web/20220816034720/https://floorball.sport/2020/11/26/presenting-freestyle-floorball-cup-contestant-agnes-holgersson/) [3](https://dspace5.zcu.cz/bitstream/11025/19998/1/Diplomova%20prace%20Matous%20Hrdlicka%202015.pdf) |
 | T05 | Žonglování střídavě | kombinace | 3 | obě | střední | jen doma | odvozené | trick:zonglovani-fb | Odrazy střídavě forhendem a bekhendem. | [1](https://www.youtube.com/watch?v=GRMyIeTzqV8) [2](https://www.youtube.com/watch?v=uZdYUHfvZbE) |
 | T06 | Žonglovací rekordman | kombinace | 4 | obě | střední | jen doma | odvozené | ne | Žonglování v chůzi a s otočkou, dlouhé série. *Proč ne: Pokryto jiným cvikem nebo výzvou v appce.* | [1](https://www.youtube.com/watch?v=6lLPwkvrVe0) [2](https://www.youtube.com/watch?v=najf9c-GmbA) |
 | T07 | Chůze s míčkem na čepeli | kombinace | 2 | forhend | tichý | ano | ověřené | trick:chuze-cepel | S míčkem na čepeli chůze, klus a kolem kuželů. | [1](https://www.youtube.com/watch?v=UPtyRyLBawo) [2](https://bin.yhdistysavain.fi/1580251/ruuOmGuWdYLL9JFkqrvC0bZWHb/SBVImuistiinpanot.pdf) [3](https://dspace5.zcu.cz/bitstream/11025/19998/1/Diplomova%20prace%20Matous%20Hrdlicka%202015.pdf) |
@@ -216,10 +216,10 @@ Sloupce: Úr. = úroveň 1–5, Strana = strana čepele, Zápas = povolené v z�
 | T12 | Zorro jednoruč | kombinace | 5 | obě | tichý | ano | odvozené | trick:zorro-jednoruc | Zorro jen horní rukou. | [1](https://www.youtube.com/watch?v=gvFCTOKb7JA) |
 | T13 | Lacrosse gól zpoza branky | kombinace | 4 | forhend | střední | ano | odvozené | trick:lacrosse | Za brankou nabrat míček a přenést ho kolem tyče do branky. | [1](https://www.youtube.com/watch?v=JIeMV8U03WY) [2](https://www.youtube.com/watch?v=tWURMI7pZzA) [3](https://en.wikipedia.org/wiki/Michigan_goal) |
 | T14 | Bekhendová klička | kličky | 1 | obě | tichý | ano | odvozené | drill:bh-fake, trick:bh-klicka | Rychlé přetažení z FH na BH a do strany od soupeře. | [1](https://www.youtube.com/watch?v=O0MVVCA9H28) [2](https://www.youtube.com/watch?v=6pmaHNPC-o8) [3](https://www.youtube.com/watch?v=tFFCRVn9Y2I) |
-| T15 | Toe drag | kličky | 2 | obě | tichý | ano | ověřené | drill:toe-drag-fh, drill:toe-drag-bh, drill:toe-drag-cone, trick:hacek | Míček do strany a špičkou zpět k tělu. | [1](https://www.youtube.com/watch?v=0pOdD75Mc0k) [2](https://www.youtube.com/watch?v=UlkAnet3d-A) |
+| T15 | Toe drag | kličky | 2 | obě | tichý | ano | odvozené | drill:toe-drag-fh, drill:toe-drag-bh, drill:toe-drag-cone, trick:hacek | Míček do strany a špičkou zpět k tělu. | [1](https://www.youtube.com/watch?v=0pOdD75Mc0k) [2](https://www.youtube.com/watch?v=UlkAnet3d-A) |
 | T16 | Otočka 360 | kličky | 2 | obě | tichý | ano | ověřené | drill:escape-turn, trick:vrtule | Otočka kolem osy s míčkem chráněným tělem. | [1](https://www.youtube.com/watch?v=tFFCRVn9Y2I) [2](https://www.youtube.com/watch?v=O0MVVCA9H28) [3](https://www.hockeycanada.ca/en-ca/hockey-programs/coaching/under-9/coaches/skills) |
 | T17 | Mezi nohama | kličky | 2 | obě | tichý | ano | ověřené | drill:between-legs, trick:tunelar | Míček mezi vlastníma nohama a převzetí. | [1](https://www.youtube.com/watch?v=KBtAcR6ZAi4) [2](https://www.youtube.com/watch?v=8AWo_5Z9Q7o) [3](https://www.floorball.sport/wp-content/uploads/2026/02/Rules-of-the-Game-2026-with-all-changes-260209.pdf) |
-| T18 | Nakopnutí míčku na čepel | kombinace | 3 | forhend | střední | jen doma | ověřené | trick:kopacka | Míček se nohou nadzvedne a chytí na čepel. | [1](https://www.youtube.com/watch?v=h3GauavBPtE) [2](https://www.floorball.sport/wp-content/uploads/2026/02/Rules-of-the-Game-2026-with-all-changes-260209.pdf) |
+| T18 | Nakopnutí míčku na čepel | kombinace | 3 | forhend | střední | ano | ověřené | trick:kopacka | Míček se nohou nadzvedne a chytí na čepel. | [1](https://www.youtube.com/watch?v=h3GauavBPtE) [2](https://www.floorball.sport/wp-content/uploads/2026/02/Rules-of-the-Game-2026-with-all-changes-260209.pdf) |
 
 ## Výzvy a souboje (sociální sítě) (20)
 
@@ -233,9 +233,9 @@ Sloupce: Úr. = úroveň 1–5, Strana = strana čepele, Zápas = povolené v z�
 | C06 | Kelímek / plechovka | kombinace | 1 | obě | střední | ano | odvozené | challenge:kelimky | Shodit pyramidu kelímků. | [1](https://www.youtube.com/watch?v=LzVCac8Pp04) |
 | C07 | Krabice / koš | kombinace | 1 | obě | střední | ano | ověřené | challenge:krabice | Míček do ležící krabice, vzdálenost roste. | [1](https://www.mobilesport.ch/assets/lbwp-cdn/mobilesport/files/2011/02/Unihockey_3_Ich-und-der-Ball-III_d.pdf) |
 | C08 | Úklid Zorrem | kombinace | 4 | obě | střední | ano | odvozené | trick:zorro-strelec, challenge:uklid-zorrem | Všechny míčky Zorrem do krabice. | [1](https://www.youtube.com/watch?v=ZCEezWMOdA4) |
-| C09 | Žonglovací souboj | kombinace | 2 | obě | střední | jen doma | odvozené | challenge:zonglovaci-souboj, test:test-juggle | Kdo víc odrazů na čepeli. | [1](https://www.youtube.com/watch?v=uZdYUHfvZbE) [2](https://floorball.sport/2020/11/26/presenting-freestyle-floorball-cup-contestant-agnes-holgersson) |
+| C09 | Žonglovací souboj | kombinace | 2 | obě | střední | jen doma | odvozené | challenge:zonglovaci-souboj, test:test-juggle | Kdo víc odrazů na čepeli. | [1](https://www.youtube.com/watch?v=uZdYUHfvZbE) [2](https://web.archive.org/web/20220816034720/https://floorball.sport/2020/11/26/presenting-freestyle-floorball-cup-contestant-agnes-holgersson/) |
 | C10 | Míček na čepeli – výdrž | kombinace | 1 | obě | tichý | ano | ověřené | challenge:vydrz-cepel | Nejdelší čas s míčkem na čepeli. | [1](https://www.youtube.com/watch?v=UPtyRyLBawo) [2](https://www1.specialolympicsontario.com/resources/wp-content/uploads/sites/39/2024/10/SOI_Floorball_Coaching-Guide.pdf) |
-| C11 | Slalom na čas | kolem kuželů | 2 | obě | střední | ano | ověřené | challenge:slalom-cas | Slalom tam a zpět, tresty za kužel. | [1](https://www.milsport.admin.ch/media/postPdf/SpielFit_Unihockey_Slalom_Torschuss.pdf) [2](https://www.mobilesport.ch/assets/lbwp-cdn/mobilesport/files/2013/09/praxis_2005_02_d.pdf) |
+| C11 | Slalom na čas | kolem kuželů | 2 | obě | střední | ano | ověřené | challenge:slalom-cas | Slalom tam a zpět, tresty za kužel. | [1](https://www.mobilesport.ch/assets/lbwp-cdn/mobilesport/files/2013/09/praxis_2005_02_d.pdf) |
 | C12 | Toaletní osmička | kolem kuželů | 1 | obě | tichý | ano | odvozené | drill:figure8-spot, challenge:toaletni-osmicka, test:test-figure8 | Osmičky kolem dvou rolí papíru za 30 s. | [1](https://www.youtube.com/watch?v=3vqw3QHZpNo) |
 | C13 | KOHOUT | kombinace | 2 | obě | střední | ano | ověřené | challenge:kohout | Předveď trik, kdo nezopakuje, dostane písmeno. | [1](https://www.mobilesport.ch/assets/lbwp-cdn/mobilesport/files/2013/09/praxis_2005_02_d.pdf) [2](https://klickin.swissunihockey.ch/index.php/download_file/view/313/279) |
 | C14 | Nájezdy | kombinace | 2 | obě | hlasitý | ano | odvozené | challenge:najezdy | Nájezdy na brankáře s tipovačkou. | [1](https://www.youtube.com/watch?v=q5O5Qi-ZQY4) [2](https://www.youtube.com/watch?v=vyOmJdqA7aE) |
@@ -290,7 +290,7 @@ Sloupce: Úr. = úroveň 1–5, Strana = strana čepele, Zápas = povolené v z�
 | CR-38 | Překážková dráha (Hinderbana) | kombinace | 1 | obě | střední | ano | ověřené | drill:free-ride | Volná rozehřívací dráha s holí i bez ní. | [1](https://www.innebandy.se/ovningsbanken/hinderbana) |
 | CR-39 | Barvy a čísla à la Skiller | reakce | 2 | obě | tichý | ano | odvozené | drill:heads-up-spot, drill:spot-color-call, drill:triangle-reaction | Appka ohlásí barvu nebo číslo a dítě se čepelí s míčkem dotkne značky. | [1](https://www.florbal.com/doplnky/treninkove-doplnky/myfloorball-skiller-pro/) [2](https://apps.apple.com/us/app/my-floorball/id949358436) |
 
-## Přehratelné cviky v appce (88)
+## Přehratelné cviky v appce (87)
 
 | id | Název | Druh | Úr. | Kategorie | Strana | Stanoviště | Povel | BPM | s | Hluk | Původ |
 |---|---|---|---|---|---|---|---|---|---|---|---|
@@ -314,13 +314,13 @@ Sloupce: Úr. = úroveň 1–5, Strana = strana čepele, Zápas = povolené v z�
 | stretch-calm | Zklidnění | stretch | 1 | koordinace bez míčku | obě | spot | žádný | 15 | 30 | tichý | JS, ADM |
 | fh-bh-front | Přetahování před tělem | ball | 1 | tahy | obě | spot | směr | 60 | 30 | tichý | H01, CZ-01, FI-12, SO-02, CR-30 |
 | fh-bh-wide | Od kuželu ke kuželu | ball | 1 | tahy | obě | spot | zóna | 45 | 30 | tichý | H02, FI-12 |
-| toe-to-toe | Rychlé ruce | ball | 2 | tahy | obě | spot | směr | 90 | 20 | tichý | H13, H49 |
-| fh-bh-rhythm | Raz, dva, tři, hop | ball | 2 | tahy | obě | spot | směr | 80 | 40 | tichý | H14 |
+| toe-to-toe | Rychlé ruce | ball | 2 | tahy | obě | spot | žádný | 90 | 20 | tichý | H13, H49 |
+| fh-bh-rhythm | Raz, dva, tři, hop | ball | 2 | tahy | obě | spot | směr | 60 | 40 | tichý | H14 |
 | fh-only-side | Jen forhend vedle těla | ball | 2 | tahy | forhend | spot | směr | 60 | 30 | tichý | H07, CZ-02, CR-29 |
 | bh-only-front | Jen bekhend vedle těla | ball | 2 | tahy | bekhend | spot | směr | 60 | 30 | tichý | H07, CZ-03, SKE |
-| fh-flip-dribble | Florbalový driblink | ball | 3 | tahy | forhend | spot | směr | 60 | 30 | tichý | CZ-05 |
-| fh-bh-switch | Hokejový a florbalový driblink | ball | 3 | tahy | obě | spot | směr | 70 | 40 | tichý | CZ-14 |
-| reach-near-far | Blízko a daleko | ball | 2 | tahy | obě | spot | zóna | 60 | 40 | tichý | H03 |
+| fh-flip-dribble | Florbalový driblink | ball | 3 | tahy | obě | spot | směr | 50 | 30 | tichý | CZ-05 |
+| fh-bh-switch | Hokejový a florbalový driblink | ball | 3 | tahy | obě | spot | směr | 60 | 40 | tichý | CZ-14 |
+| reach-near-far | Blízko a daleko | ball | 2 | tahy | obě | spot | zóna | 50 | 40 | tichý | H03 |
 | circle-big | Velký kruh | ball | 2 | vedení míčku | obě | spot | zóna | 45 | 30 | tichý | H11, H09 |
 | figure8-spot | Osmička kolem kuželů | ball | 2 | kolem kuželů | obě | spot | zóna | 35 | 30 | tichý | H05, C12 |
 | figure8-spot-reverse | Osmička obráceně | ball | 3 | kolem kuželů | obě | spot | zóna | 35 | 30 | tichý | H05, CZ-08 |
@@ -335,7 +335,6 @@ Sloupce: Úr. = úroveň 1–5, Strana = strana čepele, Zápas = povolené v z�
 | toilet-roll | Rulička na holi | ball | 2 | tahy | obě | spot | směr | 70 | 30 | tichý | H39 |
 | one-hand-top | Jen horní ruka | ball | 3 | jednoruč | obě | spot | směr | 55 | 20 | tichý | H38, FI-17, SKE |
 | one-hand-long-bh | Dlouhý bekhend | ball | 3 | jednoruč | obě | spot | směr | 45 | 30 | tichý | CZ-01, SO-08 |
-| one-hand-bottom | Jen spodní ruka | ball | 5 | jednoruč | obě | spot | směr | 45 | 20 | tichý | H40 |
 | heads-up-spot | Červená, nebo modrá? | ball | 1 | reakce | obě | spot | barva | 35 | 30 | tichý | H41, CZ-31, CH-15, CR-39 |
 | spot-color-call | Barvy rychle | ball | 2 | reakce | obě | spot | barva | 50 | 30 | tichý | H43, CH-15, CZ-31, CR-39 |
 | eyes-closed | Bez očí | ball | 3 | tahy | obě | spot | směr | 45 | 20 | tichý | CH-19, H44 |
@@ -357,7 +356,7 @@ Sloupce: Úr. = úroveň 1–5, Strana = strana čepele, Zápas = povolené v z�
 | triangle-one-hand | Trojúhelník jednou rukou | ball | 4 | jednoruč | obě | triangle | zóna | 25 | 20 | střední | FI-04, FI-17, SKE |
 | triangle-combo | Trojúhelníková kombinace | ball | 4 | kombinace | obě | triangle | zóna | 35 | 40 | střední | H14, H34, CZ-24 |
 | reaction-square | Barevná reakce | ball | 2 | reakce | obě | square | náhodná reakce | 20 | 40 | střední | MF-02, H43, CH-06 |
-| square-react-fast | Blesková reakce | ball | 4 | reakce | obě | square | náhodná reakce | 30 | 30 | střední | MF-02, H42 |
+| square-react-fast | Blesková reakce | ball | 4 | reakce | obě | square | náhodná reakce | 22 | 30 | střední | MF-02, H42 |
 | square-react-bh | Reakce bekhendem | ball | 4 | reakce | bekhend | square | náhodná reakce | 20 | 30 | střední | H42, SKE |
 | reaction-one-hand | Reakce jednou rukou | ball | 5 | reakce | obě | square | náhodná reakce | 20 | 20 | střední | FI-04, H38, MF-02 |
 | square-color-corners | Barevné rohy | ball | 1 | reakce | obě | square | barva | 20 | 40 | střední | CH-06, H43 |
@@ -365,7 +364,7 @@ Sloupce: Úr. = úroveň 1–5, Strana = strana čepele, Zápas = povolené v z�
 | square-cw-bh | Kolem čtverce bekhendem | ball | 2 | vedení míčku | bekhend | square | zóna | 25 | 40 | střední | H30, SKE |
 | diagonal-x | Křížem krážem | ball | 3 | vedení míčku | obě | square | zóna | 25 | 40 | střední | H08, H22 |
 | square-turns | Otočka v každém rohu | ball | 3 | kolem kuželů | obě | square | zóna | 20 | 45 | střední | CZ-22, CH-12, CR-31 |
-| free-ride | Volná jízda | ball | 2 | kombinace | obě | square | žádný | 60 | 45 | střední | H23, CZ-24, CH-01, CR-38 |
+| free-ride | Volná jízda | ball | 2 | kombinace | obě | square | žádný | 20 | 45 | střední | H23, CZ-24, CH-01, CR-38 |
 | slalom-fh-bh | Slalom | ball | 1 | kolem kuželů | obě | line | zóna | 30 | 40 | střední | CZ-17, H32, SE-09 |
 | slalom-there-back | Slalom tam a zpět | ball | 2 | kolem kuželů | obě | line | zóna | 30 | 45 | střední | CH-12, CZ-36, SO-01, CR-06 |
 | slalom-fh-only | Slalom jen forhendem | ball | 2 | kolem kuželů | forhend | line | zóna | 30 | 40 | střední | FI-14, SO-06, CZ-18 |
@@ -373,12 +372,12 @@ Sloupce: Úr. = úroveň 1–5, Strana = strana čepele, Zápas = povolené v z�
 | slalom-one-hand | Slalom jednou rukou | ball | 4 | jednoruč | obě | line | zóna | 25 | 30 | střední | FI-17, SKE, H38 |
 | slalom-turns | Slalom s otočkami | ball | 3 | kolem kuželů | obě | line | zóna | 25 | 45 | střední | CZ-22, CH-12, CR-23 |
 | slalom-pull-back | Dva kroky tam, jeden zpět | ball | 4 | kličky | obě | line | zóna | 30 | 40 | střední | CZ-19, H21 |
-| line-reaction | Slalomová reakce | ball | 3 | reakce | obě | line | náhodná reakce | 20 | 40 | střední | MF-02, H42, CZ-37, CR-10 |
+| line-reaction | Slalomová reakce | ball | 3 | reakce | obě | line | náhodná reakce | 15 | 40 | střední | MF-02, H42, CZ-37, CR-10 |
 | zigzag-carry | Cik-cak | ball | 2 | vedení míčku | obě | zigzag | zóna | 30 | 40 | střední | H33, CZ-18 |
 | zigzag-drag | Cik-cak s obloukem | ball | 3 | kolem kuželů | obě | zigzag | zóna | 25 | 45 | střední | H33 |
 | zigzag-fh-only | Cik-cak forhendem | ball | 3 | vedení míčku | forhend | zigzag | zóna | 30 | 40 | střední | SO-06, FI-07 |
 | zigzag-bh-only | Cik-cak bekhendem | ball | 3 | vedení míčku | bekhend | zigzag | zóna | 25 | 40 | střední | SKE, FI-14 |
-| zigzag-reaction | Cik-cak reakce | ball | 3 | reakce | obě | zigzag | náhodná reakce | 18 | 40 | střední | MF-02, CH-25 |
+| zigzag-reaction | Cik-cak reakce | ball | 3 | reakce | obě | zigzag | náhodná reakce | 13 | 40 | střední | MF-02, CH-25 |
 | zigzag-color | Duhový cik-cak | ball | 2 | reakce | obě | zigzag | barva | 18 | 40 | střední | H43, CH-15, CR-21 |
 | zigzag-one-hand | Cik-cak jednou rukou | ball | 4 | jednoruč | obě | zigzag | zóna | 25 | 25 | střední | FI-17, FI-04, SKE |
 | zigzag-master | Mistr cik-caku | ball | 5 | kombinace | obě | zigzag | zóna | 25 | 45 | střední | H33, H18, CZ-24 |

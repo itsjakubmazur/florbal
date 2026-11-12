@@ -2,18 +2,20 @@ import { srcFor } from './sources.mjs';
 
 const p = (at, blade, extra = {}) => ({ at, blade, ...extra });
 const air = (at, blade, extra = {}) => ({ at, blade, air: true, ...extra });
-export const FOUL_LINE = 'Tohle je jen domácí frajeřinka, v zápase by to byl faul.';
+// IFF 507.4: hra holí nad úrovní kolen = volný úder. Pod koleny je to dovolené.
+export const FOUL_LINE = 'Pod koleny je to v zápase v pořádku. Nad koleny je to jen domácí frajeřinka, v zápase by to byl faul.';
 const LOW_LINE = 'V zápase to jde, ale jen když míček zůstane pod koleny.';
-const SAFE_TRICK = 'Hůl drž pod pasem. Kolem tebe dva metry volno, nikdo v dosahu hole. Stůj čelem ke zdi nebo k pohovce, ne k oknu ani k televizi.';
-const SAFE_AIR = SAFE_TRICK + ' Míček nikdy nad pas. Nenaklánej se nad čepel, ať ti míček nevyletí do obličeje.';
+const SAFE_TRICK = 'Hůl drž pod pasem. Kolem tebe volno na délku hole a ještě kousek, nikdo v dosahu. Stůj čelem ke zdi nebo k pohovce, ne k oknu ani k televizi.';
+const SAFE_AIR = SAFE_TRICK + ' Míček nikdy nad pas. Nenaklánej se nad čepel. Když míček letí vzduchem, nasaď si florbalové brýle.';
 
 // ---------------- TRIKY ----------------
 const S = (id, name, howTo, criterion, voice, animation) => ({ id, name, howTo, criterion, voice, animation });
+const SPOT = { setupId: 'spot', spaceNeeded: [1.4, 2], equipment: ['hůl', 'míček'] };
 
 export const tricks = [
   { id: 'kolotoc', name: 'Kolotoč', card: 'Kolotočář', level: 1, requires: [], matchLegal: true, matchNote: 'V zápase povolené, míček je na zemi.',
     safety: SAFE_TRICK, origin: ['T01'], steps: [
-      S('kolotoc-1', 'Tah špičkou', 'Míček je u špičky čepele. Táhni ho po zemi tam a zpátky před sebou.', '10 tahů tam a zpět, míček neopustí čepel.', 'Míček jezdí jen u špičky čepele. Tam a zpátky, deset krát!', [p('fh', 'fh'), p('bh', 'fh')]),
+      S('kolotoc-1', 'Tah špičkou', 'Míček je u špičky čepele. Táhni ho po zemi tam a zpátky před sebou.', '10 tahů tam a zpět, míček neopustí čepel.', 'Míček jezdí jen u špičky čepele. Tam a zpátky, desetkrát!', [p('fh', 'fh'), p('front', 'fh')]),
       S('kolotoc-2', 'Oblouk dozadu', 'Táhni míček špičkou obloukem z boku za sebe a zase dopředu.', '5 oblouků v řadě bez ztráty míčku.', 'Teď oblouk. Z boku dozadu a zase dopředu.', [p('front', 'fh'), p('fh', 'fh'), p('back', 'fh'), p('fh', 'fh')]),
       S('kolotoc-3', 'Točí se ramena', 'Loket horní ruky je nahoře a s míčkem se otáčí celé tělo, ne jen ruce.', 'Rodič vidí otočení ramen u 5 oblouků z 5.', 'Zvedni loket a otoč s míčkem ramena.', [p('front', 'fh'), p('fh', 'fh'), p('back', 'fh'), p('fh', 'fh')]),
       S('kolotoc-4', 'Kolotoč bez zastavení', 'Kruž míčkem plynule a nezastavuj.', '20 s nepřetržitě bez ztráty míčku.', 'A teď plynule jako kolotoč, dvacet vteřin!', [p('front', 'fh'), p('fh', 'fh'), p('back', 'fh'), p('fh', 'fh')]),
@@ -21,8 +23,8 @@ export const tricks = [
   { id: 'balanc', name: 'Míček na čepeli', card: 'Kouzelník čepele', level: 1, requires: [], matchLegal: true, matchNote: LOW_LINE,
     safety: SAFE_TRICK, origin: ['T03', 'CH-03', 'SO-03'], steps: [
       S('balanc-1', 'Klidná čepel', 'Táta ti položí míček na čepel. Drž ho bez hnutí.', 'Udržíš míček na čepeli 5 s.', 'Táta ti dá míček na čepel. Udržíš ho pět vteřin?', [air('front', 'fh')]),
-      S('balanc-2', 'Nahoru a dolů', 'Pomalu zvedej čepel od kotníku ke kolenu a zpátky.', '10 s bez pádu míčku.', 'Pomalu nahoru ke kolenu a zase dolů. Výš než koleno ne!', [air('front', 'fh'), air('back', 'fh'), air('front', 'fh')]),
-      S('balanc-3', 'Do stran', 'Míček na čepeli posouvej pomalu doleva a doprava.', '10 s bez pádu míčku.', 'Teď posouvej míček do stran. Pomalu a měkce.', [air('fh', 'fh'), air('bh', 'fh')]),
+      S('balanc-2', 'Nahoru a dolů', 'Pomalu zvedej čepel od kotníku ke kolenu a zpátky.', '10 s bez pádu míčku.', 'Pomalu nahoru ke kolenu a zase dolů. Výš než koleno ne!', [air('front', 'fh'), air('front', 'fh')]),
+      S('balanc-3', 'Do stran', 'Míček na čepeli posouvej pomalu ze strany na stranu.', '10 s bez pádu míčku.', 'Teď posouvej míček do stran. Pomalu a měkce.', [air('fh', 'fh'), air('bh', 'fh')]),
       S('balanc-4', 'Bekhendová strana', 'Zkus to samé na bekhendové straně čepele.', 'Udržíš míček na bekhendu 5 s.', 'A teď bekhend. Pět vteřin!', [air('front', 'bh')]),
     ] },
   { id: 'nabrani', name: 'Nabrání na čepel', card: 'Bagr', level: 2, requires: ['kolotoc'], matchLegal: true, matchNote: LOW_LINE,
@@ -33,9 +35,9 @@ export const tricks = [
       S('nabrani-4', 'Nabrání z chůze', 'Míček se kutálí před tebou a ty ho za chůze nabereš.', '5 z 10 pokusů.', 'Teď za chůze. Míček se kutálí a ty ho nabereš.', [p('front', 'fh'), p('front', 'fh'), air('back', 'fh')]),
     ] },
   { id: 'chuze-cepel', name: 'Číšník', card: 'Číšník', level: 2, requires: ['balanc'], matchLegal: true, matchNote: LOW_LINE,
-    safety: SAFE_TRICK, origin: ['T07', 'FI-11', 'CZ-21'], steps: [
+    safety: SAFE_TRICK, origin: ['T07', 'FI-11', 'CZ-21'], setupId: 'line', spaceNeeded: [1.6, 4.4], equipment: ['hůl', 'míček', '2 kužely'], steps: [
       S('chuze-1', 'Tři kroky', 'S míčkem na čepeli udělej tři kroky dopředu.', '3× v řadě bez pádu míčku.', 'Míček na čepel a tři kroky dopředu.', [air('front', 'fh'), air('front', 'fh'), air('front', 'fh')]),
-      S('chuze-2', 'Přes pokoj', 'Dojdi s míčkem na čepeli až ke kuželu.', '2 ze 3 pokusů bez pádu.', 'Dojdi s míčkem až ke kuželu. Čepel nízko!', [air(1, 'fh'), air(2, 'fh')]),
+      S('chuze-2', 'Ke druhému kuželu', 'Dojdi s míčkem na čepeli až k modrému kuželu.', '2 ze 3 pokusů bez pádu.', 'Dojdi s míčkem až ke kuželu. Čepel nízko!', [air(1, 'fh'), air(2, 'fh')]),
       S('chuze-3', 'Kolem kuželu', 'S míčkem na čepeli obejdi kužel.', '3 z 5 pokusů.', 'Obejdi kužel a míček nesmí spadnout.', [air('around:2', 'fh', { dir: 'ccw' }), air('home', 'fh')]),
       S('chuze-4', 'Slalom číšníka', 'Projdi s míčkem na čepeli slalom kolem obou kuželů.', '2 z 5 pokusů.', 'Slalom s míčkem na čepeli. To je pro mistry!', [air('around:1', 'fh', { dir: 'cw' }), air('around:2', 'fh', { dir: 'ccw' })]),
     ] },
@@ -43,7 +45,7 @@ export const tricks = [
     safety: SAFE_TRICK, origin: ['T08'], steps: [
       S('zmrzlina-1', 'Bez míčku', 'Horní rukou otoč hůl o půl otáčky a zpátky. Čepel zůstává dole.', '10× plynule.', 'Bez míčku: horní rukou otoč hůl a zpátky.', [p('front', 'fh'), p('front', 'bh')]),
       S('zmrzlina-2', 'Malé protočení', 'S míčkem na čepeli protoč čepel jen trošku a zpátky.', '5 z 5.', 'Míček na čepel a jen malinko protoč.', [air('front', 'fh'), air('front', 'fh')]),
-      S('zmrzlina-3', 'Celá zmrzlina', 'Protoč čepel s míčkem nahoru a zpátky, jako když točíš zmrzlinu.', '3× v řadě.', 'Teď celá točená zmrzlina! Obloukem, žádné cuknutí.', [air('front', 'fh'), air('front', 'bh'), air('front', 'fh')]),
+      S('zmrzlina-3', 'Celá zmrzlina', 'Protoč čepel s míčkem o půl otáčky a zpátky, jako když točíš zmrzlinu.', 'Čepel se otočí o půl otáčky a zpět a míček nespadne, 3× v řadě.', 'Teď celá točená zmrzlina! Obloukem, žádné cuknutí.', [air('front', 'fh'), air('front', 'bh'), air('front', 'fh')]),
       S('zmrzlina-4', 'Pět kopečků', 'Protoč čepel pětkrát za sebou, míček nespadne.', '5 protočení v řadě.', 'Pět kopečků zmrzliny za sebou!', [air('front', 'fh'), air('front', 'bh'), air('front', 'fh'), air('front', 'bh'), air('front', 'fh')]),
     ] },
   { id: 'zorro', name: 'Zorro', card: 'Mistr Zorra', level: 3, requires: ['kolotoc', 'zmrzlina'], matchLegal: true,
@@ -53,10 +55,10 @@ export const tricks = [
       S('zorro-2', 'Chyť na bekhendu', 'Na konci oblouku otoč horní ruku a chyť míček do čepele na bekhendu.', '5 z 10 pokusů.', 'Na konci otoč horní ruku a chyť míček na bekhendu.', [p('fh', 'fh'), air('front', 'fh'), air('bh', 'bh')]),
       S('zorro-3', 'Zpátky na forhend', 'Míček z bekhendu přenes obloukem zpátky na forhend. Bez spěchu.', '3× v řadě.', 'A zpátky na forhend. Pomalu, obloukem.', [air('bh', 'bh'), air('front', 'bh'), air('fh', 'fh')]),
       S('zorro-4', 'Tam a zpátky', 'Plynule tam a zpátky. Točí se trup, ne jen ruce.', '3 výměny strany v řadě bez pádu.', 'Tam a zpátky. Točí se celé tělo!', [air('fh', 'fh'), air('front', 'fh'), air('bh', 'bh'), air('front', 'bh'), air('fh', 'fh')]),
-      S('zorro-5', 'Rychlé Zorro', 'Zorro rychle a bez zastavení uprostřed.', '5 výměn strany za 5 s.', 'Teď švihni! Pět výměn za pět vteřin. Čepel pod koleny!', [air('fh', 'fh'), air('bh', 'bh'), air('fh', 'fh'), air('bh', 'bh'), air('fh', 'fh')]),
+      S('zorro-5', 'Rychlé Zorro', 'Zorro rychle a bez zastavení uprostřed.', '5 výměn strany za 5 s.', 'Teď rychleji, ale pořád nízko! Pět výměn za pět vteřin.', [air('fh', 'fh'), air('bh', 'bh'), air('fh', 'fh'), air('bh', 'bh'), air('fh', 'fh')]),
     ] },
   { id: 'zorro-strelec', name: 'Zorro střelec', card: 'Zorro střelec', level: 4, requires: ['zorro'], matchLegal: true, matchNote: LOW_LINE,
-    safety: SAFE_AIR + ' Střílej jen do krabice u zdi, nikdy na lidi.', origin: ['T10', 'C08', 'FI-20'], steps: [
+    safety: SAFE_AIR + ' Střílej jen do krabice u zdi, nikdy na lidi.', origin: ['T10', 'C08', 'FI-20'], setupId: 'line', spaceNeeded: [1.6, 4.4], equipment: ['hůl', '10 míčků', 'krabice'], steps: [
       S('zstrelec-1', 'Zorro v chůzi', 'Udělej Zorro a přitom jdi pomalu dopředu tři metry.', '3 z 5 bez pádu.', 'Zorro za chůze. Pomalu dopředu.', [air('fh', 'fh'), air(1, 'bh'), air(2, 'fh')]),
       S('zstrelec-2', 'Zorro do krabice', 'Zorro a z metru odhoď míček do krabice.', '3 z 10 trefí krabici.', 'Zorro a šup do krabice!', [air('fh', 'fh'), air('bh', 'bh'), air(2, 'fh')]),
       S('zstrelec-3', 'Ze tří metrů', 'Nájezd chůzí ze tří metrů, Zorro a odhoz do krabice.', '3 z 10.', 'Ze tří metrů. Nájezd, Zorro, gól!', [p('home', 'fh'), air('fh', 'fh'), air('bh', 'bh'), air(2, 'fh')]),
@@ -77,7 +79,7 @@ export const tricks = [
     ] },
   { id: 'lacrosse', name: 'Lacrosse zpoza branky', card: 'Lacrosse legenda', level: 4, requires: ['zorro'], matchLegal: true,
     matchNote: 'V zápase povolené jen nízko pod koleny. Vysoko do horního rohu je to faul.',
-    safety: SAFE_AIR + ' Táta jako brankář klečí mimo oblouk čepele a chrání si obličej.', origin: ['T13', 'C19'], steps: [
+    safety: SAFE_AIR + ' Branka bez brankáře, nikdo za brankou.', origin: ['T13', 'C19'], setupId: 'line', spaceNeeded: [1.6, 4.4], equipment: ['hůl', 'míček', 'branka nebo krabice'], steps: [
       S('lac-1', 'Za brankou', 'Stoupni si za branku nebo krabici a udrž míček na čepeli.', 'Udržíš 5 s.', 'Jdi za branku a udrž míček na čepeli.', [air('front', 'fh')]),
       S('lac-2', 'Kolem tyčky', 'Pomalu přenes čepel s míčkem kolem tyčky před branku.', '3 z 5, míček nespadne.', 'Pomalu kolem tyčky. Čepel nízko!', [air('front', 'fh'), air('around:2', 'fh', { dir: 'ccw' })]),
       S('lac-3', 'Gól', 'Kolem tyčky a vhoď míček do branky.', '3 z 10.', 'Kolem tyčky a šup do branky!', [air('front', 'fh'), air('around:2', 'fh', { dir: 'ccw' }), p(2, 'fh')]),
@@ -86,7 +88,7 @@ export const tricks = [
   { id: 'bh-klicka', name: 'Bekhendová klička', card: 'Bekhendový kouzelník', level: 1, requires: [], matchLegal: true, matchNote: 'V zápase povolené.',
     safety: SAFE_TRICK, origin: ['T14'], steps: [
       S('bhk-1', 'Rychlé přetahování', 'Na místě přetahuj z forhendu na bekhend.', '20 přetažení za 15 s bez ztráty.', 'Rychle z forhendu na bekhend. Dvacet za patnáct vteřin!', [p('fh', 'fh'), p('bh', 'bh')]),
-      S('bhk-2', 'Široký tah', 'Přetáhni míček široko, až na šířku ramen.', '10× v řadě.', 'Teď široko, až za rameno.', [p('fh', 'fh'), p(1, 'bh')]),
+      S('bhk-2', 'Široký tah', 'Přetáhni míček široko, až na šířku ramen.', '10× v řadě.', 'Teď široko, na šířku ramen.', [p('fh', 'fh'), p(1, 'bh')]),
       S('bhk-3', 'Kolem kuželu', 'Jdi ke kuželu, ten je obránce. Přetáhni míček bekhendem kolem něj.', '5 z 5.', 'Kužel je obránce. Přetáhni míček bekhendem kolem něj.', [p('front', 'fh'), p(1, 'bh'), p('home', 'bh')]),
       S('bhk-4', 'V klusu', 'To samé v klusu.', '4 z 5.', 'A teď v klusu!', [p('front', 'fh'), p(1, 'bh'), p('home', 'bh')]),
     ] },
@@ -99,7 +101,7 @@ export const tricks = [
     ] },
   { id: 'vrtule', name: 'Otočka 360', card: 'Vrtule', level: 2, requires: ['bh-klicka'], matchLegal: true, matchNote: 'V zápase povolené.',
     safety: SAFE_TRICK + ' Nejvýš tři otočky za sebou, ať se ti nezatočí hlava.', origin: ['T16', 'CZ-09', 'FI-09'], steps: [
-      S('vrtule-1', 'Bez míčku', 'Otoč se dokola s čepelí na zemi. Každým směrem.', '5× každým směrem.', 'Bez míčku se otoč dokola. Čepel na zemi.', [{ at: 'fh' }, { at: 'back' }, { at: 'bh' }, { at: 'front' }]),
+      S('vrtule-1', 'Bez míčku', 'Otoč se dokola, hůl drž u těla a čepel na zemi blízko bot. Každým směrem.', '5× každým směrem.', 'Nejdřív se rozhlédni, ať je kolem volno. Pomalu se otoč dokola, čepel u bot, nejvýš třikrát.', [{ at: 'fh' }, { at: 'back' }, { at: 'bh' }, { at: 'front' }]),
       S('vrtule-2', 'Otočka forhendem', 'Pomalá otočka dokola, míček je na forhendu.', '3 z 5.', 'Pomalá otočka s míčkem na forhendu.', [p('front', 'fh'), p('fh', 'fh'), p('back', 'fh'), p('bh', 'fh')]),
       S('vrtule-3', 'Otočka bekhendem', 'Otočka na druhou stranu, míček na bekhendu.', '3 z 5.', 'A na druhou stranu bekhendem.', [p('front', 'bh'), p('bh', 'bh'), p('back', 'bh'), p('fh', 'bh')]),
       S('vrtule-4', 'Kolem kuželu', 'Otočka kolem kuželu v chůzi.', '4 z 5.', 'Otočka u kuželu za chůze.', [p(2, 'fh'), p('around:2', 'fh', { dir: 'ccw' }), p('home', 'fh')]),
@@ -107,16 +109,17 @@ export const tricks = [
   { id: 'tunelar', name: 'Mezi nohama', card: 'Tunelář', level: 2, requires: ['bh-klicka'], matchLegal: true,
     matchNote: 'Mezi vlastníma nohama je to v zápase v pořádku. Holí soupeři mezi nohy ale nesmíš, to je faul.',
     safety: SAFE_TRICK + ' Pomalu, ať o hůl nezakopneš.', origin: ['T17', 'CZ-16'], steps: [
-      S('tunel-1', 'Dopředu mezi nohama', 'Široký stoj. Pošli míček mezi nohama dopředu a převezmi ho.', '5 z 5.', 'Nohy široko a míček mezi nimi dopředu.', [p('back', 'fh'), p('between', 'fh'), p('front', 'fh')]),
+      S('tunel-1', 'Dozadu mezi nohama', 'Široký stoj. Pošli míček mezi nohama dozadu a převezmi ho.', '5 z 5.', 'Nohy široko a míček mezi nimi dozadu.', [p('front', 'fh'), p('between', 'fh'), p('back', 'fh')]),
       S('tunel-2', 'Zezadu dopředu', 'Míček je za tebou a ty ho protáhneš mezi nohama dopředu.', '4 z 5.', 'Zezadu mezi nohama dopředu.', [p('back', 'bh'), p('between', 'bh'), p('front', 'fh')]),
       S('tunel-3', 'V chůzi', 'Totéž za chůze, nohy dělají nůžky.', '3 z 5.', 'Teď za chůze!', [p('front', 'fh'), p('between', 'fh'), p('front', 'bh')]),
     ] },
-  { id: 'zonglovani', name: 'Žonglování', card: 'Žonglér', level: 3, requires: ['balanc'], matchLegal: false, matchNote: FOUL_LINE,
+  { id: 'zonglovani', name: 'Žonglování', card: 'Žonglér', level: 3, requires: ['balanc'], matchLegal: false, matchNote: 'Nízké odrazy pod koleny jsou v zápase v pořádku. Žonglovací série nad koleny je jen domácí frajeřinka, v zápase by to byl faul.',
     safety: SAFE_AIR, origin: ['T04', 'CZ-11', 'FI-10', 'CH-04'], steps: [
       S('zongl-1', 'Jeden skok', 'Míček na čepeli, jeden nízký odraz a chytit ho zpátky.', '5 z 5.', 'Jeden malý skok a chyť ho. Měkce!', [air('front', 'fh'), air('front', 'fh')]),
       S('zongl-2', 'Dva skoky', 'Dva odrazy za sebou a chytit.', '3× v řadě.', 'Dva skoky a chyť.', [air('front', 'fh'), air('front', 'fh'), air('front', 'fh')]),
       S('zongl-3', 'Do kolen', 'Odrazy do výšky kolen.', '5 odrazů v řadě.', 'Pět odrazů do výšky kolen.', [air('front', 'fh'), air('front', 'fh')]),
-      S('zongl-4', 'Deset', 'Žonglovací série.', '10 odrazů v řadě.', 'Deset v řadě! Doma frajeřinka, v zápase by to byl faul.', [air('front', 'fh'), air('front', 'fh')]),
+      S('zongl-4', 'Deset', 'Žonglovací série.', '10 odrazů v řadě.', 'Deset v řadě! Nad koleny je to domácí frajeřinka, v zápase by to byl faul.', [air('front', 'fh'), air('front', 'fh')]),
+      S('zongl-4b', 'Patnáct', 'Delší série.', '15 odrazů v řadě.', 'Patnáct v řadě, jde ti to!', [air('front', 'fh'), air('front', 'fh')]),
       S('zongl-5', 'Pětadvacet', 'Dlouhá série.', '25 odrazů v řadě.', 'Pětadvacet! To je cirkus!', [air('front', 'fh'), air('front', 'fh')]),
     ] },
   { id: 'zonglovani-fb', name: 'Žonglování střídavě', card: 'Mistr žonglér', level: 4, requires: ['zonglovani'], matchLegal: false, matchNote: FOUL_LINE,
@@ -126,46 +129,46 @@ export const tricks = [
       S('zfb-3', 'Forhend, bekhend, chytit', 'Jeden odraz forhendem, jeden bekhendem a chytit.', '3× v řadě.', 'Forhend, bekhend a chyť!', [air('front', 'fh'), air('front', 'bh'), air('front', 'fh')]),
       S('zfb-4', 'Střídavě deset', 'Střídej forhend a bekhend.', '10 v řadě.', 'Střídavě deset krát!', [air('front', 'fh'), air('front', 'bh')]),
     ] },
-  { id: 'kopacka', name: 'Nakopnutí na čepel', card: 'Kopačka', level: 3, requires: ['balanc', 'nabrani'], matchLegal: false, matchNote: FOUL_LINE,
+  { id: 'kopacka', name: 'Nakopnutí na čepel', card: 'Kopačka', level: 3, requires: ['balanc', 'nabrani'], matchLegal: true, matchNote: 'Nadzvednout si míček nohou pod kolenem na vlastní čepel je v zápase v pořádku. Žonglování nad koleny už ne.',
     safety: SAFE_AIR + ' Kopej jen jemně, míček nikdy do výšky obličeje.', origin: ['T18'], steps: [
       S('kop-1', 'Nadzvednout nohou', 'Míček leží u boty. Špičkou ho jemně nadzvedni do výšky kotníku.', '5 z 5.', 'Špičkou boty jemně nadzvedni míček.', [p('back', 'fh'), air('front', 'fh')]),
       S('kop-2', 'Chytit na čepel', 'Nadzvedni míček nohou a chyť ho na čepel.', '3 z 10.', 'Nadzvedni a chyť na čepel!', [p('back', 'fh'), air('front', 'fh'), air('front', 'fh')]),
       S('kop-3', 'Častěji', 'Totéž, ale spolehlivěji.', '5 z 10.', 'Teď pět z deseti.', [p('back', 'fh'), air('front', 'fh'), air('front', 'fh')]),
-      S('kop-4', 'A žonglovat', 'Nakopnout, chytit a hned žonglovat.', '3 z 10.', 'Nakopni, chyť a žongluj. Doma frajeřinka, v zápase by to byl faul.', [p('back', 'fh'), air('front', 'fh'), air('front', 'fh'), air('front', 'fh')]),
+      S('kop-4', 'A žonglovat', 'Nakopnout, chytit a hned žonglovat.', '3 z 10.', 'Nakopni, chyť a žongluj. Pod koleny v pořádku, nad koleny je to jen domácí frajeřinka.', [p('back', 'fh'), air('front', 'fh'), air('front', 'fh'), air('front', 'fh')]),
     ] },
   { id: 'na-kuzel', name: 'Míček na kužel', card: 'Přesná ruka', level: 3, requires: ['balanc', 'nabrani'], matchLegal: false,
-    matchNote: 'Je to jen domácí kousek citu, ve hře se nepoužívá.', safety: SAFE_TRICK, origin: ['CZ-23', 'SO-05'], steps: [
+    matchNote: 'Je to jen domácí kousek citu, ve hře se nepoužívá.', safety: SAFE_TRICK, origin: ['CZ-23', 'SO-05'], equipment: ['hůl', 'míček', 'krabice', 'plastový kelímek', 'kužel'], steps: [
       S('kuzel-1', 'Do krabice', 'Nabrat míček a položit ho do krabice na zemi.', '5 z 10.', 'Nabrat a položit do krabice.', [p('front', 'fh'), air('front', 'fh'), p(2, 'fh')]),
       S('kuzel-2', 'Na kelímek', 'Nabrat míček a položit ho na otočený kelímek.', '3 z 10.', 'Teď na kelímek. Opatrně!', [p('front', 'fh'), air('front', 'fh'), air(2, 'fh')]),
       S('kuzel-3', 'Na kužel', 'Nabrat míček a položit ho přímo na špičku kuželu.', '2 z 10.', 'A teď na kužel. Přesná ruka!', [p('front', 'fh'), air('front', 'fh'), air(2, 'fh')]),
     ] },
-].map((t) => ({ ...t, setupId: 'spot', sources: srcFor(t.origin), confidence: 'odvozené' }));
+].map((t) => ({ ...SPOT, ...t, sources: srcFor(t.origin), confidence: 'odvozené' }));
 
 // ---------------- VÝZVY ----------------
-const SAFE_SHOT = 'Nikdo v dosahu hole, diváci stojí za střelcem, nikdy za cílem. Hůl při střele pod pasem, žádný velký nápřah. Cíl u zdi, křehké věci pryč.';
+const SAFE_SHOT = 'Střílí se aspoň ze 3 metrů do branky nebo krabice bez brankáře. Nikdo v dosahu hole, diváci stojí za střelcem, nikdy u cíle. Tablet drží táta nebo leží za střelcem, nikdy ve směru střelby. Hůl při střele pod pasem, žádný velký nápřah. Cíl u zdi, křehké věci pryč.';
 const C = (o) => ({
   homeOnly: false, matchLegal: true, players: '1-4', noise: 'hlasitý', handicap: [], ...o,
-  ...(o.matchLegal === false ? { homeOnlyLine: FOUL_LINE } : {}),
+  ...(o.matchLegal === false ? { homeOnlyLine: o.homeOnlyLine || FOUL_LINE } : {}),
   sources: srcFor(o.origin),
 });
-const HC = { far: 'Táta střílí o metr dál', bh: 'Táta jen bekhendem', weak: 'Táta drží hůl obráceně', less: 'Táta má o 2 pokusy méně', joker: 'Syn má žolíka: jeden pokus navíc' };
+const HC = { far: 'Táta střílí o metr dál', bh: 'Táta jen bekhendem', weak: 'Táta hraje s holí na opačné straně, než je zvyklý', less: 'Táta má o 2 pokusy méně', joker: 'Syn má žolíka: jeden pokus navíc' };
 
 export const challenges = [
   C({ id: 'tycka', name: 'Gól od tyčky', type: 'tyčka', format: 'pokusy', attempts: 10, scoring: 'trefy',
-    rules: 'Střílej tahem ze 3 metrů. Trefa tyčky je 1 bod, tyčka a gól jsou 2 body.', handicap: [HC.far, HC.bh, HC.less],
+    rules: 'Střílej tahem ze 3 metrů do branky bez brankáře. Trefa tyčky je 1 bod, tyčka a gól jsou 2 body.', handicap: [HC.far, HC.bh, HC.less],
     voiceIntro: 'Gól od tyčky! Každý má deset pokusů. Tyčka je bod, tyčka a gól jsou body dva.', safety: SAFE_SHOT, equipment: ['branka nebo dvě krabice jako tyčky', 'míčky'], origin: ['C01'] }),
   C({ id: 'brevno', name: 'Břevno', type: 'cíl', format: 'do-x', target: 3, attempts: null, scoring: 'trefy',
     rules: 'Kdo první trefí 3× břevno malé branky nebo hranu krabice. Jen střela tahem, míček nejvýš do pasu.', handicap: [HC.far, HC.bh],
     voiceIntro: 'Kdo první trefí třikrát břevno? Jen tahem, žádné velké švihy.', safety: SAFE_SHOT, equipment: ['malá branka nebo krabice'], origin: ['C02'] }),
   C({ id: 'odraz', name: 'Gól odrazem', type: 'odraz', format: 'pokusy', attempts: 10, scoring: 'trefy',
-    rules: 'Vyfoť a pojmenuj „mantinel“ (zeď, krabice, noha gauče) a cíl. Gól se počítá jen po odrazu od mantinelu. Dva odrazy jsou 3 body.', handicap: [HC.far, HC.bh],
+    rules: 'Střílí se ze 3 metrů. Vyfoť a pojmenuj „mantinel“ (zeď, krabice, noha gauče) a cíl. Gól se počítá jen po odrazu od mantinelu. Dva odrazy jsou 3 body.', handicap: [HC.far, HC.bh],
     voiceIntro: 'Gól jen přes mantinel! Míček se musí odrazit a pak teprve do branky.', safety: SAFE_SHOT + ' Mantinel musí být pevný, žádné sklo.', equipment: ['cíl', 'pevný předmět jako mantinel'], origin: ['C03'] }),
   C({ id: 'volej', name: 'Volej ze vzduchu', type: 'volej', format: 'pokusy', attempts: 10, scoring: 'trefy', homeOnly: true, matchLegal: false,
-    rules: 'Táta stojí bokem dva metry od tebe a spodem nadhodí míček do výšky kolen. Ty ho trefíš do branky dřív, než spadne.', handicap: [HC.weak, HC.joker],
-    voiceIntro: 'Volej ze vzduchu! Tohle je jen domácí frajeřinka, v zápase by to byl faul.', safety: 'Nadhazovač stojí z boku, ne před holí, aspoň 2 m daleko. Míček nejvýš do pasu. Hůl pod pasem.', equipment: ['branka nebo krabice', 'míčky'], origin: ['C04'] }),
+    rules: 'Táta stojí bokem dva metry od tebe a spodem nadhodí míček do výšky mezi koleny a pasem. Ty ho trefíš do branky bez brankáře dřív, než spadne.', handicap: [HC.weak, HC.joker],
+    voiceIntro: 'Volej ze vzduchu! Míček nad koleny je jen domácí frajeřinka, v zápase by to byl faul.', safety: 'Nadhazovač stojí z boku, ne před holí, aspoň 2 m daleko. Míček nejvýš do pasu, hůl pod pasem. Branka bez brankáře. Nasaď si florbalové brýle.', homeOnlyLine: 'Míček nad koleny je jen domácí frajeřinka, v zápase by to byl faul.', equipment: ['branka nebo krabice', 'míčky'], origin: ['C04'] }),
   C({ id: 'rohy', name: 'Rohy branky', type: 'cíl', format: 'pokusy', attempts: 5, scoring: 'trefy',
-    rules: 'Branku rozděl páskou na rohy. Dolní roh 2 body, horní roh 3 body, střed 1 bod. Když roh předem ohlásíš a trefíš, body se zdvojnásobí.', handicap: [HC.far, HC.bh],
-    voiceIntro: 'Střelba do rohů! Ohlas roh nahlas a když ho trefíš, máš dvojnásobek.', safety: SAFE_SHOT, equipment: ['branka', 'lepicí páska', 'míčky'], origin: ['C05'] }),
+    rules: 'Do branky nalep pásku ve výšce kolen. Dolní rohy pod páskou jsou za 3 body, střed pod páskou za 1 bod, nad páskou se nepočítá. Když roh předem ohlásíš a trefíš, body se zdvojnásobí.', handicap: [HC.far, HC.bh],
+    voiceIntro: 'Střelba do dolních rohů, jen pod páskou! Ohlas roh nahlas a když ho trefíš, máš dvojnásobek.', safety: SAFE_SHOT, equipment: ['branka', 'lepicí páska', 'míčky'], origin: ['C05'] }),
   C({ id: 'kelimky', name: 'Kelímková pyramida', type: 'cíl', format: 'pokusy', attempts: 10, scoring: 'počet',
     rules: 'Postav pyramidu ze 6 plastových kelímků. Střílej ze 3 metrů. Kdo shodí víc kelímků za 10 střel.', handicap: [HC.far, HC.less],
     voiceIntro: 'Kelímková pyramida! Kolik kelímků shodíš za deset střel?', safety: SAFE_SHOT + ' Jen plastové kelímky.', noise: 'střední', equipment: ['6 plastových kelímků', 'míčky'], origin: ['C06'] }),
@@ -178,7 +181,7 @@ export const challenges = [
     noise: 'střední', equipment: ['10 míčků', 'krabice'], origin: ['C08'] }),
   C({ id: 'zonglovaci-souboj', name: 'Žonglovací souboj', type: 'žonglování', format: 'pokusy', attempts: 3, scoring: 'počet', homeOnly: true, matchLegal: false,
     rules: 'Kdo udělá víc odrazů míčku na čepeli bez pádu. 3 pokusy, počítá se nejlepší. Střídavě forhend a bekhend se počítá dvojnásob.', handicap: [HC.bh],
-    voiceIntro: 'Žonglovací souboj! Tohle je jen domácí frajeřinka, v zápase by to byl faul. Kolik odrazů dáš?', safety: 'Odrazy nejvýš do pasu, kolem 2 m volna.',
+    voiceIntro: 'Žonglovací souboj! Nad koleny je to jen domácí frajeřinka, v zápase by to byl faul.', safety: 'Odrazy nejvýš do pasu, kolem volno na délku hole. Doporučené florbalové brýle.', homeOnlyLine: 'Odrazy nad koleny jsou jen domácí frajeřinka, v zápase by to byl faul.',
     noise: 'střední', equipment: ['míček'], origin: ['C09'] }),
   C({ id: 'vydrz-cepel', name: 'Míček na čepeli', type: 'vlastní', format: 'pokusy', attempts: 3, scoring: 'čas',
     rules: 'Kdo udrží míček na čepeli déle. Stopky, 3 pokusy. Varianta: kdo s ním dojde dál.', handicap: [HC.weak],
@@ -195,35 +198,35 @@ export const challenges = [
     voiceIntro: 'Hrajeme KOHOUTA! Předveď trik a druhý ho musí zopakovat. Kdo nezvládne, dostane písmenko.', safety: 'Jen triky ze seznamu pro domácnost. Hůl pod pasem, kolem 2 m volno.',
     noise: 'střední', equipment: ['míček', 'cíl podle triku'], matchNote: 'Podle triku. Triky nad koleny jsou jen domácí frajeřinky.', origin: ['C13', 'CH-24'] }),
   C({ id: 'najezdy', name: 'Nájezdy', type: 'cíl', format: 'pokusy', attempts: 5, scoring: 'trefy', players: '2',
-    rules: 'Každý má 5 nájezdů na brankáře. Brankář klečí bez hole. Před sérií každý tipne, kolik dá. Za přesný tip je bod navíc.', handicap: [HC.bh, HC.far],
-    voiceIntro: 'Nájezdy! Tipni si, kolik gólů dáš. Brankář klečí a střílí se jen po zemi.', safety: 'Slabé střely jen po zemi nebo do výšky kolen. Brankář chrání obličej rukama. Žádná střela z blízka na hlavu.', equipment: ['branka', 'míček'], origin: ['C14'] }),
+    rules: 'Každý má 5 nájezdů na branku bez brankáře, do které je vložená krabice nebo polštář jako „brankář“. Střílí se nejméně ze 3 metrů a jen po zemi. Před sérií každý tipne, kolik dá, za přesný tip je bod navíc. Živý brankář jen s florbalovými brýlemi nebo maskou.', handicap: [HC.bh, HC.far],
+    voiceIntro: 'Nájezdy! Tipni si, kolik gólů dáš. Střílí se jen po zemi a nejmíň ze tří metrů.', safety: SAFE_SHOT + ' Člověk v brance jen s ochrannými brýlemi nebo maskou, jinak branka bez brankáře.', equipment: ['branka', 'krabice nebo polštář jako brankář', 'míček'], origin: ['C14'] }),
   C({ id: 'bekhend-vyzva', name: 'Bekhendová výzva', type: 'cíl', format: 'pokusy', attempts: 10, scoring: 'trefy',
     rules: 'Libovolná střelecká výzva, ale jen bekhendem.', handicap: [HC.far],
     voiceIntro: 'Jen bekhendem! Kdo dá víc tref z deseti?', safety: SAFE_SHOT, equipment: ['cíl', 'míčky'], origin: ['C15'] }),
   C({ id: 'silena-minuta', name: 'Šílená minuta', type: 'vlastní', format: 'série', scoring: 'trefy', durationSec: 240,
-    rules: 'Čtyři kola po minutě. Na začátku každého kola Trenér vylosuje pravidlo: jen bekhend, jednoruč, hůl obráceně, ze dvou metrů dál. Body se sčítají.', handicap: [HC.less],
+    rules: 'Čtyři kola po minutě. Na začátku každého kola Trenér vylosuje pravidlo: jen bekhend, jednoruč, hůl na druhou stranu těla, o dva metry dál. Body se sčítají.', handicap: [HC.less],
     voiceIntro: 'Šílená minuta! Každou minutu nové pravidlo. Poslouchej, co vylosuju!', safety: SAFE_SHOT, equipment: ['cíl', 'míčky'], origin: ['C16'] }),
   C({ id: 'zorro-gol', name: 'Zorro gól', type: 'cíl', format: 'do-x', target: 3, scoring: 'trefy', matchLegal: true,
-    rules: 'Kdo první dá 3 góly Zorrem ze 2 metrů. Čepel s míčkem pod koleny.', handicap: [HC.weak],
-    voiceIntro: 'Zorro gól! Kdo dá první tři? Čepel pod koleny, jinak by to v zápase byl faul.', safety: SAFE_SHOT, equipment: ['krabice nebo branka', 'míčky'], origin: ['C18'] }),
+    rules: 'Kdo první dá 3 góly Zorrem ze 3 metrů do branky bez brankáře. Čepel s míčkem pod koleny.', handicap: [HC.weak],
+    voiceIntro: 'Zorro gól! Čepel drž pod koleny, nad koleny by to v zápase byl faul.', safety: SAFE_SHOT, equipment: ['krabice nebo branka', 'míčky'], origin: ['C18'] }),
   C({ id: 'lacrosse-gol', name: 'Lacrosse zpoza branky', type: 'cíl', format: 'pokusy', attempts: 10, scoring: 'trefy', homeOnly: true, matchLegal: false,
-    rules: 'Gól lacrosse stylem zpoza branky. Gól je za 3 body. Vysoko do rohu je to jen domácí kousek.', handicap: [HC.less],
-    voiceIntro: 'Lacrosse zpoza branky! Vysoko do rohu je to jen domácí frajeřinka, v zápase by to byl faul.', safety: SAFE_SHOT + ' Čepel pod pasem i při otáčení.', equipment: ['branka', 'míčky'], origin: ['C19'] }),
+    rules: 'Gól lacrosse stylem zpoza branky bez brankáře. Gól je za 3 body.', handicap: [HC.less],
+    voiceIntro: 'Lacrosse zpoza branky! Nízko je to v zápase v pořádku, vysoko do rohu je to jen domácí frajeřinka.', safety: SAFE_SHOT + ' Čepel pod pasem i při otáčení.', homeOnlyLine: 'Nízko je to v zápase v pořádku, vysoko do rohu je to jen domácí frajeřinka, v zápase by to byl faul.', equipment: ['branka', 'míčky'], origin: ['C19'] }),
   C({ id: 'zed-prihravky', name: 'Zeď na čas', type: 'odraz', format: 'čas', durationSec: 30, scoring: 'počet',
     rules: 'Kolik přihrávek o zeď nebo krabici a zpracování stihneš za 30 s. Varianta: střídavě forhend a bekhend.', handicap: [HC.bh],
     voiceIntro: 'Přihrávky o zeď! Kolik jich stihneš za třicet vteřin?', safety: 'Jen proti pevné ploše bez obrázků a skla. Je to hlučné, ne pozdě večer.', equipment: ['zeď nebo krabice s knihami'], origin: ['C20', 'CH-20', 'MF-01', 'H37'] }),
   C({ id: 'lovci-micku', name: 'Lovci míčků', type: 'vlastní', format: 'čas', durationSec: 30, scoring: 'počet',
-    rules: 'Rozházej míčky po pokoji. Kolik jich za 30 s dovezeš holí do svého domečku (krabice, obruč)? Jen holí, žádné kopání.', handicap: ['Táta vozí jen bekhendem'],
+    rules: 'Míčky rozhoď do rohů pokoje, ne pod nohy. Kolik jich za 30 s dovezeš holí do svého domečku (krabice, obruč)? Jen holí, žádné kopání. Jezdi, neběhej.', handicap: ['Táta vozí jen bekhendem'],
     voiceIntro: 'Lovci míčků! Vozíš je holí do domečku, vždycky jen jeden. Kolik jich stihneš?', safety: 'Hůl pod pasem. Po hře všechny míčky posbírej.', noise: 'střední', equipment: ['5–10 míčků', 'krabice nebo obruč'], origin: ['CR-22', 'CH-07', 'SE-05'] }),
   C({ id: 'reflex', name: 'Reflex', type: 'vlastní', format: 'do-x', target: 5, scoring: 'počet', players: '2',
-    rules: 'Klečíte proti sobě, mezi vámi leží míček. Trenér říká části těla a vy si na ně saháte. Na slovo „míček“ ho zkuste sebrat první.', handicap: ['Táta má ruce za zády, dokud nezazní „míček“'],
-    voiceIntro: 'Reflex! Sahej, kam řeknu: hlava, ramena, kolena. A až řeknu míček, chňapni po něm!', safety: 'Bez holí. Hlavy od sebe, saháte jen rukou na míček.', noise: 'tichý', equipment: ['míček'], origin: ['CR-34'] }),
+    rules: 'Klečíte vedle sebe, aspoň dva metry od sebe, a každý má před sebou svůj míček. Trenér říká části těla a vy si na ně saháte. Na slovo „míček“ chyť svůj míček do ruky. Kdo je první, má bod.', handicap: ['Táta má ruce za zády, dokud nezazní „míček“'],
+    voiceIntro: 'Reflex! Sahej, kam řeknu: hlava, ramena, kolena. A až řeknu míček, zvedni ten svůj!', safety: 'Bez holí. Každý sahá jen po svém míčku, klečíte dva metry od sebe.', noise: 'tichý', equipment: ['2 míčky'], origin: ['CR-34'] }),
   C({ id: 'kuzel-chaos', name: 'Kužel-chaos', type: 'vlastní', format: 'čas', durationSec: 60, scoring: 'počet', players: '2',
-    rules: 'Polovina kuželů stojí, polovina leží. Jeden kužely staví, druhý je pokládá. Po minutě se spočítá, čeho je víc.', handicap: ['Táta smí kužely pokládat jen levou rukou'],
+    rules: 'Polovina kuželů stojí, polovina leží. Jeden kužely staví, druhý je pokládá. Po minutě se spočítá, čeho je víc.', handicap: ['Táta po každém kuželu musí tlesknout'],
     voiceIntro: 'Kužel-chaos! Jeden staví, druhý pokládá. Za minutu se počítá!', safety: 'Bez holí. Pozor na hlavy, když se oba sehnete ke stejnému kuželu.', noise: 'střední', equipment: ['6 a více kuželů nebo kelímků'], origin: ['CR-35'] }),
   C({ id: 'udrz-micek', name: 'Udrž si míček', type: 'vlastní', format: 'série', scoring: 'čas', players: '2', attempts: 4,
-    rules: 'Ve čtverci 2 × 2 m vedeš míček a táta na kolenou se ho snaží vypíchnout. Kolo trvá 20 s, pak výměna. Hraje se jen na míček.', handicap: ['Táta je na kolenou a smí jen jednou rukou'],
-    voiceIntro: 'Udrž si míček! Táta klečí a chce ti ho vzít. Schovej ho tělem.', safety: 'Žádné sekání do hole ani zvedání hole. Táta na kolenou na měkké podložce, hraje jen na míček.', noise: 'hlasitý', equipment: ['míček', '4 kužely'], origin: ['H47', 'CH-10', 'FI-01'] }),
+    rules: 'Ve čtverci aspoň 2,5 × 2,5 m vedeš míček. Táta je bez hole a klečí na podložce. Míček smí jen přikrýt dlaní na zemi. Kolo trvá 20 s, pak spočítejte, kolikrát míček přikryl.', handicap: ['Táta smí sahat jen jednou rukou'],
+    voiceIntro: 'Udrž si míček! Táta je bez hole a chce míček přikrýt dlaní. Schovej ho tělem a hůl drž u země.', safety: 'Táta je bez hole. Hůl dítěte jen po zemi, nikdy k tátově hlavě. Když je táta blíž než na délku hole, Trenér řekne STOP. Rohy nábytku pryč, doporučené florbalové brýle.', noise: 'střední', equipment: ['míček', '4 kužely', 'podložka pod kolena'], origin: ['H47', 'CH-10', 'FI-01'] }),
   C({ id: 'boccia', name: 'Boccia', type: 'cíl', format: 'pokusy', attempts: 5, scoring: 'počet', players: '2',
     rules: 'Každý přihrává svůj míček co nejblíž k víčku. Kdo je po kole nejblíž, bere bod.', handicap: ['Táta hraje bekhendem'],
     voiceIntro: 'Boccia! Kdo pošle míček nejblíž k víčku? Tady nevyhraje síla, ale cit.', safety: 'Jen jemné přihrávky po zemi. Tichá výzva do bytu.', noise: 'tichý', equipment: ['2 míčky', 'víčko jako cíl'], origin: ['CH-22'] }),
@@ -246,7 +249,7 @@ export const skilltests = [
     voiceIntro: 'Slalom na čas! Shozený kužel je vteřina navíc. Připravit, pozor, teď!', equipment: ['hůl', 'míček', '4 kužely'], origin: ['SO-01', 'CH-12', 'CZ-36'] }),
   T({ id: 'test-juggle', name: 'Žonglování', unit: 'počet', better: 'higher', attempts: 3,
     howTo: 'Kolik odrazů míčku na čepeli uděláš v řadě bez pádu? Tři pokusy, platí nejlepší. Odrazy nejvýš do pasu.',
-    voiceIntro: 'Žonglovací rekord! Počítej se mnou. Doma frajeřinka, v zápase by to byl faul.', equipment: ['hůl', 'míček'], origin: ['T04', 'C09'] }),
+    voiceIntro: 'Žonglovací rekord! Nad koleny je to jen domácí frajeřinka, v zápase by to byl faul.', equipment: ['hůl', 'míček'], origin: ['T04', 'C09'] }),
   T({ id: 'test-balance', name: 'Míček na čepeli', unit: 's', better: 'higher', attempts: 3,
     howTo: 'Jak dlouho udržíš míček na čepeli pod koleny? Rodič pustí stopky, když je míček na čepeli, a zastaví je, když spadne.',
     voiceIntro: 'Jak dlouho udržíš míček na čepeli? Čepel nízko!', equipment: ['hůl', 'míček'], origin: ['T03', 'SO-03'] }),
@@ -272,11 +275,12 @@ export const cards = [
   K('card-color-eye', 'Barevné oko', 'rare', 'Barvy chytáš dřív, než dozní.', { type: 'drill', id: 'reaction-square' }, 'reakce'),
   K('card-lightning', 'Blesk', 'epic', 'Blesková reakce bez ztráty míčku.', { type: 'drill', id: 'square-react-fast' }, 'reakce'),
   K('card-one-hand', 'Jedna ruka stačí', 'rare', 'Míček vedeš jen horní rukou.', { type: 'drill', id: 'one-hand-top' }, 'jednoruč'),
-  K('card-bottom-hand', 'Spodní síla', 'epic', 'Zvládl jsi i jen spodní ruku.', { type: 'drill', id: 'one-hand-bottom' }, 'jednoruč'),
+  K('card-long-bh', 'Dlouhá ruka', 'rare', 'Dlouhý bekhend jednou rukou ti jde.', { type: 'drill', id: 'one-hand-long-bh' }, 'jednoruč'),
+  K('card-hook-master', 'Mistr kliček', 'legend', 'Dvojitý tah špičkou bez chyby.', { type: 'drill', id: 'toe-drag-double' }, 'kličky'),
   K('card-fake', 'Fintér', 'rare', 'Kužel se nechal napálit tvou fintou.', { type: 'drill', id: 'fake-cone' }, 'kličky'),
   K('card-escape', 'Únikář', 'common', 'Otočíš se a obránce je pryč.', { type: 'drill', id: 'escape-turn' }, 'kličky'),
   K('card-blind', 'Cítím míček', 'rare', 'Míček cítíš čepelí i se zavřenýma očima.', { type: 'drill', id: 'eyes-closed' }, 'tahy'),
-  K('card-zigzag-master', 'Mistr cik-caku', 'legend', 'Nejtěžší cik-cak bez chyby.', { type: 'drill', id: 'zigzag-master' }, 'kombinace'),
+  K('card-zigzag-master', 'Mistr cik-caku', 'epic', 'Nejtěžší cik-cak bez chyby.', { type: 'drill', id: 'zigzag-master' }, 'kombinace'),
   K('card-carousel', 'Kolotočář', 'common', 'Míček jezdí kolem tebe jako na kolotoči.', { type: 'trick', id: 'kolotoc' }, 'triky'),
   K('card-blade-magic', 'Kouzelník čepele', 'common', 'Udržíš míček na čepeli.', { type: 'trick', id: 'balanc' }, 'triky'),
   K('card-digger', 'Bagr', 'rare', 'Míček nabereš na čepel jedním pohybem.', { type: 'trick', id: 'nabrani' }, 'triky'),

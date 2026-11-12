@@ -15,9 +15,9 @@
     "format": "pokusy",
     "attempts": 10,
     "scoring": "trefy",
-    "rules": "Střílej tahem ze 3 metrů. Trefa tyčky je 1 bod, tyčka a gól jsou 2 body.",
+    "rules": "Střílej tahem ze 3 metrů do branky bez brankáře. Trefa tyčky je 1 bod, tyčka a gól jsou 2 body.",
     "voiceIntro": "Gól od tyčky! Každý má deset pokusů. Tyčka je bod, tyčka a gól jsou body dva.",
-    "safety": "Nikdo v dosahu hole, diváci stojí za střelcem, nikdy za cílem. Hůl při střele pod pasem, žádný velký nápřah. Cíl u zdi, křehké věci pryč.",
+    "safety": "Střílí se aspoň ze 3 metrů do branky nebo krabice bez brankáře. Nikdo v dosahu hole, diváci stojí za střelcem, nikdy u cíle. Tablet drží táta nebo leží za střelcem, nikdy ve směru střelby. Hůl při střele pod pasem, žádný velký nápřah. Cíl u zdi, křehké věci pryč.",
     "equipment": [
       "branka nebo dvě krabice jako tyčky",
       "míčky"
@@ -51,7 +51,7 @@
     "scoring": "trefy",
     "rules": "Kdo první trefí 3× břevno malé branky nebo hranu krabice. Jen střela tahem, míček nejvýš do pasu.",
     "voiceIntro": "Kdo první trefí třikrát břevno? Jen tahem, žádné velké švihy.",
-    "safety": "Nikdo v dosahu hole, diváci stojí za střelcem, nikdy za cílem. Hůl při střele pod pasem, žádný velký nápřah. Cíl u zdi, křehké věci pryč.",
+    "safety": "Střílí se aspoň ze 3 metrů do branky nebo krabice bez brankáře. Nikdo v dosahu hole, diváci stojí za střelcem, nikdy u cíle. Tablet drží táta nebo leží za střelcem, nikdy ve směru střelby. Hůl při střele pod pasem, žádný velký nápřah. Cíl u zdi, křehké věci pryč.",
     "equipment": [
       "malá branka nebo krabice"
     ],
@@ -86,9 +86,9 @@
     "format": "pokusy",
     "attempts": 10,
     "scoring": "trefy",
-    "rules": "Vyfoť a pojmenuj „mantinel“ (zeď, krabice, noha gauče) a cíl. Gól se počítá jen po odrazu od mantinelu. Dva odrazy jsou 3 body.",
+    "rules": "Střílí se ze 3 metrů. Vyfoť a pojmenuj „mantinel“ (zeď, krabice, noha gauče) a cíl. Gól se počítá jen po odrazu od mantinelu. Dva odrazy jsou 3 body.",
     "voiceIntro": "Gól jen přes mantinel! Míček se musí odrazit a pak teprve do branky.",
-    "safety": "Nikdo v dosahu hole, diváci stojí za střelcem, nikdy za cílem. Hůl při střele pod pasem, žádný velký nápřah. Cíl u zdi, křehké věci pryč. Mantinel musí být pevný, žádné sklo.",
+    "safety": "Střílí se aspoň ze 3 metrů do branky nebo krabice bez brankáře. Nikdo v dosahu hole, diváci stojí za střelcem, nikdy u cíle. Tablet drží táta nebo leží za střelcem, nikdy ve směru střelby. Hůl při střele pod pasem, žádný velký nápřah. Cíl u zdi, křehké věci pryč. Mantinel musí být pevný, žádné sklo.",
     "equipment": [
       "cíl",
       "pevný předmět jako mantinel"
@@ -115,7 +115,7 @@
     "players": "1-4",
     "noise": "hlasitý",
     "handicap": [
-      "Táta drží hůl obráceně",
+      "Táta hraje s holí na opačné straně, než je zvyklý",
       "Syn má žolíka: jeden pokus navíc"
     ],
     "id": "volej",
@@ -124,9 +124,10 @@
     "format": "pokusy",
     "attempts": 10,
     "scoring": "trefy",
-    "rules": "Táta stojí bokem dva metry od tebe a spodem nadhodí míček do výšky kolen. Ty ho trefíš do branky dřív, než spadne.",
-    "voiceIntro": "Volej ze vzduchu! Tohle je jen domácí frajeřinka, v zápase by to byl faul.",
-    "safety": "Nadhazovač stojí z boku, ne před holí, aspoň 2 m daleko. Míček nejvýš do pasu. Hůl pod pasem.",
+    "rules": "Táta stojí bokem dva metry od tebe a spodem nadhodí míček do výšky mezi koleny a pasem. Ty ho trefíš do branky bez brankáře dřív, než spadne.",
+    "voiceIntro": "Volej ze vzduchu! Míček nad koleny je jen domácí frajeřinka, v zápase by to byl faul.",
+    "safety": "Nadhazovač stojí z boku, ne před holí, aspoň 2 m daleko. Míček nejvýš do pasu, hůl pod pasem. Branka bez brankáře. Nasaď si florbalové brýle.",
+    "homeOnlyLine": "Míček nad koleny je jen domácí frajeřinka, v zápase by to byl faul.",
     "equipment": [
       "branka nebo krabice",
       "míčky"
@@ -134,7 +135,6 @@
     "origin": [
       "C04"
     ],
-    "homeOnlyLine": "Tohle je jen domácí frajeřinka, v zápase by to byl faul.",
     "sources": [
       {
         "url": "https://www.floorball.sport/wp-content/uploads/2026/02/Rules-of-the-Game-2026-with-all-changes-260209.pdf",
@@ -163,9 +163,9 @@
     "format": "pokusy",
     "attempts": 5,
     "scoring": "trefy",
-    "rules": "Branku rozděl páskou na rohy. Dolní roh 2 body, horní roh 3 body, střed 1 bod. Když roh předem ohlásíš a trefíš, body se zdvojnásobí.",
-    "voiceIntro": "Střelba do rohů! Ohlas roh nahlas a když ho trefíš, máš dvojnásobek.",
-    "safety": "Nikdo v dosahu hole, diváci stojí za střelcem, nikdy za cílem. Hůl při střele pod pasem, žádný velký nápřah. Cíl u zdi, křehké věci pryč.",
+    "rules": "Do branky nalep pásku ve výšce kolen. Dolní rohy pod páskou jsou za 3 body, střed pod páskou za 1 bod, nad páskou se nepočítá. Když roh předem ohlásíš a trefíš, body se zdvojnásobí.",
+    "voiceIntro": "Střelba do dolních rohů, jen pod páskou! Ohlas roh nahlas a když ho trefíš, máš dvojnásobek.",
+    "safety": "Střílí se aspoň ze 3 metrů do branky nebo krabice bez brankáře. Nikdo v dosahu hole, diváci stojí za střelcem, nikdy u cíle. Tablet drží táta nebo leží za střelcem, nikdy ve směru střelby. Hůl při střele pod pasem, žádný velký nápřah. Cíl u zdi, křehké věci pryč.",
     "equipment": [
       "branka",
       "lepicí páska",
@@ -204,7 +204,7 @@
     "scoring": "počet",
     "rules": "Postav pyramidu ze 6 plastových kelímků. Střílej ze 3 metrů. Kdo shodí víc kelímků za 10 střel.",
     "voiceIntro": "Kelímková pyramida! Kolik kelímků shodíš za deset střel?",
-    "safety": "Nikdo v dosahu hole, diváci stojí za střelcem, nikdy za cílem. Hůl při střele pod pasem, žádný velký nápřah. Cíl u zdi, křehké věci pryč. Jen plastové kelímky.",
+    "safety": "Střílí se aspoň ze 3 metrů do branky nebo krabice bez brankáře. Nikdo v dosahu hole, diváci stojí za střelcem, nikdy u cíle. Tablet drží táta nebo leží za střelcem, nikdy ve směru střelby. Hůl při střele pod pasem, žádný velký nápřah. Cíl u zdi, křehké věci pryč. Jen plastové kelímky.",
     "equipment": [
       "6 plastových kelímků",
       "míčky"
@@ -237,7 +237,7 @@
     "scoring": "počet",
     "rules": "Krabice leží na boku. Po každé trefě ustup o půl metru. Vyhrává, kdo se dostane nejdál.",
     "voiceIntro": "Krabicový žebříček! Každá trefa a ustoupíš dál. Kam až se dostaneš?",
-    "safety": "Nikdo v dosahu hole, diváci stojí za střelcem, nikdy za cílem. Hůl při střele pod pasem, žádný velký nápřah. Cíl u zdi, křehké věci pryč.",
+    "safety": "Střílí se aspoň ze 3 metrů do branky nebo krabice bez brankáře. Nikdo v dosahu hole, diváci stojí za střelcem, nikdy u cíle. Tablet drží táta nebo leží za střelcem, nikdy ve směru střelby. Hůl při střele pod pasem, žádný velký nápřah. Cíl u zdi, křehké věci pryč.",
     "equipment": [
       "krabice",
       "míčky"
@@ -301,15 +301,15 @@
     "attempts": 3,
     "scoring": "počet",
     "rules": "Kdo udělá víc odrazů míčku na čepeli bez pádu. 3 pokusy, počítá se nejlepší. Střídavě forhend a bekhend se počítá dvojnásob.",
-    "voiceIntro": "Žonglovací souboj! Tohle je jen domácí frajeřinka, v zápase by to byl faul. Kolik odrazů dáš?",
-    "safety": "Odrazy nejvýš do pasu, kolem 2 m volna.",
+    "voiceIntro": "Žonglovací souboj! Nad koleny je to jen domácí frajeřinka, v zápase by to byl faul.",
+    "safety": "Odrazy nejvýš do pasu, kolem volno na délku hole. Doporučené florbalové brýle.",
+    "homeOnlyLine": "Odrazy nad koleny jsou jen domácí frajeřinka, v zápase by to byl faul.",
     "equipment": [
       "míček"
     ],
     "origin": [
       "C09"
     ],
-    "homeOnlyLine": "Tohle je jen domácí frajeřinka, v zápase by to byl faul.",
     "sources": [
       {
         "url": "https://www.youtube.com/watch?v=uZdYUHfvZbE",
@@ -317,7 +317,7 @@
         "reliability": "inspirace"
       },
       {
-        "url": "https://floorball.sport/2020/11/26/presenting-freestyle-floorball-cup-contestant-agnes-holgersson",
+        "url": "https://web.archive.org/web/20220816034720/https://floorball.sport/2020/11/26/presenting-freestyle-floorball-cup-contestant-agnes-holgersson/",
         "type": "článek",
         "reliability": "inspirace"
       }
@@ -329,7 +329,7 @@
     "players": "1-4",
     "noise": "tichý",
     "handicap": [
-      "Táta drží hůl obráceně"
+      "Táta hraje s holí na opačné straně, než je zvyklý"
     ],
     "id": "vydrz-cepel",
     "name": "Míček na čepeli",
@@ -368,7 +368,7 @@
     "noise": "střední",
     "handicap": [
       "Táta jen bekhendem",
-      "Táta drží hůl obráceně"
+      "Táta hraje s holí na opačné straně, než je zvyklý"
     ],
     "id": "slalom-cas",
     "name": "Slalom na čas",
@@ -387,11 +387,6 @@
       "CH-12"
     ],
     "sources": [
-      {
-        "url": "https://www.milsport.admin.ch/media/postPdf/SpielFit_Unihockey_Slalom_Torschuss.pdf",
-        "type": "metodika",
-        "reliability": "ověřené"
-      },
       {
         "url": "https://www.mobilesport.ch/assets/lbwp-cdn/mobilesport/files/2013/09/praxis_2005_02_d.pdf",
         "type": "metodika",
@@ -483,11 +478,12 @@
     "format": "pokusy",
     "attempts": 5,
     "scoring": "trefy",
-    "rules": "Každý má 5 nájezdů na brankáře. Brankář klečí bez hole. Před sérií každý tipne, kolik dá. Za přesný tip je bod navíc.",
-    "voiceIntro": "Nájezdy! Tipni si, kolik gólů dáš. Brankář klečí a střílí se jen po zemi.",
-    "safety": "Slabé střely jen po zemi nebo do výšky kolen. Brankář chrání obličej rukama. Žádná střela z blízka na hlavu.",
+    "rules": "Každý má 5 nájezdů na branku bez brankáře, do které je vložená krabice nebo polštář jako „brankář“. Střílí se nejméně ze 3 metrů a jen po zemi. Před sérií každý tipne, kolik dá, za přesný tip je bod navíc. Živý brankář jen s florbalovými brýlemi nebo maskou.",
+    "voiceIntro": "Nájezdy! Tipni si, kolik gólů dáš. Střílí se jen po zemi a nejmíň ze tří metrů.",
+    "safety": "Střílí se aspoň ze 3 metrů do branky nebo krabice bez brankáře. Nikdo v dosahu hole, diváci stojí za střelcem, nikdy u cíle. Tablet drží táta nebo leží za střelcem, nikdy ve směru střelby. Hůl při střele pod pasem, žádný velký nápřah. Cíl u zdi, křehké věci pryč. Člověk v brance jen s ochrannými brýlemi nebo maskou, jinak branka bez brankáře.",
     "equipment": [
       "branka",
+      "krabice nebo polštář jako brankář",
       "míček"
     ],
     "origin": [
@@ -522,7 +518,7 @@
     "scoring": "trefy",
     "rules": "Libovolná střelecká výzva, ale jen bekhendem.",
     "voiceIntro": "Jen bekhendem! Kdo dá víc tref z deseti?",
-    "safety": "Nikdo v dosahu hole, diváci stojí za střelcem, nikdy za cílem. Hůl při střele pod pasem, žádný velký nápřah. Cíl u zdi, křehké věci pryč.",
+    "safety": "Střílí se aspoň ze 3 metrů do branky nebo krabice bez brankáře. Nikdo v dosahu hole, diváci stojí za střelcem, nikdy u cíle. Tablet drží táta nebo leží za střelcem, nikdy ve směru střelby. Hůl při střele pod pasem, žádný velký nápřah. Cíl u zdi, křehké věci pryč.",
     "equipment": [
       "cíl",
       "míčky"
@@ -552,9 +548,9 @@
     "format": "série",
     "scoring": "trefy",
     "durationSec": 240,
-    "rules": "Čtyři kola po minutě. Na začátku každého kola Trenér vylosuje pravidlo: jen bekhend, jednoruč, hůl obráceně, ze dvou metrů dál. Body se sčítají.",
+    "rules": "Čtyři kola po minutě. Na začátku každého kola Trenér vylosuje pravidlo: jen bekhend, jednoruč, hůl na druhou stranu těla, o dva metry dál. Body se sčítají.",
     "voiceIntro": "Šílená minuta! Každou minutu nové pravidlo. Poslouchej, co vylosuju!",
-    "safety": "Nikdo v dosahu hole, diváci stojí za střelcem, nikdy za cílem. Hůl při střele pod pasem, žádný velký nápřah. Cíl u zdi, křehké věci pryč.",
+    "safety": "Střílí se aspoň ze 3 metrů do branky nebo krabice bez brankáře. Nikdo v dosahu hole, diváci stojí za střelcem, nikdy u cíle. Tablet drží táta nebo leží za střelcem, nikdy ve směru střelby. Hůl při střele pod pasem, žádný velký nápřah. Cíl u zdi, křehké věci pryč.",
     "equipment": [
       "cíl",
       "míčky"
@@ -576,7 +572,7 @@
     "players": "1-4",
     "noise": "hlasitý",
     "handicap": [
-      "Táta drží hůl obráceně"
+      "Táta hraje s holí na opačné straně, než je zvyklý"
     ],
     "id": "zorro-gol",
     "name": "Zorro gól",
@@ -584,9 +580,9 @@
     "format": "do-x",
     "target": 3,
     "scoring": "trefy",
-    "rules": "Kdo první dá 3 góly Zorrem ze 2 metrů. Čepel s míčkem pod koleny.",
-    "voiceIntro": "Zorro gól! Kdo dá první tři? Čepel pod koleny, jinak by to v zápase byl faul.",
-    "safety": "Nikdo v dosahu hole, diváci stojí za střelcem, nikdy za cílem. Hůl při střele pod pasem, žádný velký nápřah. Cíl u zdi, křehké věci pryč.",
+    "rules": "Kdo první dá 3 góly Zorrem ze 3 metrů do branky bez brankáře. Čepel s míčkem pod koleny.",
+    "voiceIntro": "Zorro gól! Čepel drž pod koleny, nad koleny by to v zápase byl faul.",
+    "safety": "Střílí se aspoň ze 3 metrů do branky nebo krabice bez brankáře. Nikdo v dosahu hole, diváci stojí za střelcem, nikdy u cíle. Tablet drží táta nebo leží za střelcem, nikdy ve směru střelby. Hůl při střele pod pasem, žádný velký nápřah. Cíl u zdi, křehké věci pryč.",
     "equipment": [
       "krabice nebo branka",
       "míčky"
@@ -621,9 +617,10 @@
     "format": "pokusy",
     "attempts": 10,
     "scoring": "trefy",
-    "rules": "Gól lacrosse stylem zpoza branky. Gól je za 3 body. Vysoko do rohu je to jen domácí kousek.",
-    "voiceIntro": "Lacrosse zpoza branky! Vysoko do rohu je to jen domácí frajeřinka, v zápase by to byl faul.",
-    "safety": "Nikdo v dosahu hole, diváci stojí za střelcem, nikdy za cílem. Hůl při střele pod pasem, žádný velký nápřah. Cíl u zdi, křehké věci pryč. Čepel pod pasem i při otáčení.",
+    "rules": "Gól lacrosse stylem zpoza branky bez brankáře. Gól je za 3 body.",
+    "voiceIntro": "Lacrosse zpoza branky! Nízko je to v zápase v pořádku, vysoko do rohu je to jen domácí frajeřinka.",
+    "safety": "Střílí se aspoň ze 3 metrů do branky nebo krabice bez brankáře. Nikdo v dosahu hole, diváci stojí za střelcem, nikdy u cíle. Tablet drží táta nebo leží za střelcem, nikdy ve směru střelby. Hůl při střele pod pasem, žádný velký nápřah. Cíl u zdi, křehké věci pryč. Čepel pod pasem i při otáčení.",
+    "homeOnlyLine": "Nízko je to v zápase v pořádku, vysoko do rohu je to jen domácí frajeřinka, v zápase by to byl faul.",
     "equipment": [
       "branka",
       "míčky"
@@ -631,7 +628,6 @@
     "origin": [
       "C19"
     ],
-    "homeOnlyLine": "Tohle je jen domácí frajeřinka, v zápase by to byl faul.",
     "sources": [
       {
         "url": "https://www.youtube.com/watch?v=JIeMV8U03WY",
@@ -703,7 +699,7 @@
     "format": "čas",
     "durationSec": 30,
     "scoring": "počet",
-    "rules": "Rozházej míčky po pokoji. Kolik jich za 30 s dovezeš holí do svého domečku (krabice, obruč)? Jen holí, žádné kopání.",
+    "rules": "Míčky rozhoď do rohů pokoje, ne pod nohy. Kolik jich za 30 s dovezeš holí do svého domečku (krabice, obruč)? Jen holí, žádné kopání. Jezdi, neběhej.",
     "voiceIntro": "Lovci míčků! Vozíš je holí do domečku, vždycky jen jeden. Kolik jich stihneš?",
     "safety": "Hůl pod pasem. Po hře všechny míčky posbírej.",
     "equipment": [
@@ -747,11 +743,11 @@
     "format": "do-x",
     "target": 5,
     "scoring": "počet",
-    "rules": "Klečíte proti sobě, mezi vámi leží míček. Trenér říká části těla a vy si na ně saháte. Na slovo „míček“ ho zkuste sebrat první.",
-    "voiceIntro": "Reflex! Sahej, kam řeknu: hlava, ramena, kolena. A až řeknu míček, chňapni po něm!",
-    "safety": "Bez holí. Hlavy od sebe, saháte jen rukou na míček.",
+    "rules": "Klečíte vedle sebe, aspoň dva metry od sebe, a každý má před sebou svůj míček. Trenér říká části těla a vy si na ně saháte. Na slovo „míček“ chyť svůj míček do ruky. Kdo je první, má bod.",
+    "voiceIntro": "Reflex! Sahej, kam řeknu: hlava, ramena, kolena. A až řeknu míček, zvedni ten svůj!",
+    "safety": "Bez holí. Každý sahá jen po svém míčku, klečíte dva metry od sebe.",
     "equipment": [
-      "míček"
+      "2 míčky"
     ],
     "origin": [
       "CR-34"
@@ -770,7 +766,7 @@
     "players": "2",
     "noise": "střední",
     "handicap": [
-      "Táta smí kužely pokládat jen levou rukou"
+      "Táta po každém kuželu musí tlesknout"
     ],
     "id": "kuzel-chaos",
     "name": "Kužel-chaos",
@@ -799,9 +795,9 @@
     "homeOnly": false,
     "matchLegal": true,
     "players": "2",
-    "noise": "hlasitý",
+    "noise": "střední",
     "handicap": [
-      "Táta je na kolenou a smí jen jednou rukou"
+      "Táta smí sahat jen jednou rukou"
     ],
     "id": "udrz-micek",
     "name": "Udrž si míček",
@@ -809,12 +805,13 @@
     "format": "série",
     "scoring": "čas",
     "attempts": 4,
-    "rules": "Ve čtverci 2 × 2 m vedeš míček a táta na kolenou se ho snaží vypíchnout. Kolo trvá 20 s, pak výměna. Hraje se jen na míček.",
-    "voiceIntro": "Udrž si míček! Táta klečí a chce ti ho vzít. Schovej ho tělem.",
-    "safety": "Žádné sekání do hole ani zvedání hole. Táta na kolenou na měkké podložce, hraje jen na míček.",
+    "rules": "Ve čtverci aspoň 2,5 × 2,5 m vedeš míček. Táta je bez hole a klečí na podložce. Míček smí jen přikrýt dlaní na zemi. Kolo trvá 20 s, pak spočítejte, kolikrát míček přikryl.",
+    "voiceIntro": "Udrž si míček! Táta je bez hole a chce míček přikrýt dlaní. Schovej ho tělem a hůl drž u země.",
+    "safety": "Táta je bez hole. Hůl dítěte jen po zemi, nikdy k tátově hlavě. Když je táta blíž než na délku hole, Trenér řekne STOP. Rohy nábytku pryč, doporučené florbalové brýle.",
     "equipment": [
       "míček",
-      "4 kužely"
+      "4 kužely",
+      "podložka pod kolena"
     ],
     "origin": [
       "H47",

@@ -1,15 +1,27 @@
 import fs from 'node:fs';
-const R = '/Users/jakubmazur/florbal/research/';
-const J = (f) => JSON.parse(fs.readFileSync(R + f, 'utf8'));
-const files = ['drill-database.json', 'content-draft/stations.json', 'content-draft/drills.json', 'content-draft/tricks.json', 'content-draft/challenges.json', 'content-draft/skilltests.json', 'content-draft/cards.json'];
-const D = Object.fromEntries(files.map((f) => [f, J(f)]));
+// Kontrola referencí a požadavků obsahu: node scripts/content/check-refs.mjs
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+const REPO = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '../..');
+const J = (f) => JSON.parse(fs.readFileSync(path.join(REPO, f), 'utf8'));
+const MAP = { 'drill-database.json': 'research/drill-database.json' };
+for (const k of ['stations', 'drills', 'tricks', 'challenges', 'skilltests', 'cards']) MAP[`content-draft/${k}.json`] = `src/content/${k}.json`;
+const files = Object.keys(MAP);
+const D = Object.fromEntries(files.map((f) => [f, J(MAP[f])]));
 const err = []; const info = [];
 const E = (m) => err.push(m);
-const st = D['content-draft/stations.json']; const dr = D['content-draft/drills.json'];
+const st = D['content-draft/stations.json'];
+ const dr = D['content-draft/drills.json'];
 const tr = D['content-draft/tricks.json']; const ch = D['content-draft/challenges.json'];
 const te = D['content-draft/skilltests.json']; const ca = D['content-draft/cards.json']; const db = D['drill-database.json'];
 
 // unikátní id napříč typy
+// --- zakázaná slova: absolutní strany se pro leváka nezrcadlí (oponentura N-01), žádné „švihni“ (N-07)
+const SIDE = /(?<!\p{L})(vlevo|vpravo|doleva|doprava|nalevo|napravo|zleva|zprava|lev[ýáéoíh]\p{L}*|prav[ýáéoíh]\p{L}*|levák\p{L}*|pravák\p{L}*)(?!\p{L})/iu;
+const SWING = /švihn|švihem/iu;
+const txt = (o, keys) => keys.flatMap((k) => (Array.isArray(o[k]) ? o[k] : [o[k]])).filter((x) => typeof x === 'string');
+const scan = (where, list) => { for (const t of list) { if (SIDE.test(t)) E(`${where}: strana v textu „${t}“`); if (SWING.test(t)) E(`${where}: švih v textu „${t}“`); } };
+const DKEYS = ['name', 'voiceIntro', 'coachingPoints', 'commonMistakes', 'safetyNotes', 'equipment'];
 const all = [...dr.map((x) => x.id), ...tr.map((x) => x.id), ...tr.flatMap((t) => t.steps.map((s) => s.id)), ...ch.map((x) => x.id), ...te.map((x) => x.id), ...ca.map((x) => x.id)];
 const seen = new Set(); for (const id of all) { if (seen.has(id)) E('duplicitní id ' + id); seen.add(id); }
 const dbIds = new Set(); for (const d of db) { if (dbIds.has(d.id)) E('db dup ' + d.id); dbIds.add(d.id); }
@@ -18,6 +30,13 @@ const dbIds = new Set(); for (const d of db) { if (dbIds.has(d.id)) E('db dup ' 
 const ids = new Set(dr.map((d) => d.id));
 const sentences = (t) => (t.match(/[.!?](\s|$)/g) || []).length;
 for (const d of dr) {
+  scan(d.id, txt(d, DKEYS));
+  if (d.callMode === 'směr' && d.tempoBpm > 70) E(`${d.id} směr nad 70 BPM (${d.tempoBpm})`);
+  if (['zóna', 'barva'].includes(d.callMode) && d.tempoBpm > 50) E(`${d.id} ${d.callMode} nad 50 BPM`);
+  for (const p of d.pattern) if (p.beats != null && (!Number.isInteger(p.beats) || p.beats < 2)) E(`${d.id} beats`);
+  if (d.confidence === 'ověřené') { const strong = d.sources.filter((x) => x.reliability === 'ověřené'); if (!(strong.length >= 2 || strong.some((x) => /metodika|VŠ práce|pravidla|svaz/.test(x.type)))) E(`${d.id} ověřené bez 2 zdrojů / metodiky`); }
+  if (d.sources.some((x) => x.type === 'video' && x.reliability === 'ověřené')) E(`${d.id} video jako ověřené`);
+  if (d.noise === 'tichý' && d.kind === 'ball' && !d.equipment.some((e) => /měkký|pěnov/.test(e))) E(`${d.id} tichý bez měkkého míčku`);
   if (d.progression && !ids.has(d.progression)) E(`${d.id} progression`);
   if (d.regression && !ids.has(d.regression)) E(`${d.id} regression`);
   if (sentences(d.voiceIntro) > 2) E(`${d.id} voiceIntro má ${sentences(d.voiceIntro)} vět`);
@@ -53,6 +72,9 @@ const spot = st.find((s) => s.id === 'spot'); const sc = new Set(spot.cones.map(
 const tid = new Set(tr.map((t) => t.id));
 const REL = ['fh', 'bh', 'front', 'back', 'between', 'home'];
 for (const t of tr) {
+  const tsc = new Set((st.find((x) => x.id === t.setupId) || spot).cones.map((c) => c.n));
+  scan(t.id, [t.name, t.safety, t.matchNote, ...t.steps.flatMap((x) => [x.name, x.howTo, x.criterion, x.voice])]);
+  if (!t.setupId || !Array.isArray(t.spaceNeeded) || !Array.isArray(t.equipment)) E(`${t.id} chybí setupId/spaceNeeded/equipment`);
   for (const r of t.requires) if (!tid.has(r)) E(`${t.id} requires ${r}`);
   if (t.steps.length < 3 || t.steps.length > 6) E(`${t.id} kroků ${t.steps.length}`);
   if (typeof t.matchLegal !== 'boolean') E(`${t.id} matchLegal`);
@@ -62,13 +84,19 @@ for (const t of tr) {
     if (!Array.isArray(s.animation) || !s.animation.length) E(`${s.id} animace`);
     for (const p of s.animation) {
       const m = /^around:(\d)$/.exec(String(p.at));
-      if (Number.isInteger(p.at)) { if (!sc.has(p.at)) E(`${s.id} kužel ${p.at}`); }
-      else if (m) { if (!sc.has(+m[1]) || !['cw', 'ccw'].includes(p.dir)) E(`${s.id} around`); }
+      if (Number.isInteger(p.at)) { if (!tsc.has(p.at)) E(`${s.id} kužel ${p.at}`); }
+      else if (m) { if (!tsc.has(+m[1]) || !['cw', 'ccw'].includes(p.dir)) E(`${s.id} around`); }
       else if (!REL.includes(p.at)) E(`${s.id} at ${p.at}`);
       if (p.blade && !['fh', 'bh'].includes(p.blade)) E(`${s.id} blade`);
     }
   }
 }
+// stanoviště: tablet v návodu, nic nad pas
+for (const x of st) {
+  if (!x.setupSteps.some((k) => /Tablet/.test(k.text))) E(`${x.id}: návod neříká, kam tablet`);
+  for (const k of x.setupSteps) if (/rozpaž|nad hlav/i.test(k.text)) E(`${x.id}: hůl nahoru v návodu`);
+}
+if (!st.find((x) => x.id === 'spot').setupSteps.some((k) => /měkký|pěnov/.test(k.text))) E('spot: návod bez měkkého míčku');
 // cykly
 const req2 = Object.fromEntries(tr.map((t) => [t.id, t.requires]));
 const visit = (id, stack = []) => { if (stack.includes(id)) { E('cyklus ' + stack.join('>')); return; } for (const r of req2[id] || []) visit(r, [...stack, id]); };
@@ -76,6 +104,9 @@ tr.forEach((t) => visit(t.id));
 // výzvy
 const TYPES = ['tyčka', 'odraz', 'volej', 'cíl', 'žonglování', 'slalom', 'kohout', 'vlastní'];
 for (const c of ch) {
+  scan(c.id, [c.name, c.rules, c.voiceIntro, c.safety, c.homeOnlyLine, ...(c.handicap || [])]);
+  if (/brankář/i.test(c.rules + c.safety) && !/bez brankáře|brýl|mask/i.test(c.rules + c.safety)) E(`${c.id} brankář bez ochrany`);
+  if (/stř[ei]l/i.test(c.rules) && /\b[12] metr/.test(c.rules)) E(`${c.id} střelba pod 3 m`);
   if (!TYPES.includes(c.type)) E(`${c.id} type`);
   if (!['pokusy', 'čas', 'do-x', 'série'].includes(c.format)) E(`${c.id} format`);
   if (!['trefy', 'čas', 'počet'].includes(c.scoring)) E(`${c.id} scoring`);

@@ -62,8 +62,8 @@ export const rows = [
   ['SE-09', 'Test 10 kuželů v řadě', 'kolem kuželů', 1, 'obě', o, T, 'ball', 'Rovná řada 10 kuželů projetá bez zaváhání, měří se čas.', null],
   // --- Česko ---
   ['CZ-01', 'Hokejový driblink před tělem', 'tahy', 1, 'obě', o, T, 'ball', 'Přetahování FH–BH před tělem, dlouhá varianta s pouštěním ruky na bekhendu.', null],
-  ['CZ-02', 'Driblink vedle pravé nohy', 'tahy', 2, 'obě', o, T, 'ball', 'Krátké přetahování vedle nohy před a za chodidlem.', null],
-  ['CZ-03', 'Driblink vedle levé nohy', 'tahy', 2, 'obě', o, T, 'ball', 'Totéž na druhé straně těla.', null],
+  ['CZ-02', 'Driblink vedle forhendové nohy', 'tahy', 2, 'obě', o, T, 'ball', 'Krátké přetahování vedle nohy před a za chodidlem.', null],
+  ['CZ-03', 'Driblink vedle bekhendové nohy', 'tahy', 2, 'obě', o, T, 'ball', 'Totéž na druhé straně těla.', null],
   ['CZ-04', 'Driblink za tělem', 'tahy', 3, 'obě', o, T, 'ball', 'Přetahování za patami s rotací trupu.', null],
   ['CZ-05', 'Florbalový driblink', 'tahy', 2, 'forhend', o, T, 'ball', 'Míček jen na forhendu, čepel se překlápí pata–špička.', null],
   ['CZ-06', 'Driblink se sníženým těžištěm', 'tahy', 2, 'obě', o, T, 'ball', 'Driblink v hlubokém postoji, chrání záda.', null],
@@ -153,7 +153,7 @@ export const rows = [
   ['H37', 'Odraz od zdi nebo krabice', 'kombinace', 2, 'obě', o, L, 'ball', 'Vedení u zdi a přihrávka sám sobě odrazem.', null],
   ['H38', 'Jen horní ruka', 'jednoruč', 3, 'obě', jh, T, 'ball', 'Celé vedení dělá horní ruka, krátké bloky.', null],
   ['H39', 'Rulička od toaletního papíru', 'tahy', 2, 'obě', o, T, 'ball', 'Spodní ruka drží jen ruličku, kdo ji rozmačká, mačká moc.', null],
-  ['H40', 'Jen spodní ruka', 'jednoruč', 4, 'obě', jd, T, 'ball', 'Krátké doteky jen spodní rukou uprostřed hole.', null],
+  ['H40', 'Jen spodní ruka', 'jednoruč', 4, 'obě', jd, T, 'ball', 'Krátké doteky jen spodní rukou uprostřed hole.', 'bottom'],
   ['H41', 'Kukni a zvedni hlavu', 'reakce', 1, 'obě', o, T, 'ball', 'Jen krátký pohled na míček a oči zase nahoru.', null],
   ['H42', 'Reakce na číslo kuželu', 'reakce', 2, 'obě', o, T, 'ball', 'Někdo hlásí místo a hráč tam míček přesune.', null],
   ['H43', 'Reakce na barvu', 'reakce', 2, 'obě', o, T, 'ball', 'Barevné kužely a hlas nebo světlo ukáže cíl.', null],
@@ -262,5 +262,6 @@ export const REASONS = {
   safety: 'Bezpečnostní riziko pro 8 let doma (pád, točení hlavy, nestabilní podložka). Nechat posoudit drill-reviewera.',
   equip: 'Potřebuje pomůcku, kterou doma většinou nemáme (obruč, lavička, golfák).',
   onboarding: 'Patří do nastavení hráče (volba držení hole), ne do tréninku.',
+  bottom: 'Konec hole volně kmitá až k bradě a očím, pro 8 let doma nevhodné. Jednoruč jen horní rukou.',
   nostick: 'Bez hole a míčku, spíš rodinná pohybová hra.',
 };

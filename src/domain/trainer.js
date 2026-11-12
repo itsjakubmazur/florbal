@@ -64,30 +64,26 @@ export function buildWorkout(profile, { quiet = false, stationId = null, rnd = M
   const strong = weightedOrder(ball.filter((d) => !isWeak(d)), weight, rnd);
   const weak = weightedOrder(ball.filter(isWeak), weight, rnd);
 
+  // sekvence: silné cviky dokola od lehčích k těžším; slot n dostane slabší stranu, když tím podíl nepřekročí 25 %
+  // (slot 4, 8, 12… → stálý podíl). Když unikátní cviky dojdou, jede další kolo (jako v referenci).
+  // nejdřív vážený výběr tolika cviků, kolik se jich zhruba vejde, a teprve ten se seřadí od lehčích
+  const avg = ball.length ? ball.reduce((a, d) => a + drillCost(d), 0) / ball.length : 60;
+  const slots = Math.max(1, Math.floor(budget / avg));
+  const strongPick = strong.slice(0, Math.max(1, slots - Math.floor(slots * WEAK_MAX))).sort((a, b) => a.level - b.level);
+  strong.length = 0; strong.push(...strongPick);
   const list = [];
-  let wi = 0; let si = 0; let weakN = 0;
-  const fits = (d) => drillCost(d) <= budget || list.length < 2;
+  let si = 0; let wi = 0; let weakN = 0;
   const MAX = 16;
-  while (list.length < MAX && (si < strong.length || wi < weak.length)) {
+  while (list.length < MAX) {
     const n = list.length + 1;
-    const needWeak = weak.length > wi && (weakN + 1) / n <= WEAK_MAX + 1e-9 && ((n >= 4 && weakN === 0) || n % 4 === 0);
-    let d = null;
-    if (needWeak) { d = weak[wi++]; weakN++; }
-    else if (si < strong.length) d = strong[si++];
-    else if (weak.length > wi && (weakN + 1) / n <= WEAK_MAX + 1e-9) { d = weak[wi++]; weakN++; }
-    else break;
-    if (!fits(d)) break;
+    const wantWeak = weak.length && (!strong.length || weakN + 1 <= Math.floor(n * WEAK_MAX));
+    const d = wantWeak ? weak[wi++ % weak.length] : strong[si++ % strong.length];
+    if (!d) break;
+    if (drillCost(d) > budget && list.length >= 1) break;
     list.push(d); budget -= drillCost(d);
+    if (wantWeak) weakN++;
     if (budget <= 0) break;
   }
-  // stálý podíl: od 4 cviků aspoň jeden na slabší stranu (nahradí poslední silný)
-  if (list.length >= 4 && weakN === 0 && weak.length) {
-    const idx = list.length - 1; list[idx] = weak[0];
-  }
-  // krátké tréninky: když se nic nevejde, dej aspoň jeden cvik
-  if (!list.length && ball.length) list.push(weightedOrder(ball, weight, rnd)[0]);
-  // pořadí: od lehčích k těžším (rozjezd), na stejné úrovni náhodně
-  list.sort((a, b) => a.level - b.level);
   const out = [...head, ...list, ...tail];
   return { station, drills: out, totalSec: out.reduce((a, d) => a + drillCost(d), 0) };
 }

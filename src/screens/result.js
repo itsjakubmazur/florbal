@@ -17,24 +17,24 @@ export default function result({ profileId, drillIds = [], total = 0, done = 0, 
     const st = done ? stars(done, total) : 0;
     const xpBefore = p.xp || 0; const xpAfter = xpBefore + xp;
 
-    el.append(h('div', 'eyebrow', aborted ? 'Trénink ukončen' : 'Trénink dokončen'), h('div', 'title', aborted ? 'Dobrá práce' : 'Výborně<span class="accent">!</span>'));
-    const starRow = h('div', 'flex'); starRow.style.gap = u(2);
+    el.append(h('div', 'title', aborted ? 'Dobrá práce' : 'Výborně'), h('div', 'lead muted', aborted ? 'Trénink ukončen dřív' : 'Trénink dokončen'));
+    const starRow = h('div', 'result-stars');
     for (let i = 1; i <= 3; i++) {
-      const s = h('div', '', icon(i <= st ? 'star' : 'starO'));
-      s.style.cssText = `font-size:max(44px, ${u(7)});display:flex;color:${i <= st ? 'var(--accent)' : 'var(--surface-2)'};animation:pop .5s ${0.15 + i * 0.2}s backwards`;
+      const s = h('div', `result-star${i <= st ? ' on' : ''}`, icon(i <= st ? 'star' : 'starO'));
+      s.style.animationDelay = `${80 + i * 60}ms`;
       starRow.append(s);
     }
-    const xpEl = h('div', '', `+${xp} XP`); xpEl.style.cssText = `font-weight:800;font-size:max(36px, ${u(6)});color:var(--accent)`;
+    const xpEl = h('div', 'result-xp', `+${xp} XP`);
     xpEl.dataset.test = 'result-xp';
-    const card = h('div', 'card flex items-center'); card.style.cssText += `;cursor:default;gap:${u(2)};text-align:left`;
-    card.append(jerseyEl(p, 8));
-    const box = h('div', 'flex flex-col'); box.style.gap = u(0.5);
+    const card = h('div', 'card result-card');
+    card.append(jerseyEl(p, 9));
+    const box = h('div', 'result-card-text');
     const rk = rankInfo(xpAfter);
-    box.append(h('div', '', `<b>${escapeHtml(p.name)}</b> · ${rk.name}`), h('div', 'muted', `${done} z ${total} cviků · ${Math.round(durationSec / 6) / 10} min`));
+    box.append(h('div', 'lead', `<b>${escapeHtml(p.name)}</b>, ${rk.name}`), h('div', 'label', `${done} z ${total} cviků, ${String(Math.round(durationSec / 6) / 10).replace('.', ',')} min`));
     const nx = nextXpReward(xpAfter);
-    box.append(h('div', 'muted', nx ? `Další odměna: ${nx.reward.name} za ${nx.remaining} XP` : 'Všechny odměny za XP máš!'));
+    box.append(h('div', 'label', nx ? `Další odměna: ${nx.reward.name} za ${nx.remaining} XP` : 'Všechny odměny za XP máš'));
     card.append(box);
-    const gained = h('div', 'flex flex-wrap justify-center'); gained.style.gap = u(2);
+    const gained = h('div', 'result-gained');
     const homeBtn = btn(`${icon('home')}Domů`, 'btn-primary btn-big', () => go('home', { profileId }, { replace: true }), { auto: true, test: 'result-home' });
     el.append(starRow, xpEl, card, gained, homeBtn);
 
@@ -49,8 +49,8 @@ export default function result({ profileId, drillIds = [], total = 0, done = 0, 
         setTimeout(() => {
           sfx('levelup'); sayGroup('reward');
           fresh.slice(0, 3).forEach((r) => {
-            const it = h('div', 'flex items-center'); it.style.cssText = `gap:${u(1)};animation:pop .6s backwards`;
-            it.append(rewardIcon(r, `max(48px, ${u(7)})`), h('div', '', `<div class="eyebrow accent-text">Nová odměna</div><b>${r.name}</b>`));
+            const it = h('div', 'result-reward');
+            it.append(rewardIcon(r, `max(56px, ${u(7)})`), h('div', '', `<div class="label">Nová odměna</div><div class="lead"><b>${r.name}</b></div>`));
             gained.append(it);
           });
         }, 1200);

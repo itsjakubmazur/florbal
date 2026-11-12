@@ -21,13 +21,13 @@ function keypad(onKey, extra) {
   });
   return grid;
 }
-const dotsEl = () => { const d = h('div', ''); d.style.cssText = `font-weight:800;font-size:max(30px, ${u(4)});letter-spacing:.3em`; return d; };
+const dotsEl = () => { const d = h('div', ''); d.style.cssText = `font-weight:700;font-size:max(30px, ${u(4)});letter-spacing:.3em`; return d; };
 
 export function pinScreen({ next }, { go, back }) {
   const el = h('section', 'screen');
   el.dataset.test = 'pin';
   settings.load().then((s0) => { if (!pinOf(s0)) go('setPin', { next, from: 'first' }, { replace: true }); });
-  el.append(h('div', 'eyebrow', 'Rodiče'), h('div', 'title', 'Zadej <span class="accent">PIN</span>'));
+  el.append(h('div', 'title', 'Zadej PIN'), h('div', 'label', 'Nastavení pro rodiče'));
   let val = '';
   const dots = dotsEl();
   const draw = (msg) => { dots.textContent = msg || ('●'.repeat(val.length) + '○'.repeat(4 - val.length)); };
@@ -49,7 +49,7 @@ export function pinScreen({ next }, { go, back }) {
 // Zapomenutý PIN: kontrolní příklad, který osmileté dítě z hlavy nespočítá
 export function pinResetScreen({ next }, { go, back }) {
   const el = h('section', 'screen');
-  el.append(h('div', 'eyebrow', 'Zapomenutý PIN'), h('div', 'title', 'Jen pro <span class="accent">dospělé</span>'));
+  el.append(h('div', 'title', 'Zapomenutý PIN'), h('div', 'label', 'Jen pro dospělé'));
   const q = h('div', 'title'); const ans = dotsEl(); const msg = h('div', 'muted', 'Odpověz správně a nastavíš nový PIN.');
   let a = 0; let b = 0; let val = '';
   const ask = () => { a = 13 + Math.floor(Math.random() * 7); b = 7 + Math.floor(Math.random() * 3); val = ''; q.textContent = `${a} × ${b} = ?`; ans.textContent = '…'; };
@@ -66,7 +66,7 @@ export function pinResetScreen({ next }, { go, back }) {
 export function setPinScreen({ next = 'parent', from = 'settings' }, { go }) {
   const el = h('section', 'screen');
   el.dataset.test = 'set-pin';
-  el.append(h('div', 'eyebrow', from === 'first' ? 'První vstup pro rodiče' : 'Nový PIN'), h('div', 'title', 'Vytvoř si <span class="accent">PIN</span>'));
+  el.append(h('div', 'title', 'Vytvoř si PIN'), h('div', 'label', from === 'first' ? 'První vstup pro rodiče' : 'Nový PIN'));
   const sub = h('div', 'muted');
   let first = ''; let val = '';
   const dots = dotsEl();
@@ -86,12 +86,12 @@ export function setPinScreen({ next = 'parent', from = 'settings' }, { go }) {
   return el;
 }
 
-const panel = (title) => { const p = h('div', 'panel'); p.append(h('div', 'eyebrow', title)); return p; };
-const fmtMB = (b) => (b == null ? '?' : `${(b / 1048576).toFixed(1)} MB`);
+const panel = (title) => { const p = h('div', 'panel'); p.append(h('div', 'panel-title', title)); return p; };
+const fmtMB = (b) => (b == null ? '?' : `${(b / 1048576).toFixed(1).replace(".", ",")} MB`);
 
 function volumeCtl(get, set) {
   const box = h('div', 'flex items-center'); box.style.gap = u(1);
-  const val = h('div', '', ''); val.style.cssText = `min-width:4ch;text-align:center;font-weight:800`;
+  const val = h('div', '', ''); val.style.cssText = `min-width:4ch;text-align:center;font-weight:700`;
   const paint = () => { val.textContent = `${Math.round(get() * 100)} %`; };
   box.append(btn('−', 'btn', () => { set(-0.1); paint(); }), val, btn('+', 'btn', () => { set(0.1); paint(); }));
   paint();
@@ -131,7 +131,7 @@ export default function parent(_p, { go }) {
       if (!list.length) plist.append(h('div', 'muted', 'Zatím žádný hráč.'));
       for (const p of list) {
         const r = h('div', 'flex items-center flex-wrap'); r.style.gap = u(1.2);
-        const nm = h('div', '', `<b>${escapeHtml(p.name)}</b><div class="muted">${p.age} let · ${p.grip === 'left' ? 'levák' : 'pravák'} · úroveň ${p.level} · ${p.xp || 0} XP</div>`); nm.style.flex = '1';
+        const nm = h('div', '', `<b>${escapeHtml(p.name)}</b><div class="label">${p.age} let, ${p.grip === 'left' ? 'levák' : 'pravák'}, úroveň ${p.level}, ${p.xp || 0} XP</div>`); nm.style.flex = '1';
         const del = btn(`${icon('trash')}Smazat`, 'btn danger', async () => {
           if (del.dataset.sure) { await deleteProfile(p.id); drawPlayers(); return; }
           del.dataset.sure = '1'; del.innerHTML = 'Opravdu smazat?';
@@ -170,11 +170,11 @@ export default function parent(_p, { go }) {
     const stInfo = h('div', 'muted'); stInfo.dataset.test = 'persist-status';
     const paintSt = async () => {
       const ps = await persistStatus();
-      stInfo.innerHTML = `Trvalé úložiště: <b>${ps.persisted === true ? 'zapnuté' : ps.persisted === false ? 'nepotvrzené' : 'nezjištěno'}</b> · využito ${fmtMB(ps.usage)} z ${fmtMB(ps.quota)}`;
+      stInfo.innerHTML = `Trvalé úložiště: <b>${ps.persisted === true ? 'zapnuté' : ps.persisted === false ? 'nepotvrzené' : 'nezjištěno'}</b>, využito ${fmtMB(ps.usage)} z ${fmtMB(ps.quota)}`;
     };
     await paintSt();
     pApp.append(stInfo, btn('Požádat o trvalé úložiště', 'btn', async () => { await requestPersist(); paintSt(); }));
-    pApp.append(h('div', 'muted', `Verze ${APP_VERSION}${BUILD_TIME ? ` · sestaveno ${new Date(BUILD_TIME).toLocaleString('cs-CZ')}` : ''} · obrazovka při tréninku: ${wakeLockMode() === 'none' ? 'wake lock při startu tréninku' : wakeLockMode()}`));
+    pApp.append(h('div', 'muted', `Verze ${APP_VERSION}${BUILD_TIME ? `, sestaveno ${new Date(BUILD_TIME).toLocaleString('cs-CZ')}` : ''}, obrazovka při tréninku: ${wakeLockMode() === 'none' ? 'wake lock při startu tréninku' : wakeLockMode()}`));
     if (updateAvailable()) pApp.append(btn(`${icon('refresh')}Aktualizovat na novou verzi`, 'btn-primary', () => applyUpdate()));
     pApp.append(btn('Změnit PIN', 'btn', () => go('setPin', { next: 'parent', from: 'settings' })));
     const wipe = btn(`${icon('warn')}Smazat všechna data`, 'btn danger', async () => {

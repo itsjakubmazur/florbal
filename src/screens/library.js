@@ -24,7 +24,7 @@ export function stationsScreen({ profileId }, { go, back }) {
       const sv = createStationView({ station: st, grip: p.grip, ball: false, compact: true });
       sv.setPlayerVisible(false);
       pic.append(sv.el);
-      c.append(pic, h('div', '', `<b>${st.name}</b>`), h('div', 'muted', `${st.short} · ${ok.has(st.id) ? 'vejde se ti' : 'potřebuješ víc místa nebo kuželů'}`));
+      c.append(pic, h('div', '', `<b>${st.name}</b>`), h('div', 'muted', `${st.short}, ${ok.has(st.id) ? 'vejde se ti' : 'potřebuješ víc místa nebo kuželů'}`));
       grid.append(c);
     }
     el.append(grid);
@@ -44,7 +44,7 @@ export function drillsScreen({ profileId }, { go, back }) {
       const list = allDrills().filter((d) => d.level === lv && drillKind(d) === 'ball');
       if (!list.length) continue;
       const sec = h('div', 'w-full flex flex-col'); sec.style.gap = u(1);
-      sec.append(h('div', 'eyebrow', `Úroveň ${lv} · ${SKILL_LEVELS[lv] || ''}${lv > p.level ? ' · zatím těžké' : ''}`));
+      sec.append(h('div', 'panel-title', `Úroveň ${lv}: ${SKILL_LEVELS[lv] || ''}${lv > p.level ? ' (zatím těžké)' : ''}`));
       const grid = h('div', 'tiles');
       grid.style.gridTemplateColumns = `repeat(auto-fit, minmax(min(100%, ${u(30)}), 1fr))`;
       for (const d of list) {
@@ -56,8 +56,8 @@ export function drillsScreen({ profileId }, { go, back }) {
         sv.setPlayerVisible(false);
         pic.append(sv.el);
         const t = h('div', 'flex flex-col'); t.style.gap = u(0.4);
-        t.append(h('div', '', `<b>${escapeHtml(d.name)}</b>`), h('div', 'muted', `${st.name} · ${CALL_LABELS[d.callMode] || ''} · ${d.durationSec} s${d.noise === 'tichý' ? ' · tichý' : ''}`));
-        c.append(pic, t, h('div', 'accent-text', icon('play')));
+        t.append(h('div', '', `<b>${escapeHtml(d.name)}</b>`), h('div', 'muted', `${st.name}, ${CALL_LABELS[d.callMode] || ''}, ${d.durationSec} s${d.noise === 'tichý' ? ', tichý' : ''}`));
+        c.append(pic, t, h('div', 'muted', icon('play')));
         grid.append(c);
       }
       sec.append(grid); el.append(sec);

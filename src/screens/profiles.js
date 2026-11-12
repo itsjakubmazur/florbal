@@ -3,25 +3,28 @@ import { h, btn, u, jerseyEl, icon, escapeHtml, seg } from '../ui/dom.js';
 import { listProfiles, createProfile, getProfile, saveProfile, profileRank, SKILL_LEVELS, SESSION_LENGTHS, PROFILE_DEFAULTS } from '../domain/profiles.js';
 import { SPACE_LABELS } from '../domain/stations.js';
 import { sfx } from '../core/audio.js';
+import { themeHasClub } from '../ui/tokens.js';
+import { clubLogo } from '../ui/dom.js';
 
 export default function profiles(_p, { go }) {
   const el = h('section', 'screen');
   el.dataset.test = 'profiles';
-  el.append(h('div', 'eyebrow', 'Florbal Trenér'), h('div', 'title', 'Kdo dnes <span class="accent">trénuje</span>?'));
-  const row = h('div', 'flex flex-wrap justify-center'); row.style.gap = u(2);
+  const brand = h('div', 'brand-row');
+  if (themeHasClub()) brand.append(h('img', 'brand-logo', '', { src: clubLogo, alt: 'FBŠ Hattrick Brno', width: '270', height: '200' }));
+  brand.append(h('div', 'brand-name', 'Florbal Trenér'));
+  el.append(brand, h('div', 'title', 'Kdo dnes trénuje?'));
+  const row = h('div', 'player-cards');
   el.append(row);
   (async () => {
     const list = await listProfiles();
     list.forEach((p) => {
-      const c = btn('', 'card flex flex-col items-center', () => { sfx('tap'); go('home', { profileId: p.id }); }, { test: 'profile-card' });
-      c.style.cssText += `;width:max(150px, ${u(20)});gap:${u(1)}`;
-      c.append(jerseyEl(p, 11), h('div', '', `<b style="font-size:max(18px, ${u(2.4)})">${escapeHtml(p.name)}</b>`), h('div', 'muted', profileRank(p).name));
+      const c = btn('', 'card player-card', () => { sfx('tap'); go('home', { profileId: p.id }); }, { test: 'profile-card' });
+      c.append(jerseyEl(p, 15), h('div', 'player-card-name', escapeHtml(p.name)), h('div', 'label', profileRank(p).name));
       row.append(c);
     });
-    const add = btn(`${icon('plus')}<span>Nový hráč</span>`, 'card tile', () => go('newPlayer', {}), { test: 'new-player' });
-    add.style.width = `max(150px, ${u(20)})`;
+    const add = btn(`${icon('plus')}<span>Nový hráč</span>`, 'card tile player-card add', () => go('newPlayer', {}), { test: 'new-player' });
     row.append(add);
-    el.append(btn(`${icon('lock')}Rodiče`, 'btn', () => go('pin', { next: 'parent' }), { test: 'parent' }));
+    el.append(btn(`${icon('lock')}Rodiče`, 'btn btn-quiet', () => go('pin', { next: 'parent' }), { test: 'parent' }));
   })();
   return el;
 }
@@ -54,11 +57,11 @@ export function newPlayer({ editId = null }, { go, back }) {
   const state = { ...PROFILE_DEFAULTS, name: '' };
   let i = 0;
   let original = null;
-  const eyebrow = h('div', 'eyebrow');
+  const eyebrow = h('div', 'label');
   const title = h('div', 'title');
   const body = h('div', 'flex flex-col items-center w-full'); body.style.cssText += `;gap:${u(2)};min-height:${u(26)};justify-content:center`;
   const nav = h('div', 'flex flex-wrap justify-center'); nav.style.gap = u(2);
-  el.append(eyebrow, title, body, nav);
+  el.append(title, eyebrow, body, nav);
 
   const choice = (opts, key, cols) => {
     const box = seg(opts, state[key], (v) => { state[key] = v; }, { test: `opt-${key}` });
@@ -69,7 +72,7 @@ export function newPlayer({ editId = null }, { go, back }) {
 
   const render = () => {
     const id = STEPS[i];
-    eyebrow.textContent = `${editId ? 'Úprava hráče' : 'Nový hráč'} · ${i + 1} z ${STEPS.length}`;
+    eyebrow.textContent = `${editId ? 'Úprava hráče' : 'Nový hráč'}, krok ${i + 1} z ${STEPS.length}`;
     title.textContent = TITLES[id];
     body.replaceChildren(); nav.replaceChildren();
     if (id === 'name') {

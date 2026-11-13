@@ -1,6 +1,6 @@
 # QA
 
-Nezávislé QA pro M5 (kód psal jiný agent). Stav k 13. 11. 2026, verze 0.3.0, větev `m4-vyzvy`.
+Nezávislé QA pro M5 a nápady z IDEAS.md 1–5 (kód psal jiný agent). Stav k 13. 11. 2026, verze 0.3.0, větev `m4-vyzvy`.
 
 ## Jak spustit
 - `npm test` – Playwright, Chromium, projekty iPad na šířku (1180×820), iPad na výšku (820×1180), iPhone (390×844),
@@ -12,10 +12,11 @@ Nezávislé QA pro M5 (kód psal jiný agent). Stav k 13. 11. 2026, verze 0.3.0,
 ## Výsledky
 | Běh | Testů | Prošlo | Přeskočeno | Poznámka |
 | --- | --- | --- | --- | --- |
-| Chromium (`npm test`) | 102 | 94 | 8 | z toho 8 „očekávaně padá“ (`test.fail`) = nálezy N1–N3; přeskočené jsou statické kontroly a kontrast témat, které stačí na jednom viewportu |
-| WebKit 27.2 (`-c tests/webkit.config.js`) | 68 | 58 | 10 | z toho 4 „očekávaně padá“ (N1, N3); přeskočeno: statické kontroly a témata (běží jen v Chromiu na šířku) a záloha s fotkou (viz „WebKit“) |
+| Chromium (`npm test`) | 156 | 124 | 32 | z toho 4 „očekávaně padá“ (`test.fail`) = nálezy N6–N9; přeskočené jsou statické a funkční kontroly, které stačí na jednom viewportu |
+| WebKit 27.2 (`-c tests/webkit.config.js`) | 104 | 76 | 28 | z toho 2 „očekávaně padá“ (N6, N7); přeskočeno: statické kontroly (jen Chromium na šířku), témata a záloha s fotkou (viz „WebKit“) |
 
-Testy: `tests/smoke.spec.js` (M3, 5), `tests/m4.spec.js` (M4, 6), `tests/m5.spec.js` (M5, 23); každý × 3 viewporty.
+Testy: `tests/smoke.spec.js` (M3, 5), `tests/m4.spec.js` (M4, 6), `tests/m5.spec.js` (M5, 25), `tests/ideas.spec.js` (nápady 1–5, 16);
+každý × 3 viewporty. Předchozí běh před nápady (8491666): Chromium 100 prošlo / 8 přeskočeno, WebKit 62 / 10.
 
 ## Co testy pokrývají
 ### M3 a M4 (dřívější sady)
@@ -66,6 +67,38 @@ Testy: `tests/smoke.spec.js` (M3, 5), `tests/m4.spec.js` (M4, 6), `tests/m5.spec
   ve smyšleném demu (`src/dev/demo.js`); build neobsahuje cesty z vývojového stroje, e-maily ani zdrojové mapy.
 - **Hlasy (statická kontrola):** každá hláška, kterou appka říká, má MP3: **N2**.
 
+### Nápady z IDEAS.md 1–5 (`tests/ideas.spec.js`, změny 8491666..b2ec354)
+- **Hlas iPadu (`voiceMode: 'device'`)**, prošel jsem každé čtení `voiceMode`: `setVoiceMode` hodnotu ověří (neznámá → `voice`)
+  a mimo `voice` utne frontu; `preloadVoices` v režimu `device` nic nenačítá; `start()` jde rovnou na `speechSynthesis`;
+  `say` / `sayGroup` jde frontou jako u nahrávek (nepřekrývá se); `sfx` a metronom (`click: 'tick'`) hrají jako u Hlasu;
+  pípání jen v `beeps`. Výchozí hodnota je `voice`. Testy: přepnutí v Rodičích se uloží; v tréninku jen hlas zařízení
+  `cs-CZ`, žádná MP3 (už v m5); záloha s `device` po novém spuštění: v Rodičích vybraný Hlas iPadu, trénink mluví
+  jen hlasem zařízení; záloha s neznámou hodnotou: appka mluví nahrávkami, bez chyb. Hned po importu: **N6**, Rodiče
+  s neznámou hodnotou: **N7**.
+- **Vlastní nahrávky:** blok výběru souboru z `src/core/audio.js` (RANK + smyčka) se v testu vyřízne ze zdrojáku
+  a spustí v Node: `.m4a` i `.wav` vyhrají nad `.mp3` v obou pořadích, klíče se nepletou, klíč s tečkou zůstane celý.
+  Glob zná `m4a`, precache (`globPatterns`) taky. `.wav` vs. `.m4a` se stejným klíčem: **N9**.
+- **Generátor hlasů** (bez sítě): `--list` vypíše 370 řádků klíč–text, žádný prázdný ani `undefined`, každý klíč má MP3,
+  nic se nezapíše; `--list --only trick_` filtruje; neznámý `--provider` skončí kódem 1 před generováním. Azure bez klíče:
+  **N8**. Volání Azure s falešným ani skutečným klíčem jsem nespouštěl (nic se neposílalo ven), kód viz N10.
+  Generátor přeskočí klíč, pro který existuje `.m4a`/`.wav` (kontrola kódu), soubor zapisuje až po úspěšné odpovědi.
+- **Licence:** `dist/THIRD-PARTY.txt` obsahuje OFL (Archivo), ISC (Lucide), MIT (NoSleep s copyrightem Rich Tibbett,
+  Workbox, zdrojový kód) a je v `sw.js` precache. Rodiče → O appce → Celé znění licencí funguje **offline** po instalaci SW
+  (Chromium i WebKit), tlačítko text zase skryje.
+- **Tokeny** (`fd4fa26`): build před a po (aeb1aad vs. fd4fa26) jsem porovnal skriptem: 21 obrazovek (hráči, domů, cviky,
+  stanoviště, návod, odměny, cesta, karty, aréna, zápas, profil, triky, trik, souboje, nastavení souboje, testy, PIN,
+  rodiče, návod před tréninkem, přehrávač v pauze, výsledek) × 3 viewporty, ~8 000 prvků, porovnány pozice a rozměry
+  a 23 vlastností (písmo, mezery, poloměry, barvy, stíny, mřížky). Rozdíl jen 0,5 px v pozici animovaného SVG na
+  obrazovce triku (animace) – **vizuálně beze změny**.
+- **Obličeje po tréninku:** tři míčky s popiskem (Nebavilo mě to / Ušlo to / Bavilo mě to), dotyková plocha ≥ 64 px
+  (na iPadu 165 px), `aria-pressed`, volba se uloží jako `feel` k poslednímu tréninku, bez vodorovného posunu na všech
+  3 viewportech; na iPadu na šířku je otázka vedle karty hráče, nad „Domů“ a vše bez posouvání. Kontrast popisků 10,7 : 1,
+  nadpisu 17 : 1 (ruční měření, obrazovka s obličeji není v `tour`, protože trénink tam končí bez odcvičeného cviku).
+- **Rychlé volby:** reakce má v návodu hlavičku „Reakce na povel, N cviků“ se správným tvarem (cvik/cviky/cviků) a nenabízí
+  „Jiné stanoviště“ (běžný trénink ano); protažení v přehrávači nekreslí žádný kužel, rozcvička jen kužely z cviku
+  (průhlednost 0 nebo 1, nikdy 0,15).
+- **Desetinná čárka:** návod na stanoviště „Na místě“ píše „1,4 × 2 m“, nikde „1.4“.
+
 ## Lighthouse
 Proti `vite preview` (http://localhost:4173/, úvodní obrazovka), Chrome headless.
 
@@ -86,6 +119,68 @@ Proti `vite preview` (http://localhost:4173/, úvodní obrazovka), Chrome headle
 ## Nálezy
 Závažnost: **blokující** = nesmí do předání, **střední** = opravit před předáním, pokud to jde, **drobné** = kdykoli.
 Testy s `test.fail()` začnou po opravě „neočekávaně procházet“ – pak `test.fail` smazat.
+
+### N6 – Obnovení zálohy nepoužije obnovené nastavení hned (Hlas iPadu, hlasitost, vzhled) – střední
+`restoreBackup()` (`src/storage/backup.js`) přepíše store `settings` v IndexedDB, ale `src/screens/parent.js` po
+„Ano, obnovit“ zavolá jen `drawPlayers()`. Nezavolá `setVoiceMode`, `setVolume`, `applyTheme` ani nepřekreslí
+panel Zvuk/Trénink. Runtime nastavení platí až po novém spuštění appky (`boot()` v `src/main.js`).
+Dopad: rodič obnoví zálohu z iPadu, kde měl „Hlas iPadu“; Rodiče dál ukazují „Hlas“ a další trénink mluví nahrávkami.
+Totéž hlasitost a vzhled. Kdo appku nezavře (instalovaná PWA běží dlouho), vidí v Rodičích jiné nastavení, než je uložené,
+a dalším klepnutím na jinou volbu ho přepíše.
+Kroky: Rodiče → Hlas → uložit zálohu s `voiceMode: 'device'` (nebo z jiného zařízení) → Obnovit ze zálohy → Ano, obnovit
+→ v Rodičích je pořád vybrané „Hlas“ → Zpět → hráč → Trénink → Už stojí: hraje MP3.
+Oprava: po `restoreBackup` načíst `settings.load()` a zavolat `setVoiceMode`, `setVolume` ×2, `applyTheme`; obrazovku
+Rodičů překreslit (např. `go('parent', {}, { replace: true })`).
+Test „import zálohy s voiceMode „device“ platí hned, bez nového spuštění (N6)“ (Chromium i WebKit). Po novém spuštění
+funguje správně (test bez `test.fail`).
+
+### N8 – `gen-voices --provider azure` bez klíče (nebo se špatným klíčem) běží hodiny a skončí „HOTOVO“ – střední
+`scripts/gen-voices.mjs`: chybějící `AZURE_SPEECH_KEY`/`AZURE_SPEECH_REGION` se zjistí až v `azureTts()` u každé hlášky,
+chyba se bere jako přechodná a opakuje 5× s čekáním 3+6+9+12+15 s. S `--force` to je ≈ 45 s na hlášku, ≈ 4,6 h na 370.
+Stejně se opakují i trvalé chyby Azure (401 špatný klíč, 400 SSML, 429 kvóta). Na konci se vždy vypíše
+`HOTOVO 370 hlášek` a skript skončí kódem 0, i když se nevygenerovalo nic. Soubory to nepoškodí (zápis je až po úspěchu).
+Kroky: `AZURE_SPEECH_KEY= node scripts/gen-voices.mjs --provider azure --force --only num_1` – 45 s „opakuji … chybí
+AZURE_SPEECH_KEY“, pak „HOTOVO“.
+Oprava: ověřit proměnné hned po načtení argumentů a skončit `process.exit(1)`; 4xx kromě 429 neopakovat; počítat chyby,
+vypsat je na konci a vrátit nenulový kód.
+Test „gen-voices --provider azure bez klíče: hned skončí srozumitelnou chybou … (N8)“ (spustí skript bez proměnných Azure,
+na síť nesáhne, po 8 s ho zabije a ověří, že MP3 zůstala beze změny).
+
+### N7 – Neznámá hodnota `voiceMode` ze zálohy: v Rodičích není vybraná žádná volba – drobné
+Import zálohy neověřuje hodnoty nastavení; `voiceMode: 'robot'` (ruční úprava, budoucí verze s novým režimem) se uloží.
+Audio se zachová správně (`setVoiceMode` spadne na `voice`), ale `parent.js` předá `seg()` surovou hodnotu, takže žádné
+tlačítko „Trenér“ není zvýrazněné. Kroky: záloha s `"voiceMode": "robot"` → obnovit → znovu spustit → Rodiče.
+Oprava: v `parent.js` použít `getVoiceMode()` (nebo normalizovat v `settings.load()`).
+Test „import zálohy s neznámou hodnotou voiceMode: v Rodičích je vybraná volba „Hlas“ (N7)“.
+
+### N9 – `.wav` i `.m4a` se stejným klíčem: vyhraje ten, který glob najde dřív – drobné
+`src/core/audio.js`: `RANK = { mp3: 0, wav: 1, m4a: 1 }` a porovnání `>`, takže při shodě rozhoduje pořadí z
+`import.meta.glob` (abecední cesta → vždy `.m4a`, ale jen náhodou implementace). Generátor obojí respektuje. Precache
+navíc obsahuje i přebitou MP3 (zbytečných pár kB na hlášku). Oprava: jednoznačné pořadí (např. `m4a: 2`) a zmínka v INSTALL.md.
+Test „vlastní nahrávka: když je .wav i .m4a se stejným klíčem … (N9)“ (logika vyňatá ze zdrojáku, oba pořadí).
+
+### N10 – Generátor hlasů: drobnosti v argumentech a SSML – drobné (nejde ověřit bez klíče Azure)
+- `--only` bez hodnoty (poslední argument) dá `ONLY = undefined`, tedy **všechny** hlášky; `--only --force` vezme
+  `--force` jako prefix a nic nevygeneruje. S `--force` to první přegeneruje všech 370 souborů. Oprava: chybějící nebo
+  `--…` hodnotu odmítnout.
+- SSML pro Azure nemá `xmlns="http://www.w3.org/2001/10/synthesis"`, který dokumentace Azure uvádí ve všech
+  příkladech. Bez klíče nejde ověřit, jestli ho služba vyžaduje (400). Doplnit preventivně.
+- `User-Agent: florbal-trener` – v pořádku, žádné osobní údaje.
+
+### N11 – Vlastní nahrávky: velikost písmen přípony a testy offline – drobné
+- Glob `*.{mp3,wav,m4a}` i regex v `audio.js` a kontrola v generátoru rozlišují velikost písmen: `praise_1.M4A`
+  (některé aplikace / přejmenování na Windows) appka nenajde a na macOS (case-insensitive FS) ji generátor
+  přesto přeskočí → hláška zůstane MP3. Stačí věta v INSTALL.md („přípona malými písmeny“) nebo `i` v regexu a glob na obě varianty.
+- `tests/m5.spec.js` (offline test) počítá jen `.mp3|.wav` a pevně 370 souborů; po přidání vlastních `.m4a`
+  je offline nebude kontrolovat a počet bude sedět jen náhodou. Až rodič nahrávky přidá, rozšířit regex o `m4a`.
+
+### N12 – Licence: dílčí nepřesnosti – drobné
+- Text NoSleep v `THIRD-PARTY.txt` je složený z MIT textu projektu s dosazeným copyrightem, ne z
+  `node_modules/nosleep.js/LICENSE` (obsahově stejná MIT, ale není to doslovná kopie, kterou MIT vyžaduje „included“).
+- Panel O appce i `THIRD-PARTY.txt` uvádí „Hlas Trenéra – Microsoft Edge TTS“ natvrdo; po přegenerování přes Azure
+  (nebo s vlastními nahrávkami) by měl text odpovídat skutečnému zdroji.
+- Tailwind (MIT) vkládá do CSS svůj preflight (modern-normalize, MIT); v seznamu není. Spíš formalita.
+- Ve `vite dev` THIRD-PARTY.txt neexistuje (plugin běží jen v `generateBundle`), panel ukáže „Licence se nepodařilo načíst“. Jen vývoj.
 
 ### N3 – Levák dostane nezrcadlený návod na stanoviště (text i hlas) – blokující (pro leváka)
 **Opraveno (2026-11-13):** `\b` místo U+0008 v `stations.js` i `gen-voices.mjs`, 39 zrcadlených nahrávek přegenerováno.
@@ -166,3 +261,10 @@ Chromium ani WebKit v testech nenahradí Safari na iPadOS. Na reálném iPadu (i
 10. **Čitelnost ze 3 m:** povel (číslo/F/B/barva) a timer na iPadu na stojánku 2–3 m od hráče, na šířku i na výšku (N4).
 11. **Hlas zařízení:** u kroků triků a výzev (N2, dokud chybí MP3) – je v Nastavení → Přístupnost → Předčítání stažený český hlas? Bez něj iPad čte česky anglickým hlasem.
 12. **Levák (po opravě N3):** poslechnout `setup_triangle_m_3` – musí říkat „doprava“.
+13. **Hlas iPadu:** Rodiče → Trenér → Hlas iPadu. Mluví český hlas (je stažený v Nastavení → Přístupnost → Předčítání?),
+    v tréninku se povely stíhají v tempu (TTS má na iPadu zpoždění 0,2–0,5 s, krátké povely se při zpoždění přeskakují),
+    hraje i se ztlumeným přepínačem? (`speechSynthesis` se `audioSession` řídit nemusí). Po přepnutí zazní uvítání – WebKit
+    občas zahodí `speak()` hned po `cancel()`.
+14. **Vlastní nahrávka:** `.m4a` z Diktafonu (i s volbou „Bezeztrátový“ = ALAC) přehrát v appce – Safari ji musí umět
+    `decodeAudioData`; Chromium v testech AAC nemusí mít, proto je přednost ověřená jen logikou výběru.
+15. **Obličeje:** dítě na iPadu na stojánku trefí obličej a rozumí popiskům; karta přijde po 0,7 s / 6 s.

@@ -1,69 +1,68 @@
-# Jak si aplikaci nainstalovat
+# Návod pro rodiče
 
-Tréninková podložka funguje třemi způsoby. Vyberte ten nejjednodušší pro vaše zařízení.
+Florbal Trenér je webová aplikace pro iPad. Nic se nestahuje z App Storu, nic se neodesílá ven, žádné účty.
+Všechna data (hráči, XP, rekordy, karty) jsou jen v iPadu.
 
-| Zařízení | Nejlepší cesta |
-|---|---|
-| Počítač, tablet, telefon | [A) Otevřít ve webovém prohlížeči](#a-ve-webovém-prohlížeči-nic-se-neinstaluje) |
-| Android telefon nebo tablet | [B) Nainstalovat aplikaci (APK)](#b-aplikace-pro-android-apk) |
-| Android TV | [C) Android TV](#c-android-tv) |
+## 1. Instalace na iPad
 
----
+1. V **Safari** otevřete adresu aplikace (…vercel.app, vypíše ji `scripts/setup-deploy.sh` na konci; najdete ji i ve Vercelu u projektu `florbal-trener`).
+2. Klepněte na **Sdílet** (čtverec se šipkou) → **Přidat na plochu** → **Přidat**.
+3. Spouštějte ji vždy z ikony na ploše. Běží pak přes celou obrazovku a funguje i bez internetu.
+4. Při prvním spuštění chvíli počkejte s připojením k Wi-Fi: aplikace si stáhne hlasy Trenéra (asi 9 MB) do iPadu.
 
-## A) Ve webovém prohlížeči (nic se neinstaluje)
+> Chcete si ji jen prohlédnout? Přidejte za adresu `?demo`. Vytvoří se ukázkový hráč s vymyšleným jménem a trochou postupu.
 
-1. Otevřete stránku aplikace: **https://kuba-uhlir.github.io/treninkova-podlozka/**
-2. Chcete si to jen vyzkoušet? Otevřete **https://kuba-uhlir.github.io/treninkova-podlozka/?demo**. Vytvoří se hotový ukázkový hráč Jakub (číslo 24, česká reprezentace) s trochou postupu a kartami (pokud už v prohlížeči nějací hráči jsou, nic se nezmění).
-3. Na telefonu nebo tabletu ji můžete přidat na plochu: v Chrome menu ⋮ → **Přidat na plochu**.
-4. Pro celou obrazovku stiskněte **F11** (počítač).
+## 2. První spuštění
 
-> Zvuk se v prohlížeči spustí až po prvním klepnutí nebo stisku klávesy. To je omezení prohlížečů, ne chyba aplikace.
+1. **Nový hráč**: průvodce se zeptá na jméno, věk, na které straně drží hůl (leváci dostanou zrcadlená stanoviště), jak mu to jde, jak dlouho chce trénovat, kolik je doma místa, kolik má kuželů a číslo dresu.
+   - **Prostor**: malý (1 × 2 m, třeba pokoj), střední (3 × 3 m), velký (3 × 5 m, chodba nebo garáž). Appka pak nabízí jen stanoviště, která se vejdou.
+   - **Kužely**: stačí 2, nejvíc se využije 5. Poslouží i boty, ponožky nebo lepicí páska.
+2. **Rodiče** (zámek): při prvním vstupu si vytvoříte čtyřmístný PIN. Když ho zapomenete, „Zapomněl jsem PIN“ vás pustí po vyřešení příkladu pro dospělé.
+3. V Rodičích je:
+   - **Zvuk**: hlas Trenéra, jen pípání, nebo ticho; zvlášť hlasitost hlasu a pípání s metronomem.
+   - **Tichý trénink (byt)**: jen cviky bez ťukání míčkem, když sousedi spí.
+   - **Tempo**: pomaleji / normálně / rychleji.
+   - **Hráči**: úprava údajů z průvodce nebo smazání hráče.
 
-## B) Aplikace pro Android (APK)
+## 3. Stanoviště
 
-1. Na telefonu otevřete stránku **Releases**: https://github.com/kuba-uhlir/treninkova-podlozka/releases
-2. U nejnovější verze stáhněte soubor **`treninkova-podlozka.apk`**.
-3. Otevřete stažený soubor. Android zobrazí upozornění, že je instalace z neznámého zdroje blokována. Klepněte na **Nastavení** a povolte **Instalovat z tohoto zdroje** pro prohlížeč nebo správce souborů, který jste použili.
-4. Vraťte se zpět a dokončete instalaci. Aplikace se jmenuje **Tréninková podložka**.
+Před tréninkem Trenér hlasem i obrázkem provede postavením kuželů, krok za krokem. Pět stanovišť:
 
-> APK není z Google Play, proto Android hlásí upozornění. Aplikace nepotřebuje žádná oprávnění a nic neodesílá.
+| Stanoviště | Kužely | Prostor |
+|---|---|---|
+| Malý prostor | 2 | malý |
+| Trojúhelník | 3 | střední |
+| Čtverec | 4 | střední |
+| Slalom | 4 | velký |
+| Cik-cak | 5 | velký |
 
-## C) Android TV
+iPad postavte opřený na zemi nebo na židli 2–3 m před hráčem, displejem k němu. Povely jsou čitelné z té vzdálenosti.
+Během tréninku iPad nezhasne. Klepnutí kamkoli trénink pozastaví.
 
-Aplikace je stavěná pro ovládání dálkovým ovladačem. Vyberte jednu z cest:
+## 4. Bezpečnost
 
-**C1) Přes aplikaci Downloader (nejjednodušší, bez počítače)**
-1. Na TV nainstalujte z Obchodu Play aplikaci **Downloader** (AFTVnews).
-2. Povolte jí instalaci aplikací: Nastavení TV → Zabezpečení a omezení → Neznámé zdroje → Downloader.
-3. V Downloaderu zadejte adresu APK z vydání (Releases, pravým tlačítkem na soubor → kopírovat adresu odkazu) a potvrďte instalaci.
+- Volný prostor kolem hráče aspoň na délku hole, křehké věci pryč.
+- Hůl držet pod pasem, žádný velký nápřah, zvlášť u střelby a soubojů. Před každým soubojem appka ukáže kontrolní seznam.
+- Míček jen florbalový (lehký, s otvory). iPad mimo dráhu míčku.
+- Trénink začíná rozcvičkou a končí protažením, nepřeskakujte je.
 
-**C2) Přes USB flash disk**
-1. Stáhněte `treninkova-podlozka.apk` v počítači a zkopírujte na flash disk.
-2. Na TV nainstalujte správce souborů (např. **File Commander**) a povolte mu neznámé zdroje (viz výše).
-3. Otevřete soubor z flash disku a nainstalujte.
+## 5. Souboje a frajeřinky
 
-**C3) Přes počítač (ADB)**
-1. Na TV zapněte Nastavení → O produktu → 7× klepněte na **Sestavení** → Možnosti pro vývojáře → **Ladění USB / ADB**.
-2. V počítači: `adb connect IP_ADRESA_TV` a potom `adb install treninkova-podlozka.apk`.
+- **Souboje** táta vs. syn (Gól od tyčky, KOHOUT a další). Skóre zapisuje dospělý tlačítky Trefa / Vedle, „Zpět“ opraví překlep.
+- **Frajeřinky**: 18 triků po krocích. U každého kroku je řádek „Pro rodiče: kdy je krok splněný“, krok odklikává dospělý.
+- **Testy dovedností**: stejný test jednou za čas, výsledek zadáte číselnou klávesnicí a appka kreslí graf zlepšení.
 
-**C4) Bez instalace**
-Pokud má TV prohlížeč, otevřete adresu z části A.
+## 6. Záloha a nová verze
 
----
-
-## První spuštění
-
-1. Po úvodní animaci vyberte **Nový hráč**. Průvodce se zeptá na jméno, číslo dresu, silnější nohu a oblíbený klub.
-2. V **Rodiče** (zámek dole) nastavte podložku, tempo, délku tréninku a hlas Trenéra. Při prvním vstupu do Rodičů si vytvoříte vlastní čtyřmístný PIN (později ho změníte v Rodiče → Data a zabezpečení). Když ho zapomenete, obnovíte ho přes „Zapomněl jsem PIN“.
-3. Postavte podložku před televizi a začněte **Trénink**. Trenér hlasem říká, kam s míčem.
+- **Záloha**: Rodiče → Záloha dat → **Uložit zálohu** (nebo **Bez fotek**, menší soubor). Uložte ji do Souborů nebo iCloudu. Při výměně iPadu nebo po smazání dat: **Obnovit ze zálohy**.
+- iPad umí data webových aplikací při nedostatku místa smazat. Proto v Rodičích (Úložiště a aplikace) klepněte na **Požádat o trvalé úložiště** a jednou za čas udělejte zálohu.
+- **Nová verze** se stáhne sama na pozadí. Nabídka aktualizace se ukáže až po tréninku, nikdy uprostřed. Ručně: Rodiče → Úložiště a aplikace → Aktualizovat na novou verzi.
 
 ## Řešení problémů
 
 | Problém | Řešení |
 |---|---|
-| Nic nezní | V prohlížeči klepněte kamkoli na stránku. V nastavení Rodiče zkontrolujte, že je zapnutý Hlas Trenér a není hlasitost na 0 %. |
-| „Instalace blokována“ | Povolte instalaci z neznámých zdrojů pro aplikaci, ze které soubor otevíráte (viz krok B3). |
-| Dálkový ovladač nereaguje | Aplikace používá šipky, OK a Zpět. Zkuste kliknout na okno aplikace, aby mělo fokus. |
-| Chci začít znovu | Rodiče → Data a zabezpečení → Smazat všechna data. |
-
-Další informace o sestavení vlastní verze najdete v [README](../README.md) a v [ANDROID.md](ANDROID.md).
+| Nic nezní | Zkontrolujte tlačítko ztlumení / hlasitost iPadu a v Rodičích hlasitost hlasu. Po spuštění klepněte na obrazovku (Safari pustí zvuk až po prvním dotyku). |
+| Hlas zní jinak než obvykle | Hlasy se ještě nestáhly; appka zatím používá hlas iPadu. Otevřete ji jednou na Wi-Fi. |
+| iPad během tréninku zhasíná | Spouštějte appku z ikony na ploše, ne z karty v Safari. |
+| Chci začít znovu | Rodiče → **Smazat všechna data** (potvrzuje se dvakrát, nejde vrátit). |

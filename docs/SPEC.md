@@ -99,5 +99,5 @@ Export/import zálohy: jeden JSON (`florbal-zaloha-YYYY-MM-DD.json`) se všemi s
 - Wake lock: `navigator.wakeLock.request('screen')`, znovu po `visibilitychange`; záloha tiché smyčkované video (`playsinline muted loop`) spuštěné při startu tréninku.
 - `navigator.storage.persist()` při prvním spuštění; stav v Rodičích.
 - Orientace: landscape primárně, portrait funkční. iPhone se nerozpadne.
-- Dotyk v tréninku: tap kamkoli = pauza; ovládací prvky ≥ 88 px; text čitelný ze 3 m (název cviku ≥ 5 vh, číslo/povel ≥ 18 vh).
+- Dotyk v tréninku: tap kamkoli = pauza; ovládací prvky ≥ 88 px; text čitelný ze 3 m (název cviku ≥ 5 vh, číslo/povel ≥ 18 vh na iPadu na šířku, tj. ≥ 148 px; na výšku stejná absolutní velikost).
 - Žádná síťová volání za běhu, žádná analytika.

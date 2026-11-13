@@ -19,7 +19,7 @@ export const stationsFor = (space = 'medium', cones = 4) =>
 /** +1 pravák (forhend vpravo), −1 levák (forhend vlevo). */
 export const sideSign = (grip) => (grip === 'left' ? -1 : 1);
 
-const swapLR = (t) => t.replace(/(doleva|doprava|vlevo|vpravo)/gi, (w) => { const m = { doleva: 'doprava', doprava: 'doleva', vlevo: 'vpravo', vpravo: 'vlevo' }[w.toLowerCase()]; return w[0] === w[0].toUpperCase() ? m[0].toUpperCase() + m.slice(1) : m; });
+const swapLR = (t) => t.replace(/\b(doleva|doprava|vlevo|vpravo)\b/gi, (w) => { const m = { doleva: 'doprava', doprava: 'doleva', vlevo: 'vpravo', vpravo: 'vlevo' }[w.toLowerCase()]; return w[0] === w[0].toUpperCase() ? m[0].toUpperCase() + m.slice(1) : m; });
 
 /** Stanoviště pro daného hráče: asymetrická (mirror: true) se pro leváka zrcadlí přes osu y (x → −x) i s návodem. */
 export function stationFor(station, grip = 'right') {

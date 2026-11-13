@@ -50,7 +50,7 @@ Testy: `tests/smoke.spec.js` (M3, 5), `tests/m4.spec.js` (M4, 6), `tests/m5.spec
 - **Audio fronta:** záznam všech přehraných `AudioBufferSourceNode` delších než 0,25 s – v tréninku (2 cviky, pauza
   uprostřed) se hlášky nepřekrývají a žádná nespadne na hlas zařízení. Když MP3 chybí (404, bez SW), mluví
   `speechSynthesis` s `lang = cs-CZ` a promluvy se nepřekrývají.
-- **Offline po první návštěvě:** po instalaci SW je v precache všech **266 hlasových MP3**; offline každá jde načíst přes
+- **Offline po první návštěvě:** po instalaci SW je v precache všech **370 hlasových MP3**; offline každá jde načíst přes
   service worker (> 500 B) a každá 20. se dekóduje (`decodeAudioData`); offline trénink přehrává hlášky z cache
   (AudioBuffer, ne hlas zařízení). M4 obrazovky (souboje, triky, testy, karty) jdou offline.
 - **Update flow se skutečným service workerem:** test spustí vlastní statický server nad `dist/`, uprostřed tréninku
@@ -88,6 +88,7 @@ Závažnost: **blokující** = nesmí do předání, **střední** = opravit př
 Testy s `test.fail()` začnou po opravě „neočekávaně procházet“ – pak `test.fail` smazat.
 
 ### N3 – Levák dostane nezrcadlený návod na stanoviště (text i hlas) – blokující (pro leváka)
+**Opraveno (2026-11-13):** `\b` místo U+0008 v `stations.js` i `gen-voices.mjs`, 39 zrcadlených nahrávek přegenerováno.
 `swapLR` v `src/domain/stations.js:22` má v regexu místo `\b` dva **řídicí znaky U+0008 (backspace)**:
 `/␈(doleva|doprava|vlevo|vpravo)␈/gi`. Regex proto nikdy nic nenajde a `stationFor()` u leváka zrcadlí kužely,
 ale texty návodu nechá beze změny. Stejná chyba je ve `scripts/gen-voices.mjs:17`, takže zrcadlené nahrávky
@@ -102,6 +103,7 @@ v JS nezná česká písmena; tady stačí, slova začínají a končí ASCII), 
 Testy: „levák: návod na stanoviště říká „doprava“ …“ a „levák: funkce zrcadlení … neobsahuje řídicí znaky“.
 
 ### N1 – Pauza a Pokračovat nechá viset wake lock – střední
+**Opraveno (2026-11-13):** wake lock drží nejvýš jeden zámek, souběžné žádosti sdílí jednu, zámek po disable se hned uvolní (`src/core/wakelock.js`).
 `setPaused(false)` i `skipDrill()` v `src/screens/player.js` volají `enableWakeLock()`, a ten v `src/core/wakelock.js`
 při každém volání vyžádá nový `WakeLockSentinel` a přepíše proměnnou `sentinel`, aniž by starý uvolnil. `disableWakeLock()`
 po tréninku uvolní jen poslední. Každá pauza s pokračováním (a každé Přeskočit) tak nechá jeden zámek aktivní.
@@ -112,6 +114,7 @@ Oprava: v `requestApi()` nic nedělat, když `sentinel` existuje a `!sentinel.re
 vlastní instanci. Test „wake lock: pauza a Pokračovat nenechá po tréninku viset zámek (N1)“.
 
 ### N2 – 104 hlášek M4 nemá nahrávku, čte je hlas zařízení – střední
+**Opraveno (2026-11-13):** generátor přidává `trick_*`, `challenge_*`, `test_*`; vygenerováno 370 z 370 hlášek.
 `scripts/gen-voices.mjs` generuje jen `phrases.json`, úvody cviků a návody stanovišť. Bez MP3 je všech 72 kroků triků
 (`trick_*`), 24 výzev (`challenge_*`) a 8 testů dovedností (`test_*`), celkem 104 z 370 hlášek. Appka je přečte přes
 `speechSynthesis`: jiný hlas než Trenér Antonín, na iPadu bez staženého českého hlasu i s cizí výslovností a offline
@@ -120,6 +123,7 @@ Oprava: doplnit klíče do generátoru (`trick_<step.id>` = `step.voice`, `chall
 `test_<id>` = `voiceIntro`) a přegenerovat. Test „hlasy: každá hláška Trenéra … má MP3 (N2)“.
 
 ### N4 – Na iPadu na výšku je povel menší, než říká SPEC – drobné
+**Opraveno (2026-11-13):** `.call-big` na výšku 24 vh (≥ 148 px), SPEC upřesněn, test hlídá i iPad na výšku.
 SPEC 6: povel (číslo, F/B) ≥ 18 vh. Na šířku splněno. Na výšku je písmeno F/B 16 vh (189 px, záměr `docs/DESIGN.md`,
 absolutně skoro stejně velké jako na šířku) a číslo v piktogramu kuželu 11,9 vh = 140 px, tj. o 5 % menší než 148 px
 na šířku. Čitelnost ze 3 m tím pravděpodobně netrpí (BRIEF: na výšku „nemusí být ideální“), ale SPEC a DESIGN se
@@ -127,6 +131,7 @@ rozcházejí – sjednotit (buď v SPEC psát v px / „jako na šířku“, neb
 (cvik se zónami se v náhodném tréninku nemusí objevit).
 
 ### N5 – `user-scalable=no` ve viewportu – drobné
+**Opraveno (2026-11-13):** `user-scalable=no` odstraněno z `index.html`.
 `index.html:6`. Lighthouse to hodnotí jako chybu přístupnosti (rodič se slabším zrakem si nezvětší text v Rodičích).
 Safari na iOS to od iOS 10 stejně ignoruje, efekt je hlavně v Chrome/Android. Zvážit odebrání; nechtěnému zvětšení
 při klepání v tréninku brání spíš `touch-action: manipulation`.

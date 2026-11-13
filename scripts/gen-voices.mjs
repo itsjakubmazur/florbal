@@ -14,12 +14,17 @@ const phrases = read('src/content/phrases.json');
 const TEXT = { ...phrases.fixed };
 for (const [g, list] of Object.entries(phrases.groups)) list.forEach((t, i) => { TEXT[`${g}_${i + 1}`] = t; });
 for (const d of read('src/content/drills.json')) TEXT[`drill_${d.id}`] = d.voiceIntro;
-const swapLR = (t) => t.replace(/(doleva|doprava|vlevo|vpravo)/gi, (w) => { const m = { doleva: 'doprava', doprava: 'doleva', vlevo: 'vpravo', vpravo: 'vlevo' }[w.toLowerCase()]; return w[0] === w[0].toUpperCase() ? m[0].toUpperCase() + m.slice(1) : m; });
+const swapLR = (t) => t.replace(/\b(doleva|doprava|vlevo|vpravo)\b/gi, (w) => { const m = { doleva: 'doprava', doprava: 'doleva', vlevo: 'vpravo', vpravo: 'vlevo' }[w.toLowerCase()]; return w[0] === w[0].toUpperCase() ? m[0].toUpperCase() + m.slice(1) : m; });
 for (const s of read('src/content/stations.json')) {
   s.setupSteps.forEach((st, i) => { TEXT[`${s.voiceSetup}_${i + 1}`] = st.text; });
   // zrcadlená verze pro leváky (asymetrická stanoviště, mirror: true) – stejná logika jako stationFor() v src/domain/stations.js
   if (s.mirror) s.setupSteps.forEach((st, i) => { TEXT[`${s.voiceSetup}_m_${i + 1}`] = swapLR(st.text); });
 }
+
+// M4: kroky triků, úvody výzev a testů dovedností – stejné klíče, jaké registruje appka (tricks.js, duels.js, skilltests.js)
+for (const t of read('src/content/tricks.json')) for (const st of t.steps) if (st.voice) TEXT[`trick_${st.id}`] = st.voice;
+for (const c of read('src/content/challenges.json')) if (c.voiceIntro) TEXT[`challenge_${c.id}`] = c.voiceIntro;
+for (const t of read('src/content/skilltests.json')) if (t.voiceIntro) TEXT[`test_${t.id}`] = t.voiceIntro;
 
 fs.mkdirSync(OUT, { recursive: true });
 const tts = new EdgeTTS({ voice: VOICE.voice, lang: 'cs-CZ', outputFormat: 'audio-24khz-48kbitrate-mono-mp3', rate: VOICE.rate, pitch: VOICE.pitch, timeout: 20000 });

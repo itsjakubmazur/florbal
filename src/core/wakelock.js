@@ -20,16 +20,26 @@ export function iosVersion() {
 }
 const needsVideoAlso = () => { const v = iosVersion(); return v !== null && v < 18.04; };
 
-async function requestApi() {
-  if (!('wakeLock' in navigator)) return false;
-  try {
-    sentinel = await navigator.wakeLock.request('screen');
-    sentinel.addEventListener('release', () => {
-      sentinel = null;
-      if (wanted && document.visibilityState === 'visible') requestApi();
-    });
-    return true;
-  } catch (e) { sentinel = null; return false; }
+// Drží nejvýš jeden zámek: opakované enable (Pokračovat, Přeskočit) ho znovu nežádá, souběžné žádosti sdílí jednu
+// a zámek, který dorazí až po disable, se hned uvolní (jinak by po tréninku visel a obrazovka nezhasla).
+let pending = null;
+function requestApi() {
+  if (!('wakeLock' in navigator)) return Promise.resolve(false);
+  if (sentinel && !sentinel.released) return Promise.resolve(true);
+  if (pending) return pending;
+  pending = (async () => {
+    try {
+      const s = await navigator.wakeLock.request('screen');
+      if (!wanted) { s.release().catch(() => {}); return false; }
+      sentinel = s;
+      s.addEventListener('release', () => {
+        if (sentinel === s) sentinel = null;
+        if (wanted && document.visibilityState === 'visible') requestApi();
+      });
+      return true;
+    } catch (e) { return false; } finally { pending = null; }
+  })();
+  return pending;
 }
 
 function startVideo() {

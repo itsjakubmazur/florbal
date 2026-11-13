@@ -300,8 +300,9 @@ test('přehrávač projde celým tréninkem zrychleně a výsledek započítá v
   // povel F/B: SPEC 18 vh platí pro iPad na šířku (148 px); na výšku se drží stejná absolutní velikost (DESIGN: 16 vh)
   const vh = page.viewportSize().height / 100;
   if (seen.letter.length && test.info().project.name.startsWith('ipad')) expect(min(seen.letter) * vh, 'povel F/B ≥ 148 px (18 vh iPadu na šířku)').toBeGreaterThanOrEqual(147);
-  // číslo v piktogramu kuželu (měřeno mimo nástupovou animaci); jen na šířku, na výšku viz N4 v docs/QA.md
+  // číslo v piktogramu kuželu (měřeno mimo nástupovou animaci): na šířku ≥ 18 vh, na výšku stejná absolutní velikost (N4, opraveno)
   if (seen.cone.length && test.info().project.name === 'ipad-landscape') expect(min(seen.cone), 'číslo kuželu ≥ 18 vh').toBeGreaterThanOrEqual(18);
+  if (seen.cone.length && test.info().project.name === 'ipad-portrait') expect(min(seen.cone) * vh, 'číslo kuželu ≥ 148 px').toBeGreaterThanOrEqual(147);
   expect(errors).toEqual([]);
 });
 
@@ -382,7 +383,6 @@ test('wake lock: zapne se s tréninkem, obnoví po návratu z pozadí a uvolní 
 });
 
 test('wake lock: pauza a Pokračovat nenechá po tréninku viset zámek (N1)', async ({ page }) => {
-  test.fail(true, 'N1: enableWakeLock() při Pokračovat vyžádá nový zámek a starý neuvolní (docs/QA.md)');
   await page.addInitScript(WAKELOCK_STUB);
   await startWorkout(page);
   await expect.poll(() => wl(page).then((w) => w.active)).toBe(1);
@@ -476,7 +476,7 @@ test('audio: když MP3 chybí, mluví hlas zařízení česky a promluvy se nep�
 });
 
 // ---------------------------------------------------------------------------------------------------------------
-// Offline po první návštěvě (service worker, precache včetně 266 hlasových MP3)
+// Offline po první návštěvě (service worker, precache včetně všech hlasových MP3)
 // ---------------------------------------------------------------------------------------------------------------
 
 const VOICE_FILES = fs.readdirSync(path.join(ROOT, 'assets/audio/voice/trener')).filter((f) => /\.(mp3|wav)$/.test(f));
@@ -494,9 +494,9 @@ async function installSW(page) {
   await page.waitForFunction(() => !!navigator.serviceWorker.controller);
 }
 
-test('offline: po první návštěvě naběhne bez sítě, všech 266 hlasových MP3 je v precache a trénink mluví z cache', async ({ page, context }) => {
+test('offline: po první návštěvě naběhne bez sítě, všechny hlasové MP3 jsou v precache a trénink mluví z cache', async ({ page, context }) => {
   test.setTimeout(150_000);
-  expect(VOICE_FILES.length).toBe(266);
+  expect(VOICE_FILES.length).toBe(370); // fráze, cviky, návody stanovišť (i zrcadlené), triky, výzvy, testy
   await page.addInitScript(AUDIO_SPY);
   const errors = watchErrors(page);
   await installSW(page);
@@ -741,7 +741,6 @@ test('levák: stanoviště se zrcadlí (kužely vyměněné stranou, zrcadlená 
 });
 
 test('levák: návod na stanoviště říká „doprava“ tam, kde pravák má „doleva“ (N3)', async ({ page }) => {
-  test.fail(true, 'N3: swapLR v src/domain/stations.js (i scripts/gen-voices.mjs) má v regexu znaky backspace místo \\b, nic neprohodí (docs/QA.md)');
   await page.goto('./?demo&nointro'); await T(page, 'profiles').waitFor();
   await addPlayer(page, 'Pravák Test', 'right');
   const R = await triangleFor(page, 'Pravák Test');
@@ -753,7 +752,6 @@ test('levák: návod na stanoviště říká „doprava“ tam, kde pravák má 
 
 test('levák: funkce zrcadlení v kódu i v generátoru hlasů neobsahuje řídicí znaky (N3)', async ({}, testInfo) => {
   test.skip(testInfo.project.name !== 'ipad-landscape', 'statická kontrola, stačí jednou');
-  test.fail(true, 'N3: v regexu swapLR jsou znaky U+0008 (docs/QA.md)');
   const bad = [];
   for (const f of ['src/domain/stations.js', 'scripts/gen-voices.mjs']) {
     fs.readFileSync(path.join(ROOT, f), 'utf8').split('\n').forEach((l, i) => { if (/[\u0000-\u0008\u000B\u000C\u000E-\u001F]/.test(l)) bad.push(`${f}:${i + 1}`); });
@@ -825,7 +823,6 @@ test('update pruh se neukáže během souboje ani během měření testu, po nic
 
 test('hlasy: každá hláška Trenéra (fráze, cviky, návody, triky, výzvy, testy) má MP3 (N2)', async ({}, testInfo) => {
   test.skip(testInfo.project.name !== 'ipad-landscape', 'statická kontrola obsahu, stačí jednou');
-  test.fail(true, 'N2: 104 hlášek M4 (kroky triků, výzvy, testy) nemá MP3 a čte je hlas zařízení (docs/QA.md)');
   const files = new Set(VOICE_FILES.map((f) => f.replace(/\.(mp3|wav)$/, '')));
   const read = (f) => JSON.parse(fs.readFileSync(path.join(ROOT, 'src/content', f), 'utf8'));
   const keys = [];

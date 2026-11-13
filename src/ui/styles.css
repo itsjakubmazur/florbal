@@ -155,7 +155,8 @@ button:active, .card:active { transform: scale(.97); }
   .player-call { flex: none; flex-direction: row; justify-content: center; gap: 4vw; text-align: left; }
   .player-call .call-text { align-items: flex-start; }
   .player-call { min-width: 0; }
-  .call-big { width: min(max(120px, 22vh), 36vw); height: min(max(120px, 22vh), 36vw); font-size: min(max(84px, 16vh), 26vw); }
+  /* 24vh: číslo kuželu i F/B na iPadu na výšku aspoň stejně velké jako na šířku (≥ 148 px), SPEC 6 */
+  .call-big { width: min(max(120px, 24vh), 36vw); height: min(max(120px, 24vh), 36vw); font-size: min(max(84px, 16vh), 26vw); }
   .call-word { font-size: min(var(--fs-train-word), 11vw); }
   .player-task { max-width: none; }
 }

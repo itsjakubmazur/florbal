@@ -84,6 +84,8 @@ export default function player({ profile, workout, settings: s = {} }, { go, onB
     sv = createStationView({ station: st, grip, ball: drillKind(d) === 'ball', pattern: pattern(d) || [] });
     stage.replaceChildren(sv.el);
     if (drillKind(d) === 'stretch') sv.setPlayerVisible(true);
+    // rozcvička a protažení: kužely, které cvik nepoužívá, se nekreslí (u protažení žádné)
+    if (drillKind(d) !== 'ball') sv.showCones((pattern(d) || []).map(stepCone).filter(Boolean), { rest: 0 });
   }
 
   // povel: kužel (piktogram s číslem), barva (piktogram bez čísla), forhend (kruh F) / bekhend (čtverec B), domeček (H)

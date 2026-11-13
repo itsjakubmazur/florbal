@@ -162,6 +162,9 @@ Povel: změna 140 ms (zmenšení 0,9 → 1), odpočet: číslo naskočí a zmiz�
   palubovky jako rozdělovač). Odpočty a skóre v průběhu zúženě ≥ 72 px, texty v průběhu ≥ 28 px. Meta údaje tichým
   textem, žádné pilulky. Jantarová jen pro hlavní akci, odpočet, rekord a splněný trik.
 - **Moje cesta:** hodnosti jako trasa se spojnicí (skutečná posloupnost), aktuální zastávka v klubové modré.
+- **Výsledek, „Jak se ti to líbilo?“:** tři florbalové míčky s výrazem (`faceSvg`, tokeny míčku), popisek pod každým,
+  výběr prstencem v `--brand-hi`. Otázka stojí nad „Domů“: na šířku vedle karty hráče, na výšku pod ní.
+- **Rozcvička a protažení:** na palubovce jen kužely, které cvik používá (protažení žádné).
 
 ## Ikona appky
 `scripts/build-icons.mjs`: navy pozadí, modrá palubovka s bílým mantinelem a zaobleným rohem, bílá hůl, jantarová čepel, míček.

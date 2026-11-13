@@ -3,7 +3,7 @@ import { allDrills, drillKind, drillCost } from './trainer.js';
 import { stationsFor, getStation } from './stations.js';
 
 const shuffle = (a, rnd = Math.random) => { const x = [...a]; for (let i = x.length - 1; i > 0; i--) { const j = Math.floor(rnd() * (i + 1)); [x[i], x[j]] = [x[j], x[i]]; } return x; };
-const pack = (station, list) => ({ station, drills: list, totalSec: list.reduce((a, d) => a + drillCost(d), 0) });
+const pack = (station, list, mode) => ({ mode, station, drills: list, totalSec: list.reduce((a, d) => a + drillCost(d), 0) });
 
 export const isReaction = (d) => drillKind(d) === 'ball' && (d.callMode === 'náhodná reakce' || d.callMode === 'barva');
 
@@ -25,7 +25,7 @@ export function reactionWorkout(profile, { quiet = false, max = 5, rnd = Math.ra
   const main = ids[0];
   const list = shuffle([...by[main], ...(main !== 'spot' && by.spot ? by.spot : [])], rnd).sort((a, b) => a.level - b.level).slice(0, max);
   const warm = shuffle(allDrills().filter((d) => drillKind(d) === 'nobal' && d.setupId === 'spot' && d.level <= level && (!quiet || d.noise === 'tichý')), rnd).slice(0, 1);
-  return pack(getStation(main), [...warm, ...list]);
+  return pack(getStation(main), [...warm, ...list], 'reaction');
 }
 
 /** Samostatná rozcvička (kind nobal) nebo protažení (kind stretch), cca 3–4 minuty, jen na místě (spot, nic se nestaví). */
@@ -36,5 +36,5 @@ export function kindWorkout(profile, kind, { quiet = false, targetSec = 210, rnd
   let t = 0;
   for (const d of pool) { if (list.length && t + drillCost(d) > targetSec) continue; list.push(d); t += drillCost(d); if (t >= targetSec) break; }
   if (!list.length) return null;
-  return pack(getStation(list[0].setupId) || getStation('spot'), list);
+  return pack(getStation(list[0].setupId) || getStation('spot'), list, kind);
 }

@@ -8,6 +8,8 @@ import { stationFor, getStation, stationsFor, allStations } from '../domain/stat
 import { buildWorkout } from '../domain/trainer.js';
 import { settings } from '../storage/index.js';
 
+const cvikuLabel = (n) => `${n} ${n === 1 ? 'cvik' : n >= 2 && n <= 4 ? 'cviky' : 'cviků'}`;
+
 export default function setup({ profileId, stationId, workout = null }, { go, back }) {
   const el = h('section', 'screen top');
   el.dataset.test = 'setup';
@@ -19,7 +21,8 @@ export default function setup({ profileId, stationId, workout = null }, { go, ba
     let station = stationFor(getStation(wk ? wk.station.id : stationId) || allStations()[0], p.grip);
     let i = 0;
 
-    const head = header(wk ? 'Než začneme trénink' : 'Návod na postavení', `Postav ${station.name.toLowerCase()}`, () => { stopVoice(); back(); });
+    const context = !wk ? 'Návod na postavení' : wk.mode === 'reaction' ? `Reakce na povel, ${cvikuLabel(wk.drills.length)}` : 'Než začneme trénink';
+    const head = header(context, `Postav ${station.name.toLowerCase()}`, () => { stopVoice(); back(); });
     const body = h('div', 'setup-body');
     const stage = h('div', 'setup-stage');
     const side = h('div', 'setup-side');
@@ -40,7 +43,8 @@ export default function setup({ profileId, stationId, workout = null }, { go, ba
       stage.replaceChildren(sv.el);
       registerTexts(Object.fromEntries(station.setupSteps.map((x, k) => [vkey(k + 1), x.text])));
       head.querySelector('.title').textContent = `Postav ${station.name.toLowerCase()}`;
-      meta.textContent = `${station.short}, potřebuješ asi ${station.size[0]} × ${station.size[1]} m. Místo kuželů můžeš použít boty nebo ponožky.`;
+      const m = (x) => String(x).replace('.', ',');
+      meta.textContent = `${station.short}, potřebuješ asi ${m(station.size[0])} × ${m(station.size[1])} m. Místo kuželů můžeš použít boty nebo ponožky.`;
     };
 
     const paint = (speak = true) => {
@@ -72,7 +76,8 @@ export default function setup({ profileId, stationId, workout = null }, { go, ba
       const extra = h('div', 'setup-extra');
       extra.append(btn(`${icon('play')}Už stojí, trénovat`, 'btn', () => startTraining(), { test: 'setup-skip' }));
       const others = stationsFor(p.space, p.cones);
-      if (others.length > 1) {
+      // reakce si vybrala stanoviště s nejvíc reakčními cviky; „jiné stanoviště“ by z ní složilo běžný trénink
+      if (others.length > 1 && wk.mode !== 'reaction') {
         extra.append(btn(`${icon('refresh')}Jiné stanoviště`, 'btn', () => {
           const k = others.findIndex((x) => x.id === station.id);
           const nx = others[(k + 1) % others.length];

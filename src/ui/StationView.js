@@ -240,10 +240,10 @@ export function createStationView({ station, grip = 'right', ball = true, patter
       const set = new Set((ns || []).map(Number));
       for (const [n, { ring }] of coneEls) ring.setAttribute('opacity', set.has(n) ? 1 : 0);
     },
-    /** Při stavění: kužely, které ještě nejsou položené, jsou průhledné. */
-    showCones(ns) {
+    /** Při stavění: kužely, které ještě nejsou položené, jsou průhledné. rest = průhlednost ostatních (0 = skryté). */
+    showCones(ns, { rest = 0.15 } = {}) {
       const set = ns ? new Set(ns.map(Number)) : null;
-      for (const [n, { g }] of coneEls) g.setAttribute('opacity', !set || set.has(n) ? 1 : 0.15);
+      for (const [n, { g }] of coneEls) g.setAttribute('opacity', !set || set.has(n) ? 1 : rest);
     },
     setPlayerVisible(v) { [player, shaft, blade, ballG, badge].forEach((n) => { n.style.display = v ? '' : 'none'; }); if (v && !ball) { ballG.style.display = 'none'; badge.style.display = 'none'; } },
     reset() {

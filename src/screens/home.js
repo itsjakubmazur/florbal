@@ -6,6 +6,7 @@ import { settings } from '../storage/index.js';
 import { sayGroup, sfx } from '../core/audio.js';
 import { nextXpReward } from '../domain/rewards.js';
 import { weekOf, WEEK_GOAL, challengeOf, challengeDone, completeChallenge, CHALLENGE_XP } from '../domain/extras.js';
+import { m4HomeTiles } from './quick.js';
 
 export default function home({ profileId }, { go }) {
   const el = h('section', 'screen');
@@ -69,6 +70,7 @@ export default function home({ profileId }, { go }) {
     const tiles = h('div', 'tiles');
     const tile = (ic, label, fn, test) => { const b = btn(`${icon(ic)}<span>${label}</span>`, 'card tile', fn, { test }); return b; };
     tiles.append(
+      ...m4HomeTiles(p, go), // M4: Souboje a frajeřinky + Dnešní frajeřinka + rychlé volby
       tile('grid', 'Cviky', () => go('drills', { profileId: p.id }), 'tile-drills'),
       tile('map', 'Stanoviště', () => go('stations', { profileId: p.id }), 'tile-stations'),
       tile('trophy', 'Odměny', () => go('rewards', { profileId: p.id }), 'tile-rewards'),

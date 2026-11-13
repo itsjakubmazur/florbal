@@ -3,7 +3,7 @@ import { saveProfile } from './profiles.js';
 
 export const dayKey = (t) => { const d = new Date(t); return d.getFullYear() * 10000 + (d.getMonth() + 1) * 100 + d.getDate(); };
 const DAYS = ['Po', 'Út', 'St', 'Čt', 'Pá', 'So', 'Ne'];
-export const WEEK_GOAL = 3;
+export const WEEK_GOAL = 4; // týdenní cíl 4 ze 7 dní místo denní série (SUMMARY kap. 4)
 
 export function weekOf(history, now = Date.now()) {
   const d = new Date(now); d.setHours(0, 0, 0, 0);

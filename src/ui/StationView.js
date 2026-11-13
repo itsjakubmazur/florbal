@@ -178,6 +178,9 @@ export function createStationView({ station, grip = 'right', ball = true, patter
       const end = path(1);
       const endP = playerFor(end, relative);
       const t0 = performance.now();
+      // triky: air = míček ve vzduchu (výskok nad čepel + stín na zemi); bez air se míček vrací na zem
+      const liftFrom = st.lift || 0; const liftTo = step.air ? 0.26 : 0;
+      if ((step.air || liftFrom) && !st.shadow) { st.shadow = el('ellipse', { rx: 12, ry: 6, fill: 'var(--bg)', opacity: 0 }); svg.insertBefore(st.shadow, ballG); }
       const frame = (now) => {
         const k = Math.min(1, (now - t0) / Math.max(1, ms));
         const e = ease(k);
@@ -185,6 +188,13 @@ export function createStationView({ station, grip = 'right', ball = true, patter
         const p = { x: fromP.x + (endP.x - fromP.x) * e, y: fromP.y + (endP.y - fromP.y) * e };
         st.ball = b; st.player = p;
         draw(b, p, st.face);
+        if (st.shadow) {
+          const lift = liftFrom + (liftTo - liftFrom) * e + (step.air ? Math.sin(Math.PI * k) * 0.12 : 0);
+          st.lift = k >= 1 ? liftTo : lift;
+          ballG.setAttribute('transform', `translate(${X(b.x)} ${Y(b.y) - lift * S}) scale(${1 + lift * 0.9})`);
+          st.shadow.setAttribute('cx', X(b.x)); st.shadow.setAttribute('cy', Y(b.y) + 6);
+          st.shadow.setAttribute('opacity', lift > 0.01 ? 0.45 : 0);
+        }
         if (k < 1) anim = requestAnimationFrame(frame);
       };
       anim = requestAnimationFrame(frame);

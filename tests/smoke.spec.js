@@ -7,7 +7,10 @@ import fs from 'node:fs';
 function watchErrors(page) {
   const errors = [];
   page.on('console', (m) => { if (m.type() === 'error') errors.push(`console: ${m.text()}`); });
-  page.on('pageerror', (e) => errors.push(`pageerror: ${e.message}`));
+  // WebKit: odchod ze stránky (page.goto) uprostřed tréninku pošle appku do pozadí, ta ohlásí pauzu a rozběhnuté
+  // načítání MP3 se při unloadu zruší hláškou „… due to access control checks“. Jen artefakt navigace v testu.
+  const unloadAbort = (m) => page.context().browser()?.browserType().name() === 'webkit' && /\.mp3 due to access control checks/.test(m);
+  page.on('pageerror', (e) => { if (!unloadAbort(e.message)) errors.push(`pageerror: ${e.message}`); });
   return errors;
 }
 async function noHorizontalScroll(page, label) {

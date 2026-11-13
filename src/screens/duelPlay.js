@@ -39,7 +39,7 @@ export default function duelPlay({ profileId, cfg }, { go, onBack }) {
   // ---- horní lišta ----
   const bar = h('div', 'm4-bar');
   const title = h('div', 'm4-col'); title.style.gap = '2px';
-  const nameEl = h('div', 'eyebrow', escapeHtml(cfg.name));
+  const nameEl = h('div', 'label', escapeHtml(cfg.name));
   const turnEl = h('div', 'm4-turn'); turnEl.dataset.test = 'turn';
   title.append(nameEl, turnEl);
   const undoB = btn(`${icon('back')}Zpět o krok`, 'btn', () => undo(), { test: 'undo' });
@@ -195,7 +195,7 @@ export default function duelPlay({ profileId, cfg }, { go, onBack }) {
       } else box.append(h('div', 'm4-pl-sub', pl.results.length ? `Pokusy: ${pl.results.map((v) => fmtScore(cfg, v)).join(', ')}` : ''));
       box.append(h('div', 'm4-pl-sub', left > 0 ? `Zbývá ${left} ${left === 1 ? 'pokus' : left < 5 ? 'pokusy' : 'pokusů'}` : 'Hotovo'));
     }
-    if (mode === 'race') box.append(h('div', 'm4-pl-sub', `Do cíle: ${Math.max(0, cfg.target - pl.score)} · vedle ${pl.misses}×`));
+    if (mode === 'race') box.append(h('div', 'm4-pl-sub', `Do cíle ${Math.max(0, cfg.target - pl.score)}, vedle ${pl.misses}×`));
     if (mode === 'series') box.append(h('div', 'm4-pl-sub', `Vyhraná kola (na ${winRounds(cfg)})`));
     if (st.finished) { if (st.winners.includes(i) && !solo) box.classList.add('active'); return box; }
 
@@ -287,18 +287,18 @@ export default function duelPlay({ profileId, cfg }, { go, onBack }) {
       const sc = st.players[0].score;
       const better = cfg.scoring === 'trefy' ? 'higher' : cfg.better;
       record = sc != null && (pb == null || (better === 'lower' ? sc < pb : sc > pb));
-      line = record ? (pb == null ? 'První rekord je zapsaný!' : 'Nový osobní rekord!') : `Rekord je ${fmtScore(cfg, pb)}. Příště ho dáš!`;
+      line = record ? (pb == null ? 'První rekord je zapsaný' : 'Nový osobní rekord') : `Rekord zůstává ${fmtScore(cfg, pb)}. Příště ho dáš`;
       if (record) say('duel_record', { kind: 'phrase' }); else say('record_beat', { kind: 'phrase' });
     } else if (st.draw) {
-      line = 'Remíza!'; say('duel_draw', { kind: 'phrase' });
+      line = 'Remíza'; say('duel_draw', { kind: 'phrase' });
     } else {
       const w = cfg.players[st.winners[0]];
-      line = `Vyhrává ${w.name}!`;
+      line = `Vyhrává ${w.name}`;
       sayText(line);
       if (meId >= 0 && !st.winners.includes(meId)) sayGroup('duel_rematch'); else sayGroup('duel_win');
     }
-    res.append(h('div', 'title', escapeHtml(line)));
-    if (!solo && meId >= 0 && !st.draw && !st.winners.includes(meId)) res.append(h('div', 'm4-strong', 'Odveta zítra! Každý souboj tě zlepšuje.'));
+    res.append(h('div', 'm4-result-line', escapeHtml(line)));
+    if (!solo && meId >= 0 && !st.draw && !st.winners.includes(meId)) res.append(h('div', 'lead', 'Odveta zítra. Každý souboj tě zlepšuje.'));
     const row = h('div', 'm4-row'); row.style.justifyContent = 'center';
     row.append(
       btn(`${icon('back')}Vrátit poslední`, 'btn', () => { ended = false; undo(); }, { test: 'result-undo' }),

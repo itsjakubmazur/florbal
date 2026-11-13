@@ -95,6 +95,7 @@ barva v režimu barev) – je to nápis na ukazateli, ne popisek. Čísla `tabul
   Ostatní karty mají jen vlasovou čáru.
 - Dotykové plochy: mimo trénink `--tap` 56 px, hlavní akce a vše v tréninku `--tap-big` ≥ 88 px; tlačítka pauzy ≥ 96 px
   (hlídá test `tests/smoke.spec.js`).
+  Obrazovky, kde ovládá dítě (třída `.kid` nebo `.m4`: knihovna, odměny, cesta, souboje, triky, testy, karty), ≥ 64 px.
 
 ## Komponenty
 - `.btn-primary` – jantarová plocha, navy text. Jedna na obrazovku (Trénink, Další krok, Domů, Pokračovat).
@@ -131,6 +132,10 @@ Povel: změna 140 ms (zmenšení 0,9 → 1), odpočet: číslo naskočí a zmiz�
 - **Úvod:** obrazovka je hřiště (mantinel, středová čára a kruh), logo klubu do 135 px, název appky zúženým písmem.
 - **Rodiče a průvodce:** stejné komponenty, klidné; jen jedna primární akce.
 - Nadpis vždy první, kontext (krok, hodnost) až pod ním, bez nálepek nad nadpisem.
+- **Souboje a frajeřinky:** jediný moment = tabule skóre táta : syn (`scoreboard()`, zúžená čísla, dítě jantarově, čára
+  palubovky jako rozdělovač). Odpočty a skóre v průběhu zúženě ≥ 72 px, texty v průběhu ≥ 28 px. Meta údaje tichým
+  textem, žádné pilulky. Jantarová jen pro hlavní akci, odpočet, rekord a splněný trik.
+- **Moje cesta:** hodnosti jako trasa se spojnicí (skutečná posloupnost), aktuální zastávka v klubové modré.
 
 ## Ikona appky
 `scripts/build-icons.mjs`: navy pozadí, modrá palubovka s bílým mantinelem a zaobleným rohem, bílá hůl, jantarová čepel, míček.

@@ -16,5 +16,17 @@ vykřičníky), proto proběhl plný postup v 9 průchodech přes sdílené toke
 | Výsledek | [result.md](result.md) |
 | Nastavení hráče | [newPlayer.md](newPlayer.md) |
 | Rodiče | [parent.md](parent.md) |
+| Cviky a Stanoviště | [library.md](library.md) |
+| Odměny | [rewards.md](rewards.md) |
+| Moje cesta | [levels.md](levels.md) |
+| M4: sdílené vrstvy (m4.css, karty, graf) | [m4-shared.md](m4-shared.md) |
+| Souboje a frajeřinky (rozcestník) | [arena.md](arena.md) |
+| Souboje: seznam, nastavení, bezpečnost, průběh, historie, vlastní výzva | [duels.md](duels.md) |
+| Frajeřinky: strom a krok triku | [tricks.md](tricks.md) |
+| Testy dovedností | [skilltests.md](skilltests.md) |
+| Album karet a odhalení karty | [cards.md](cards.md) |
+| Zápas | [match.md](match.md) |
 
-Zbývá na M5: knihovna cviků, stanoviště, odměny, Moje cesta (dostaly jen sdílené tokeny a opravy barev).
+Druhé kolo (M5): knihovna, stanoviště, odměny, Moje cesta a obrazovky M4. `img/before-*` u nich = stav na konci M4.
+Reakce, samostatná rozcvička a protažení nemají vlastní obrazovku (používají Postav stanoviště a Přehrávač).
+Obličeje „Jak se ti to líbilo?“ na Výsledku dostaly jen sdílené mezery z `m4.css`; vlastní audit nemají.

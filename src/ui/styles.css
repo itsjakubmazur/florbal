@@ -228,8 +228,67 @@ button:active, .card:active { transform: scale(.97); }
 .result-gained:empty { display: none; }
 .result-reward { display: flex; align-items: center; gap: var(--sp-3); animation: rise var(--t-slow) var(--ease) backwards; }
 
+/* ---- obrazovky pro dítě mimo trénink (knihovna, odměny, cesta, M4): dotyk ≥ 64 px ---- */
+.kid .btn:not(.btn-big), .kid .btn-primary:not(.btn-big), .m4 .btn:not(.btn-big), .m4 .btn-primary:not(.btn-big) { min-height: max(64px, var(--tap)); }
+.section-title { font-size: var(--fs-lead); font-weight: 600; line-height: 1.2; width: 100%; }
+.section { width: 100%; display: flex; flex-direction: column; gap: var(--sp-3); }
+
+/* ---- knihovna: cviky a stanoviště ---- */
+.lib-grid { display: grid; gap: var(--sp-4); width: 100%; grid-template-columns: repeat(auto-fill, minmax(min(100%, max(340px, calc(var(--u) * 34))), 1fr)); }
+.drill-card { display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; gap: var(--sp-4); text-align: left; padding: var(--sp-3) var(--sp-5) var(--sp-3) var(--sp-3); min-height: 96px; }
+.drill-thumb { width: max(80px, calc(var(--u) * 10)); height: max(80px, calc(var(--u) * 10)); border-radius: calc(var(--r-card) - var(--sp-3)); background: var(--floor); overflow: hidden; pointer-events: none; }
+.drill-name { font-size: var(--fs-lead); font-weight: 600; line-height: 1.2; }
+.drill-meta { font-size: var(--fs-small); color: var(--muted); line-height: 1.3; margin-top: var(--sp-1); }
+.drill-card > .icon { width: max(28px, calc(var(--u) * 3)); height: max(28px, calc(var(--u) * 3)); color: var(--text-2); }
+.drill-card.hard .drill-name { color: var(--text-2); }
+.station-grid { display: grid; gap: var(--sp-4); width: 100%; grid-template-columns: repeat(auto-fill, minmax(min(100%, max(240px, calc(var(--u) * 26))), 1fr)); }
+.station-card { display: flex; flex-direction: column; gap: var(--sp-3); text-align: left; padding: var(--sp-3) var(--sp-3) var(--sp-5); }
+.station-pic { height: max(180px, calc(var(--u) * 22)); border-radius: calc(var(--r-card) - var(--sp-3)); background: var(--floor); pointer-events: none; padding: var(--sp-2); }
+.station-card.no .station-pic { opacity: .4; }
+.station-text { display: flex; flex-direction: column; gap: var(--sp-1); padding: 0 var(--sp-2); }
+.station-name { font-size: var(--fs-lead); font-weight: 600; line-height: 1.2; }
+.station-fit { display: flex; align-items: center; gap: var(--sp-2); font-size: var(--fs-small); color: var(--text-2); }
+.station-fit .icon { color: var(--brand-hi); }
+.station-card.no .station-fit, .station-card.no .station-fit .icon { color: var(--muted); }
+
+/* ---- odměny: kov nese barvu, karta zůstává tichá ---- */
+.reward-grid { display: grid; gap: var(--sp-3); width: 100%; grid-template-columns: repeat(auto-fill, minmax(min(100%, max(150px, calc(var(--u) * 17))), 1fr)); }
+.reward-card { cursor: default; display: flex; flex-direction: column; align-items: center; gap: var(--sp-2); padding: var(--sp-4) var(--sp-3); }
+.reward-name { font-weight: 600; line-height: 1.2; text-wrap: balance; }
+.reward-card .bar { width: 100%; max-width: 140px; height: 8px; margin-top: var(--sp-1); }
+.reward-num { font-size: var(--fs-small); color: var(--muted); }
+.reward-card.got .reward-num { color: var(--text-2); }
+
+/* ---- Moje cesta: hodnosti jako trasa (pořadí je skutečná posloupnost) ---- */
+.path { width: 100%; display: grid; gap: 0 var(--sp-6); grid-template-columns: repeat(2, minmax(0, 1fr)); grid-template-rows: repeat(5, auto); grid-auto-flow: column; }
+@media (orientation: portrait), (max-width: 700px) { .path { grid-template-columns: minmax(0, 1fr); grid-template-rows: none; grid-auto-flow: row; } }
+.path-step { position: relative; display: grid; grid-template-columns: auto minmax(0, 1fr) auto; align-items: center; gap: var(--sp-4); padding: var(--sp-2) var(--sp-4) var(--sp-2) var(--sp-3); min-height: max(72px, calc(var(--u) * 8.4)); }
+/* čára mezi zastávkami */
+.path-step::before { content: ''; position: absolute; left: calc(var(--sp-3) + max(52px, calc(var(--u) * 6)) / 2 - 2px); top: 0; bottom: 0; width: 4px; background: var(--surface-2); z-index: 0; }
+.path-step.first::before { top: 50%; }
+.path-step.last::before { bottom: 50%; }
+.path-step.reached::before { background: var(--brand-hi); }
+.path-step.cur::before { background: linear-gradient(var(--brand-hi) 50%, var(--surface-2) 50%); }
+.path-dot { position: relative; z-index: 1; width: max(52px, calc(var(--u) * 6)); height: max(52px, calc(var(--u) * 6)); border-radius: 50%; display: flex; align-items: center; justify-content: center;
+  font-weight: 700; font-stretch: var(--wide-cond); font-size: max(24px, calc(var(--u) * 2.8)); background: var(--bg); border: 3px solid var(--surface-2); color: var(--muted); }
+.path-step.reached .path-dot { border-color: var(--brand-hi); color: var(--brand-hi); }
+.path-step.cur .path-dot { background: var(--brand); border-color: var(--brand-hi); color: var(--brand-ink); }
+.path-name { font-size: var(--fs-lead); font-weight: 600; line-height: 1.2; color: var(--text-2); }
+.path-step.reached .path-name { color: var(--text); }
+.path-step.future .path-name { color: var(--muted); }
+.path-xp { font-size: var(--fs-small); color: var(--muted); text-align: right; white-space: nowrap; }
+.path-step.cur { background: var(--surface); border: 1px solid var(--line); border-radius: var(--r-card); }
+.path-step.cur .path-name { color: var(--text); }
+.path-cur-info { display: flex; flex-direction: column; gap: var(--sp-2); min-width: 0; }
+.path-cur-info .bar { max-width: 320px; }
+
 @keyframes screen-in { from { opacity: 0; } to { opacity: 1; } }
 @keyframes rise { from { opacity: 0; transform: translateY(8px); } to { opacity: 1; transform: none; } }
 @media (prefers-reduced-motion: reduce) { * { animation-duration: .01ms !important; transition-duration: .01ms !important; } }
 * { scrollbar-width: none; }
 *::-webkit-scrollbar { display: none; }
+@media (orientation: landscape) and (min-width: 701px) {
+  .path-step.col-end::before { bottom: 50%; }
+  .path-step.col-start::before { top: 50%; }
+}
+.path-dot .icon { width: 55%; height: 55%; }

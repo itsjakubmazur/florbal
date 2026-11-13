@@ -15,10 +15,9 @@ const TYPE_LABEL = { 'tyčka': 'Tyčka', 'odraz': 'Odraz', 'volej': 'Volej', 'c�
 
 function challengeCard(c, onClick, test) {
   const b = btn('', 'card m4-item', onClick, { test });
-  const tags = [`<span class="m4-tag">${escapeHtml(c.type === 'kohout' ? 'Písmena' : FORMATS[c.format] || '')}</span>`];
-  if (c.custom) tags.push('<span class="m4-tag hi">Moje</span>');
-  if (homeOnlyLine(c)) tags.push('<span class="m4-tag home">Jen doma</span>');
-  b.innerHTML = `<div class="m4-row" style="gap:6px">${tags.join('')}</div><b class="m4-section-title">${escapeHtml(c.name)}</b><div class="muted">${escapeHtml((c.rules || '').slice(0, 110))}${(c.rules || '').length > 110 ? '…' : ''}</div>`;
+  const meta = [escapeHtml(c.type === 'kohout' ? 'Písmena' : FORMATS[c.format] || '')];
+  if (homeOnlyLine(c)) meta.push('<span class="home">jen doma</span>');
+  b.innerHTML = `<b class="m4-section-title">${escapeHtml(c.name)}</b><div class="m4-meta">${meta.join(', ')}</div><div class="muted">${escapeHtml((c.rules || '').slice(0, 110))}${(c.rules || '').length > 110 ? '…' : ''}</div>`;
   return b;
 }
 
@@ -32,11 +31,11 @@ export function duelsScreen({ profileId, solo = false }, { go, back }) {
     const custom = await listCustom();
     el.append(header(solo ? 'Zápas: sám proti rekordu' : 'Táta vs. syn a trick shoty', solo ? 'Vyber výzvu' : 'Souboje', () => back()));
     const top = h('div', 'm4-row w-full');
-    top.append(btn(`${icon('plus')}Vlastní výzva`, 'btn-primary', () => go('customChallenge', { profileId: p.id }), { test: 'custom-new' }));
+    top.append(btn(`${icon('plus')}Vlastní výzva`, 'btn', () => go('customChallenge', { profileId: p.id }), { test: 'custom-new' }));
     if (!solo) top.append(btn(`${icon('list')}Historie a síň slávy`, 'btn', () => go('duelStats', { profileId: p.id }), { test: 'duel-stats' }));
     el.append(top);
     if (custom.length) {
-      el.append(h('div', 'eyebrow w-full', 'Moje výzvy'));
+      el.append(h('div', 'section-title', 'Moje výzvy'));
       const g = h('div', 'm4-grid');
       custom.forEach((c) => g.append(challengeCard(c, () => go('duelSetup', { profileId: p.id, challengeId: c.id, solo }), `ch-${c.id}`)));
       el.append(g);
@@ -45,7 +44,7 @@ export function duelsScreen({ profileId, solo = false }, { go, back }) {
     for (const [title, f] of groups) {
       const list = libraryChallenges().filter(f).filter((c) => !solo || (c.type !== 'kohout' && c.format !== 'série' && !String(c.players).startsWith('2')));
       if (!list.length) continue;
-      el.append(h('div', 'eyebrow w-full', title));
+      el.append(h('div', 'section-title', title));
       const g = h('div', 'm4-grid');
       list.forEach((c) => g.append(challengeCard(c, () => go('duelSetup', { profileId: p.id, challengeId: c.id, solo }), `ch-${c.id}`)));
       el.append(g);
@@ -67,16 +66,16 @@ export function duelSetupScreen({ profileId, challengeId, solo = false, players:
     const mode0 = modeOf(cfg);
 
     el.append(header(TYPE_LABEL[ch.type] || 'Výzva', escapeHtml(ch.name), () => { stopVoice(); back(); }));
-    const split = h('div', 'm4-split');
-    const left = h('div', 'm4-col'); const right = h('div', 'm4-col');
-    split.append(left, right);
+    const split = h('div', 'm4-setup');
+    const left = h('div', 'm4-col rules'); const right = h('div', 'm4-col opts'); const startBox = h('div', 'start');
+    split.append(left, right, startBox);
     el.append(split);
 
     // pravidla, výbava, fotky, jen doma
-    left.append(h('div', 'm4-strong', escapeHtml(ch.rules || 'Pravidla si domluvte.')));
+    left.append(h('div', 'm4-rules', escapeHtml(ch.rules || 'Pravidla si domluvte.')));
     if (ch.equipment && ch.equipment.length) left.append(h('div', 'muted', `Potřebujete: ${escapeHtml(ch.equipment.join(', '))}`));
     const hol = homeOnlyLine(ch);
-    if (hol) { const n = h('div', 'm4-note warn', `${icon('warn')} ${escapeHtml(hol)}`); n.dataset.test = 'home-only'; left.append(n); }
+    if (hol) { const n = h('div', 'm4-note warn', `${icon('warn')}<span>${escapeHtml(hol)}</span>`); n.dataset.test = 'home-only'; left.append(n); }
     if (ch.matchNote) left.append(h('div', 'muted', escapeHtml(ch.matchNote)));
     if (ch.custom && (ch.targetPhoto || ch.wallPhoto || ch.targetName || ch.wallName)) {
       const ph = h('div', 'm4-grid small');
@@ -103,7 +102,7 @@ export function duelSetupScreen({ profileId, challengeId, solo = false, players:
     // hráči
     const plBox = h('div', 'panel');
     const paintPlayers = () => {
-      plBox.replaceChildren(h('div', 'eyebrow', solo ? 'Hraješ sám proti rekordu' : 'Hráči'));
+      plBox.replaceChildren(h('div', 'field-label', solo ? 'Hraješ sám proti rekordu' : 'Hráči'));
       const list = h('div', 'm4-row');
       players.forEach((pl, i) => {
         const b = btn(`${escapeHtml(pl.name)}${players.length > 1 && !solo ? ` ${icon('x')}` : ''}`, 'btn on', () => { if (players.length > 1 && !solo) { players.splice(i, 1); paintPlayers(); paintOpts(); } }, { test: `pl-${i}` });
@@ -146,7 +145,7 @@ export function duelSetupScreen({ profileId, challengeId, solo = false, players:
       }
       if (solo) {
         const pb = personalBest(duels, ch.id, p.id);
-        optBox.append(h('div', 'm4-note', pb == null ? 'Zatím žádný rekord. První výsledek bude tvůj rekord.' : `Tvůj rekord: <b>${escapeHtml(fmtScore(cfg, pb))}</b>. Porazíš ho?`));
+        optBox.append(h('div', 'm4-note', `${icon('trophy')}<span>${pb == null ? 'Zatím žádný rekord. První výsledek bude tvůj rekord.' : `Tvůj rekord je <b>${escapeHtml(fmtScore(cfg, pb))}</b>. Porazíš ho?`}</span>`));
       }
     };
     paintPlayers(); paintOpts();
@@ -154,18 +153,18 @@ export function duelSetupScreen({ profileId, challengeId, solo = false, players:
 
     const start = btn(`${icon('play')}Začít souboj`, 'btn-primary btn-big', () => safety(), { auto: true, test: 'duel-start' });
     if (solo) start.innerHTML = `${icon('play')}Začít`;
-    right.append(start);
+    startBox.append(start);
 
     const safety = () => {
       if (!players.length) return;
       stopVoice();
-      el.replaceChildren(header('Bezpečnost', 'Než začneme', () => { stopVoice(); go('duelSetup', { profileId, challengeId, solo, players }, { replace: true }); }));
-      const box = h('div', 'm4-col'); box.dataset.test = 'duel-safety';
-      for (const [ic, t] of [['users', 'Nikdo v dosahu hole, diváci stojí za střelcem.'], ['warn', 'Hůl pod pasem, žádný velký nápřah.'], ['shield', 'Křehké věci pryč, cíl u zdi.'], ['lock', 'Tablet stranou, mimo dráhu míčku.']]) {
-        box.append(h('div', 'm4-note', `${icon(ic)} <b>${t}</b>`));
+      el.replaceChildren(header(escapeHtml(ch.name), 'Než začneme', () => { stopVoice(); go('duelSetup', { profileId, challengeId, solo, players }, { replace: true }); }));
+      const box = h('div', 'm4-check'); box.dataset.test = 'duel-safety';
+      for (const [ic, t] of [['users', 'Nikdo v dosahu hole, diváci stojí za střelcem'], ['warn', 'Hůl pod pasem, žádný velký nápřah'], ['shield', 'Křehké věci pryč, cíl u zdi'], ['lock', 'Tablet stranou, mimo dráhu míčku']]) {
+        box.append(h('div', 'm4-check-item', `${icon(ic)}<span>${t}</span>`));
       }
       if (ch.safety) box.append(h('div', 'muted', escapeHtml(ch.safety)));
-      if (hol) box.append(h('div', 'm4-note warn', escapeHtml(hol)));
+      if (hol) box.append(h('div', 'm4-note warn', `${icon('warn')}<span>${escapeHtml(hol)}</span>`));
       el.append(box, btn(`${icon('check')}Je to bezpečné, jdeme na to`, 'btn-primary btn-big', () => {
         stopVoice();
         go('duelPlay', { profileId: p.id, cfg: { ...cfg, players: players.map((x) => ({ ...x })) } }, { replace: true });
@@ -223,16 +222,16 @@ export function customChallengeScreen({ profileId, editId = null, baseId = null 
       const inp = h('input', 'text-input left', '', { maxlength: '40', placeholder: ph });
       inp.value = c[nameKey] || '';
       inp.addEventListener('input', () => { c[nameKey] = inp.value; });
-      const pic = h('div', 'm4-photo', `${icon('camera')}&nbsp;Bez fotky`);
-      const show = async () => { const u = await mediaUrl(c[photoKey]); pic.innerHTML = u ? `<img src="${u}" alt="${escapeHtml(label)}">` : `${icon('camera')}&nbsp;Bez fotky`; };
+      const pic = h('div', 'm4-photo', `${icon('camera')}Bez fotky`);
+      const show = async () => { const u = await mediaUrl(c[photoKey]); pic.innerHTML = u ? `<img src="${u}" alt="${escapeHtml(label)}">` : `${icon('camera')}Bez fotky`; };
       show();
       const row = h('div', 'm4-row');
       row.append(btn(`${icon('camera')}Vyfotit`, 'btn', async () => {
         const f = await pickPhoto(); if (!f) return;
         try { const id = await savePhoto(f); newPhotos.push(id); c[photoKey] = id; show(); } catch (e) { pic.textContent = 'Fotku se nepodařilo uložit.'; }
       }, { test: `photo-${photoKey}` }));
-      row.append(btn(`${icon('trash')}Bez fotky`, 'btn', () => { c[photoKey] = null; show(); }));
-      box.append(h('div', 'eyebrow', label), inp, pic, row);
+      row.append(btn(`${icon('trash')}Smazat fotku`, 'btn', () => { c[photoKey] = null; show(); }));
+      box.append(h('div', 'field-label', label), inp, pic, row);
       return box;
     };
     right.append(photoField('Cíl', 'targetName', 'targetPhoto', 'Např. branka, kelímek, krabice'), photoField('Mantinel (od čeho se odráží)', 'wallName', 'wallPhoto', 'Např. noha gauče, zeď'));

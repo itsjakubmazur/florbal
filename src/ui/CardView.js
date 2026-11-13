@@ -3,7 +3,7 @@
 // Barvy jen přes CSS proměnné (m4.css → tokens.js).
 import './m4.css';
 import { h, escapeHtml } from './dom.js';
-import { RARITY, unlockText } from '../domain/cards.js';
+import { RARITY } from '../domain/cards.js';
 
 let uidN = 0;
 const ball = (x, y, r = 11) => `<g transform="translate(${x} ${y})"><circle r="${r}" fill="var(--ball)" stroke="var(--ball-edge, var(--bg))" stroke-width="2"/>
@@ -29,7 +29,7 @@ export function cardArt(cat) {
     case 'reakce': return `${cone(40, 40, 'red', 0.85)}${cone(160, 40, 'blue', 0.85)}${cone(40, 120, 'green', 0.85)}${cone(160, 120, 'yellow', 0.85)}
       <circle cx="160" cy="40" r="26" fill="none" stroke="var(--m4-hi)" stroke-width="5"/>${dash('M100 80 L145 50')}${arrowHead(148, 48, -34)}${ball(100, 82)}`;
     case 'jednoruč': return `${stick(80, 18, 112, 98, 1)}<circle cx="80" cy="18" r="11" fill="var(--player)" stroke="var(--stick)" stroke-width="3"/>${ball(146, 104)}
-      <text x="40" y="70" font-size="44" font-weight="800" fill="var(--m4-hi)" font-family="var(--font)">1</text>`;
+      <text x="40" y="70" font-size="44" font-weight="700" fill="var(--m4-hi)" font-family="var(--font)">1</text>`;
     case 'kličky': return `${cone(110, 60, 'red')}${dash('M30 115 L80 70 L130 115 L180 60')}${arrowHead(186, 54, -45)}${ball(80, 72)}`;
     case 'kombinace': return `${cone(45, 50, 'blue', 0.8)}${cone(155, 50, 'red', 0.8)}${dash('M30 120 C70 20 130 140 175 40')}${star(100, 95, 22, 'var(--m4-hi)')}${ball(170, 115)}`;
     case 'triky': return `<ellipse cx="100" cy="128" rx="22" ry="6" fill="var(--bg)" opacity=".55"/>${dash('M70 120 Q100 10 130 120', 'var(--m4-brand-hi)')}${stick(48, 30, 82, 122, 1)}${ball(100, 46, 13)}
@@ -38,7 +38,7 @@ export function cardArt(cat) {
       ${[0, 1, 2, 3].map((i) => `<line x1="${128 + i * 14}" y1="44" x2="${128 + i * 14}" y2="106" stroke="var(--line)" stroke-width="2"/>`).join('')}
       ${dash('M30 120 Q90 20 140 76')}${ball(146, 80)}${stick(14, 50, 34, 118, 1)}`;
     case 'vytrvalost': return `${[0, 1, 2, 3, 4, 5, 6].map((i) => star(28 + i * 24, 80, 11, i < 4 ? 'var(--m4-hi)' : 'var(--surface-2)')).join('')}
-      <text x="100" y="40" text-anchor="middle" font-size="26" font-weight="800" fill="var(--text)" font-family="var(--font)">4 ze 7</text>`;
+      <text x="100" y="40" text-anchor="middle" font-size="26" font-weight="700" fill="var(--text)" font-family="var(--font)">4 ze 7</text>`;
     default: return `${ball(100, 75, 18)}`;
   }
 }
@@ -57,25 +57,25 @@ export function cardView(card, { owned = true, small = false } = {}) {
   el.dataset.owned = owned ? '1' : '0';
   const legend = card.rarity === 'legend';
   const name = escapeHtml(card.name);
-  const desc = escapeHtml(owned ? card.description : unlockText(card));
+  const desc = escapeHtml(owned ? card.description : 'Zatím zamčená karta');
   // SVG 250 × 350: rámeček (mantinel), palubovka s ilustrací, název a popis (popis přes foreignObject kvůli zalamování)
   el.innerHTML = `<svg viewBox="0 0 250 350" role="img" aria-label="${name}${owned ? '' : ' (zamčená karta)'}">
     <defs><clipPath id="${id}"><rect x="22" y="44" width="206" height="160" rx="22"/></clipPath></defs>
-    <rect x="4" y="4" width="242" height="342" rx="24" fill="var(--surface)" stroke="${col}" stroke-width="${legend ? 8 : card.rarity === 'common' ? 4 : 6}"/>
+    <rect x="4" y="4" width="242" height="342" rx="24" fill="var(--surface)" stroke="${col}" stroke-opacity="${owned ? 1 : 0.45}" stroke-width="${legend ? 8 : card.rarity === 'common' ? 4 : 6}"/>
     ${legend ? `<rect x="13" y="13" width="224" height="324" rx="18" fill="none" stroke="${col}" stroke-width="2" opacity=".8"/>` : ''}
-    <text x="24" y="32" font-size="15" font-weight="800" fill="${col}" font-family="var(--font)" letter-spacing="1.5">${escapeHtml((RARITY[card.rarity] || RARITY.common).name.toUpperCase())}</text>
+    <text x="24" y="32" font-size="16" font-weight="600" fill="${col}" font-family="var(--font)">${escapeHtml((RARITY[card.rarity] || RARITY.common).name)}</text>
     <g clip-path="url(#${id})">
       <rect x="22" y="44" width="206" height="160" fill="var(--floor)"/>
       <line x1="125" y1="44" x2="125" y2="204" stroke="var(--floor-line)" stroke-width="3"/>
       <circle cx="125" cy="124" r="34" fill="none" stroke="var(--floor-line)" stroke-width="3"/>
       <g transform="translate(25 49)" ${owned ? '' : 'opacity=".22"'}>${cardArt(card.skillCategory)}</g>
     </g>
-    <rect x="22" y="44" width="206" height="160" rx="22" fill="none" stroke="var(--mantinel, var(--line))" stroke-width="4"/>
+    <rect x="22" y="44" width="206" height="160" rx="22" fill="none" stroke="${owned ? 'var(--mantinel, var(--line))' : 'var(--line-strong, var(--line))'}" stroke-width="4"/>
     ${owned ? '' : `<g transform="translate(125 124)"><circle r="26" fill="var(--surface-2)"/><path d="M-9 -2 v-6 a9 9 0 0 1 18 0 v6" fill="none" stroke="var(--text)" stroke-width="4"/><rect x="-13" y="-3" width="26" height="19" rx="4" fill="var(--text)"/></g>`}
     <foreignObject x="18" y="212" width="214" height="128">
-      <div xmlns="http://www.w3.org/1999/xhtml" style="font-family:var(--font);color:var(--text);display:flex;flex-direction:column;gap:4px;height:100%">
-        <div style="font-weight:800;font-size:${name.length > 18 ? 20 : 23}px;line-height:1.05">${name}</div>
-        <div style="font-weight:600;font-size:${small ? 14 : 15}px;line-height:1.25;color:var(--m4-text-2)">${desc}</div>
+      <div xmlns="http://www.w3.org/1999/xhtml" style="font-family:var(--font);color:var(--text);display:flex;flex-direction:column;gap:4px;height:100%;text-align:center;${small ? 'justify-content:center;padding-bottom:12px' : ''}">
+        <div style="font-weight:650;font-size:${small ? (name.length > 14 ? 25 : 29) : name.length > 18 ? 20 : 23}px;line-height:1.05">${name}</div>
+        ${small ? '' : `<div style="font-weight:500;font-size:15px;line-height:1.25;color:var(--m4-text-2)">${desc}</div>`}
       </div>
     </foreignObject>
   </svg>`;

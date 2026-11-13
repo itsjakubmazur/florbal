@@ -28,17 +28,17 @@ export async function startKind(p, kind, go) {
 
 /** Zápas: dvě velké volby. */
 export function matchScreen({ profileId }, { go, back }) {
-  const el = h('section', 'screen m4');
+  const el = h('section', 'screen top m4');
   el.dataset.test = 'match';
   (async () => {
     const p = await getProfile(profileId);
     if (!p) return go('profiles', {}, { replace: true });
     el.append(header('Zápas', 'Proti komu hraješ?', () => back()));
     const g = h('div', 'm4-grid');
-    const big = (ic, t, s, fn, test) => btn(`${icon(ic)}<span class="m4-col" style="gap:4px"><span class="t">${t}</span><span class="s">${s}</span></span>`, 'card m4-hero-tile', fn, { test });
+    const big = (ic, t, s, fn, test) => btn(`${icon(ic)}<span class="m4-col" style="gap:var(--sp-1)"><span class="t">${t}</span><span class="s">${s}</span></span>`, 'card m4-hero-tile', fn, { test });
     g.append(
-      big('timer', 'Sám proti rekordu: test', 'Přetahování, slalom, žonglování…', () => go('skilltests', { profileId: p.id, solo: true }), 'match-test'),
-      big('star', 'Sám proti rekordu: výzva', 'Trick shot, porazíš svůj nejlepší výkon?', () => go('duels', { profileId: p.id, solo: true }), 'match-solo'),
+      big('timer', 'Test proti rekordu', 'Přetahování, slalom nebo žonglování', () => go('skilltests', { profileId: p.id, solo: true }), 'match-test'),
+      big('star', 'Výzva proti rekordu', 'Trick shot, porazíš svůj nejlepší výkon?', () => go('duels', { profileId: p.id, solo: true }), 'match-solo'),
       big('swords', 'Táta vs. syn', 'Střídáte se, Trenér počítá a hlásí', () => go('duels', { profileId: p.id }), 'match-duel'),
     );
     el.append(g);
@@ -57,10 +57,10 @@ export function m4HomeTiles(p, go) {
   trickProgress(p.id).then((prog) => {
     const pick = dailyPick(prog);
     if (pick.kind === 'step') {
-      daily.innerHTML = `<div class="eyebrow">Dnešní frajeřinka · ${escapeHtml(pick.trick.name)}</div><b class="m4-section-title">${escapeHtml(pick.step.name)}</b><div class="muted">${escapeHtml(pick.step.criterion)}</div>`;
+      daily.innerHTML = `<div class="eyebrow">Dnešní frajeřinka, ${escapeHtml(pick.trick.name)}</div><b class="m4-section-title">${escapeHtml(pick.step.name)}</b><div class="muted">${escapeHtml(pick.step.criterion)}</div>`;
       daily.onclick = (e) => { e.stopPropagation(); say('daily_trick', { kind: 'phrase' }); go('trick', { profileId: p.id, trickId: pick.trick.id, stepIdx: pick.trick.steps.indexOf(pick.step) }); };
     } else {
-      daily.innerHTML = `<div class="eyebrow">Dnešní frajeřinka · výzva</div><b class="m4-section-title">${escapeHtml(pick.challenge.name)}</b><div class="muted">${escapeHtml(pick.challenge.rules.slice(0, 90))}${pick.challenge.rules.length > 90 ? '…' : ''}</div>`;
+      daily.innerHTML = `<div class="eyebrow">Dnešní frajeřinka, výzva</div><b class="m4-section-title">${escapeHtml(pick.challenge.name)}</b><div class="muted">${escapeHtml(pick.challenge.rules.slice(0, 90))}${pick.challenge.rules.length > 90 ? '…' : ''}</div>`;
       daily.onclick = (e) => { e.stopPropagation(); say('daily_trick', { kind: 'phrase' }); go('duelSetup', { profileId: p.id, challengeId: pick.challenge.id }); };
     }
   }).catch(() => {});

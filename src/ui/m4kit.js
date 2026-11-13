@@ -65,11 +65,11 @@ export function lineChart(points, { better = 'higher', fmt = (v) => String(v) } 
   const dates = [0, points.length - 1].map((i) => ({ i, t: new Date(points[i].date).toLocaleDateString('cs-CZ', { day: 'numeric', month: 'numeric' }) }));
   box.innerHTML = `<svg viewBox="0 0 ${W} ${H}" role="img" aria-label="Graf zlepšení">
     ${grid.map((g) => `<line x1="${L}" x2="${W - R}" y1="${yv(g)}" y2="${yv(g)}" stroke="var(--line)" stroke-width="1.5"/>
-      <text x="${L - 10}" y="${yv(g) + 6}" text-anchor="end" font-size="18" font-weight="700" fill="var(--muted)">${escapeHtml(fmt(Math.round(g * 10) / 10))}</text>`).join('')}
+      <text x="${L - 10}" y="${yv(g) + 6}" text-anchor="end" font-size="18" font-weight="500" fill="var(--muted)">${escapeHtml(fmt(Math.round(g * 10) / 10))}</text>`).join('')}
     <path d="${path}" fill="none" stroke="var(--m4-brand-hi)" stroke-width="5" stroke-linejoin="round" stroke-linecap="round"/>
     ${points.map((p, i) => `<circle cx="${x(i)}" cy="${yv(p.value)}" r="${p.value === bestV ? 11 : 7}" fill="${p.value === bestV ? 'var(--m4-hi)' : 'var(--m4-brand-hi)'}" stroke="var(--bg)" stroke-width="3"/>`).join('')}
-    ${dates.map((d) => `<text x="${x(d.i)}" y="${H - 10}" text-anchor="${d.i ? 'end' : 'start'}" font-size="18" font-weight="700" fill="var(--muted)">${d.t}</text>`).join('')}
-    <text x="${W - R}" y="${T + 4}" text-anchor="end" font-size="16" font-weight="700" fill="var(--muted)">${better === 'lower' ? 'nahoře = rychlejší' : 'nahoře = víc'}</text>
+    ${dates.map((d) => `<text x="${x(d.i)}" y="${H - 10}" text-anchor="${d.i ? 'end' : 'start'}" font-size="18" font-weight="500" fill="var(--muted)">${d.t}</text>`).join('')}
+    <text x="${W - R}" y="${T + 4}" text-anchor="end" font-size="16" font-weight="500" fill="var(--muted)">${better === 'lower' ? 'nahoře = rychlejší' : 'nahoře = víc'}</text>
   </svg>`;
   return box;
 }
@@ -103,3 +103,16 @@ export function confirmBox(text, yesLabel, onYes) {
   o.el.append(row);
   return o;
 }
+
+/** Tabule skóre táta vs. syn (zúžená čísla jako na ukazateli v hale). Dítě vpravo, jeho číslo jantarově. */
+export function scoreboard(leftName, left, rightName, right) {
+  const el = h('div', 'm4-score');
+  el.innerHTML = `<div class="m4-score-side"><div class="m4-score-n">${left}</div><div class="m4-score-name">${escapeHtml(leftName)}</div></div>
+    <div class="m4-score-colon" aria-hidden="true">:</div>
+    <div class="m4-score-side r"><div class="m4-score-n kid">${right}</div><div class="m4-score-name">${escapeHtml(rightName)}</div></div>`;
+  el.setAttribute('aria-label', `${leftName} ${left}, ${rightName} ${right}`);
+  return el;
+}
+
+/** Skloňování počtu: plural(3, 'souboj', 'souboje', 'soubojů'). */
+export const plural = (n, one, few, many) => `${n} ${n === 1 ? one : n > 1 && n < 5 ? few : many}`;

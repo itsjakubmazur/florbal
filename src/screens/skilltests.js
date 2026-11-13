@@ -30,9 +30,9 @@ export function skillTestsScreen({ profileId, solo = false }, { go, back }) {
       const pr = personalRecord(t, res);
       const n = res.filter((r) => r.testId === t.id).length;
       const b = btn('', 'card m4-item', () => go('skilltest', { profileId: p.id, testId: t.id }), { test: `test-${t.id}` });
-      b.innerHTML = `<div class="m4-row" style="gap:6px"><span class="m4-tag">${t.durationSec ? `${t.durationSec} s` : t.unit === 's' ? 'stopky' : 'počet'}</span>${getStation(t.setupId) ? `<span class="m4-tag">${escapeHtml(getStation(t.setupId).name)}</span>` : ''}</div>
-        <b class="m4-section-title">${escapeHtml(t.name)}</b>
-        <div>${pr == null ? '<span class="muted">Zatím bez rekordu</span>' : `Rekord: <b style="color:var(--m4-hi)">${escapeHtml(fmtValue(t, pr))}</b> <span class="muted">· ${n}× měřeno</span>`}</div>`;
+      const meta = [t.durationSec ? `${t.durationSec} s` : t.unit === 's' ? 'Stopky' : 'Počet', getStation(t.setupId) ? getStation(t.setupId).name : ''].filter(Boolean).join(', ');
+      b.innerHTML = `<b class="m4-section-title">${escapeHtml(t.name)}</b><div class="m4-meta">${escapeHtml(meta)}</div>
+        <div class="m4-test-rec">${pr == null ? '<span class="muted">Zatím bez rekordu</span>' : `<span class="m4-rec-n">${escapeHtml(fmtValue(t, pr))}</span><span class="muted">rekord, měřeno ${n}×</span>`}</div>`;
       g.append(b);
     }
     el.append(g);
@@ -53,7 +53,7 @@ export function skillTestScreen({ profileId, testId }, { go, back, onBack }) {
     let results = await listResults(p.id, t.id);
     const attempts = t.attempts || 1;
     let values = [];
-    el.append(header(`${attempts > 1 ? `${attempts} pokusy, platí nejlepší` : 'Jeden pokus'}${t.better === 'lower' ? ' · méně je lépe' : ''}`, escapeHtml(t.name), () => { stopVoice(); stopTimer(); back(); }));
+    el.append(header(`${attempts > 1 ? `${attempts} pokusy, platí nejlepší` : 'Jeden pokus'}${t.better === 'lower' ? ', méně je lépe' : ''}`, escapeHtml(t.name), () => { stopVoice(); stopTimer(); back(); }));
     const split = h('div', 'm4-split');
     const left = h('div', 'm4-col'); const right = h('div', 'm4-col'); right.style.alignItems = 'center';
     split.append(left, right); el.append(split);
@@ -62,16 +62,16 @@ export function skillTestScreen({ profileId, testId }, { go, back, onBack }) {
     const paintLeft = () => {
       const pr = personalRecord(t, results);
       left.replaceChildren(
-        h('div', 'm4-strong', escapeHtml(t.howTo)),
+        h('div', 'm4-rules', escapeHtml(t.howTo)),
         h('div', 'muted', `Potřebuješ: ${escapeHtml((t.equipment || []).join(', '))}`),
-        h('div', 'm4-note', pr == null ? 'Zatím žádný rekord. První měření bude tvůj rekord.' : `Osobní rekord: <b data-test="test-record">${escapeHtml(fmtValue(t, pr))}</b>`),
-        h('div', 'eyebrow', 'Zlepšení'),
+        h('div', 'm4-note', `${icon('trophy')}<span>${pr == null ? 'Zatím žádný rekord. První měření bude tvůj rekord.' : `Osobní rekord <b data-test="test-record">${escapeHtml(fmtValue(t, pr))}</b>`}</span>`),
+        h('div', 'field-label', 'Zlepšení'),
         lineChart(results.map((r) => ({ value: r.value, date: r.date })), { better: t.better, fmt: (v) => fmtValue(t, v).replace(' s', '') }),
       );
     };
     paintLeft();
 
-    const status = () => h('div', 'eyebrow', `Pokus ${Math.min(values.length + 1, attempts)} z ${attempts}${values.length ? ` · zatím: ${values.map((v) => fmtValue(t, v)).join(', ')}` : ''}`);
+    const status = () => h('div', 'm4-attempt', `Pokus ${Math.min(values.length + 1, attempts)} z ${attempts}${values.length ? `<span class="muted">, zatím ${values.map((v) => fmtValue(t, v)).join(', ')}</span>` : ''}`);
 
     const ready = () => {
       stopTimer();
@@ -131,12 +131,12 @@ export function skillTestScreen({ profileId, testId }, { go, back, onBack }) {
       await bump(p.id, { tests: 1, records: row.record ? 1 : 0 }, XP_TEST);
       right.replaceChildren();
       const box = h('div', 'm4-col'); box.style.alignItems = 'center'; box.dataset.test = 'test-result';
-      box.append(h('div', 'eyebrow', 'Výsledek'), h('div', 'm4-big-num', escapeHtml(fmtValue(t, row.value))));
-      if (row.record) { box.append(h('div', 'title', 'Nový rekord!')); say('test_record', { kind: 'phrase' }); sfx('levelup'); }
+      box.append(h('div', 'label', 'Výsledek'), h('div', 'm4-timer', escapeHtml(fmtValue(t, row.value))));
+      if (row.record) { box.append(h('div', 'title', 'Nový rekord')); say('test_record', { kind: 'phrase' }); sfx('levelup'); }
       else if (row.first) { box.append(h('div', 'm4-section-title', 'První rekord je zapsaný')); say('test_first', { kind: 'phrase' }); }
       else {
         const close = t.better === 'lower' ? row.value <= prev * 1.1 : row.value >= prev * 0.9;
-        box.append(h('div', 'm4-section-title', close ? 'Rekord je blízko!' : `Rekord zůstává ${fmtValue(t, prev)}`));
+        box.append(h('div', 'm4-section-title', close ? 'Rekord je blízko' : `Rekord zůstává ${fmtValue(t, prev)}`));
         if (close) say('test_close', { kind: 'phrase' }); else sayGroup('praise');
       }
       box.append(h('div', 'muted', `+${XP_TEST} XP za snahu`));

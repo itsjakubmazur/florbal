@@ -25,7 +25,7 @@ export function tricksScreen({ profileId }, { go, back }) {
     const levels = treeLevels();
     levels.forEach((list, d) => {
       const lv = h('div', 'm4-tree-level');
-      lv.append(h('div', 'eyebrow', d === 0 ? 'Začni tady' : `Patro ${d + 1}: odemkne se po předchozích tricích`));
+      lv.append(h('div', 'section-title', d === 0 ? 'Začni tady' : `Patro ${d + 1}<span class="muted">, odemkne se po předchozích tricích</span>`));
       const g = h('div', 'm4-grid');
       for (const t of list) {
         const s = trickState(t, prog);
@@ -33,9 +33,9 @@ export function tricksScreen({ profileId }, { go, back }) {
         b.dataset.state = s;
         const n = stepsDone(t, prog);
         b.innerHTML = `<div class="m4-trick-badge ${s}">${s === 'done' ? icon('check') : s === 'locked' ? icon('lock') : `${n}/${t.steps.length}`}</div>
-          <div class="m4-col" style="gap:6px;flex:1"><b class="m4-section-title">${escapeHtml(t.name)}</b>
+          <div class="m4-col" style="gap:var(--sp-2);flex:1"><b class="m4-section-title">${escapeHtml(t.name)}</b>
           <div class="m4-steps">${t.steps.map((st) => `<i class="${prog.steps.has(st.id) ? 'on' : ''}"></i>`).join('')}</div>
-          <div class="muted">${s === 'locked' ? `Nejdřív: ${escapeHtml((t.requires || []).map((r) => getTrick(r)?.name).filter(Boolean).join(', '))}` : `Karta: ${escapeHtml(t.card)}${t.matchLegal === false ? ' · jen doma' : ''}`}</div></div>`;
+          <div class="muted">${s === 'locked' ? `Nejdřív: ${escapeHtml((t.requires || []).map((r) => getTrick(r)?.name).filter(Boolean).join(', '))}` : `Karta ${escapeHtml(t.card)}${t.matchLegal === false ? ', jen doma' : ''}`}</div></div>`;
         g.append(b);
       }
       lv.append(g);
@@ -58,14 +58,14 @@ export function trickScreen({ profileId, trickId, stepIdx = null }, { go, back }
     if (!p || !t) return go('profiles', {}, { replace: true });
     const state = trickState(t, prog);
     let i = stepIdx != null ? stepIdx : Math.max(0, t.steps.indexOf(nextStep(t, prog) || t.steps[t.steps.length - 1]));
-    el.append(header(state === 'done' ? 'Trik zvládnutý' : `Frajeřinka · ${stepsDone(t, prog)} z ${t.steps.length} kroků`, escapeHtml(t.name), () => { stopVoice(); back(); }));
+    el.append(header(state === 'done' ? 'Trik zvládnutý' : `Frajeřinka, ${stepsDone(t, prog)} z ${t.steps.length} kroků`, escapeHtml(t.name), () => { stopVoice(); back(); }));
     if (state === 'locked') {
-      el.append(h('div', 'm4-note', `${icon('lock')} Odemkne se po tricích: <b>${escapeHtml((t.requires || []).map((r) => getTrick(r)?.name).join(', '))}</b>`));
+      el.append(h('div', 'm4-note w-full', `${icon('lock')}<span>Odemkne se po tricích <b>${escapeHtml((t.requires || []).map((r) => getTrick(r)?.name).join(', '))}</b></span>`));
       say('trick_locked', { kind: 'phrase' });
     }
     const notes = h('div', 'm4-col w-full');
-    if (t.matchLegal === false) { const n = h('div', 'm4-note warn', `${icon('warn')} ${HOME_ONLY_LINE}`); n.dataset.test = 'home-only'; notes.append(n); }
-    if (t.safety) notes.append(h('div', 'muted', escapeHtml(t.safety)));
+    if (t.matchLegal === false) { const n = h('div', 'm4-note warn', `${icon('warn')}<span>${HOME_ONLY_LINE}</span>`); n.dataset.test = 'home-only'; notes.append(n); }
+    if (t.safety) notes.append(h('div', 'm4-note', `${icon('shield')}<span>${escapeHtml(t.safety)}</span>`));
     el.append(notes);
 
     const split = h('div', 'm4-split');
@@ -89,12 +89,11 @@ export function trickScreen({ profileId, trickId, stepIdx = null }, { go, back }
         tick(); loop = setInterval(tick, 900);
       }
       side.replaceChildren();
-      const dots = h('div', 'm4-steps');
-      t.steps.forEach((x, k) => { const d = h('i', prog.steps.has(x.id) ? 'on' : ''); if (k === i) d.style.outline = '3px solid var(--text)'; dots.append(d); });
-      side.append(dots, h('div', 'eyebrow', `Krok ${i + 1} z ${t.steps.length}${done ? ' · splněno' : ''}`), h('div', 'm4-section-title', escapeHtml(s.name)));
-      const how = h('div', 'm4-strong', escapeHtml(s.howTo)); how.style.fontSize = 'max(19px, calc(var(--u) * 2.4))';
-      side.append(how);
-      const crit = h('div', 'm4-note', `<div class="eyebrow">Kritérium pro rodiče</div><b>${escapeHtml(s.criterion)}</b>`); crit.dataset.test = 'criterion';
+      const dots = h('div', 'm4-steps big');
+      t.steps.forEach((x, k) => dots.append(h('i', [prog.steps.has(x.id) ? 'on' : '', k === i ? 'cur' : ''].filter(Boolean).join(' '))));
+      side.append(dots, h('div', 'label', `Krok ${i + 1} z ${t.steps.length}${done ? ', splněno' : ''}`), h('div', 'm4-step-name', escapeHtml(s.name)));
+      side.append(h('div', 'm4-step-how', escapeHtml(s.howTo)));
+      const crit = h('div', 'm4-note', `<span class="m4-col" style="gap:var(--sp-1)"><span class="label">Pro rodiče: kdy je krok splněný</span><b>${escapeHtml(s.criterion)}</b></span>`); crit.dataset.test = 'criterion';
       side.append(crit);
       const row = h('div', 'm4-row');
       row.append(btn(`${icon('volume')}Řekni mi to`, 'btn', () => { stopVoice(); say(`trick_${s.id}`, { kind: 'phrase', text: s.voice }); }, { test: 'step-voice' }));
@@ -121,8 +120,8 @@ export function trickScreen({ profileId, trickId, stepIdx = null }, { go, back }
         prog.doneTricks.add(t.id);
         await bump(p.id, { tricks: 1 }, XP_TRICK_DONE);
         stopVoice(); say('trick_done', { kind: 'phrase' });
-        const o = overlay([h('div', 'eyebrow', 'Trik zvládnutý'), h('div', 'title', `${escapeHtml(t.name)}!`), h('div', 'm4-big-num', `+${XP_TRICK_STEP + XP_TRICK_DONE} XP`)], { test: 'trick-celebrate' });
-        o.el.append(btn(`${icon('check')}Hurá!`, 'btn-primary btn-big', async () => {
+        const o = overlay([h('div', 'label', 'Trik zvládnutý'), h('div', 'title', escapeHtml(t.name)), h('div', 'm4-big-num', `+${XP_TRICK_STEP + XP_TRICK_DONE} XP`)], { test: 'trick-celebrate' });
+        o.el.append(btn(`${icon('check')}Pokračovat`, 'btn-primary btn-big', async () => {
           o.close();
           const card = await awardOne(p.id, (c) => c.unlock && c.unlock.type === 'trick' && c.unlock.id === t.id);
           if (card) await revealCard(card);

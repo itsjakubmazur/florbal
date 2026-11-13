@@ -117,6 +117,27 @@ export function createStationView({ station, grip = 'right', ball = true, patter
   let anim = 0;
   const playerFor = (b, relative) => (relative ? { x: station.home.x, y: station.home.y } : { x: b.x - s * 0.26, y: b.y - 0.34 });
 
+  // Štítek F/B nesmí zakrýt číslo kuželu ani hráče: z několika míst kolem míčku vezme první volné,
+  // a dokud je dosavadní místo volné, drží se ho (žádné poskakování během animace).
+  const BADGE_CLEAR = 0.42; // m od středu kuželu / hráče
+  let badgeSlot = 0;
+  function badgeSpot(b, p, side) {
+    const slots = [[side * 0.42, 0.1], [-side * 0.42, 0.1], [0, 0.46], [0, -0.46], [side * 0.36, -0.36], [-side * 0.36, -0.36]];
+    const obstacles = [...station.cones, p];
+    const clearance = ([dx, dy]) => Math.min(...obstacles.map((o) => Math.hypot(b.x + dx - o.x, b.y + dy - o.y)));
+    if (clearance(slots[badgeSlot]) < BADGE_CLEAR) {
+      let best = 0; let bestC = -1;
+      for (let i = 0; i < slots.length; i++) {
+        const c = clearance(slots[i]);
+        if (c >= BADGE_CLEAR) { best = i; bestC = Infinity; break; }
+        if (c > bestC) { best = i; bestC = c; }
+      }
+      badgeSlot = best;
+    }
+    const [dx, dy] = slots[badgeSlot];
+    return { x: b.x + dx, y: b.y + dy };
+  }
+
   function draw(b, p, face) {
     ballG.setAttribute('transform', `translate(${X(b.x)} ${Y(b.y)})`);
     player.setAttribute('transform', `translate(${X(p.x)} ${Y(p.y)})`);
@@ -135,8 +156,8 @@ export function createStationView({ station, grip = 'right', ball = true, patter
     const hands = { x: p.x + s * 0.18, y: p.y + 0.06 };
     shaft.setAttribute('x1', X(hands.x)); shaft.setAttribute('y1', Y(hands.y));
     shaft.setAttribute('x2', X(bx + s * 0.05)); shaft.setAttribute('y2', Y(by - L * 0.9));
-    const bx2 = b.x + side * 0.42;
-    badge.setAttribute('transform', `translate(${X(bx2)} ${Y(by + 0.1)})`);
+    const bp = badgeSpot(b, p, side);
+    badge.setAttribute('transform', `translate(${X(bp.x)} ${Y(bp.y)})`);
     badgeC.style.display = face === 'fh' ? '' : 'none';
     badgeR.style.display = face === 'bh' ? '' : 'none';
     badgeT.setAttribute('fill', face === 'fh' ? 'var(--fh-ink)' : 'var(--bh-ink)');

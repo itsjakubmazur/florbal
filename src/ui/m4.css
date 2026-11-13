@@ -48,7 +48,7 @@
 .m4-duel > :first-child { margin-top: 0 !important; }
 .m4-players { display: grid; gap: var(--m4-gap); width: 100%; grid-template-columns: repeat(auto-fit, minmax(min(100%, max(260px, calc(var(--u) * 30))), 1fr)); flex: 1; min-height: 0; }
 .m4-pl { display: flex; flex-direction: column; gap: calc(var(--u) * 1); padding: calc(var(--u) * 1.6); border-radius: var(--r-card);
-  background: var(--surface); border: 3px solid var(--line); min-width: 0; transition: opacity .2s, border-color .2s; }
+  background: var(--surface); border: 3px solid var(--line); min-width: 0; container-type: inline-size; transition: opacity .2s, border-color .2s; }
 .m4-pl.active { border-color: var(--m4-hi); }
 .m4-pl.idle { opacity: .45; }
 .m4-pl.out { opacity: .35; }
@@ -60,8 +60,10 @@
 .m4-dots i { width: max(14px, calc(var(--u) * 1.6)); height: max(14px, calc(var(--u) * 1.6)); border-radius: 50%; background: var(--surface-2); border: 2px solid var(--line); }
 .m4-dots i.hit { background: var(--ok); border-color: transparent; }
 .m4-dots i.miss { background: transparent; border-color: var(--m4-text-2); }
-.m4-act { display: grid; grid-template-columns: 1fr 1fr; gap: calc(var(--u) * 1); margin-top: auto; }
-.m4-act.one { grid-template-columns: 1fr; }
+.m4-act { display: grid; grid-template-columns: minmax(0, 1fr) minmax(0, 1fr); gap: calc(var(--u) * 1); margin-top: auto; }
+.m4-act.one { grid-template-columns: minmax(0, 1fr); }
+/* úzký sloupec hráče (iPad na výšku, iPhone): Trefa nad Vedle místo vedle sebe */
+@container (max-width: 480px) { .m4-act { grid-template-columns: minmax(0, 1fr); } }
 .m4-hit, .m4-miss { min-height: max(110px, calc(var(--u) * 15)); border-radius: var(--r-card); font-weight: 800; font-size: max(26px, calc(var(--u) * 4));
   display: flex; align-items: center; justify-content: center; gap: .4em; border: 3px solid transparent; cursor: pointer; }
 .m4-hit { background: var(--ok); color: var(--bg); }

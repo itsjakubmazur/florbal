@@ -850,6 +850,8 @@ test('Hlas iPadu: v tréninku mluví jen hlas zařízení česky, žádná MP3',
   await page.goto('./?demo&fast=1');
   await enterParent(page);
   await page.locator('[data-test="voice-mode"] [data-value="device"]').click();
+  // volba se ukládá asynchronně do IndexedDB – před přechodem na novou stránku počkat na zápis (jinak závod)
+  await expect.poll(() => idb(page, `return new Promise((ok) => { const g = db.transaction('settings').objectStore('settings').get('main'); g.onsuccess = () => ok(g.result && g.result.voiceMode); g.onerror = () => ok(null); });`)).toBe('device');
   await startWorkout(page);
   await expect(T(page, 'player')).toHaveAttribute('data-drill-index', /^[1-9]/, { timeout: 60_000 });
   const v = await page.evaluate(() => window.__voice);

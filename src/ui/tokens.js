@@ -98,13 +98,97 @@ export const SCALE = {
   '--fs-train-task': 'max(28px, 4vh)',                // 33 px
   '--fs-train-word': 'max(32px, 8vh)',                // 66 px
   '--fs-train-timer': 'max(56px, 13vh)',              // 107 px
+  // role písma mimo trénink, které stojí mimo hlavní škálu (iPad na šířku → px)
+  '--fs-heading': 'max(24px, calc(var(--u) * 3.2))',  // 38 px: text kroku stanoviště, název velké dlaždice
+  '--fs-btn-big': 'max(24px, calc(var(--u) * 3))',    // 35 px: velké tlačítko, stepper
+  '--fs-input': 'max(24px, calc(var(--u) * 3.4))',    // 40 px: jméno hráče, PIN
+  '--fs-path-dot': 'max(24px, calc(var(--u) * 2.8))', // 33 px: číslo zastávky Moje cesta
+  '--fs-badge': 'max(22px, calc(var(--u) * 2.8))',    // 33 px: číslo triku ve stromu
+  '--fs-update': '16px',                              // lišta „nová verze“ (pro rodiče)
+  // obrazovky, které dítě čte ze 3 m mimo přehrávač (krok triku, souboj): min. 28 px
+  '--fs-kid-sub': 'max(22px, calc(var(--u) * 2.4))',  // 28 px: podpis hráče v souboji
+  '--fs-kid-text': 'max(28px, calc(var(--u) * 3.2))', // 38 px: popis kroku, pokus
+  '--fs-kid-title': 'max(28px, calc(var(--u) * 3.6))',// 42 px: jméno hráče na tahu
+  '--fs-kid-step': 'max(32px, calc(var(--u) * 4.2))', // 50 px: název kroku triku
+  // zúžená čísla (ukazatel skóre, odpočty, XP), od nejmenšího
+  '--fs-numpad': 'max(30px, calc(var(--u) * 4.4))',   // 52 px: klávesa číselníku
+  '--fs-stepper': 'max(32px, calc(var(--u) * 4.4))',  // 52 px: hodnota stepperu
+  '--fs-record': 'max(36px, calc(var(--u) * 4.4))',   // 52 px: rekord testu
+  '--fs-num-m': 'max(36px, calc(var(--u) * 5))',      // 59 px: Trefa / Vedle, písmena H-O-K-E-J
+  '--fs-result-line': 'max(48px, calc(var(--u) * 7))',// 83 px: výsledek souboje / testu
+  '--fs-num-l': 'max(48px, calc(var(--u) * 8))',      // 94 px: velké číslo, dvojtečka skóre
+  '--fs-result-star': 'max(56px, calc(var(--u) * 8))',// 94 px: hvězdy výsledku
+  '--fs-numpad-display': 'max(56px, calc(var(--u) * 10))', // 118 px
+  '--fs-score': 'max(64px, calc(var(--u) * 11))',     // 130 px: tabule skóre
+  '--fs-duel-score': 'max(72px, calc(var(--u) * 11))',// 130 px: skóre hráče v souboji
+  '--fs-duel-timer': 'max(96px, calc(var(--u) * 16))',// 189 px: odpočet souboje
+  // přehrávač (vh, čitelnost ze 3 m); -port = iPad na výšku a telefon
+  '--fs-call': 'max(96px, 24vh)',                     // 197 px: písmeno povelu
+  '--fs-call-port': 'min(max(84px, 16vh), 26vw)',
+  '--fs-train-word-port': 'min(var(--fs-train-word), 11vw)',
+  '--fs-train-pause': 'max(40px, 9vh)',               // 74 px: „Pauza“
+  '--fs-train-btn': 'max(28px, 4.4vh)',               // 36 px: tlačítka pauzy
+  '--fs-countdown': 'min(max(120px, 50vh), 70vw)',    // 410 px: odpočet 3-2-1
+  '--fs-intro': 'max(56px, 13vh)',                    // 107 px: název appky na úvodu
   // mezery: mřížka 4 px
   '--sp-1': '4px', '--sp-2': '8px', '--sp-3': '12px', '--sp-4': '16px', '--sp-5': '24px', '--sp-6': '32px', '--sp-7': '48px', '--sp-8': '64px',
+  '--sp-flow': 'calc(var(--u) * 1.4)',                // 17 px: řádky a sloupce v M4 (.m4-row, .m4-col)
+  // mezery v přehrávači (vh/vw, aby se celý trénink vešel na jednu obrazovku)
+  '--pad-train-y': '2.4vh', '--pad-train-x': '2.4vw', // okraj přehrávače, mezera stanoviště × povel
+  '--sp-train-tight': '.4vh', '--sp-train': '2vh', '--sp-train-l': '4vh', '--sp-train-call-port': '4vw',
   // poloměry: ovládací prvek < karta < panel; mantinel = roh hřiště (signature) na kartách a stanovišti
   '--r-sm': '8px', '--r-btn': '14px', '--r-card': '24px', '--r-mantinel': '32px',
+  '--r-btn-big': 'calc(var(--r-btn) + 4px)',          // 18 px: velké tlačítko
+  '--r-btn-train': '22px',                            // tlačítka pauzy (≥ 96 px vysoká)
   // dotykové plochy
   '--tap': '56px',                                    // mimo trénink
+  '--tap-kid': 'max(64px, var(--tap))',               // obrazovky, kde ovládá dítě (.kid, .m4)
+  '--tap-numpad': 'max(76px, calc(var(--u) * 10))',   // 118 px: klávesa číselníku
   '--tap-big': 'max(88px, calc(var(--u) * 8))',       // v tréninku a hlavní akce
+  '--tap-pause': 'max(96px, 13vh)',                   // 107 px: tlačítka pauzy
+  '--tap-duel': 'max(112px, calc(var(--u) * 15))',    // 177 px: Trefa / Vedle
+  // ikony (Lucide), mimo text tlačítek (tam 1,15 em)
+  '--icon-day': 'max(24px, calc(var(--u) * 2.6))',    // 31 px: den v týdnu
+  '--icon-row': 'max(28px, calc(var(--u) * 3))',      // 35 px: řádek seznamu, kontrolní seznam
+  '--icon-tile': 'max(32px, calc(var(--u) * 3.6))',   // 42 px: dlaždice
+  '--icon-hero': 'max(36px, calc(var(--u) * 4.4))',   // 52 px: velká dlaždice
+  // rozměry komponent
+  '--size-bar-s': '8px', '--size-bar': '10px', '--size-bar-l': '12px', // průběh, kroky triku
+  '--size-dot': 'max(20px, calc(var(--u) * 2.2))',    // pokus v souboji
+  '--size-day': 'max(40px, calc(var(--u) * 5.2))',    // den v týdnu
+  '--size-path-dot': 'max(52px, calc(var(--u) * 6))', // zastávka Moje cesta
+  '--size-badge': 'max(56px, calc(var(--u) * 7))',    // 83 px: kolečko triku, ikona nové odměny
+  '--size-drill-thumb': 'max(80px, calc(var(--u) * 10))',
+  '--size-drill-card': '96px',
+  '--size-face': 'max(96px, calc(var(--u) * 14))',    // 165 px: obličej „Jak se ti to líbilo?“
+  '--size-path-step': 'max(72px, calc(var(--u) * 8.4))',
+  '--size-tile': 'max(112px, calc(var(--u) * 12))',   // výška dlaždice
+  '--size-hero-tile': 'max(112px, calc(var(--u) * 13))',
+  '--size-hub-tile': 'max(144px, calc(var(--u) * 17))',
+  '--size-player-card': 'max(168px, calc(var(--u) * 22))',
+  '--size-station-pic': 'max(180px, calc(var(--u) * 22))',
+  '--size-home-jersey': 'max(200px, calc(var(--u) * 28))', '--size-home-jersey-phone': '180px',
+  '--size-home-start': 'max(260px, calc(var(--u) * 26))', // šířka „Trénink“
+  '--size-home-bar': '520px', '--size-path-bar': '320px', '--size-reward-bar': '140px',
+  '--size-setup-stage': 'max(300px, calc(var(--u) * 34))',
+  '--size-stage-min': 'max(220px, calc(var(--u) * 34))', '--size-stage': 'calc(var(--u) * 40)', '--size-stage-max': '52vh', // krok triku
+  '--size-reveal-card': 'min(70vw, max(220px, calc(var(--u) * 34)))',
+  '--size-numpad': 'max(300px, calc(var(--u) * 46))',
+  '--size-input': 'calc(var(--u) * 40)',
+  '--size-textarea': 'calc(var(--u) * 14)',
+  '--size-chart': 'max(320px, calc(var(--u) * 80))',
+  '--size-check': '760px',
+  '--size-update-btn': '44px',
+  '--size-logo-intro': '135px', '--size-logo-intro-h': '100px', '--size-logo-brand': '72px', // logo klubu: max. 135 px (LICENSES)
+  // přehrávač: dlaždice povelu, sloupec povelu, čárkovaný domeček
+  '--size-call': 'max(140px, 34vh)', '--size-call-port': 'min(max(120px, 24vh), 36vw)',
+  '--size-train-call': 'max(300px, 36vh)', '--bw-call-home': 'max(6px, .9vh)',
+  // nejmenší šířky sloupců mřížek a pružných řad (pod nimi se řada zalomí)
+  '--col-tile': 'calc(var(--u) * 15)',
+  '--col-m4-s': 'max(140px, calc(var(--u) * 16))', '--col-reward': 'max(150px, calc(var(--u) * 17))',
+  '--col-m4': 'max(220px, calc(var(--u) * 26))', '--col-station': 'max(240px, calc(var(--u) * 26))',
+  '--col-duel-player': 'max(260px, calc(var(--u) * 30))', '--col-drill': 'max(340px, calc(var(--u) * 34))',
+  '--col-week': '420px', '--col-challenge': '320px', '--col-setup-stage': '420px', '--col-setup-side': '340px',
   // pohyb: jedna křivka, tři délky
   '--ease': 'cubic-bezier(0.22, 1, 0.36, 1)', '--t-fast': '140ms', '--t-mid': '200ms', '--t-slow': '360ms',
 };

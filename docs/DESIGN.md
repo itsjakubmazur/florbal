@@ -84,6 +84,15 @@ a odpočet dvakrát větší na stejnou šířku, což je přesně to, co se ze 
 | Trénink: odpočet | `--fs-train-timer` | 107 px (13 vh) |
 | Trénink: povel (dlaždice) | `.call-big` | dlaždice 34 vh, písmeno 24 vh (na výšku 22 / 16 vh) |
 
+Další role písma (všechny v `SCALE` v `tokens.js`, px pro iPad na šířku):
+
+| Skupina | Proměnné |
+| --- | --- |
+| Rozhraní mimo škálu | `--fs-heading` 38 (text kroku stanoviště, velká dlaždice), `--fs-btn-big` 35, `--fs-input` 40, `--fs-path-dot` 33, `--fs-badge` 33, `--fs-update` 16 (lišta nové verze) |
+| Čte se ze 3 m mimo přehrávač | `--fs-kid-sub` 28, `--fs-kid-text` 38, `--fs-kid-title` 42, `--fs-kid-step` 50 |
+| Zúžená čísla | `--fs-numpad` 52, `--fs-stepper` 52, `--fs-record` 52, `--fs-num-m` 59, `--fs-result-line` 83, `--fs-num-l` 94, `--fs-result-star` 94, `--fs-numpad-display` 118, `--fs-score` 130, `--fs-duel-score` 130, `--fs-duel-timer` 189 |
+| Přehrávač (vh) | `--fs-call` 197 (`--fs-call-port`), `--fs-train-word-port`, `--fs-train-pause` 74, `--fs-train-btn` 36, `--fs-countdown` 410, `--fs-intro` 107 (úvod) |
+
 Pravidla: věty malým písmem, bez vykřičníků v rozhraní, bez kurzívy. Jediné verzálky jsou slova povelu (FORHEND, BEKHEND,
 barva v režimu barev) – je to nápis na ukazateli, ne popisek. Čísla `tabular-nums`, desetinná čárka. Žádné „A · B · C“.
 
@@ -96,6 +105,23 @@ barva v režimu barev) – je to nápis na ukazateli, ne popisek. Čísla `tabul
 - Dotykové plochy: mimo trénink `--tap` 56 px, hlavní akce a vše v tréninku `--tap-big` ≥ 88 px; tlačítka pauzy ≥ 96 px
   (hlídá test `tests/smoke.spec.js`).
   Obrazovky, kde ovládá dítě (třída `.kid` nebo `.m4`: knihovna, odměny, cesta, souboje, triky, testy, karty), ≥ 64 px.
+
+### Pojmenované rozměry (tokeny)
+`styles.css` a `m4.css` nepíšou velikosti písma, mezer ani rozměrů natvrdo; vše je v `SCALE` (`src/ui/tokens.js`).
+Většina hodnot je `max(minimum, calc(var(--u) * n))`: minimum drží telefon, `--u` škáluje iPad. Natvrdo v CSS zůstávají jen
+tloušťky čar (1–3 px), procenta a `em` uvnitř tlačítek.
+
+| Předpona | Význam | Proměnné |
+| --- | --- | --- |
+| `--sp-*` | mezery | `--sp-1`…`--sp-8`, `--sp-flow` (řádky M4, 17 px), přehrávač `--pad-train-y` 2,4 vh, `--pad-train-x` 2,4 vw, `--sp-train-tight` 0,4 vh, `--sp-train` 2 vh, `--sp-train-l` 4 vh, `--sp-train-call-port` 4 vw |
+| `--r-*` | poloměry | `--r-sm`, `--r-btn`, `--r-btn-big` (= `--r-btn` + 4), `--r-btn-train` 22, `--r-card`, `--r-mantinel` |
+| `--tap-*` | dotyk | `--tap` 56, `--tap-kid` 64, `--tap-numpad` 118, `--tap-big` ≥ 88, `--tap-pause` ≥ 96, `--tap-duel` 177 |
+| `--icon-*` | ikony | `--icon-day` 31, `--icon-row` 35, `--icon-tile` 42, `--icon-hero` 52 |
+| `--size-*` | rozměry komponent | průběh `--size-bar-s/-bar/-bar-l` 8/10/12, `--size-dot`, `--size-day`, `--size-path-dot`, `--size-badge` 83, `--size-face` 165, dlaždice `--size-tile`/`-hero-tile`/`-hub-tile`, karty a obrázky (`-player-card`, `-station-pic`, `-drill-thumb`, `-drill-card`, `-home-jersey`, `-reveal-card`), plochy (`-setup-stage`, `-stage*`, `-numpad`, `-chart`, `-check`, `-input`, `-textarea`), povel `--size-call`/`-call-port`, `--size-train-call`, loga `--size-logo-intro` 135 / `--size-logo-brand` 72 |
+| `--col-*` | nejmenší šířka sloupce mřížky nebo pružné řady | `--col-tile`, `--col-m4(-s)`, `--col-reward`, `--col-station`, `--col-drill`, `--col-duel-player`, `--col-week`, `--col-challenge`, `--col-setup-stage`, `--col-setup-side` |
+
+Varianty na výšku mají příponu `-port`: tokeny jsou inline na `:root`, takže je media query nepřepíše a pravidlo
+na výšku sáhne po jiném jménu.
 
 ## Komponenty
 - `.btn-primary` – jantarová plocha, navy text. Jedna na obrazovku (Trénink, Další krok, Domů, Pokračovat).

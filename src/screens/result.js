@@ -1,5 +1,5 @@
 // Výsledek tréninku (port z reference): hvězdy, XP, postup k další odměně, nové odměny.
-import { h, btn, u, icon, jerseyEl, escapeHtml } from '../ui/dom.js';
+import { h, btn, icon, jerseyEl, escapeHtml } from '../ui/dom.js';
 import { sayGroup, sfx } from '../core/audio.js';
 import { XP_PER_DRILL, XP_WORKOUT_BONUS, stars, rankInfo } from '../domain/xp.js';
 import { addHistory, listHistory, getProfile } from '../domain/profiles.js';
@@ -51,7 +51,7 @@ export default function result({ profileId, drillIds = [], total = 0, done = 0, 
           sfx('levelup'); sayGroup('reward');
           fresh.slice(0, 3).forEach((r) => {
             const it = h('div', 'result-reward');
-            it.append(rewardIcon(r, `max(56px, ${u(7)})`), h('div', '', `<div class="label">Nová odměna</div><div class="lead"><b>${r.name}</b></div>`));
+            it.append(rewardIcon(r, 'var(--size-badge)'), h('div', '', `<div class="label">Nová odměna</div><div class="lead"><b>${r.name}</b></div>`));
             gained.append(it);
           });
         }, 1200);

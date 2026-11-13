@@ -50,7 +50,7 @@ export function matchScreen({ profileId }, { go, back }) {
 /** Blok na domovskou obrazovku (přes celou šířku mřížky dlaždic) + dlaždice rychlých voleb. */
 export function m4HomeTiles(p, go) {
   const block = h('div', 'm4-home m4');
-  const hero = btn(`${icon('swords')}<span class="m4-col" style="gap:4px"><span class="t">${ARENA_TITLE}</span><span class="s">Souboje s tátou, triky, testy a karty</span></span>`, 'card m4-hero-tile', () => go('arena', { profileId: p.id }), { test: 'tile-arena' });
+  const hero = btn(`${icon('swords')}<span class="m4-col" style="gap:var(--sp-1)"><span class="t">${ARENA_TITLE}</span><span class="s">Souboje s tátou, triky, testy a karty</span></span>`, 'card m4-hero-tile', () => go('arena', { profileId: p.id }), { test: 'tile-arena' });
   const daily = btn('', 'card m4-daily', () => {}, { test: 'daily-trick' });
   daily.innerHTML = '<div class="eyebrow">Dnešní frajeřinka</div>';
   block.append(hero, daily);

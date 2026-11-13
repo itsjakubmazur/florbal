@@ -1,10 +1,11 @@
 import './ui/styles.css';
 import { applyTheme } from './ui/tokens.js';
+import { applySettings } from './core/applySettings.js';
 import { register, go } from './core/router.js';
-import { installAudioUnlock, setVolume, setVoiceMode, preloadCommon } from './core/audio.js';
+import { installAudioUnlock, preloadCommon } from './core/audio.js';
 import { initPwa, _simulateUpdate, isBusy } from './core/pwa.js';
 import { DEMO, NO_INTRO, FAST } from './core/env.js';
-import { settings, requestPersist } from './storage/index.js';
+import { requestPersist } from './storage/index.js';
 import profiles, { newPlayer } from './screens/profiles.js';
 import home from './screens/home.js';
 import player from './screens/player.js';
@@ -61,9 +62,7 @@ window.addEventListener('pointerdown', () => preloadCommon(), { once: true, capt
 
 async function boot() {
   try {
-    const s = await settings.load();
-    applyTheme(s.theme);
-    setVolume('voice', s.volVoice); setVolume('beep', s.volBeep); setVoiceMode(s.voiceMode);
+    await applySettings();
   } catch (e) { /* bez databáze appka pořád běží */ }
   requestPersist(); // iOS umí data webu smazat; trvalé úložiště to omezí (stav v Rodičích)
   if (DEMO) { try { await (await import('./dev/demo.js')).ensureDemoPlayer(); } catch (e) { /* bez dema */ } }

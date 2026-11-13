@@ -16,12 +16,13 @@
 import phrases from '../content/phrases.json';
 
 const FILES = {};
-const found = import.meta.glob('../../assets/audio/voice/trener/*.{mp3,wav,m4a}', { query: '?url', import: 'default', eager: true });
-// vlastní nahrávka rodiče (.m4a z Diktafonu, .wav) má přednost před vygenerovanou MP3 se stejným klíčem
-const RANK = { mp3: 0, wav: 1, m4a: 1 };
+const found = import.meta.glob('../../assets/audio/voice/trener/*.{mp3,wav,m4a,MP3,WAV,M4A}', { query: '?url', import: 'default', eager: true });
+// vlastní nahrávka rodiče má přednost před vygenerovanou MP3 se stejným klíčem: m4a (Diktafon) > wav > mp3,
+// přípona bez ohledu na velikost písmen (QA N9, N11)
+const RANK = { mp3: 0, wav: 1, m4a: 2 };
 const rankOf = {};
 for (const [path, url] of Object.entries(found)) {
-  const [, key, ext] = /([^/]+)\.(mp3|wav|m4a)$/.exec(path);
+  const [, key, e] = /([^/]+)\.(mp3|wav|m4a)$/i.exec(path); const ext = e.toLowerCase();
   if (rankOf[key] === undefined || RANK[ext] > rankOf[key]) { FILES[key] = url; rankOf[key] = RANK[ext]; }
 }
 

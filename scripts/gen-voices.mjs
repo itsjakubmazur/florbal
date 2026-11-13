@@ -33,7 +33,12 @@ for (const c of read('src/content/challenges.json')) if (c.voiceIntro) TEXT[`cha
 for (const t of read('src/content/skilltests.json')) if (t.voiceIntro) TEXT[`test_${t.id}`] = t.voiceIntro;
 
 const args = process.argv.slice(2);
-const opt = (n) => { const i = args.indexOf(n); return i >= 0 ? args[i + 1] : null; };
+const opt = (n) => {
+  const i = args.indexOf(n); if (i < 0) return null;
+  const v = args[i + 1];
+  if (!v || v.startsWith('--')) { console.error(`${n} potřebuje hodnotu (např. ${n === '--only' ? '--only trick_' : '--provider azure'})`); process.exit(1); }
+  return v;
+};
 const PROVIDER = opt('--provider') || 'edge';
 const FORCE = args.includes('--force');
 const ONLY = opt('--only');
@@ -46,29 +51,41 @@ const esc = (t) => t.replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, 
 async function azureTts(text, file) {
   const key = process.env.AZURE_SPEECH_KEY; const region = process.env.AZURE_SPEECH_REGION;
   if (!key || !region) throw new Error('chybí AZURE_SPEECH_KEY nebo AZURE_SPEECH_REGION');
-  const ssml = `<speak version="1.0" xml:lang="cs-CZ"><voice name="${VOICE.voice}"><prosody rate="${VOICE.rate}" pitch="${VOICE.pitch}">${esc(text)}</prosody></voice></speak>`;
+  const ssml = `<speak version="1.0" xmlns="http://www.w3.org/2001/10/synthesis" xml:lang="cs-CZ"><voice name="${VOICE.voice}"><prosody rate="${VOICE.rate}" pitch="${VOICE.pitch}">${esc(text)}</prosody></voice></speak>`;
   const r = await fetch(`https://${region}.tts.speech.microsoft.com/cognitiveservices/v1`, {
     method: 'POST', body: ssml,
     headers: { 'Ocp-Apim-Subscription-Key': key, 'Content-Type': 'application/ssml+xml', 'X-Microsoft-OutputFormat': 'audio-24khz-48kbitrate-mono-mp3', 'User-Agent': 'florbal-trener' },
   });
-  if (!r.ok) throw new Error(`Azure ${r.status} ${(await r.text()).slice(0, 80)}`);
+  if (!r.ok) { const e = new Error(`Azure ${r.status} ${(await r.text()).slice(0, 80)}`); e.fatal = r.status === 401 || r.status === 403; e.retry = r.status === 429 || r.status >= 500; throw e; }
   fs.writeFileSync(file, Buffer.from(await r.arrayBuffer()));
 }
 
 fs.mkdirSync(OUT, { recursive: true });
 if (!['edge', 'azure'].includes(PROVIDER)) { console.error('neznámý --provider (edge | azure)'); process.exit(1); }
+if (PROVIDER === 'azure' && (!process.env.AZURE_SPEECH_KEY || !process.env.AZURE_SPEECH_REGION)) {
+  console.error('--provider azure potřebuje proměnné AZURE_SPEECH_KEY a AZURE_SPEECH_REGION (např. westeurope)'); process.exit(1);
+}
+const own = new Set(fs.readdirSync(OUT).filter((f) => /\.(m4a|wav)$/i.test(f)).map((f) => f.replace(/\.(m4a|wav)$/i, '')));
+const failed = [];
 const edge = PROVIDER === 'edge' ? new EdgeTTS({ voice: VOICE.voice, lang: 'cs-CZ', outputFormat: 'audio-24khz-48kbitrate-mono-mp3', rate: VOICE.rate, pitch: VOICE.pitch, timeout: 20000 }) : null;
 const synth = (text, file) => (edge ? edge.ttsPromise(text, file) : azureTts(text, file));
 for (const [key, text] of Object.entries(TEXT)) {
   if (ONLY && !key.startsWith(ONLY)) continue;
   const file = `${OUT}/${key}.mp3`;
-  if (['m4a', 'wav'].some((x) => fs.existsSync(`${OUT}/${key}.${x}`))) continue; // vlastní nahrávka má přednost
+  if (own.has(key)) continue; // vlastní nahrávka má přednost (přípona bez ohledu na velikost písmen)
   if (!FORCE && fs.existsSync(file) && fs.statSync(file).size > 1000) continue;
   let ok = false;
   for (let attempt = 1; attempt <= 5 && !ok; attempt++) {
     try { await synth(text, file); ok = true; console.log('OK', key); }
-    catch (e) { console.log('opakuji', key, attempt, String(e.message || e).slice(0, 60)); await new Promise((r) => setTimeout(r, 3000 * attempt)); }
+    catch (e) {
+      const m = String(e.message || e).slice(0, 80);
+      if (e.fatal) { console.error(`Konec: Azure odmítl klíč nebo oblast (${m}).`); process.exit(1); }
+      if (e.retry === false) { console.log('chyba', key, m); break; } // 4xx kromě 429: opakování nepomůže
+      console.log('opakuji', key, attempt, m); await new Promise((r) => setTimeout(r, 3000 * attempt));
+    }
   }
+  if (!ok) failed.push(key);
   await new Promise((r) => setTimeout(r, 500));
 }
+if (failed.length) { console.error(`NEHOTOVO: ${failed.length} hlášek se nepodařilo vygenerovat: ${failed.slice(0, 10).join(', ')}${failed.length > 10 ? ' …' : ''}`); process.exit(1); }
 console.log('HOTOVO', Object.keys(TEXT).length, 'hlášek');

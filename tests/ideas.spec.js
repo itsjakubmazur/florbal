@@ -113,7 +113,6 @@ test('import zálohy s voiceMode „device“: po novém spuštění appky je vy
 
 test('import zálohy s voiceMode „device“ platí hned, bez nového spuštění (N6)', async ({ page }, testInfo) => {
   onlyLandscape(testInfo);
-  test.fail(true, 'N6: restoreBackup() přepíše nastavení v IndexedDB, ale nezavolá setVoiceMode/setVolume/applyTheme ani nepřekreslí Rodiče');
   test.setTimeout(90_000);
   await page.addInitScript(AUDIO_SPY);
   await page.goto('./?demo&nointro&fast=1');
@@ -142,7 +141,6 @@ test('import zálohy s neznámou hodnotou voiceMode: appka spadne na „Hlas“ 
 
 test('import zálohy s neznámou hodnotou voiceMode: v Rodičích je vybraná volba „Hlas“ (N7)', async ({ page }, testInfo) => {
   onlyLandscape(testInfo);
-  test.fail(true, 'N7: parent.js předá seg() surovou hodnotu z IndexedDB („robot“), žádné tlačítko není „on“; audio přitom běží jako „voice“');
   await page.goto('./?demo&nointro&fast=1');
   await enterParent(page);
   await importWithSettings(page, testInfo, { voiceMode: 'robot' });
@@ -192,17 +190,19 @@ test('vlastní nahrávka: .m4a i .wav mají přednost před vygenerovanou MP3 be
   const f = pick({ [`${P}a.mp3`]: 'a', [`${P}b.m4a`]: 'b', [`${P}setup_triangle_m_3.mp3`]: 'x', [`${P}setup_triangle_m_3.m4a`]: 'y', [`${P}x.y.mp3`]: 'xy' });
   expect(f).toEqual({ a: 'a', b: 'b', setup_triangle_m_3: 'y', 'x.y': 'xy' });
   // glob v audio.js i precache ve vite.config.js znají m4a
-  expect(fs.readFileSync(path.join(ROOT, 'src/core/audio.js'), 'utf8')).toMatch(/import\.meta\.glob\('[^']*\*\.\{mp3,wav,m4a\}'/);
+  expect(fs.readFileSync(path.join(ROOT, 'src/core/audio.js'), 'utf8')).toMatch(/import\.meta\.glob\('[^']*\*\.\{mp3,wav,m4a[,A-Z0-9]*\}'/);
   expect(fs.readFileSync(path.join(ROOT, 'vite.config.js'), 'utf8')).toMatch(/globPatterns:[^\n]*\bm4a\b/);
 });
 
 test('vlastní nahrávka: když je .wav i .m4a se stejným klíčem, výběr nezávisí na pořadí souborů (N9)', ({}, testInfo) => {
   onlyOnce(testInfo);
-  test.fail(true, 'N9: RANK.wav === RANK.m4a, vyhraje první nalezený soubor');
   const pick = pickerFromSource();
   const a = pick({ [`${P}num_1.wav`]: 'wav', [`${P}num_1.m4a`]: 'm4a' }).num_1;
   const b = pick({ [`${P}num_1.m4a`]: 'm4a', [`${P}num_1.wav`]: 'wav' }).num_1;
   expect(a).toBe(b);
+  expect(a, 'm4a (Diktafon) má přednost před wav').toBe('m4a');
+  // přípona velkými písmeny (QA N11)
+  expect(pick({ [`${P}num_1.mp3`]: 'mp3', [`${P}num_1.M4A`]: 'M4A' }).num_1).toBe('M4A');
 });
 
 // ---------------------------------------------------------------------------------------------------------------
@@ -242,7 +242,6 @@ test('gen-voices: neznámý --provider skončí chybou dřív, než cokoli gener
 
 test('gen-voices --provider azure bez klíče: hned skončí srozumitelnou chybou a nesahá na soubory (N8)', ({}, testInfo) => {
   onlyOnce(testInfo);
-  test.fail(true, 'N8: chybějící AZURE_SPEECH_KEY se zjistí až u každé hlášky zvlášť, 5 pokusů s čekáním 3–15 s (≈ 45 s na hlášku, ≈ 4,6 h na všech 370)');
   test.setTimeout(30_000);
   const file = path.join(ROOT, 'assets/audio/voice/trener/num_1.mp3');
   const m0 = fs.statSync(file).mtimeMs;

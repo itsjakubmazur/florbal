@@ -121,6 +121,7 @@ Závažnost: **blokující** = nesmí do předání, **střední** = opravit př
 Testy s `test.fail()` začnou po opravě „neočekávaně procházet“ – pak `test.fail` smazat.
 
 ### N6 – Obnovení zálohy nepoužije obnovené nastavení hned (Hlas iPadu, hlasitost, vzhled) – střední
+**Opraveno (2026-11-13):** `src/core/applySettings.js` použije nastavení hned po obnovení a Rodiče se překreslí s obnovenými volbami.
 `restoreBackup()` (`src/storage/backup.js`) přepíše store `settings` v IndexedDB, ale `src/screens/parent.js` po
 „Ano, obnovit“ zavolá jen `drawPlayers()`. Nezavolá `setVoiceMode`, `setVolume`, `applyTheme` ani nepřekreslí
 panel Zvuk/Trénink. Runtime nastavení platí až po novém spuštění appky (`boot()` v `src/main.js`).
@@ -135,6 +136,7 @@ Test „import zálohy s voiceMode „device“ platí hned, bez nového spušt�
 funguje správně (test bez `test.fail`).
 
 ### N8 – `gen-voices --provider azure` bez klíče (nebo se špatným klíčem) běží hodiny a skončí „HOTOVO“ – střední
+**Opraveno (2026-11-13):** chybějící klíč Azure skončí hned s kódem 1, 401/403 ukončí běh, ostatní 4xx se neopakují, nevygenerované hlášky = kód 1.
 `scripts/gen-voices.mjs`: chybějící `AZURE_SPEECH_KEY`/`AZURE_SPEECH_REGION` se zjistí až v `azureTts()` u každé hlášky,
 chyba se bere jako přechodná a opakuje 5× s čekáním 3+6+9+12+15 s. S `--force` to je ≈ 45 s na hlášku, ≈ 4,6 h na 370.
 Stejně se opakují i trvalé chyby Azure (401 špatný klíč, 400 SSML, 429 kvóta). Na konci se vždy vypíše
@@ -147,6 +149,7 @@ Test „gen-voices --provider azure bez klíče: hned skončí srozumitelnou chy
 na síť nesáhne, po 8 s ho zabije a ověří, že MP3 zůstala beze změny).
 
 ### N7 – Neznámá hodnota `voiceMode` ze zálohy: v Rodičích není vybraná žádná volba – drobné
+**Opraveno (2026-11-13):** Rodiče berou režim hlasu normalizovaný přes `applySettings()` (neznámá hodnota → „Hlas“).
 Import zálohy neověřuje hodnoty nastavení; `voiceMode: 'robot'` (ruční úprava, budoucí verze s novým režimem) se uloží.
 Audio se zachová správně (`setVoiceMode` spadne na `voice`), ale `parent.js` předá `seg()` surovou hodnotu, takže žádné
 tlačítko „Trenér“ není zvýrazněné. Kroky: záloha s `"voiceMode": "robot"` → obnovit → znovu spustit → Rodiče.
@@ -154,12 +157,14 @@ Oprava: v `parent.js` použít `getVoiceMode()` (nebo normalizovat v `settings.l
 Test „import zálohy s neznámou hodnotou voiceMode: v Rodičích je vybraná volba „Hlas“ (N7)“.
 
 ### N9 – `.wav` i `.m4a` se stejným klíčem: vyhraje ten, který glob najde dřív – drobné
+**Opraveno (2026-11-13):** pořadí m4a > wav > mp3; přebitá MP3 se nedává do precache (`globIgnores` ve `vite.config.js`).
 `src/core/audio.js`: `RANK = { mp3: 0, wav: 1, m4a: 1 }` a porovnání `>`, takže při shodě rozhoduje pořadí z
 `import.meta.glob` (abecední cesta → vždy `.m4a`, ale jen náhodou implementace). Generátor obojí respektuje. Precache
 navíc obsahuje i přebitou MP3 (zbytečných pár kB na hlášku). Oprava: jednoznačné pořadí (např. `m4a: 2`) a zmínka v INSTALL.md.
 Test „vlastní nahrávka: když je .wav i .m4a se stejným klíčem … (N9)“ (logika vyňatá ze zdrojáku, oba pořadí).
 
 ### N10 – Generátor hlasů: drobnosti v argumentech a SSML – drobné (nejde ověřit bez klíče Azure)
+**Opraveno (2026-11-13):** `--only`/`--provider` bez hodnoty skončí chybou; SSML má `xmlns`.
 - `--only` bez hodnoty (poslední argument) dá `ONLY = undefined`, tedy **všechny** hlášky; `--only --force` vezme
   `--force` jako prefix a nic nevygeneruje. S `--force` to první přegeneruje všech 370 souborů. Oprava: chybějící nebo
   `--…` hodnotu odmítnout.
@@ -168,6 +173,7 @@ Test „vlastní nahrávka: když je .wav i .m4a se stejným klíčem … (N9)�
 - `User-Agent: florbal-trener` – v pořádku, žádné osobní údaje.
 
 ### N11 – Vlastní nahrávky: velikost písmen přípony a testy offline – drobné
+**Opraveno (2026-11-13):** přípony bez ohledu na velikost písmen v appce, precache i generátoru.
 - Glob `*.{mp3,wav,m4a}` i regex v `audio.js` a kontrola v generátoru rozlišují velikost písmen: `praise_1.M4A`
   (některé aplikace / přejmenování na Windows) appka nenajde a na macOS (case-insensitive FS) ji generátor
   přesto přeskočí → hláška zůstane MP3. Stačí věta v INSTALL.md („přípona malými písmeny“) nebo `i` v regexu a glob na obě varianty.
@@ -175,6 +181,7 @@ Test „vlastní nahrávka: když je .wav i .m4a se stejným klíčem … (N9)�
   je offline nebude kontrolovat a počet bude sedět jen náhodou. Až rodič nahrávky přidá, rozšířit regex o `m4a`.
 
 ### N12 – Licence: dílčí nepřesnosti – drobné
+**Opraveno (2026-11-13):** NoSleep.js a Tailwind z původních souborů LICENSE, obecný text o hlasu, `THIRD-PARTY.txt` i ve `vite dev`.
 - Text NoSleep v `THIRD-PARTY.txt` je složený z MIT textu projektu s dosazeným copyrightem, ne z
   `node_modules/nosleep.js/LICENSE` (obsahově stejná MIT, ale není to doslovná kopie, kterou MIT vyžaduje „included“).
 - Panel O appce i `THIRD-PARTY.txt` uvádí „Hlas Trenéra – Microsoft Edge TTS“ natvrdo; po přegenerování přes Azure

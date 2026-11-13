@@ -8,6 +8,7 @@ import { THEMES, applyTheme } from '../ui/tokens.js';
 import { APP_VERSION, BUILD_TIME } from '../core/env.js';
 import { updateAvailable, applyUpdate } from '../core/pwa.js';
 import { wakeLockMode } from '../core/wakelock.js';
+import { applySettings } from '../core/applySettings.js';
 
 export const pinOf = (s) => (s.pinCustom && s.pin ? s.pin : null);
 
@@ -98,11 +99,11 @@ function volumeCtl(get, set) {
   return box;
 }
 
-export default function parent(_p, { go }) {
+export default function parent({ msg = '' } = {}, { go }) {
   const el = h('section', 'screen top');
   el.dataset.test = 'parent';
   (async () => {
-    const s = await settings.load();
+    const s = await applySettings(); // voiceMode normalizovaný (QA N7)
     el.append(header('Nastavení', 'Rodiče', () => go('profiles', {}, { replace: true })));
     const grid = h('div', 'w-full'); grid.style.cssText = `display:grid;grid-template-columns:repeat(auto-fit, minmax(min(100%, ${u(44)}), 1fr));gap:${u(2)}`;
 
@@ -146,6 +147,7 @@ export default function parent(_p, { go }) {
     // Záloha
     const pBackup = panel('Záloha dat');
     const bMsg = h('div', 'muted', 'iPad umí data webových appek při nedostatku místa smazat. Zálohu si ulož do Souborů nebo pošli e-mailem.');
+    if (msg) { bMsg.textContent = msg; requestAnimationFrame(() => bMsg.scrollIntoView({ block: 'center' })); }
     bMsg.dataset.test = 'backup-msg';
     const rowB = h('div', 'flex flex-wrap'); rowB.style.gap = u(1);
     rowB.append(
@@ -158,7 +160,11 @@ export default function parent(_p, { go }) {
       try {
         const { backup, counts } = parseBackup(text);
         bMsg.innerHTML = `Záloha z ${new Date(backup.createdAt).toLocaleString('cs-CZ')}: ${counts.profiles} hráčů, ${counts.history} tréninků. <b>Obnovení nahradí všechna současná data.</b>`;
-        const ok = btn(`${icon('check')}Ano, obnovit`, 'btn-primary', async () => { await restoreBackup(backup); bMsg.textContent = 'Hotovo, data jsou obnovená.'; ok.remove(); drawPlayers(); }, { test: 'import-confirm' });
+        const ok = btn(`${icon('check')}Ano, obnovit`, 'btn-primary', async () => {
+          await restoreBackup(backup);
+          // obnovené nastavení platí hned a Rodiče se překreslí s obnovenými volbami (QA N6)
+          go('parent', { msg: 'Hotovo, data jsou obnovená.' }, { replace: true });
+        }, { test: 'import-confirm' });
         rowB.append(ok);
       } catch (e) { bMsg.textContent = e.message; }
     }, { test: 'import' });

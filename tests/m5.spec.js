@@ -838,3 +838,38 @@ test('hlasy: každá hláška Trenéra (fráze, cviky, návody, triky, výzvy, t
   console.log(`hlášky bez MP3: ${missing.length} z ${keys.length} (${missing.slice(0, 6).join(', ')} …)`);
   expect(missing).toEqual([]);
 });
+
+// ---------------------------------------------------------------------------------------------------------------
+// Nápady (IDEAS 1, 3): režim „Hlas iPadu“ a panel O appce s licencemi
+// ---------------------------------------------------------------------------------------------------------------
+
+test('Hlas iPadu: v tréninku mluví jen hlas zařízení česky, žádná MP3', async ({ page }) => {
+  test.setTimeout(90_000);
+  await page.addInitScript(AUDIO_SPY);
+  const errors = watchErrors(page);
+  await page.goto('./?demo&fast=1');
+  await enterParent(page);
+  await page.locator('[data-test="voice-mode"] [data-value="device"]').click();
+  await startWorkout(page);
+  await expect(T(page, 'player')).toHaveAttribute('data-drill-index', /^[1-9]/, { timeout: 60_000 });
+  const v = await page.evaluate(() => window.__voice);
+  const tts = await page.evaluate(() => window.__tts.map(({ text, lang, overlap }) => ({ text, lang, overlap })));
+  expect(v, 'žádná nahrávka Trenéra').toEqual([]);
+  expect(tts.length).toBeGreaterThanOrEqual(3);
+  expect(tts.every((x) => x.lang === 'cs-CZ')).toBe(true);
+  expect(tts.filter((x) => x.overlap)).toEqual([]);
+  expect(errors).toEqual([]);
+});
+
+test('O appce: seznam licencí a celé znění z THIRD-PARTY.txt', async ({ page }) => {
+  const errors = watchErrors(page);
+  await page.goto('./?demo&fast=1');
+  await enterParent(page);
+  await expect(T(page, 'about')).toContainText('SIL Open Font License');
+  await T(page, 'show-licenses').click();
+  await expect(T(page, 'licenses-text')).toBeVisible();
+  await expect(T(page, 'licenses-text')).toContainText('MIT License');
+  await expect(T(page, 'licenses-text')).toContainText('Rich Tibbett');
+  expect(await hScroll(page), 'parent + licence: vodorovný posun').toBeLessThanOrEqual(1);
+  expect(errors).toEqual([]);
+});

@@ -19,7 +19,7 @@ Všechna data (hráči, XP, rekordy, karty) jsou jen v iPadu.
    - **Kužely**: stačí 2, nejvíc se využije 5. Poslouží i boty, ponožky nebo lepicí páska.
 2. **Rodiče** (zámek): při prvním vstupu si vytvoříte čtyřmístný PIN. Když ho zapomenete, „Zapomněl jsem PIN“ vás pustí po vyřešení příkladu pro dospělé.
 3. V Rodičích je:
-   - **Zvuk**: hlas Trenéra, jen pípání, nebo ticho; zvlášť hlasitost hlasu a pípání s metronomem.
+   - **Zvuk**: Hlas (nahrávky Trenéra), Hlas iPadu (vestavěný český hlas zařízení), jen Pípání, nebo Ticho; zvlášť hlasitost hlasu a pípání s metronomem.
    - **Tichý trénink (byt)**: jen cviky bez ťukání míčkem, když sousedi spí.
    - **Tempo**: pomaleji / normálně / rychleji.
    - **Hráči**: úprava údajů z průvodce nebo smazání hráče.
@@ -63,6 +63,14 @@ Během tréninku iPad nezhasne. Klepnutí kamkoli trénink pozastaví.
 | Problém | Řešení |
 |---|---|
 | Nic nezní | Zkontrolujte tlačítko ztlumení / hlasitost iPadu a v Rodičích hlasitost hlasu. Po spuštění klepněte na obrazovku (Safari pustí zvuk až po prvním dotyku). |
-| Hlas zní jinak než obvykle | Hlasy se ještě nestáhly; appka zatím používá hlas iPadu. Otevřete ji jednou na Wi-Fi. |
+| Hlas zní jinak než obvykle | V Rodiče → Zvuk je zvolený „Hlas iPadu“, nebo se nahrávky ještě nestáhly – otevřete appku jednou na Wi-Fi. |
 | iPad během tréninku zhasíná | Spouštějte appku z ikony na ploše, ne z karty v Safari. |
 | Chci začít znovu | Rodiče → **Smazat všechna data** (potvrzuje se dvakrát, nejde vrátit). |
+
+## Vlastní hlas Trenéra (volitelné)
+
+Hlášky jde namluvit vlastním hlasem, třeba tátovým:
+1. Na počítači v projektu: `node scripts/gen-voices.mjs --list > hlasky.tsv` vypíše klíč a text každé hlášky (např. jen triky: `--only trick_`).
+2. Namluvte hlášku Diktafonem na iPhonu a soubor pojmenujte podle klíče, např. `praise_1.m4a`.
+3. Uložte do `assets/audio/voice/trener/` a pushněte (`git push`). Vlastní nahrávka má přednost před vygenerovanou, ostatní hlášky zůstanou.
+

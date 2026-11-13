@@ -19,7 +19,7 @@ Poslední kontrola: 13. 11. 2026 (M5). Stav značek: **OK** = bez výhrad, **poz
 | Ikony rozhraní (`src/ui/icons.js`) | Lucide (lucide.dev), balíček `lucide-static` 1.72.0, výběr ~45 ikon generuje `scripts/build-lucide-icons.mjs` | ISC; hlavička s licencí je v souboru, minifikace ji z buildu odstraní (bod 5) | OK |
 | Záložní „nezhasínat“ video (`src/core/nosleep-media.js`) | NoSleep.js 0.12.0 (`src/media.js`), (c) Rich Tibbett | MIT; uvedeno v hlavičce souboru | OK |
 | Písmo Archivo Variable (woff2, latin + latin-ext, `src/ui/styles.css`) | Omnibus-Type, balíček `@fontsource-variable/archivo` 5.3.0 | SIL Open Font License 1.1; písmo se v buildu šíří jako soubor, OFL chce u kopie i text licence (bod 5) | pozor |
-| Hlas Trenéra (`assets/audio/voice/trener`, **266 MP3**, 8,1 MB, vygenerováno 13. 11. 2026, commit `9d024b1`) | Microsoft Edge TTS (Read Aloud), hlas cs-CZ-AntoninNeural, přes `node-edge-tts` 1.2.12 (MIT) a `scripts/gen-voices.mjs` | Neoficiální rozhraní, Microsoft k němu nevydal licenci (bod 1). Pro soukromé rodinné použití je riziko nízké, při zveřejnění nepoužitelné. Záloha: hlas zařízení (`speechSynthesis`, cs-CZ) | nejasné |
+| Hlas Trenéra (`assets/audio/voice/trener`, **370 MP3**, vygenerováno 13. 11. 2026 (266 v `9d024b1`, 104 hlášek M4 a přegenerované zrcadlené návody v `d09f4d3`)) | Microsoft Edge TTS (Read Aloud), hlas cs-CZ-AntoninNeural, přes `node-edge-tts` 1.2.12 (MIT) a `scripts/gen-voices.mjs` | Neoficiální rozhraní, Microsoft k němu nevydal licenci (bod 1). Pro soukromé rodinné použití je riziko nízké, při zveřejnění nepoužitelné. Záloha: hlas zařízení (`speechSynthesis`, cs-CZ) | nejasné |
 | Metronom, pípání, efekty | syntéza oscilátorem ve Web Audio (`src/core/metronome.js`, `tone()` v `src/core/audio.js`) | vlastní | OK |
 | Logo FBŠ Hattrick Brno (`assets/img/club/hattrick-logo.png` 270×200, `hattrick-logo-icon-152.png` 152×152) | oficiální web klubu (https://hattrick.eoscms.cz/webimages/club_logo_filename_20230711_172955.png, viz `research/hattrick-brand.md`) | Logo FBŠ Hattrick Brno, použito se svolením klubu, soukromá appka. Ochranná známka a dílo klubu, není pod volnou licencí. Svolení je ústní nebo neuvedené, písemný doklad v repu není (bod 2) | pozor |
 | Runtime PWA (service worker, `virtual:pwa-register`) | Workbox 7.x a `workbox-window` 7.4.1 přes `vite-plugin-pwa` 1.3.0 | MIT | OK |
@@ -93,8 +93,10 @@ Microsoftu o porušení podmínek. Před zveřejněním je potřeba jedna z mož
 3. **Vlastní nahrávky** (rodič namluví hlášky): nejlepší právní i rodinná varianta, soubory se stejnými jmény
    (`<klíč>.mp3`) jen nahradí současné.
 
-**Návrh pro M5+ (volitelné, nic se tím neblokuje):** v Rodičích → Zvuk přidat volbu „Hlas zařízení“, která MP3 ignoruje.
-Přepnutí by pak nevyžadovalo nový build.
+**Vyřešeno (13. 11. 2026):** Rodiče → Zvuk → **Hlas iPadu** přepne na vestavěný hlas zařízení bez nového buildu (nahrávky
+se nepoužijí). Pro sdílení appky dál: buď smazat MP3 a přebuildit, nebo je přegenerovat oficiálně přes Azure AI Speech
+(`AZURE_SPEECH_KEY=… AZURE_SPEECH_REGION=westeurope node scripts/gen-voices.mjs --provider azure --force`), nebo namluvit
+vlastní (`node scripts/gen-voices.mjs --list` vypíše klíče a texty; `<klíč>.m4a` z Diktafonu má přednost před MP3).
 
 ### 2. Logo FBŠ Hattrick Brno (pozor)
 
@@ -123,10 +125,13 @@ ne text, obraz ani zvuk. Žádný zdroj se do appky nestahuje ani nevkládá, v 
   U jediného delšího českého zdroje (Hrdlička 2015, 25 cviků) se texty liší stylem i obsahem (tablet, Trenér, kužely appky).
   Bez nálezu.
 
-### 5. Licenční texty v buildu (pozor, drobnost)
+### 5. Licenční texty v buildu (OK, vyřešeno 13. 11. 2026)
 
 OFL 1.1 (Archivo), MIT (NoSleep.js, Workbox) a ISC (Lucide) chtějí, aby kopie obsahovala upozornění na autorská práva
 a licenci. Ve zdrojácích to je, minifikovaný build `dist/` hlavičky odstraní a soubor s licencí písma se nekopíruje.
 Pro soukromou appku je riziko zanedbatelné. **Návrh:** při buildu kopírovat do `dist/` soubor `THIRD-PARTY.txt` s texty
 licencí (OFL z `node_modules/@fontsource-variable/archivo/LICENSE`, MIT a ISC) nebo je ukázat v Rodičích → O appce.
 Kódu se to netýká, jen buildu.
+
+**Vyřešeno:** build vkládá do `dist/` soubor `THIRD-PARTY.txt` (plugin `thirdParty()` ve `vite.config.js`: MIT projektu,
+OFL Archivo, ISC Lucide, MIT NoSleep.js a Workbox). Je v precache a appka ho ukazuje v Rodiče → O appce → Celé znění licencí.

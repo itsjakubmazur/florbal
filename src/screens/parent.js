@@ -108,13 +108,13 @@ export default function parent(_p, { go }) {
 
     // Zvuk
     const pSound = panel('Zvuk');
-    pSound.append(field('Trenér', seg([['voice', 'Hlas'], ['beeps', 'Pípání'], ['off', 'Ticho']], s.voiceMode, async (v) => {
+    pSound.append(field('Trenér', seg([['voice', 'Hlas'], ['device', 'Hlas iPadu'], ['beeps', 'Pípání'], ['off', 'Ticho']], s.voiceMode, async (v) => {
       unlockAudio(); await settings.save({ voiceMode: v }); setVoiceMode(v);
-      if (v === 'voice') sayGroup('welcome'); if (v === 'beeps') say('num_2');
+      if (v === 'voice' || v === 'device') sayGroup('welcome'); if (v === 'beeps') say('num_2');
     }, { test: 'voice-mode' })));
     const vol = (key, ch) => volumeCtl(() => s[key], (d) => { s[key] = Math.min(1, Math.max(0, Math.round((s[key] + d) * 10) / 10)); setVolume(ch, s[key]); settings.save({ [key]: s[key] }); });
     pSound.append(field('Hlasitost hlasu', vol('volVoice', 'voice')), field('Hlasitost pípání a metronomu', vol('volBeep', 'beep')));
-    pSound.append(h('div', 'muted', `Nahraných hlášek: ${voiceFileCount()}. Chybějící čte hlas zařízení. Na iPadu zvuk hraje i se ztlumeným přepínačem (iPadOS 17+), hlasitost řídí tlačítka.`));
+    pSound.append(h('div', 'muted', `Hlas = nahrávky Trenéra (${voiceFileCount()} hlášek), Hlas iPadu = vestavěný český hlas zařízení. Na iPadu zvuk hraje i se ztlumeným přepínačem (iPadOS 17+), hlasitost řídí tlačítka.`));
 
     // Trénink
     const pTrain = panel('Trénink');
@@ -182,9 +182,24 @@ export default function parent(_p, { go }) {
       wipe.dataset.sure = '1'; wipe.innerHTML = 'Opravdu? Nejde vrátit. Klepni znovu.';
     });
     pApp.append(wipe);
-    pApp.append(h('div', 'muted', 'Florbal Trenér je soukromá rodinná appka. Data zůstávají jen v tomto zařízení, nic se neodesílá. Vychází z otevřeného projektu Tréninková podložka (Jakub Uhlíř, licence MIT). Zdroje a licence: LICENSES.md v repozitáři.'));
 
-    grid.append(pSound, pTrain, pBackup, pApp, pPlayers);
+    // O appce: licence součástí (IDEAS 3); celé znění z THIRD-PARTY.txt (v precache, jde i offline)
+    const pAbout = panel('O appce');
+    pAbout.dataset.test = 'about';
+    pAbout.append(h('div', 'muted', 'Florbal Trenér je soukromá rodinná appka. Data zůstávají jen v tomto zařízení, nic se neodesílá. Vychází z otevřeného projektu Tréninková podložka (Jakub Uhlíř, licence MIT).'));
+    const lic = h('ul', 'muted'); lic.style.cssText = `margin:0;padding-left:1.2em;display:flex;flex-direction:column;gap:${u(0.4)}`;
+    for (const t of ['Písmo Archivo – SIL Open Font License 1.1', 'Ikony Lucide – ISC', 'NoSleep.js, Workbox – MIT', 'Hlas Trenéra – Microsoft Edge TTS, jen pro soukromé použití', 'Grafika, metronom a zvuky – vlastní']) lic.append(h('li', '', t));
+    const full = h('pre', 'muted'); full.dataset.test = 'licenses-text';
+    full.style.cssText = `display:none;white-space:pre-wrap;font-size:13px;line-height:1.4;max-height:50vh;overflow:auto;margin:0;padding:${u(1)};border-radius:12px;background:var(--surface-2)`;
+    const showLic = btn('Celé znění licencí', 'btn', async () => {
+      if (full.style.display === 'none') {
+        if (!full.textContent) { try { const r = await fetch('./THIRD-PARTY.txt'); full.textContent = r.ok ? await r.text() : 'Licence se nepodařilo načíst.'; } catch (e) { full.textContent = 'Licence se nepodařilo načíst.'; } }
+        full.style.display = ''; showLic.textContent = 'Skrýt licence';
+      } else { full.style.display = 'none'; showLic.textContent = 'Celé znění licencí'; }
+    }, { test: 'show-licenses' });
+    pAbout.append(lic, showLic, full);
+
+    grid.append(pSound, pTrain, pBackup, pApp, pPlayers, pAbout);
     el.append(grid);
   })();
   return el;

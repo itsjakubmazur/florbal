@@ -4,6 +4,7 @@
 // (nebo obnoví) AudioContext, přehraje tichý buffer a nastaví navigator.audioSession.type = 'playback'
 // (iOS 17+: Web Audio pak hraje i se ztlumeným přepínačem; viz docs/DECISIONS.md).
 //
+// Režim „Hlas zařízení“ (voiceMode device) nahrávky nepoužije a vše čte speechSynthesis.
 // Hlášky: předgenerované soubory assets/audio/voice/trener/<klíč>.mp3|wav (Edge TTS, scripts/gen-voices.mjs),
 // načtené přes fetch + decodeAudioData do AudioBuffer a uložené v cache. Chybí-li soubor, mluví speechSynthesis (cs-CZ).
 //
@@ -15,8 +16,14 @@
 import phrases from '../content/phrases.json';
 
 const FILES = {};
-const found = import.meta.glob('../../assets/audio/voice/trener/*.{mp3,wav}', { query: '?url', import: 'default', eager: true });
-for (const [path, url] of Object.entries(found)) FILES[path.split('/').pop().replace(/\.(mp3|wav)$/, '')] = url;
+const found = import.meta.glob('../../assets/audio/voice/trener/*.{mp3,wav,m4a}', { query: '?url', import: 'default', eager: true });
+// vlastní nahrávka rodiče (.m4a z Diktafonu, .wav) má přednost před vygenerovanou MP3 se stejným klíčem
+const RANK = { mp3: 0, wav: 1, m4a: 1 };
+const rankOf = {};
+for (const [path, url] of Object.entries(found)) {
+  const [, key, ext] = /([^/]+)\.(mp3|wav|m4a)$/.exec(path);
+  if (rankOf[key] === undefined || RANK[ext] > rankOf[key]) { FILES[key] = url; rankOf[key] = RANK[ext]; }
+}
 
 const TEXT = { ...phrases.fixed };
 const GROUPS = {};
@@ -82,7 +89,8 @@ export const getVolume = (ch) => vol[ch];
 
 // ---- režim: 'voice' = Trenér mluví, 'beeps' = jen pípání, 'off' = ticho ----
 let voiceMode = 'voice';
-export const setVoiceMode = (m) => { voiceMode = ['voice', 'beeps', 'off'].includes(m) ? m : 'voice'; if (voiceMode !== 'voice') stopVoice(); };
+// voice = nahrávky Trenéra (chybějící čte hlas zařízení), device = vždy hlas zařízení (bez nahrávek, IDEAS 1), beeps, off
+export const setVoiceMode = (m) => { voiceMode = ['voice', 'device', 'beeps', 'off'].includes(m) ? m : 'voice'; if (voiceMode !== 'voice') stopVoice(); };
 export const getVoiceMode = () => voiceMode;
 
 /** Krátký tón na AudioContextu. when = absolutní čas audia (nebo 0 = hned). */
@@ -180,7 +188,7 @@ function start({ key, kind, text }) {
   const token = ++tokenN;
   cur = { token, kind, src: null };
   const fallbackText = text || TEXT[key];
-  if (!FILES[key]) { speak(fallbackText, token); return; }
+  if (!FILES[key] || voiceMode === 'device') { speak(fallbackText, token); return; }
   loadBuffer(key).then((buf) => {
     if (!cur || cur.token !== token) return;
     const c = getCtx();

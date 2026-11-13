@@ -9,7 +9,7 @@ import { awardOne } from '../domain/cards.js';
 import { revealCard } from './cards.js';
 
 /**
- * @param {HTMLElement} screen obrazovka výsledku (blok se připojí na konec)
+ * @param {HTMLElement} screen místo na obrazovce výsledku (blok se připojí na konec; result.js: řada vedle karty hráče)
  * @param {string} profileId
  * @param {{done?: number}} [o] počet odcvičených cviků (0 = nic se neuložilo, nic se neptáme)
  */
@@ -23,13 +23,14 @@ export async function afterWorkout(screen, profileId, { done = 0 } = {}) {
   box.append(h('div', 'm4-section-title', 'Jak se ti to líbilo?'));
   const row = h('div', 'm4-faces');
   const faces = [1, 2, 3].map((n) => {
-    const b = btn(faceSvg(n), 'm4-face', async () => {
-      faces.forEach((f, k) => f.classList.toggle('on', k + 1 === n));
+    const b = btn(`<span class="m4-face-ball">${faceSvg(n)}</span><span class="m4-face-label">${FEEL_LABEL[n]}</span>`, 'm4-face', async () => {
+      faces.forEach((f, k) => { f.classList.toggle('on', k + 1 === n); f.setAttribute('aria-pressed', String(k + 1 === n)); });
+      row.classList.add('chosen');
       await storage.put('history', { ...entry, feel: n });
       say('feel_thanks', { kind: 'phrase' });
       if (!shown) { shown = true; setTimeout(giveCard, 700); }
     }, { test: `feel-${n}` });
-    b.setAttribute('aria-label', FEEL_LABEL[n]);
+    b.setAttribute('aria-pressed', 'false');
     return b;
   });
   let shown = false;

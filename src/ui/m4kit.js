@@ -74,13 +74,17 @@ export function lineChart(points, { better = 'higher', fmt = (v) => String(v) } 
   return box;
 }
 
-/** Obličej (SVG): 1 = nebavilo, 2 = ušlo to, 3 = bavilo. */
+/** Obličej (SVG) jako florbalový míček: bílý, s otvory po obvodu, výraz kreslí barva okraje míčku.
+ *  1 = nebavilo, 2 = ušlo to, 3 = bavilo. Význam nese tvar pusy a popisek, ne barva. */
 export function faceSvg(n) {
-  const mouth = n === 3 ? 'M30 62 Q50 80 70 62' : n === 2 ? 'M32 66 L68 66' : 'M30 72 Q50 56 70 72';
-  const fill = n === 3 ? 'var(--ok)' : n === 2 ? 'var(--cone-yellow)' : 'var(--m4-brand-hi)';
-  return `<svg viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="44" fill="${fill}"/>
-    <circle cx="35" cy="40" r="6" fill="var(--bg)"/><circle cx="65" cy="40" r="6" fill="var(--bg)"/>
-    <path d="${mouth}" fill="none" stroke="var(--bg)" stroke-width="7" stroke-linecap="round"/></svg>`;
+  const mouth = n === 3 ? 'M33 60 Q50 76 67 60' : n === 2 ? 'M35 65 L65 65' : 'M33 70 Q50 56 67 70';
+  const holes = Array.from({ length: 10 }, (_, k) => {
+    const a = (k / 10) * Math.PI * 2 + Math.PI / 10;
+    return `<circle cx="${(50 + Math.cos(a) * 37).toFixed(1)}" cy="${(50 + Math.sin(a) * 37).toFixed(1)}" r="3.2" fill="var(--ball-hole)"/>`;
+  }).join('');
+  return `<svg viewBox="0 0 100 100" aria-hidden="true"><circle cx="50" cy="50" r="46" fill="var(--ball)" stroke="var(--ball-edge)" stroke-width="2"/>${holes}
+    <circle cx="38" cy="42" r="5.5" fill="var(--ball-edge)"/><circle cx="62" cy="42" r="5.5" fill="var(--ball-edge)"/>
+    <path d="${mouth}" fill="none" stroke="var(--ball-edge)" stroke-width="6" stroke-linecap="round"/></svg>`;
 }
 export const FEEL_LABEL = { 1: 'Nebavilo mě to', 2: 'Ušlo to', 3: 'Bavilo mě to' };
 

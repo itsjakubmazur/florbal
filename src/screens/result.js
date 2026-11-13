@@ -35,9 +35,12 @@ export default function result({ profileId, drillIds = [], total = 0, done = 0, 
     const nx = nextXpReward(xpAfter);
     box.append(h('div', 'label', nx ? `Další odměna: ${nx.reward.name} za ${nx.remaining} XP` : 'Všechny odměny za XP máš'));
     card.append(box);
+    // karta hráče a „Jak se ti to líbilo?“ v jedné řadě: na šířku vedle sebe (vejde se nad „Domů“), na výšku pod sebou
+    const after = h('div', 'result-row');
+    after.append(card);
     const gained = h('div', 'result-gained');
     const homeBtn = btn(`${icon('home')}Domů`, 'btn-primary btn-big', () => go('home', { profileId }, { replace: true }), { auto: true, test: 'result-home' });
-    el.append(starRow, xpEl, card, gained, homeBtn);
+    el.append(starRow, xpEl, after, gained, homeBtn);
 
     const hist = await listHistory(p.id);
     const before = statsOf(hist, p);
@@ -58,7 +61,7 @@ export default function result({ profileId, drillIds = [], total = 0, done = 0, 
       }
     }
     if (st > 0) sayGroup(complete ? 'end' : 'aborted');
-    afterWorkout(el, p.id, { done }); // M4: „Jak se ti to líbilo?“ + nejvýš 1 nová karta
+    afterWorkout(after, p.id, { done }); // M4: „Jak se ti to líbilo?“ + nejvýš 1 nová karta
   })();
   return el;
 }

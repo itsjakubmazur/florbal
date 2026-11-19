@@ -36,7 +36,7 @@ function ownVoiceIgnores() {
   return fs.readdirSync(dir).filter((f) => /\.(m4a|wav)$/i.test(f)).map((f) => `**/${f.replace(/\.(m4a|wav)$/i, '')}-*.mp3`);
 }
 
-// Statický build (dist/) + service worker (Workbox, generateSW). Žádné serverové funkce: jde nasadit kamkoli (Vercel, Netlify, GitHub Pages…).
+// Statický build (dist/) + service worker (Workbox, generateSW). Žádné serverové funkce: jde nasadit kamkoli; teď GitHub Pages (D23), záložně Vercel.
 // public/ = soubory servírované jak jsou (ikony, favicon). assets/ = zdroje importované z kódu (hlasy, logo) – Vite jim dá hash.
 export default defineConfig({
   base: './',

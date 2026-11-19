@@ -5,7 +5,7 @@ Všechna data (hráči, XP, rekordy, karty) jsou jen v iPadu.
 
 ## 1. Instalace na iPad
 
-1. V **Safari** otevřete adresu aplikace (…vercel.app, vypíše ji `scripts/setup-deploy.sh` na konci; najdete ji i ve Vercelu u projektu `florbal-trener`).
+1. V **Safari** otevřete adresu aplikace: **https://itsjakubmazur.github.io/florbal/**
 2. Klepněte na **Sdílet** (čtverec se šipkou) → **Přidat na plochu** → **Přidat**.
 3. Spouštějte ji vždy z ikony na ploše. Běží pak přes celou obrazovku a funguje i bez internetu.
 4. Při prvním spuštění chvíli počkejte s připojením k Wi-Fi: aplikace si stáhne hlasy Trenéra (asi 9 MB) do iPadu.

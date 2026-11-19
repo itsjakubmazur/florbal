@@ -18,10 +18,9 @@ npm run check      # validace drills.json / stations.json / phrases.json
 ```
 
 ## Nasazení
-Statický web z `dist/` (`vercel.json`: build `npm run build`, výstup `dist`, hlavičky pro `sw.js` a assety). Žádné serverové funkce,
-jde to přesunout na jakýkoli statický hosting.
-
-Poprvé: `bash scripts/setup-deploy.sh` (soukromé GitHub repo + Vercel). Potom stačí `git push` do `main`.
+GitHub Pages: https://itsjakubmazur.github.io/florbal/. Každý `git push` do `main` spustí `.github/workflows/pages.yml`
+(kontrola obsahu, `npm run build`, nasazení `dist/`). Žádné serverové funkce, jde to přesunout na jakýkoli statický hosting
+(záložně Vercel: `vercel.json`, `scripts/setup-deploy.sh`).
 
 ## Pro rodiče
 Instalace na iPad, první spuštění, stanoviště, bezpečnost, zálohy a řešení problémů: **[docs/INSTALL.md](docs/INSTALL.md)**.

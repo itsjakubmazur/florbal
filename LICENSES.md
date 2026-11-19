@@ -1,7 +1,8 @@
 # Zdroje a licence
 
-Florbal Trenér je soukromá rodinná aplikace (soukromé GitHub repo, nasazení na Vercel bez odkazů, `robots.txt` Disallow,
-`X-Robots-Tag: noindex`; viz `docs/DECISIONS.md` D17). Vychází z otevřeného projektu **Tréninková podložka**
+Florbal Trenér je rodinná aplikace. Od 19. 11. 2026 je kód ve **veřejném** repu `itsjakubmazur/florbal` a appka na GitHub Pages
+(`robots.txt` Disallow; viz `docs/DECISIONS.md` D23). Rodič tím vědomě zveřejnil i hlas Trenéra (bod 1) a logo klubu (bod 2),
+rizika níže proto už nejsou hypotetická. Vychází z otevřeného projektu **Tréninková podložka**
 (Jakub Uhlíř, https://github.com/kuba-uhlir/treninkova-podlozka, licence MIT, viz `LICENSE`). Z reference je převzat jen
 zdrojový kód (architektura, router, D-pad vrstva, audio fronta, skládání tréninku, XP a odměny). Obrázky, fotky, loga ani
 hlasy z ní převzaté nejsou.

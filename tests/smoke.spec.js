@@ -187,3 +187,20 @@ test('PWA: manifest, service worker a běh offline', async ({ page, context }) =
   await context.setOffline(false);
   expect(errors.filter((e) => !/ERR_INTERNET_DISCONNECTED/.test(e))).toEqual([]);
 });
+
+test('záloha: Rodiče připomenou zálohu, po uložení ukážou „dnes“', async ({ page }) => {
+  const errors = watchErrors(page);
+  await page.goto('./?demo&nointro');
+  await screen(page, 'profiles').waitFor();
+  await enterParent(page);
+  const st = page.locator('[data-test="backup-state"]');
+  // demo má historii a nikdy nebylo zálohováno → varování
+  await expect(st).toContainText('Zatím žádná záloha');
+  await expect(st).toHaveAttribute('data-remind', '1');
+  const [download] = await Promise.all([page.waitForEvent('download'), page.locator('[data-test="export"]').click()]);
+  const data = JSON.parse(fs.readFileSync(await download.path(), 'utf8'));
+  expect(data.data.settings.find((s) => s.id === 'main').lastBackupAt).toBeGreaterThan(0);
+  await expect(st).toContainText('Poslední záloha dnes, od té doby žádný nový trénink');
+  await expect(st).toHaveAttribute('data-remind', '');
+  expect(errors).toEqual([]);
+});

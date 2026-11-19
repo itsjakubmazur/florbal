@@ -1,6 +1,6 @@
 // Záloha dat: export všech stores do jednoho JSON souboru (florbal-zaloha-YYYY-MM-DD.json) a import zpět.
 // Fotky a klipy (store media, Blob) se ukládají jako dataURL; volba „bez fotek“ je vynechá.
-import { storage, STORES, DB_VERSION } from './index.js';
+import { storage, settings, STORES, DB_VERSION } from './index.js';
 
 export const BACKUP_APP = 'florbal-trener';
 export const BACKUP_FORMAT = 1;
@@ -26,8 +26,10 @@ export const backupFileName = (d = new Date()) => {
   return `florbal-zaloha-${d.getFullYear()}-${p(d.getMonth() + 1)}-${p(d.getDate())}.json`;
 };
 
-/** Stáhne zálohu jako soubor (Blob + <a download>). Na iPadu Safari nabídne „Uložit do Souborů“. */
+/** Stáhne zálohu jako soubor (Blob + <a download>). Na iPadu Safari nabídne „Uložit do Souborů“.
+ *  Datum zálohy se uloží do nastavení ještě před sestavením, takže ho nese i sám soubor (po obnovení sedí). */
 export async function downloadBackup(opts) {
+  await settings.save({ lastBackupAt: Date.now() });
   const backup = await buildBackup(opts);
   const blob = new Blob([JSON.stringify(backup, null, 1)], { type: 'application/json' });
   const url = URL.createObjectURL(blob);
@@ -78,4 +80,27 @@ export function pickFileText() {
     document.body.appendChild(inp);
     inp.click();
   });
+}
+
+export const BACKUP_REMIND_DAYS = 14;
+const DAY = 86400000;
+
+/** Stav zálohy pro Rodiče: kdy byla poslední, kolik tréninků od té doby a jestli připomenout.
+ *  Připomíná se, jen když je co ztratit (aspoň jeden trénink od poslední zálohy). */
+export function backupState(lastBackupAt, history, now = Date.now()) {
+  const since = history.filter((e) => !lastBackupAt || (e.date || 0) > lastBackupAt).length;
+  const days = lastBackupAt ? Math.floor((now - lastBackupAt) / DAY) : null;
+  const remind = since > 0 && (days == null || days >= BACKUP_REMIND_DAYS);
+  return { days, since, remind };
+}
+
+const trainings = (n) => (n === 1 ? '1 trénink' : n >= 2 && n <= 4 ? `${n} tréninky` : `${n} tréninků`);
+const ago = (d) => (d === 0 ? 'dnes' : d === 1 ? 'včera' : `před ${d} dny`);
+
+/** Text stavu zálohy (česky). */
+export function backupStateText({ days, since, remind }) {
+  if (days == null) return since ? `Zatím žádná záloha a v iPadu už máš ${trainings(since)}. Ulož si zálohu, ať o ně nepřijdeš.` : 'Zatím žádná záloha.';
+  const base = `Poslední záloha ${ago(days)}`;
+  if (!since) return `${base}, od té doby žádný nový trénink.`;
+  return remind ? `${base}, od té doby ${trainings(since)}. Je čas na novou zálohu.` : `${base}, od té doby ${trainings(since)}.`;
 }

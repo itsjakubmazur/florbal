@@ -1,7 +1,7 @@
 // Rodiče: PIN (převzato z reference), zvuk, trénink, hráči, záloha (export/import), úložiště, vzhled, verze appky.
 import { h, btn, u, icon, header, seg, field, escapeHtml, jerseyEl } from '../ui/dom.js';
 import { settings, storage, persistStatus, requestPersist } from '../storage/index.js';
-import { downloadBackup, parseBackup, restoreBackup, pickFileText } from '../storage/backup.js';
+import { downloadBackup, parseBackup, restoreBackup, pickFileText, backupState, backupStateText } from '../storage/backup.js';
 import { listProfiles, deleteProfile } from '../domain/profiles.js';
 import { setVolume, setVoiceMode, say, sayGroup, voiceFileCount, unlockAudio } from '../core/audio.js';
 import { THEMES, applyTheme } from '../ui/tokens.js';
@@ -149,10 +149,19 @@ export default function parent({ msg = '' } = {}, { go }) {
     const bMsg = h('div', 'muted', 'iPad umí data webových appek při nedostatku místa smazat. Zálohu si ulož do Souborů nebo pošli e-mailem.');
     if (msg) { bMsg.textContent = msg; requestAnimationFrame(() => bMsg.scrollIntoView({ block: 'center' })); }
     bMsg.dataset.test = 'backup-msg';
+    // připomínka: kdy byla poslední záloha a kolik tréninků od té doby (varování po 14 dnech s novými tréninky)
+    const bState = h('div', 'm4-note'); bState.dataset.test = 'backup-state';
+    const paintB = async () => {
+      const st = backupState((await settings.load()).lastBackupAt, await storage.list('history'));
+      bState.className = st.remind ? 'm4-note warn' : 'm4-note';
+      bState.dataset.remind = st.remind ? '1' : '';
+      bState.innerHTML = `${icon(st.remind ? 'warn' : 'check')}<span>${backupStateText(st)}</span>`;
+    };
+    await paintB();
     const rowB = h('div', 'flex flex-wrap'); rowB.style.gap = u(1);
     rowB.append(
-      btn(`${icon('download')}Uložit zálohu`, 'btn-primary', async () => { const r = await downloadBackup({ withMedia: true }); bMsg.textContent = `Záloha ${r.name} je připravená (${Math.ceil(r.size / 1024)} kB).`; }, { test: 'export' }),
-      btn(`${icon('download')}Bez fotek`, 'btn', async () => { const r = await downloadBackup({ withMedia: false }); bMsg.textContent = `Záloha ${r.name} (bez fotek) je připravená.`; }, { test: 'export-nomedia' }),
+      btn(`${icon('download')}Uložit zálohu`, 'btn-primary', async () => { const r = await downloadBackup({ withMedia: true }); bMsg.textContent = `Záloha ${r.name} je připravená (${Math.ceil(r.size / 1024)} kB).`; paintB(); }, { test: 'export' }),
+      btn(`${icon('download')}Bez fotek`, 'btn', async () => { const r = await downloadBackup({ withMedia: false }); bMsg.textContent = `Záloha ${r.name} (bez fotek) je připravená.`; paintB(); }, { test: 'export-nomedia' }),
     );
     const imp = btn(`${icon('upload')}Obnovit ze zálohy`, 'btn', async () => {
       const text = await pickFileText();
@@ -169,7 +178,7 @@ export default function parent({ msg = '' } = {}, { go }) {
       } catch (e) { bMsg.textContent = e.message; }
     }, { test: 'import' });
     rowB.append(imp);
-    pBackup.append(rowB, bMsg);
+    pBackup.append(bState, rowB, bMsg);
 
     // Úložiště a appka
     const pApp = panel('Úložiště a aplikace');
